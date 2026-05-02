@@ -88,3 +88,20 @@ html {
   background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* Hero background image layer */
+.hero-bg-image {
+  background-image: url('assets/images/futuristic-liquid.webp');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  opacity: 0.70;
+  mix-blend-mode: normal;
+  filter: blur(6px);
+}
+
+@media (max-width: 767px) {
+  .hero-bg-image {
+    background-position: 60% 40%;
+  }
+}
