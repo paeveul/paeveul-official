@@ -78,6 +78,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =============================================================
+  // CONTACT FORM — dynamic email subject builder
+  // =============================================================
+  const nameInput = document.getElementById('name');
+  const businessNameInput = document.getElementById('business_name');
+  const formSubject = document.getElementById('form-subject');
+
+  const rebuildSubject = () => {
+    const packageVal = packageSelect ? packageSelect.value : '';
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const businessVal = businessNameInput ? businessNameInput.value.trim() : '';
+
+    const isBlankPackage = !packageVal || packageVal === 'Not sure yet';
+    const packageLabel = isBlankPackage ? 'General Enquiry' : packageVal;
+
+    const hasName = nameVal.length > 0;
+    const hasBusiness = businessVal.length > 0;
+
+    let subject = `New Enquiry - ${packageLabel}`;
+    if (hasName) subject += ` | ${nameVal}`;
+    if (hasBusiness) subject += ` | ${businessVal}`;
+
+    // If no meaningful input yet, fall back to default
+    if (isBlankPackage && !hasName && !hasBusiness) {
+      subject = 'New Enquiry | Paeveul Web Services';
+    }
+
+    if (formSubject) formSubject.value = subject;
+  };
+
+  if (nameInput) nameInput.addEventListener('input', rebuildSubject);
+  if (businessNameInput) businessNameInput.addEventListener('input', rebuildSubject);
+  if (packageSelect) packageSelect.addEventListener('change', rebuildSubject);
+
+  // =============================================================
   // CONTACT FORM — Web3Forms submission
   // =============================================================
   const contactForm = document.getElementById('contact-form');
