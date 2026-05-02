@@ -105,3 +105,37 @@ html {
     background-position: 60% 40%;
   }
 }
+
+/* intl-tel-input — dark theme overrides */
+.iti { width: 100%; }
+
+.iti__selected-flag {
+  background-color: #0F1218;
+  border-right: 1px solid #252A36;
+}
+
+.iti__selected-flag:hover,
+.iti__selected-flag[aria-expanded="true"] {
+  background-color: #1C2130;
+}
+
+.iti__country-list {
+  background-color: #161A22;
+  border: 1px solid #252A36;
+  color: #E8EAF0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.iti__country.iti__highlight { background-color: #1C2130; }
+
+.iti__dial-code { color: #8B93A8; }
+
+.iti__divider { border-bottom-color: #252A36; }
+
+.iti__search-input {
+  background-color: #0F1218;
+  border: 1px solid #252A36;
+  color: #E8EAF0;
+}
+
+.iti__search-input::placeholder { color: #4A5060; }

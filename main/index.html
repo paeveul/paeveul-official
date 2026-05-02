@@ -73,6 +73,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/css/intlTelInput.css" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
@@ -559,6 +560,7 @@
                        placeholder="Your name"
                        class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
                        style="font-family: var(--font-outfit);" />
+                <p id="name-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
               </div>
 
               <div>
@@ -574,6 +576,7 @@
                        placeholder="Your business name"
                        class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
                        style="font-family: var(--font-outfit);" />
+                <p id="business-name-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
               </div>
 
             </div>
@@ -593,39 +596,61 @@
                      class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
                      style="font-family: var(--font-outfit);"
                      onclick="gtag('event', 'email_field_focus', {event_category: 'contact_form'});" />
+              <p id="email-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
+            </div>
+
+            <!-- Phone -->
+            <div class="mb-4">
+              <label for="phone-input" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Phone <span class="text-error" aria-hidden="true">*</span>
+              </label>
+              <input type="tel"
+                     id="phone-input"
+                     required
+                     autocomplete="tel"
+                     placeholder="Your phone number"
+                     class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                     style="font-family: var(--font-outfit);" />
+              <input type="hidden" name="phone" id="phone-hidden" />
+              <p id="phone-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
+            </div>
+
+            <!-- Location -->
+            <div class="mb-4">
+              <label for="location" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Location <span class="text-error" aria-hidden="true">*</span>
+              </label>
+              <input type="text"
+                     id="location"
+                     name="location"
+                     required
+                     autocomplete="address-level2"
+                     placeholder="Where are you based? (e.g. Petaling Jaya, Selangor)"
+                     class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                     style="font-family: var(--font-outfit);" />
+              <p id="location-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
             </div>
 
             <!-- Package Interest -->
             <div class="mb-4">
               <label for="package_interest" class="block text-sm font-medium text-secondary mb-1"
                      style="font-family: var(--font-outfit);">
-                Package Interest
+                Package Interest <span class="text-error" aria-hidden="true">*</span>
               </label>
               <select id="package_interest"
                       name="package_interest"
+                      required
                       class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm focus:outline-none focus:border-accent transition-all duration-200 cursor-pointer"
                       style="font-family: var(--font-outfit);">
-                <option value="" style="background-color: #0F1218;">Select a package (optional)</option>
+                <option value="" style="background-color: #0F1218;">Select a package</option>
                 <option value="Essential" style="background-color: #0F1218;">Essential</option>
                 <option value="Professional" style="background-color: #0F1218;">Professional</option>
                 <option value="Business" style="background-color: #0F1218;">Business</option>
-                <option value="Not sure yet" style="background-color: #0F1218;">Not sure yet</option>
                 <option value="Other" style="background-color: #0F1218;">Other</option>
               </select>
-            </div>
-
-            <!-- "Tell us more" conditional field -->
-            <div id="other-field-wrapper" class="hidden mb-4">
-              <label for="other_details" class="block text-sm font-medium text-secondary mb-1"
-                     style="font-family: var(--font-outfit);">
-                Tell us more
-              </label>
-              <input type="text"
-                     id="other_details"
-                     name="other_details"
-                     placeholder="Describe what you're looking for"
-                     class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
-                     style="font-family: var(--font-outfit);" />
+              <p id="package-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
             </div>
 
             <!-- Message -->
@@ -638,9 +663,10 @@
                         name="message"
                         required
                         rows="5"
-                        placeholder="Tell us about your business and what you need"
+                        placeholder="Do tell us about your business, any specific requirements, and if there are any competitor websites/references for us to refer to."
                         class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200 resize-vertical"
                         style="font-family: var(--font-outfit);"></textarea>
+              <p id="message-error" class="hidden text-error text-xs mt-1" style="font-family: var(--font-outfit);"></p>
             </div>
 
             <!-- Submit -->
@@ -704,6 +730,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/intlTelInput.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

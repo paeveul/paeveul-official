@@ -59,27 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =============================================================
-  // CONTACT FORM — "Other" package field toggle
+  // PHONE — intl-tel-input initialization
   // =============================================================
-  const packageSelect = document.getElementById('package_interest');
-  const otherFieldWrapper = document.getElementById('other-field-wrapper');
-  const otherInput = document.getElementById('other_details');
+  const phoneInputEl = document.getElementById('phone-input');
+  const phoneHidden = document.getElementById('phone-hidden');
+  let iti = null;
 
-  if (packageSelect && otherFieldWrapper) {
-    packageSelect.addEventListener('change', () => {
-      if (packageSelect.value === 'Other') {
-        otherFieldWrapper.classList.remove('hidden');
-        otherInput.focus();
-      } else {
-        otherFieldWrapper.classList.add('hidden');
-        otherInput.value = '';
-      }
+  if (phoneInputEl && typeof intlTelInput !== 'undefined') {
+    iti = intlTelInput(phoneInputEl, {
+      initialCountry: 'my',
+      separateDialCode: true,
+      utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23.1.0/build/js/utils.js',
     });
   }
 
   // =============================================================
   // CONTACT FORM — dynamic email subject builder
   // =============================================================
+  const packageSelect = document.getElementById('package_interest');
   const nameInput = document.getElementById('name');
   const businessNameInput = document.getElementById('business_name');
   const formSubject = document.getElementById('form-subject');
@@ -89,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameVal = nameInput ? nameInput.value.trim() : '';
     const businessVal = businessNameInput ? businessNameInput.value.trim() : '';
 
-    const isBlankPackage = !packageVal || packageVal === 'Not sure yet';
+    const isBlankPackage = !packageVal;
     const packageLabel = isBlankPackage ? 'General Enquiry' : packageVal;
 
     const hasName = nameVal.length > 0;
@@ -112,6 +109,79 @@ document.addEventListener('DOMContentLoaded', () => {
   if (packageSelect) packageSelect.addEventListener('change', rebuildSubject);
 
   // =============================================================
+  // CONTACT FORM — validation helpers
+  // =============================================================
+  const setError = (inputEl, errorEl, message) => {
+    inputEl.classList.add('border-error');
+    inputEl.classList.remove('border-border-default');
+    errorEl.textContent = message;
+    errorEl.classList.remove('hidden');
+  };
+
+  const clearError = (inputEl, errorEl) => {
+    inputEl.classList.remove('border-error');
+    inputEl.classList.add('border-border-default');
+    errorEl.classList.add('hidden');
+  };
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const validateForm = () => {
+    let valid = true;
+
+    const nameEl = document.getElementById('name');
+    const nameErr = document.getElementById('name-error');
+    if (!nameEl.value.trim()) {
+      setError(nameEl, nameErr, 'Please enter your name.'); valid = false;
+    } else { clearError(nameEl, nameErr); }
+
+    const bizEl = document.getElementById('business_name');
+    const bizErr = document.getElementById('business-name-error');
+    if (!bizEl.value.trim()) {
+      setError(bizEl, bizErr, 'Please enter your business name.'); valid = false;
+    } else { clearError(bizEl, bizErr); }
+
+    const emailEl = document.getElementById('email');
+    const emailErr = document.getElementById('email-error');
+    if (!emailEl.value.trim() || !emailRegex.test(emailEl.value.trim())) {
+      setError(emailEl, emailErr, 'Please enter a valid email address.'); valid = false;
+    } else { clearError(emailEl, emailErr); }
+
+    const phoneErr = document.getElementById('phone-error');
+    if (!iti || !iti.isValidNumber()) {
+      setError(phoneInputEl, phoneErr, 'Please enter a valid phone number.'); valid = false;
+    } else { clearError(phoneInputEl, phoneErr); }
+
+    const locationEl = document.getElementById('location');
+    const locationErr = document.getElementById('location-error');
+    if (!locationEl.value.trim()) {
+      setError(locationEl, locationErr, 'Please tell us where you\'re based.'); valid = false;
+    } else { clearError(locationEl, locationErr); }
+
+    const pkgErr = document.getElementById('package-error');
+    if (!packageSelect.value) {
+      setError(packageSelect, pkgErr, 'Please select a package.'); valid = false;
+    } else { clearError(packageSelect, pkgErr); }
+
+    const msgEl = document.getElementById('message');
+    const msgErr = document.getElementById('message-error');
+    if (!msgEl.value.trim()) {
+      setError(msgEl, msgErr, 'Please tell us about your business.'); valid = false;
+    } else { clearError(msgEl, msgErr); }
+
+    return valid;
+  };
+
+  // Clear errors on input
+  ['name', 'business_name', 'email', 'location', 'message'].forEach((id) => {
+    const el = document.getElementById(id);
+    const errId = { name: 'name-error', business_name: 'business-name-error', email: 'email-error', location: 'location-error', message: 'message-error' }[id];
+    if (el) el.addEventListener('input', () => clearError(el, document.getElementById(errId)));
+  });
+  if (phoneInputEl) phoneInputEl.addEventListener('input', () => clearError(phoneInputEl, document.getElementById('phone-error')));
+  if (packageSelect) packageSelect.addEventListener('change', () => clearError(packageSelect, document.getElementById('package-error')));
+
+  // =============================================================
   // CONTACT FORM — Web3Forms submission
   // =============================================================
   const contactForm = document.getElementById('contact-form');
@@ -123,9 +193,16 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      if (!validateForm()) return;
+
       // Loading state
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending…';
+
+      // Populate full international phone number before FormData is built
+      if (iti && phoneHidden) {
+        phoneHidden.value = iti.getNumber();
+      }
 
       const formData = new FormData(contactForm);
       const object = Object.fromEntries(formData.entries());
