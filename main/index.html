@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Paeveul Web Services — Professional Websites for Malaysian Businesses</title>
+  <meta name="description" content="Paeveul Web Services builds fast, affordable, professional websites for small businesses in Malaysia. Packages from RM 1,300. Based in Kuala Lumpur." />
+  <meta name="keywords" content="web design Malaysia, website Kuala Lumpur, affordable website SME, business website Malaysia, Paeveul" />
+  <link rel="canonical" href="https://paeveul.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://paeveul.com/" />
+  <meta property="og:title" content="Paeveul Web Services — Professional Websites for Malaysian Businesses" />
+  <meta property="og:description" content="Fast, affordable websites for traditional Malaysian SMEs. Built and delivered by a real developer, not a template tool." />
+  <meta property="og:site_name" content="Paeveul Web Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Paeveul Web Services — Professional Websites for Malaysian Businesses" />
+  <meta name="twitter:description" content="Fast, affordable websites for traditional Malaysian SMEs. Built and delivered by a real developer, not a template tool." />
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Paeveul Web Services",
+    "url": "https://paeveul.com",
+    "email": "paeveul.official@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kuala Lumpur",
+      "addressCountry": "MY"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Kuala Lumpur"
+      },
+      {
+        "@type": "Country",
+        "name": "Malaysia"
+      }
+    ],
+    "description": "Professional websites and digital solutions for small and medium businesses in Malaysia.",
+    "priceRange": "RM 1,300–RM 5,000"
+  }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script>
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-base text-primary" style="font-family: var(--font-outfit);">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+
+      <!-- Wordmark -->
+      <a href="#" class="text-xl font-bold" style="font-family: var(--font-grotesk);" aria-label="Paeveul Web Services — home">
+        <span class="text-accent">P</span><span class="text-primary">aeveul</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+        <a href="#packages" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Packages</a>
+        <a href="#portfolio" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Portfolio</a>
+        <a href="#why" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Why Paeveul</a>
+        <a href="#contact" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- CTA button — always visible -->
+        <a href="#contact"
+           class="bg-accent text-base font-semibold px-5 py-2 rounded-full shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+           style="font-family: var(--font-grotesk); color: #0D0F14;"
+           onclick="gtag('event', 'nav_cta_click', {event_category: 'navigation'});">
+          Get in Touch
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-btn"
+                class="md:hidden text-secondary hover:text-primary transition-colors duration-200 p-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none rounded"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-surface border-b border-border-default transition-all duration-300"
+         aria-label="Mobile navigation">
+      <nav class="max-w-6xl mx-auto px-4">
+        <a href="#packages" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Packages</a>
+        <a href="#portfolio" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Portfolio</a>
+        <a href="#why" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Why Paeveul</a>
+        <a href="#contact" class="block text-lg text-primary py-4 px-2 hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="w-full bg-base hero-glow pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32 relative overflow-hidden">
+
+      <!-- Atmospheric glow layers -->
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:800px;height:600px;left:50%;transform:translateX(-50%);top:-200px;background:radial-gradient(ellipse, rgba(0,229,255,0.06) 0%, transparent 70%);"></div>
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:600px;height:400px;right:-100px;top:-100px;background:radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%);"></div>
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:400px;height:300px;left:-100px;bottom:-50px;background:radial-gradient(ellipse, rgba(245,166,35,0.04) 0%, transparent 70%);"></div>
+
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <!-- Pre-headline tag -->
+        <div class="mb-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-dim border border-border-accent-subtle text-accent text-xs font-medium tracking-widest uppercase"
+                style="font-family: var(--font-grotesk);">
+            Paeveul Web Services
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary mb-6 fade-in"
+            style="font-family: var(--font-grotesk);">
+          Professional websites and intelligent solutions for businesses ready to <span class="text-accent">grow</span>.
+        </h1>
+
+        <!-- Supporting line -->
+        <p class="text-base md:text-lg text-secondary max-w-xl mx-auto mb-10 fade-in delay-75"
+           style="font-family: var(--font-outfit);">
+          We build fast, affordable websites and digital solutions tailored to what your business actually needs. Professional, reliable, and delivered with care.
+        </p>
+
+        <!-- CTA button -->
+        <a href="#contact"
+           class="inline-block bg-accent font-semibold px-8 py-4 rounded-full text-lg shadow-glow-accent-strong hover:scale-[1.03] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto fade-in delay-150"
+           style="font-family: var(--font-grotesk); color: #0D0F14;"
+           onclick="gtag('event', 'hero_cta_click', {event_category: 'hero'});">
+          Get in Touch
+        </a>
+
+        <!-- Accent divider -->
+        <div class="mt-20 md:mt-28">
+          <div class="h-px w-full bg-gradient-to-r from-transparent via-border-accent-subtle to-transparent"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PACKAGES
+    ============================================================ -->
+    <section id="packages" class="w-full bg-base-alt py-12 md:py-16 lg:py-24 packages-dot-grid relative overflow-hidden">
+
+      <!-- Atmospheric glow layers -->
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:600px;height:400px;left:50%;transform:translateX(-50%);top:50%;margin-top:-200px;background:radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 70%);"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-12 md:mb-16 fade-in">
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
+              style="font-family: var(--font-grotesk);">
+            Choose the right package for your business.
+          </h2>
+          <p class="text-base md:text-lg text-secondary max-w-2xl mx-auto"
+             style="font-family: var(--font-outfit);">
+            Every package includes a professional, fast-loading website — built and delivered by a real developer, not a template tool.
+          </p>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+          <!-- Essential -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 md:p-8 shadow-card hover:shadow-glow-accent hover:border-accent hover:bg-surface-hover transition-all duration-300 flex flex-col fade-up package-card"
+               data-package="Essential">
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-1"
+                  style="font-family: var(--font-grotesk);">Essential</h3>
+              <p class="text-sm text-secondary italic mb-6"
+                 style="font-family: var(--font-outfit);">The complete foundation</p>
+              <div class="border-t border-border-default mb-6"></div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Professional landing page with up to 5 sections</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">WhatsApp contact button and Google Maps integration</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">SSL security, mobile-optimised, and search-ready</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Domain and hosting included for Year 1</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1"></div>
+            <a href="#contact"
+               class="mt-8 border border-accent text-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
+               style="font-family: var(--font-grotesk);"
+               onclick="gtag('event', 'package_cta_click', {event_category: 'packages', package_name: 'Essential'});">
+              Get in Touch
+            </a>
+          </div>
+
+          <!-- Professional (Recommended) -->
+          <div class="bg-surface border border-accent rounded-xl p-6 md:p-8 shadow-glow-accent-2 hover:shadow-card-hover hover:bg-surface-hover transition-all duration-300 flex flex-col relative fade-up delay-75 package-card"
+               data-package="Professional">
+            <!-- Most Popular badge -->
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="bg-accent-2 font-semibold px-4 py-1 rounded-full text-xs whitespace-nowrap"
+                    style="font-family: var(--font-grotesk); color: #0D0F14;">Most Popular</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-1"
+                  style="font-family: var(--font-grotesk);">Professional</h3>
+              <p class="text-sm text-secondary italic mb-6"
+                 style="font-family: var(--font-outfit);">Built to be found</p>
+              <div class="border-t border-border-default mb-6"></div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Everything in Essential</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Full Google Analytics 4 setup — know exactly who visits and what they click</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Google Search Console connection — get your site indexed and visible faster</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Contact form with direct email delivery for every enquiry</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1"></div>
+            <a href="#contact"
+               class="mt-8 bg-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm shadow-glow-accent hover:shadow-glow-accent-strong transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
+               style="font-family: var(--font-grotesk); color: #0D0F14;"
+               onclick="gtag('event', 'package_cta_click', {event_category: 'packages', package_name: 'Professional'});">
+              Get in Touch
+            </a>
+          </div>
+
+          <!-- Business -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 md:p-8 shadow-card hover:shadow-glow-accent hover:border-accent hover:bg-surface-hover transition-all duration-300 flex flex-col fade-up delay-150 package-card"
+               data-package="Business">
+            <div>
+              <h3 class="text-xl font-semibold text-primary mb-1"
+                  style="font-family: var(--font-grotesk);">Business</h3>
+              <p class="text-sm text-secondary italic mb-6"
+                 style="font-family: var(--font-outfit);">Your brand, fully realised</p>
+              <div class="border-t border-border-default mb-6"></div>
+              <ul class="space-y-3 mb-6">
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Everything in Professional</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Fully custom design — built from scratch to match your brand</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Copywriting assistance for all sections</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  <span class="text-sm text-secondary" style="font-family: var(--font-outfit);">Priority delivery and 1 month of included maintenance</span>
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1"></div>
+            <a href="#contact"
+               class="mt-8 border border-accent text-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
+               style="font-family: var(--font-grotesk);"
+               onclick="gtag('event', 'package_cta_click', {event_category: 'packages', package_name: 'Business'});">
+              Get in Touch
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PORTFOLIO / DEMO WORK
+    ============================================================ -->
+    <section id="portfolio" class="w-full bg-base py-12 md:py-16 lg:py-24 relative overflow-hidden">
+
+      <!-- Atmospheric glow layers -->
+      <div class="absolute pointer-events-none" style="width:100%;height:200px;left:0;top:50%;transform:translateY(-50%);background:radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%);"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-12 md:mb-16 fade-in">
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
+              style="font-family: var(--font-grotesk);">
+            Our Work
+          </h2>
+          <p class="text-base md:text-lg text-secondary max-w-xl mx-auto"
+             style="font-family: var(--font-outfit);">
+            A sample of what we build — fast, professional, and ready to convert.
+          </p>
+        </div>
+
+        <!-- Portfolio card — single item, centred -->
+        <div class="flex justify-center">
+          <div class="bg-surface border border-border-default rounded-xl shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 overflow-hidden max-w-md w-full fade-up">
+
+            <!-- Thumbnail -->
+            <div class="overflow-hidden rounded-t-xl">
+              <div class="w-full aspect-video">
+                <img src="assets/images/portfolio-alphamatic.webp" alt="Alphamatic Aircond Services website — HVAC landing page" class="w-full h-full object-cover" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Card body -->
+            <div class="p-6 bg-surface rounded-b-xl">
+              <a href="https://alphamatic-aircond.vercel.app"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="text-lg font-semibold text-primary hover:text-accent transition-colors duration-200 block mb-1"
+                 style="font-family: var(--font-grotesk);"
+                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'alphamatic-aircond'});">
+                Alphamatic Aircond Services
+              </a>
+              <p class="text-sm text-secondary mb-4" style="font-family: var(--font-outfit);">HVAC services — Klang Valley</p>
+              <a href="https://alphamatic-aircond.vercel.app"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="text-sm font-medium text-accent hover:underline transition-colors duration-200"
+                 style="font-family: var(--font-grotesk);"
+                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'alphamatic-aircond'});">
+                View live site →
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHY PAEVEUL
+    ============================================================ -->
+    <section id="why" class="w-full bg-base-alt py-12 md:py-16 lg:py-24 packages-dot-grid relative overflow-hidden">
+
+      <!-- Atmospheric glow layers -->
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:500px;height:500px;right:-100px;top:-100px;background:radial-gradient(ellipse, rgba(245,166,35,0.04) 0%, transparent 70%);"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-12 md:mb-16 fade-in">
+          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
+              style="font-family: var(--font-grotesk);">
+            Why businesses choose Paeveul
+          </h2>
+          <p class="text-base md:text-lg text-secondary max-w-xl mx-auto"
+             style="font-family: var(--font-outfit);">
+            We're not here to upsell you. We're here to get your business online — properly.
+          </p>
+        </div>
+
+        <!-- 4-card grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1: Direct -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up">
+            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
+                style="font-family: var(--font-grotesk);">You talk to the person who builds your site.</h3>
+            <p class="text-sm text-secondary leading-relaxed"
+               style="font-family: var(--font-outfit);">No account managers, no back-and-forth with a middleman. Your questions get answered by the developer handling your project.</p>
+          </div>
+
+          <!-- Card 2: Fast -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-75">
+            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
+                style="font-family: var(--font-grotesk);">Your site is live in days, not weeks.</h3>
+            <p class="text-sm text-secondary leading-relaxed"
+               style="font-family: var(--font-outfit);">We move fast because we're built lean. Most projects are delivered within 7 working days from the moment you confirm.</p>
+          </div>
+
+          <!-- Card 3: No surprises -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-150">
+            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
+                style="font-family: var(--font-grotesk);">One price. No surprises.</h3>
+            <p class="text-sm text-secondary leading-relaxed"
+               style="font-family: var(--font-outfit);">You know what you're paying before we start. No hidden fees, no scope creep invoices.</p>
+          </div>
+
+          <!-- Card 4: Everything handled -->
+          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-225">
+            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
+              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
+                style="font-family: var(--font-grotesk);">We handle everything so you don't have to.</h3>
+            <p class="text-sm text-secondary leading-relaxed"
+               style="font-family: var(--font-outfit);">Domain, hosting, deployment, and fixes — all taken care of. You focus on running your business.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section id="contact" class="w-full bg-base py-16 md:py-20 lg:py-28 relative overflow-hidden">
+
+      <!-- 1px cyan top border line -->
+      <div class="absolute top-0 left-0 w-full h-px" style="background: rgba(0,229,255,0.12)"></div>
+
+      <!-- Atmospheric glow layers -->
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:700px;height:400px;left:50%;transform:translateX(-50%);top:-100px;background:radial-gradient(ellipse, rgba(0,229,255,0.08) 0%, transparent 70%);"></div>
+
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section header -->
+        <div class="text-center mb-10 md:mb-14 fade-in">
+          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4"
+              style="font-family: var(--font-grotesk);">
+            Ready to get started?
+          </h2>
+          <p class="text-base md:text-lg text-secondary"
+             style="font-family: var(--font-outfit);">
+            Tell us a bit about your business and what you need. We'll get back to you as soon as possible.
+          </p>
+        </div>
+
+        <!-- Cyan accent bar -->
+        <div class="w-16 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
+
+        <!-- Form container -->
+        <div id="contact-form-wrapper" class="bg-surface border border-border-default rounded-xl p-6 md:p-10 shadow-card shadow-[0_0_60px_rgba(0,229,255,0.06)] fade-up">
+          <form id="contact-form"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                novalidate>
+
+            <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
+            <input type="hidden" name="subject" value="New Enquiry from Paeveul Website" />
+            <input type="checkbox" name="botcheck" class="hidden" aria-hidden="true" />
+
+            <!-- Name + Business Name (2-col on sm+) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+
+              <div>
+                <label for="name" class="block text-sm font-medium text-secondary mb-1"
+                       style="font-family: var(--font-outfit);">
+                  Name <span class="text-error" aria-hidden="true">*</span>
+                </label>
+                <input type="text"
+                       id="name"
+                       name="name"
+                       required
+                       autocomplete="name"
+                       placeholder="Your name"
+                       class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                       style="font-family: var(--font-outfit);" />
+              </div>
+
+              <div>
+                <label for="business_name" class="block text-sm font-medium text-secondary mb-1"
+                       style="font-family: var(--font-outfit);">
+                  Business Name <span class="text-error" aria-hidden="true">*</span>
+                </label>
+                <input type="text"
+                       id="business_name"
+                       name="business_name"
+                       required
+                       autocomplete="organization"
+                       placeholder="Your business name"
+                       class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                       style="font-family: var(--font-outfit);" />
+              </div>
+
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+              <label for="email" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Email <span class="text-error" aria-hidden="true">*</span>
+              </label>
+              <input type="email"
+                     id="email"
+                     name="email"
+                     required
+                     autocomplete="email"
+                     placeholder="your@email.com"
+                     class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                     style="font-family: var(--font-outfit);"
+                     onclick="gtag('event', 'email_field_focus', {event_category: 'contact_form'});" />
+            </div>
+
+            <!-- Package Interest -->
+            <div class="mb-4">
+              <label for="package_interest" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Package Interest
+              </label>
+              <select id="package_interest"
+                      name="package_interest"
+                      class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm focus:outline-none focus:border-accent transition-all duration-200 cursor-pointer"
+                      style="font-family: var(--font-outfit);">
+                <option value="" style="background-color: #0F1218;">Select a package (optional)</option>
+                <option value="Essential" style="background-color: #0F1218;">Essential</option>
+                <option value="Professional" style="background-color: #0F1218;">Professional</option>
+                <option value="Business" style="background-color: #0F1218;">Business</option>
+                <option value="Not sure yet" style="background-color: #0F1218;">Not sure yet</option>
+                <option value="Other" style="background-color: #0F1218;">Other</option>
+              </select>
+            </div>
+
+            <!-- "Tell us more" conditional field -->
+            <div id="other-field-wrapper" class="hidden mb-4">
+              <label for="other_details" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Tell us more
+              </label>
+              <input type="text"
+                     id="other_details"
+                     name="other_details"
+                     placeholder="Describe what you're looking for"
+                     class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200"
+                     style="font-family: var(--font-outfit);" />
+            </div>
+
+            <!-- Message -->
+            <div class="mb-6">
+              <label for="message" class="block text-sm font-medium text-secondary mb-1"
+                     style="font-family: var(--font-outfit);">
+                Message <span class="text-error" aria-hidden="true">*</span>
+              </label>
+              <textarea id="message"
+                        name="message"
+                        required
+                        rows="5"
+                        placeholder="Tell us about your business and what you need"
+                        class="w-full bg-input border border-border-default rounded-lg px-4 py-3 text-primary text-sm placeholder:text-muted focus:outline-none focus:border-accent transition-all duration-200 resize-vertical"
+                        style="font-family: var(--font-outfit);"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit"
+                    id="submit-btn"
+                    class="bg-accent font-semibold py-4 rounded-full w-full text-lg shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.01] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+                    style="font-family: var(--font-grotesk); color: #0D0F14;">
+              Send Enquiry
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Success state (hidden by default) -->
+        <div id="form-success" class="hidden bg-surface border border-border-default rounded-xl p-10 text-center shadow-card fade-in">
+          <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <h3 class="text-xl font-semibold text-primary mb-2"
+              style="font-family: var(--font-grotesk);">Your enquiry has been sent.</h3>
+          <p class="text-sm text-secondary"
+             style="font-family: var(--font-outfit);">We'll get back to you shortly.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="w-full bg-base-alt border-t border-border-default py-8 md:py-10 relative">
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(0,229,255,0.03) 0%, transparent 100%)"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-center md:text-left">
+
+        <!-- Left: Wordmark + tagline -->
+        <div>
+          <p class="text-lg font-bold mb-1"
+             style="font-family: var(--font-grotesk);">
+            <span class="text-accent">P</span><span class="text-primary">aeveul</span>
+          </p>
+          <p class="text-sm text-secondary"
+             style="font-family: var(--font-outfit);">Paeveul Web Services</p>
+        </div>
+
+        <!-- Right: Email + copyright -->
+        <div>
+          <a href="mailto:paeveul.official@gmail.com"
+             class="block text-sm text-secondary hover:text-accent transition-colors duration-200 mb-2"
+             style="font-family: var(--font-outfit);"
+             onclick="gtag('event', 'email_click', {event_category: 'footer', link_url: 'mailto:paeveul.official@gmail.com'});">
+            paeveul.official@gmail.com
+          </a>
+          <p class="text-xs text-muted"
+             style="font-family: var(--font-outfit);">© 2026 Paeveul Web Services. All rights reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

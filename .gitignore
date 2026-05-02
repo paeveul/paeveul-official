@@ -1,0 +1,12 @@
+# Internal working files — never commit
+CLAUDE.md
+design/
+content/
+docs/
+.claude/
+
+# Node
+main/node_modules/
+
+# Tailwind generated output (rebuild with: npx tailwindcss -i ./input.css -o ./style.css --minify)
+main/style.css
