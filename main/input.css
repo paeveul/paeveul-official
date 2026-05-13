@@ -191,12 +191,12 @@ html {
 
 .portfolio-strip-card {
   flex-shrink: 0;
-  scroll-snap-align: start;
-  width: 280px;
+  scroll-snap-align: center;
+  width: 260px;
 }
 
 @media (min-width: 480px) {
-  .portfolio-strip-card { width: 320px; }
+  .portfolio-strip-card { width: 300px; }
 }
 
 @media (min-width: 768px) {
