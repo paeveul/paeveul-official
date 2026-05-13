@@ -139,3 +139,66 @@ html {
 }
 
 .iti__search-input::placeholder { color: #4A5060; }
+
+/* Portfolio scroll strip */
+.portfolio-strip-outer {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-strip-outer::before,
+.portfolio-strip-outer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.portfolio-strip-outer::before {
+  left: 0;
+  background: linear-gradient(to right, #0D0F14, transparent);
+}
+
+.portfolio-strip-outer::after {
+  right: 0;
+  background: linear-gradient(to left, #0D0F14, transparent);
+}
+
+.portfolio-strip {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.25rem;
+  padding: 0.5rem 3rem 1.25rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+}
+
+.portfolio-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.portfolio-strip.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.portfolio-strip-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  width: 280px;
+}
+
+@media (min-width: 480px) {
+  .portfolio-strip-card { width: 320px; }
+}
+
+@media (min-width: 768px) {
+  .portfolio-strip-card { width: 360px; }
+}

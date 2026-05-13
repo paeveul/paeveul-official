@@ -343,6 +343,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =============================================================
+  // PORTFOLIO STRIP — drag to scroll
+  // =============================================================
+  const portfolioStrip = document.getElementById('portfolio-strip');
+
+  if (portfolioStrip) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    portfolioStrip.addEventListener('mousedown', (e) => {
+      isDown = true;
+      portfolioStrip.classList.add('is-dragging');
+      startX = e.pageX - portfolioStrip.offsetLeft;
+      scrollLeft = portfolioStrip.scrollLeft;
+    });
+
+    portfolioStrip.addEventListener('mouseleave', () => {
+      isDown = false;
+      portfolioStrip.classList.remove('is-dragging');
+    });
+
+    portfolioStrip.addEventListener('mouseup', () => {
+      isDown = false;
+      portfolioStrip.classList.remove('is-dragging');
+    });
+
+    portfolioStrip.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - portfolioStrip.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      portfolioStrip.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  // =============================================================
   // NAV LINK CLICKS — reset animations in target section
   // =============================================================
   const allNavLinks = document.querySelectorAll('a[href^="#"]');
