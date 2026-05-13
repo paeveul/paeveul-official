@@ -142,37 +142,14 @@ html {
 
 /* Portfolio scroll strip */
 .portfolio-strip-outer {
-  position: relative;
   overflow: hidden;
-}
-
-.portfolio-strip-outer::before,
-.portfolio-strip-outer::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 48px;
-  z-index: 10;
-  pointer-events: none;
-}
-
-.portfolio-strip-outer::before {
-  left: 0;
-  background: linear-gradient(to right, #0D0F14, transparent);
-}
-
-.portfolio-strip-outer::after {
-  right: 0;
-  background: linear-gradient(to left, #0D0F14, transparent);
 }
 
 .portfolio-strip {
   display: flex;
   overflow-x: auto;
   gap: 1.25rem;
-  padding: 0.5rem 0 1.25rem 1rem;
-  scroll-snap-type: x mandatory;
+  padding: 0.5rem 1rem 1.25rem 1rem;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -191,11 +168,22 @@ html {
 
 .portfolio-strip-card {
   flex-shrink: 0;
-  scroll-snap-align: center;
   width: 260px;
 }
 
-@media (min-width: 480px) {
+@media (max-width: 767px) {
+  .portfolio-strip {
+    scroll-snap-type: x mandatory;
+    padding-left: 1rem;
+    padding-right: 0;
+  }
+  .portfolio-strip-card {
+    scroll-snap-align: center;
+    width: 260px;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
   .portfolio-strip-card { width: 300px; }
 }
 
