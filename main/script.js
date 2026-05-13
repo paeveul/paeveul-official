@@ -376,6 +376,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const walk = (x - startX) * 1.5;
       portfolioStrip.scrollLeft = scrollLeft - walk;
     });
+
+    // Center first card on load so the second card peeks on the right
+    const firstCard = portfolioStrip.querySelector('.portfolio-strip-card');
+    if (firstCard) {
+      const stripCenter = portfolioStrip.clientWidth / 2;
+      const cardCenter = firstCard.offsetLeft + firstCard.offsetWidth / 2;
+      portfolioStrip.scrollLeft = cardCenter - stripCenter;
+    }
   }
 
   // =============================================================
