@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Our Work — Paeveul Web Services</title>
+  <meta name="description" content="See the websites we've built for Malaysian businesses. Professional, fast-loading sites for HVAC, F&B, and more. Based in Kuala Lumpur." />
+  <link rel="canonical" href="https://paeveul.com/portfolio.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://paeveul.com/portfolio.html" />
+  <meta property="og:title" content="Our Work — Paeveul Web Services" />
+  <meta property="og:description" content="Professional websites for Malaysian businesses. HVAC, F&B, and more." />
+  <meta property="og:site_name" content="Paeveul Web Services" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Our Work — Paeveul Web Services" />
+  <meta name="twitter:description" content="Professional websites for Malaysian businesses. HVAC, F&B, and more." />
+
+  <!-- JSON-LD LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Paeveul Web Services",
+    "url": "https://paeveul.com",
+    "email": "paeveul.official@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kuala Lumpur",
+      "addressCountry": "MY"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Kuala Lumpur"
+      },
+      {
+        "@type": "Country",
+        "name": "Malaysia"
+      }
+    ],
+    "description": "Professional websites and digital solutions for small and medium businesses in Malaysia.",
+    "priceRange": "RM 1,300–RM 5,000"
+  }
+  </script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2Z840NDRT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W2Z840NDRT');
+  </script>
+
+  <!-- Microsoft Clarity -->
+  <script>
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkwbodgtkd");
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-base text-primary" style="font-family: var(--font-outfit);">
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+
+      <!-- Wordmark -->
+      <a href="index.html" class="text-xl font-bold" style="font-family: var(--font-grotesk);" aria-label="Paeveul Web Services — home">
+        <span class="text-accent">P</span><span class="text-primary">aeveul</span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
+        <a href="index.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Home</a>
+        <a href="portfolio.html" class="text-accent text-sm font-medium transition-colors duration-200" style="font-family: var(--font-grotesk);" aria-current="page">Portfolio</a>
+        <a href="contact.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- CTA button — always visible -->
+        <a href="contact.html"
+           class="bg-accent text-base font-semibold px-5 py-2 rounded-full shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+           style="font-family: var(--font-grotesk); color: #0D0F14;"
+           onclick="gtag('event', 'nav_cta_click', {event_category: 'navigation'});">
+          Get in Touch
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button id="menu-btn"
+                class="md:hidden text-secondary hover:text-primary transition-colors duration-200 p-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none rounded"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu drawer -->
+    <div id="mobile-menu"
+         class="hidden md:hidden bg-surface border-b border-border-default transition-all duration-300"
+         aria-label="Mobile navigation">
+      <nav class="max-w-6xl mx-auto px-4">
+        <a href="index.html" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Home</a>
+        <a href="portfolio.html" class="block text-lg text-accent py-4 px-2 border-b border-border-default mobile-nav-link" style="font-family: var(--font-grotesk);" aria-current="page">Portfolio</a>
+        <a href="contact.html" class="block text-lg text-primary py-4 px-2 hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HEADER
+    ============================================================ -->
+    <section class="w-full bg-base hero-glow pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
+
+      <!-- Dark gradient scrim -->
+      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(13,15,20,0.0) 0%, rgba(13,15,20,1.00) 100%); z-index:1;"></div>
+
+      <!-- Cyan glow blob -->
+      <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
+        <div class="absolute rounded-full blur-3xl" style="width:800px;height:400px;left:50%;transform:translateX(-50%);top:-150px;background:radial-gradient(ellipse, rgba(0,229,255,0.05) 0%, transparent 70%);opacity:0.3;"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <!-- Pre-headline badge -->
+        <div class="mb-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-dim border border-border-accent-subtle text-accent text-xs font-medium tracking-widest uppercase"
+                style="font-family: var(--font-grotesk);">
+            Portfolio
+          </span>
+        </div>
+
+        <!-- H1 -->
+        <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight fade-in"
+            style="font-family: var(--font-grotesk);">
+          Our Work
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="text-base md:text-lg text-secondary max-w-xl mx-auto fade-in delay-75"
+           style="font-family: var(--font-outfit);">
+          Every site here was built for a real Malaysian business — designed to load fast, look professional, and get enquiries.
+        </p>
+
+        <!-- Accent divider -->
+        <div class="mt-12 md:mt-16">
+          <div class="h-px w-full bg-gradient-to-r from-transparent via-border-accent-subtle to-transparent"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         INDUSTRY FILTER PILLS
+         Static decorative only in V1 — "All" visually active.
+         TODO: Wire up JS filtering using data-industry / data-filter
+         attributes and toggling .hidden on cards when ready.
+    ============================================================ -->
+    <section class="w-full bg-base py-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap gap-2 justify-center">
+          <!-- Active pill -->
+          <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-accent"
+                  style="font-family: var(--font-grotesk); color: #0D0F14;"
+                  data-filter="all"
+                  aria-pressed="true">
+            All
+          </button>
+          <!-- Inactive pills -->
+          <button class="bg-surface border border-border-default text-secondary px-4 py-1.5 rounded-full text-sm font-medium hover:border-accent hover:text-primary transition-colors duration-200"
+                  style="font-family: var(--font-grotesk);"
+                  data-filter="hvac"
+                  aria-pressed="false">
+            HVAC
+          </button>
+          <button class="bg-surface border border-border-default text-secondary px-4 py-1.5 rounded-full text-sm font-medium hover:border-accent hover:text-primary transition-colors duration-200"
+                  style="font-family: var(--font-grotesk);"
+                  data-filter="fb"
+                  aria-pressed="false">
+            F&amp;B
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECT CARDS
+    ============================================================ -->
+    <section class="w-full bg-base py-8 md:py-12 lg:py-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-8 lg:gap-12">
+
+          <!-- Card 1: CoolBreeze Air Services -->
+          <article class="bg-surface border border-border-default rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 fade-up"
+                   data-industry="hvac">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+
+              <!-- Thumbnail -->
+              <div class="overflow-hidden rounded-xl lg:rounded-r-none lg:rounded-l-xl">
+                <img src="assets/images/thumbnail-coolbreeze.webp"
+                     alt="CoolBreeze Air Services — HVAC business website built by Paeveul"
+                     class="w-full aspect-video object-cover"
+                     loading="lazy">
+              </div>
+
+              <!-- Card body -->
+              <div class="p-6 md:p-8">
+                <!-- Industry tag -->
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-widest uppercase bg-accent-dim text-accent border border-border-accent-subtle mb-3"
+                      style="font-family: var(--font-grotesk);">
+                  HVAC
+                </span>
+
+                <!-- Business name -->
+                <h2 class="text-xl md:text-2xl font-bold text-primary mb-1"
+                    style="font-family: var(--font-grotesk);">
+                  CoolBreeze Air Services
+                </h2>
+
+                <!-- Location -->
+                <p class="text-sm text-secondary mb-4"
+                   style="font-family: var(--font-outfit);">Klang Valley</p>
+
+                <!-- Description -->
+                <p class="text-sm md:text-base text-secondary leading-relaxed mb-6"
+                   style="font-family: var(--font-outfit);">
+                  A full-service HVAC landing page built for a Klang Valley air conditioning company. The site features a services section, image gallery, coverage area map, contact form, and WhatsApp integration — all optimised for mobile and fast 4G load.
+                </p>
+
+                <!-- View live site button -->
+                <a href="https://bt-hvac-ms.vercel.app"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 border border-accent text-accent font-semibold px-5 py-3 rounded-full text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+                   style="font-family: var(--font-grotesk);"
+                   onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'coolbreeze', page: 'portfolio'});">
+                  View Live Site
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- Card 2: Aurum Fine Dining -->
+          <article class="bg-surface border border-border-default rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 fade-up"
+                   data-industry="fb">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
+
+              <!-- Thumbnail -->
+              <div class="overflow-hidden rounded-xl lg:rounded-r-none lg:rounded-l-xl">
+                <img src="assets/images/rest-thumbnail.webp"
+                     alt="Aurum Fine Dining — restaurant website built by Paeveul"
+                     class="w-full aspect-video object-cover"
+                     loading="lazy">
+              </div>
+
+              <!-- Card body -->
+              <div class="p-6 md:p-8">
+                <!-- Industry tag -->
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-widest uppercase bg-accent-dim text-accent border border-border-accent-subtle mb-3"
+                      style="font-family: var(--font-grotesk);">
+                  F&amp;B
+                </span>
+
+                <!-- Business name -->
+                <h2 class="text-xl md:text-2xl font-bold text-primary mb-1"
+                    style="font-family: var(--font-grotesk);">
+                  Aurum Fine Dining
+                </h2>
+
+                <!-- Location -->
+                <p class="text-sm text-secondary mb-4"
+                   style="font-family: var(--font-outfit);">Kuala Lumpur</p>
+
+                <!-- Description -->
+                <p class="text-sm md:text-base text-secondary leading-relaxed mb-6"
+                   style="font-family: var(--font-outfit);">
+                  An upscale restaurant landing page built for a fine dining venue in Kuala Lumpur. The design features a hero banner, signature dishes section, reservation form, gallery, and location map — built to convert table enquiries from mobile visitors.
+                </p>
+
+                <!-- View live site button -->
+                <a href="https://bt-rest-ms.vercel.app"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 border border-accent text-accent font-semibold px-5 py-3 rounded-full text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
+                   style="font-family: var(--font-grotesk);"
+                   onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'aurum', page: 'portfolio'});">
+                  View Live Site
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                </a>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CLOSING CTA
+    ============================================================ -->
+    <section class="w-full bg-base-alt py-16 md:py-20 lg:py-24 relative overflow-hidden">
+
+      <!-- Top border accent -->
+      <div class="absolute top-0 left-0 w-full h-px" style="background: rgba(0,229,255,0.12);"></div>
+
+      <!-- Atmospheric amber glow -->
+      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:600px;height:400px;left:50%;transform:translateX(-50%);top:50%;margin-top:-200px;background:radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 70%);"></div>
+
+      <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 fade-in"
+            style="font-family: var(--font-grotesk);">
+          Your business could be next.
+        </h2>
+
+        <p class="text-base md:text-lg text-secondary mb-8"
+           style="font-family: var(--font-outfit);">
+          We build professional websites for Malaysian businesses across every industry. Tell us what you need.
+        </p>
+
+        <!-- Cyan accent bar -->
+        <div class="w-16 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
+
+        <div class="flex justify-center">
+          <a href="contact.html"
+             class="inline-block bg-accent font-semibold px-8 py-4 rounded-full text-base shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto"
+             style="font-family: var(--font-grotesk); color: #0D0F14;"
+             onclick="gtag('event', 'portfolio_cta_contact', {event_category: 'portfolio_closing_cta'});">
+            Get in Touch
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="w-full bg-base-alt border-t border-border-default py-8 md:py-10 relative">
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(0,229,255,0.03) 0%, transparent 100%)"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-center md:text-left">
+
+        <!-- Left: Wordmark + tagline -->
+        <div>
+          <p class="text-lg font-bold mb-1"
+             style="font-family: var(--font-grotesk);">
+            <span class="text-accent">P</span><span class="text-primary">aeveul</span>
+          </p>
+          <p class="text-sm text-secondary"
+             style="font-family: var(--font-outfit);">Paeveul Web Services</p>
+        </div>
+
+        <!-- Right: Email + copyright -->
+        <div>
+          <a href="mailto:paeveul.official@gmail.com"
+             class="block text-sm text-secondary hover:text-accent transition-colors duration-200 mb-2"
+             style="font-family: var(--font-outfit);"
+             onclick="gtag('event', 'email_click', {event_category: 'footer', link_url: 'mailto:paeveul.official@gmail.com'});">
+            paeveul.official@gmail.com
+          </a>
+          <p class="text-xs text-muted"
+             style="font-family: var(--font-outfit);">© 2026 Paeveul Web Services. All rights reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
