@@ -5,24 +5,19 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta -->
-  <title>Our Work — Paeveul Web Services</title>
-  <meta name="description" content="See the websites we've built for Malaysian businesses. Professional, fast-loading sites for HVAC, F&B, and more. Based in Kuala Lumpur." />
+  <title>Portfolio — Paeveul Web Studio</title>
+  <meta name="description" content="A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship. No theme retouching, no recycled scaffolds." />
   <link rel="canonical" href="https://paeveul.com/portfolio.html" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://paeveul.com/portfolio.html" />
-  <meta property="og:title" content="Our Work — Paeveul Web Services" />
-  <meta property="og:description" content="Professional websites for Malaysian businesses. HVAC, F&B, and more." />
-  <meta property="og:site_name" content="Paeveul Web Services" />
-
-  <!-- Twitter Card -->
+  <meta property="og:title" content="Portfolio — Paeveul Web Studio" />
+  <meta property="og:description" content="A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship." />
+  <meta property="og:site_name" content="Paeveul" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Our Work — Paeveul Web Services" />
-  <meta name="twitter:description" content="Professional websites for Malaysian businesses. HVAC, F&B, and more." />
+  <meta name="twitter:title" content="Portfolio — Paeveul Web Studio" />
+  <meta name="twitter:description" content="A small but considered portfolio. Every project goes through the same care." />
 
-  <!-- JSON-LD LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,379 +25,521 @@
     "name": "Paeveul Web Services",
     "url": "https://paeveul.com",
     "email": "paeveul.official@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kuala Lumpur",
-      "addressCountry": "MY"
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Kuala Lumpur"
-      },
-      {
-        "@type": "Country",
-        "name": "Malaysia"
-      }
-    ],
-    "description": "Professional websites and digital solutions for small and medium businesses in Malaysia.",
-    "priceRange": "RM 1,300–RM 5,000"
+    "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
+    "areaServed": [{ "@type": "City", "name": "Kuala Lumpur" }, { "@type": "Country", "name": "Malaysia" }],
+    "description": "Professional websites and digital solutions for small and medium businesses.",
+    "priceRange": "Custom quote"
   }
   </script>
 
-  <!-- Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2Z840NDRT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W2Z840NDRT');
-  </script>
+  <link rel="stylesheet" href="css/paeveul.css" />
 
-  <!-- Microsoft Clarity -->
-  <script>
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wkwbodgtkd");
-  </script>
+  <style>
+    /* ── Portfolio layout ──────────────────────────────── */
+    .pf-filter-strip {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 20px 0;
+    }
+    .pf-filter-sep { width: 1px; height: 16px; background: var(--pv-border); flex: 0 0 auto; }
+    .pf-chips { display: flex; gap: 8px; flex-wrap: wrap; }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    .pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .pf-card { overflow: hidden; display: flex; flex-direction: column; }
+    .pf-card-img {
+      padding: 22px;
+      background: var(--pv-bg);
+      border-bottom: 1px solid var(--pv-border);
+    }
+    .pf-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
+    .pf-card-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .pf-card-foot {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--pv-border);
+      gap: 16px;
+    }
+    .pf-metric-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--pv-cyan);
+      letter-spacing: -0.01em;
+    }
+    .pf-metric-label {
+      font-size: 11px;
+      color: var(--pv-muted);
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+    /* CTA strip */
+    .pf-cta-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      padding: 88px 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .pf-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 900px) {
+      .pg-title { font-size: clamp(29px, 8vw, 37px); }
+      .pf-grid { grid-template-columns: 1fr; gap: 20px; }
+      .pf-card-img { padding: 14px; }
+      .pf-card-body { padding: 20px; }
+      .pf-cta-inner { padding: 56px 0; }
+      .pf-cta-h2 { font-size: 26px !important; line-height: 1.15 !important; }
+    }
+    @media (min-width: 640px) and (max-width: 900px) {
+      .pf-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+    @media (max-width: 700px) {
+      .pf-cta-inner { flex-direction: column; align-items: stretch; padding: 48px 0; }
+      .pf-cta-btns { flex-direction: column; }
+      .pf-cta-btns a { display: block; text-align: center; }
+    }
+    @media (max-width: 380px) {
+      .pf-card-img { padding: 10px; }
+      .pf-card-body { padding: 16px; }
+      .pf-card-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .pf-metric-num { font-size: 20px; }
+    }
+  </style>
 </head>
-<body class="bg-base text-primary" style="font-family: var(--font-outfit);">
+<body>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+<!-- ── HEADER ──────────────────────────────────────── -->
+<header class="pg-header">
+  <div class="pg-header-inner">
+    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+        <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+        <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+        <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+      </svg>
+      <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+    </a>
 
-      <!-- Wordmark -->
-      <a href="index.html" class="text-xl font-bold" style="font-family: var(--font-grotesk);" aria-label="Paeveul Web Services — home">
-        <span class="text-accent">P</span><span class="text-primary">aeveul</span>
-      </a>
+    <nav class="pg-nav">
+      <a href="packages.html">Packages</a>
+      <a href="portfolio.html" class="is-active">Portfolio</a>
+      <a href="why.html">Why Paeveul</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-      <!-- Desktop nav links -->
-      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
-        <a href="index.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Home</a>
-        <a href="portfolio.html" class="text-accent text-sm font-medium transition-colors duration-200" style="font-family: var(--font-grotesk);" aria-current="page">Portfolio</a>
-        <a href="contact.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Contact</a>
-      </nav>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="pg-status">
+        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+        TAKING NEW PROJECTS · 2026
+      </span>
+      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+      <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-      <div class="flex items-center gap-3">
-        <!-- CTA button — always visible -->
-        <a href="contact.html"
-           class="bg-accent text-base font-semibold px-5 py-2 rounded-full shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-           style="font-family: var(--font-grotesk); color: #0D0F14;"
-           onclick="gtag('event', 'nav_cta_click', {event_category: 'navigation'});">
-          Get in Touch
-        </a>
+    <div class="pg-mobile-menu">
+      <a href="index.html"><span>Home</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
+      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
+      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
+      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
+      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
+      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">07 →</span></a>
+      <div style="padding-top:16px;">
+        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <!-- Mobile hamburger -->
-        <button id="menu-btn"
-                class="md:hidden text-secondary hover:text-primary transition-colors duration-200 p-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none rounded"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="mobile-menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+<!-- ── HERO ────────────────────────────────────────── -->
+<section class="pg-hero">
+  <div class="pg-grid-bg pg-hero-grid"></div>
+  <div class="pg-hero-glow"></div>
+  <div class="pg-wrap" style="position:relative;">
+    <div class="pg-eyebrow-row">
+      <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
+      <span class="pv-eyebrow">Selected Work · 2024 — 2026</span>
+    </div>
+    <h1 class="pg-title pv-grotesk">Sites that earn trust<br>and convert.</h1>
+    <p class="pg-lede">A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship. No theme retouching, no recycled scaffolds.</p>
+  </div>
+</section>
+
+<!-- ── FILTER STRIP ────────────────────────────────── -->
+<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+  <div class="pg-wrap">
+    <div class="pf-filter-strip">
+      <span class="pv-eyebrow-num" style="flex:0 0 auto;">FILTER · <span id="pf-count">6 CASES</span></span>
+      <span class="pf-filter-sep"></span>
+      <div class="pf-chips">
+        <span class="pv-chip is-active pf-filter-chip" data-filter="All">All</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Retail">Retail</span>
+        <span class="pv-chip pf-filter-chip" data-filter="F&B">F&amp;B</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Hospitality">Hospitality</span>
+        <span class="pv-chip pf-filter-chip" data-filter="B2B">B2B</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Health">Health</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Brand">Brand</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Bookings">Bookings</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Portfolio">Portfolio</span>
+        <span class="pv-chip pf-filter-chip" data-filter="Quoting">Quoting</span>
+        <span class="pv-chip pf-filter-chip" data-filter="E-com">E-com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO GRID ───────────────────────────────── -->
+<section class="pg-section">
+  <div class="pg-wrap">
+    <div class="pf-grid" id="pf-grid">
+
+      <!-- Case 01 — Northbrook Mart -->
+      <article class="pv-card pf-card" data-tags="Retail,E-com">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">northbrookmart.com</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div class="pv-bmock-hero"></div>
+              <div class="pv-bmock-line" style="width:65%"></div>
+              <div class="pv-bmock-line" style="width:42%"></div>
+              <div class="pv-bmock-row">
+                <div class="pv-bmock-block"></div>
+                <div class="pv-bmock-block"></div>
+                <div class="pv-bmock-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 01</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2025 · Retail · Multi-store chain</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Northbrook Mart</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A 6-store mini-mart group needed one digital front door. We shipped a clean storefront with store-locator, promotions, and a lightweight ordering flow.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">3×</div>
+              <div class="pf-metric-label">Enquiries in 60 days</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 02 — Ember Café -->
+      <article class="pv-card pf-card" data-tags="F&B,Brand">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">embercafe.co</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div class="pv-bmock-hero" style="background:linear-gradient(135deg,#1f1510,#2a1a08);"></div>
+              <div class="pv-bmock-line" style="width:55%;background:rgba(245,166,35,0.2);"></div>
+              <div class="pv-bmock-line" style="width:38%;"></div>
+              <div class="pv-bmock-block" style="background:rgba(245,166,35,0.08);border-color:rgba(245,166,35,0.2);"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 02</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2025 · F&amp;B · Café &amp; roastery</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Ember Café</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A warm one-page site with menu, location and ordering — built for thumb-flow, not desktop legacy. Schema-ready for local search.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">42%</div>
+              <div class="pf-metric-label">Lift in mobile sessions</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 03 — Cedar & Field -->
+      <article class="pv-card pf-card" data-tags="Hospitality,Brand">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">cedarandfield.com</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div class="pv-bmock-hero" style="background:linear-gradient(135deg,#0f1a14,#162412);"></div>
+              <div class="pv-bmock-line" style="width:48%"></div>
+              <div class="pv-bmock-line" style="width:72%"></div>
+              <div class="pv-bmock-row">
+                <div class="pv-bmock-block"></div>
+                <div class="pv-bmock-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 03</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2024 · Hospitality · Boutique stays</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Cedar &amp; Field</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">Five-property booking experience with a calm, editorial feel. Direct booking grew while OTA dependence dropped quarter-on-quarter.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">+58%</div>
+              <div class="pf-metric-label">Direct bookings</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 04 — Atlas Studios -->
+      <article class="pv-card pf-card" data-tags="B2B,Portfolio">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">atlasstudios.com</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div style="display:flex;gap:8px;margin-bottom:4px;">
+                <div class="pv-bmock-block" style="flex:1.5;height:80px;margin-top:0;"></div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:7px;">
+                  <div class="pv-bmock-line" style="width:100%"></div>
+                  <div class="pv-bmock-line" style="width:80%"></div>
+                  <div class="pv-bmock-line" style="width:60%"></div>
+                  <div class="pv-bmock-block" style="height:22px;margin-top:0;"></div>
+                </div>
+              </div>
+              <div class="pv-bmock-line" style="width:55%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 04</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2024 · B2B · Architecture practice</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Atlas Studios</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A considered project portfolio for an architecture practice. Slow-loading hero replaced with a fast, scannable case archive.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">95+</div>
+              <div class="pf-metric-label">Lighthouse on launch</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 05 — Maya Wellness -->
+      <article class="pv-card pf-card" data-tags="Health,Bookings">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">mayawellness.my</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div class="pv-bmock-hero" style="background:linear-gradient(135deg,#0d1420,#111a2e);"></div>
+              <div class="pv-bmock-line" style="width:60%"></div>
+              <div class="pv-bmock-row">
+                <div class="pv-bmock-block"></div>
+                <div class="pv-bmock-block" style="background:rgba(0,229,255,0.06);border-color:rgba(0,229,255,0.15);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 05</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2024 · Health · Clinic group</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Maya Wellness</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">Multi-location clinic with a booking-aware contact flow and SEO-aware location pages. Built to scale into more cities.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">2.1×</div>
+              <div class="pf-metric-label">Qualified leads / week</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Case 06 — Forge Print Co. -->
+      <article class="pv-card pf-card" data-tags="B2B,Quoting">
+        <div class="pf-card-img">
+          <div class="pv-bmock">
+            <div class="pv-bmock-bar">
+              <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
+              <div class="pv-bmock-url">forgeprintco.com</div>
+            </div>
+            <div class="pv-bmock-body">
+              <div class="pv-bmock-line" style="width:72%"></div>
+              <div class="pv-bmock-line" style="width:50%"></div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:4px;">
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <div class="pv-bmock-code-line" style="width:90%"></div>
+                  <div class="pv-bmock-code-line" style="width:70%"></div>
+                  <div class="pv-bmock-code-line" style="width:80%"></div>
+                  <div class="pv-bmock-code-line" style="width:55%"></div>
+                </div>
+                <div class="pv-bmock-block" style="height:52px;margin-top:0;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pf-card-body">
+          <div class="pf-card-meta">
+            <span class="pv-eyebrow-num">CASE · 06</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2024 · Manufacturing · Print shop</span>
+          </div>
+          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;">Forge Print Co.</h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A quote-request flow that replaces a noisy contact form. Faster turnaround on enquiries and better-qualified leads in the inbox.</p>
+          <div class="pf-card-foot">
+            <div>
+              <div class="pf-metric-num">−65%</div>
+              <div class="pf-metric-label">Time-to-first-quote</div>
+            </div>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div id="pf-empty" style="display:none;text-align:center;padding:60px 0;color:var(--pv-muted);">
+      <div class="pv-grotesk" style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No cases in this category yet.</div>
+      <div>More work coming soon — <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">start a project →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA STRIP ────────────────────────────────────── -->
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);position:relative;">
+  <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
+  <div class="pg-wrap" style="position:relative;">
+    <div class="pf-cta-inner">
+      <div style="max-width:560px;">
+        <span class="pv-eyebrow" style="color:var(--pv-cyan);">Got a project in mind?</span>
+        <h2 class="pv-grotesk pf-cta-h2" style="font-size:34px;font-weight:600;line-height:1.1;margin:12px 0 0;letter-spacing:-0.02em;">Tell us about it. We reply within 1–3 business working days.</h2>
+      </div>
+      <div class="pf-cta-btns">
+        <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;display:inline-block;">Start an Enquiry →</a>
+        <a href="why.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;display:inline-block;">Why Paeveul</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer class="pg-footer">
+  <div class="pg-wrap">
+    <div class="pg-footer-grid">
+      <div>
+        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+            <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+            <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+            <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
           </svg>
-        </button>
+          <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+        </a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
+          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+          REMOTE-FIRST · WORLDWIDE
+        </div>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="why.html">Why Paeveul</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Start an enquiry</a></li>
+          <li><a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Coming soon</h4>
+        <ul>
+          <li><a href="#">Payments-ready builds</a></li>
+          <li><a href="#">Articles &amp; resources</a></li>
+          <li><a href="#">Multi-language sites</a></li>
+        </ul>
       </div>
     </div>
-
-    <!-- Mobile menu drawer -->
-    <div id="mobile-menu"
-         class="hidden md:hidden bg-surface border-b border-border-default transition-all duration-300"
-         aria-label="Mobile navigation">
-      <nav class="max-w-6xl mx-auto px-4">
-        <a href="index.html" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Home</a>
-        <a href="portfolio.html" class="block text-lg text-accent py-4 px-2 border-b border-border-default mobile-nav-link" style="font-family: var(--font-grotesk);" aria-current="page">Portfolio</a>
-        <a href="contact.html" class="block text-lg text-primary py-4 px-2 hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Contact</a>
-      </nav>
+    <div class="pg-footer-bottom">
+      <span>© 2026 Paeveul Studio · Made with care</span>
     </div>
-  </header>
+  </div>
+</footer>
 
-  <main>
+<script src="js/paeveul.js"></script>
+<script>
+  /* ── Portfolio chip filter ──────────────────────────── */
+  (function () {
+    var chips   = document.querySelectorAll('.pf-filter-chip');
+    var cards   = document.querySelectorAll('.pf-card');
+    var countEl = document.getElementById('pf-count');
+    var emptyEl = document.getElementById('pf-empty');
+    var active  = 'All';
 
-    <!-- ============================================================
-         PAGE HEADER
-    ============================================================ -->
-    <section class="w-full bg-base hero-glow pt-32 pb-16 md:pt-40 md:pb-20 relative overflow-hidden">
+    function update() {
+      var count = 0;
+      cards.forEach(function (card) {
+        var tags = (card.dataset.tags || '').split(',');
+        var show = active === 'All' || tags.indexOf(active) !== -1;
+        card.style.display = show ? '' : 'none';
+        if (show) count++;
+      });
+      if (countEl) countEl.textContent = count + (count === 1 ? ' CASE' : ' CASES');
+      if (emptyEl) emptyEl.style.display = count === 0 ? '' : 'none';
+    }
 
-      <!-- Dark gradient scrim -->
-      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(13,15,20,0.0) 0%, rgba(13,15,20,1.00) 100%); z-index:1;"></div>
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        active = this.dataset.filter;
+        chips.forEach(function (c) {
+          c.classList.toggle('is-active', c.dataset.filter === active);
+        });
+        update();
+      });
+    });
 
-      <!-- Cyan glow blob -->
-      <div class="absolute inset-0 pointer-events-none" style="z-index:0;">
-        <div class="absolute rounded-full blur-3xl" style="width:800px;height:400px;left:50%;transform:translateX(-50%);top:-150px;background:radial-gradient(ellipse, rgba(0,229,255,0.05) 0%, transparent 70%);opacity:0.3;"></div>
-      </div>
-
-      <!-- Content -->
-      <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-        <!-- Pre-headline badge -->
-        <div class="mb-6">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-dim border border-border-accent-subtle text-accent text-xs font-medium tracking-widest uppercase"
-                style="font-family: var(--font-grotesk);">
-            Portfolio
-          </span>
-        </div>
-
-        <!-- H1 -->
-        <h1 class="text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight fade-in"
-            style="font-family: var(--font-grotesk);">
-          Our Work
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-base md:text-lg text-secondary max-w-xl mx-auto fade-in delay-75"
-           style="font-family: var(--font-outfit);">
-          Every site here was built for a real Malaysian business — designed to load fast, look professional, and get enquiries.
-        </p>
-
-        <!-- Accent divider -->
-        <div class="mt-12 md:mt-16">
-          <div class="h-px w-full bg-gradient-to-r from-transparent via-border-accent-subtle to-transparent"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
-         INDUSTRY FILTER PILLS
-         Static decorative only in V1 — "All" visually active.
-         TODO: Wire up JS filtering using data-industry / data-filter
-         attributes and toggling .hidden on cards when ready.
-    ============================================================ -->
-    <section class="w-full bg-base py-6">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-wrap gap-2 justify-center">
-          <!-- Active pill -->
-          <button class="px-4 py-1.5 rounded-full text-sm font-medium bg-accent"
-                  style="font-family: var(--font-grotesk); color: #0D0F14;"
-                  data-filter="all"
-                  aria-pressed="true">
-            All
-          </button>
-          <!-- Inactive pills -->
-          <button class="bg-surface border border-border-default text-secondary px-4 py-1.5 rounded-full text-sm font-medium hover:border-accent hover:text-primary transition-colors duration-200"
-                  style="font-family: var(--font-grotesk);"
-                  data-filter="hvac"
-                  aria-pressed="false">
-            HVAC
-          </button>
-          <button class="bg-surface border border-border-default text-secondary px-4 py-1.5 rounded-full text-sm font-medium hover:border-accent hover:text-primary transition-colors duration-200"
-                  style="font-family: var(--font-grotesk);"
-                  data-filter="fb"
-                  aria-pressed="false">
-            F&amp;B
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PROJECT CARDS
-    ============================================================ -->
-    <section class="w-full bg-base py-8 md:py-12 lg:py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 gap-8 lg:gap-12">
-
-          <!-- Card 1: CoolBreeze Air Services -->
-          <article class="bg-surface border border-border-default rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 fade-up"
-                   data-industry="hvac">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-
-              <!-- Thumbnail -->
-              <div class="overflow-hidden rounded-xl lg:rounded-r-none lg:rounded-l-xl">
-                <img src="assets/images/thumbnail-coolbreeze.webp"
-                     alt="CoolBreeze Air Services — HVAC business website built by Paeveul"
-                     class="w-full aspect-video object-cover"
-                     loading="lazy">
-              </div>
-
-              <!-- Card body -->
-              <div class="p-6 md:p-8">
-                <!-- Industry tag -->
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-widest uppercase bg-accent-dim text-accent border border-border-accent-subtle mb-3"
-                      style="font-family: var(--font-grotesk);">
-                  HVAC
-                </span>
-
-                <!-- Business name -->
-                <h2 class="text-xl md:text-2xl font-bold text-primary mb-1"
-                    style="font-family: var(--font-grotesk);">
-                  CoolBreeze Air Services
-                </h2>
-
-                <!-- Location -->
-                <p class="text-sm text-secondary mb-4"
-                   style="font-family: var(--font-outfit);">Klang Valley</p>
-
-                <!-- Description -->
-                <p class="text-sm md:text-base text-secondary leading-relaxed mb-6"
-                   style="font-family: var(--font-outfit);">
-                  A full-service HVAC landing page built for a Klang Valley air conditioning company. The site features a services section, image gallery, coverage area map, contact form, and WhatsApp integration — all optimised for mobile and fast 4G load.
-                </p>
-
-                <!-- View live site button -->
-                <a href="https://bt-hvac-ms.vercel.app"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 border border-accent text-accent font-semibold px-5 py-3 rounded-full text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-                   style="font-family: var(--font-grotesk);"
-                   onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'coolbreeze', page: 'portfolio'});">
-                  View Live Site
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                  </svg>
-                </a>
-              </div>
-
-            </div>
-          </article>
-
-          <!-- Card 2: Aurum Fine Dining -->
-          <article class="bg-surface border border-border-default rounded-xl overflow-hidden shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 fade-up"
-                   data-industry="fb">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center">
-
-              <!-- Thumbnail -->
-              <div class="overflow-hidden rounded-xl lg:rounded-r-none lg:rounded-l-xl">
-                <img src="assets/images/rest-thumbnail.webp"
-                     alt="Aurum Fine Dining — restaurant website built by Paeveul"
-                     class="w-full aspect-video object-cover"
-                     loading="lazy">
-              </div>
-
-              <!-- Card body -->
-              <div class="p-6 md:p-8">
-                <!-- Industry tag -->
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-widest uppercase bg-accent-dim text-accent border border-border-accent-subtle mb-3"
-                      style="font-family: var(--font-grotesk);">
-                  F&amp;B
-                </span>
-
-                <!-- Business name -->
-                <h2 class="text-xl md:text-2xl font-bold text-primary mb-1"
-                    style="font-family: var(--font-grotesk);">
-                  Aurum Fine Dining
-                </h2>
-
-                <!-- Location -->
-                <p class="text-sm text-secondary mb-4"
-                   style="font-family: var(--font-outfit);">Kuala Lumpur</p>
-
-                <!-- Description -->
-                <p class="text-sm md:text-base text-secondary leading-relaxed mb-6"
-                   style="font-family: var(--font-outfit);">
-                  An upscale restaurant landing page built for a fine dining venue in Kuala Lumpur. The design features a hero banner, signature dishes section, reservation form, gallery, and location map — built to convert table enquiries from mobile visitors.
-                </p>
-
-                <!-- View live site button -->
-                <a href="https://bt-rest-ms.vercel.app"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="inline-flex items-center gap-2 border border-accent text-accent font-semibold px-5 py-3 rounded-full text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-                   style="font-family: var(--font-grotesk);"
-                   onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'aurum', page: 'portfolio'});">
-                  View Live Site
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                  </svg>
-                </a>
-              </div>
-
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         CLOSING CTA
-    ============================================================ -->
-    <section class="w-full bg-base-alt py-16 md:py-20 lg:py-24 relative overflow-hidden">
-
-      <!-- Top border accent -->
-      <div class="absolute top-0 left-0 w-full h-px" style="background: rgba(0,229,255,0.12);"></div>
-
-      <!-- Atmospheric amber glow -->
-      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:600px;height:400px;left:50%;transform:translateX(-50%);top:50%;margin-top:-200px;background:radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 70%);"></div>
-
-      <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 fade-in"
-            style="font-family: var(--font-grotesk);">
-          Your business could be next.
-        </h2>
-
-        <p class="text-base md:text-lg text-secondary mb-8"
-           style="font-family: var(--font-outfit);">
-          We build professional websites for Malaysian businesses across every industry. Tell us what you need.
-        </p>
-
-        <!-- Cyan accent bar -->
-        <div class="w-16 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
-
-        <div class="flex justify-center">
-          <a href="contact.html"
-             class="inline-block bg-accent font-semibold px-8 py-4 rounded-full text-base shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto"
-             style="font-family: var(--font-grotesk); color: #0D0F14;"
-             onclick="gtag('event', 'portfolio_cta_contact', {event_category: 'portfolio_closing_cta'});">
-            Get in Touch
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="w-full bg-base-alt border-t border-border-default py-8 md:py-10 relative">
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(0,229,255,0.03) 0%, transparent 100%)"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-center md:text-left">
-
-        <!-- Left: Wordmark + tagline -->
-        <div>
-          <p class="text-lg font-bold mb-1"
-             style="font-family: var(--font-grotesk);">
-            <span class="text-accent">P</span><span class="text-primary">aeveul</span>
-          </p>
-          <p class="text-sm text-secondary"
-             style="font-family: var(--font-outfit);">Paeveul Web Services</p>
-        </div>
-
-        <!-- Right: Email + copyright -->
-        <div>
-          <a href="mailto:paeveul.official@gmail.com"
-             class="block text-sm text-secondary hover:text-accent transition-colors duration-200 mb-2"
-             style="font-family: var(--font-outfit);"
-             onclick="gtag('event', 'email_click', {event_category: 'footer', link_url: 'mailto:paeveul.official@gmail.com'});">
-            paeveul.official@gmail.com
-          </a>
-          <p class="text-xs text-muted"
-             style="font-family: var(--font-outfit);">© 2026 Paeveul Web Services. All rights reserved.</p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    update();
+  }());
+</script>
 </body>
 </html>

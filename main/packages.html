@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Packages — Paeveul Web Studio</title>
+  <meta name="description" content="Three service tiers, custom-quoted. Essential, Professional, and Business — pick the one that fits your scope, timeline, and budget." />
+  <link rel="canonical" href="https://paeveul.com/packages.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://paeveul.com/packages.html" />
+  <meta property="og:title" content="Packages — Paeveul Web Studio" />
+  <meta property="og:description" content="Three service tiers, custom-quoted. Pick the one that fits your scope and timeline." />
+  <meta property="og:site_name" content="Paeveul" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Packages — Paeveul Web Studio" />
+  <meta name="twitter:description" content="Three service tiers, custom-quoted. Pick the one that fits." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Paeveul Web Services",
+    "url": "https://paeveul.com",
+    "email": "paeveul.official@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
+    "areaServed": [{ "@type": "City", "name": "Kuala Lumpur" }, { "@type": "Country", "name": "Malaysia" }],
+    "description": "Professional websites and digital solutions for small and medium businesses.",
+    "priceRange": "Custom quote"
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/paeveul.css" />
+
+  <style>
+    /* ── Tier cards ──────────────────────────────────────── */
+    .pk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    .pk-card {
+      position: relative;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .pk-card-recommended {
+      background: var(--pv-card-hi);
+      border-color: var(--pv-cyan);
+    }
+    .pk-recommended {
+      position: absolute;
+      top: -1px;
+      right: 22px;
+      padding: 5px 12px;
+      background: var(--pv-cyan);
+      color: #06222a;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      border-radius: 0 0 5px 5px;
+    }
+    .pk-meta-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      padding: 14px 0;
+      border-top: 1px solid var(--pv-border);
+      border-bottom: 1px solid var(--pv-border);
+    }
+    .pk-features { flex: 1 1 auto; }
+    .pk-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 18px;
+      border-top: 1px solid var(--pv-border);
+    }
+    .pk-feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pk-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--pv-text);
+      line-height: 1.5;
+    }
+    .pk-check-icon { flex: 0 0 auto; margin-top: 3px; }
+
+    /* ── Comparison table ────────────────────────────────── */
+    .pk-compare-wrap {
+      border: 1px solid var(--pv-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .pk-compare {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--pv-card);
+    }
+    .pk-compare th,
+    .pk-compare td {
+      padding: 16px 22px;
+      text-align: center;
+      border-bottom: 1px solid var(--pv-border);
+      vertical-align: middle;
+    }
+    .pk-compare th {
+      background: var(--pv-bg-alt);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      position: relative;
+    }
+    .pk-compare th:first-child,
+    .pk-compare .pk-compare-label {
+      text-align: left;
+      color: var(--pv-muted);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 13.5px;
+    }
+    .pk-compare-recommended { background: rgba(0, 229, 255, 0.04); }
+    .pk-compare th.pk-compare-recommended { color: var(--pv-cyan); }
+    .pk-compare-tag {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      color: var(--pv-cyan);
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .pk-compare tr:last-child td { border-bottom: none; }
+    .pk-cell-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--pv-cyan);
+    }
+
+    /* ── Process strip ───────────────────────────────────── */
+    .pk-process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+    }
+    .pk-process-num {
+      font-size: 32px;
+      font-weight: 500;
+      color: var(--pv-cyan);
+      letter-spacing: -0.02em;
+    }
+    .pk-process-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--pv-border);
+    }
+
+    /* ── Add-ons ─────────────────────────────────────────── */
+    .pk-addons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .pk-addon { padding: 26px; }
+
+    /* ── Pricing FAQ split ───────────────────────────────── */
+    .pk-faq-split {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: flex-start;
+    }
+
+    /* ── Responsive ──────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .pk-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+      .pk-process { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .pg-title { font-size: clamp(29px, 8vw, 37px); }
+      .pk-card { padding: 24px; }
+      .pk-compare th, .pk-compare td { padding: 12px 14px; font-size: 12.5px; }
+      .pk-compare th { font-size: 13px; }
+      .pk-addons { grid-template-columns: 1fr; }
+      .pk-faq-split { grid-template-columns: 1fr; gap: 32px; }
+      .pk-process { grid-template-columns: 1fr; }
+      .pk-cta-h2 { font-size: 30px !important; }
+      .pk-cta-buttons { flex-direction: column; align-items: center; }
+      .pk-cta-buttons a { text-align: center; }
+    }
+    @media (max-width: 700px) {
+      .pk-compare-wrap { overflow-x: auto; }
+      .pk-compare { min-width: 560px; }
+      .pk-section-h2 { font-size: 30px !important; }
+    }
+    @media (max-width: 380px) {
+      .pk-card { padding: 20px; }
+      .pk-addon { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────── -->
+<header class="pg-header">
+  <div class="pg-header-inner">
+    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+        <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+        <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+        <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+      </svg>
+      <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+    </a>
+
+    <nav class="pg-nav">
+      <a href="packages.html" class="is-active">Packages</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="why.html">Why Paeveul</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span class="pg-status">
+        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+        TAKING NEW PROJECTS · 2026
+      </span>
+      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+      <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="pg-mobile-menu">
+      <a href="index.html"><span>Home</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
+      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
+      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
+      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
+      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
+      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">07 →</span></a>
+      <div style="padding-top:16px;">
+        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ────────────────────────────────────────── -->
+<section class="pg-hero">
+  <div class="pg-grid-bg pg-hero-grid"></div>
+  <div class="pg-hero-glow"></div>
+  <div class="pg-wrap" style="position:relative;">
+    <div class="pg-eyebrow-row">
+      <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
+      <span class="pv-eyebrow">Packages · Custom quotes, never templated</span>
+    </div>
+    <h1 class="pg-title pv-grotesk">Three tiers.<br>Pick the one that fits.</h1>
+    <p class="pg-lede">Every project is quoted on real scope, not a sticker. The tiers below are how we structure work — what's included, who they're for, and roughly how long they take. Final pricing comes after a short enquiry.</p>
+  </div>
+</section>
+
+<!-- ── TIER CARDS ──────────────────────────────────── -->
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+  <div class="pg-wrap" style="padding:64px 0;">
+    <div class="pk-grid">
+
+      <!-- Essential -->
+      <div class="pv-card pk-card">
+        <div class="pk-card-head">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span class="pv-eyebrow-num">TIER · 01</span>
+            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+          </div>
+          <h2 class="pv-grotesk" style="font-size:32px;font-weight:600;letter-spacing:-0.02em;margin:0;">Essential</h2>
+          <p style="margin-top:8px;font-size:14.5px;color:var(--pv-muted);line-height:1.55;">For businesses ready to claim a clean, credible spot online.</p>
+        </div>
+
+        <div class="pk-meta-row">
+          <div>
+            <div class="pv-eyebrow-num">TIMELINE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">2–3 weeks</div>
+          </div>
+          <div>
+            <div class="pv-eyebrow-num">SCOPE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">Up to 5 pages</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="pv-eyebrow-num" style="margin-bottom:6px;">BEST FOR</div>
+          <div style="font-size:13px;color:var(--pv-text);line-height:1.55;">Solo founders · single-location SMBs · "we just need to look real"</div>
+        </div>
+
+        <div class="pk-features">
+          <div class="pv-eyebrow-num" style="margin-bottom:12px;">WHAT'S INCLUDED</div>
+          <ul class="pk-feature-list">
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Up to 5-page business website</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Fully responsive design</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Basic on-page SEO setup</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Lead enquiry form (Web3Forms-style)</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Domain &amp; deployment support</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Performance-focused build (95+ Lighthouse)</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>2 weeks of post-launch tweaks</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pk-price-row">
+          <div>
+            <div class="pv-eyebrow-num">FROM</div>
+            <div class="pv-grotesk" style="font-size:16px;font-weight:500;margin-top:2px;">Custom quote</div>
+          </div>
+          <a href="contact.html" class="pv-btn-ghost" style="padding:12px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;display:inline-block;">Enquire →</a>
+        </div>
+      </div>
+
+      <!-- Professional (Recommended) -->
+      <div class="pv-card pk-card pk-card-recommended">
+        <div class="pk-recommended">RECOMMENDED</div>
+        <div class="pk-card-head">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span class="pv-eyebrow-num">TIER · 02</span>
+            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+          </div>
+          <h2 class="pv-grotesk" style="font-size:32px;font-weight:600;letter-spacing:-0.02em;margin:0;">Professional</h2>
+          <p style="margin-top:8px;font-size:14.5px;color:var(--pv-muted);line-height:1.55;">For growing businesses that need a website that actively converts.</p>
+        </div>
+
+        <div class="pk-meta-row">
+          <div>
+            <div class="pv-eyebrow-num">TIMELINE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">4–6 weeks</div>
+          </div>
+          <div>
+            <div class="pv-eyebrow-num">SCOPE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">Up to 10 pages</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="pv-eyebrow-num" style="margin-bottom:6px;">BEST FOR</div>
+          <div style="font-size:13px;color:var(--pv-text);line-height:1.55;">Multi-service businesses · growing teams · brands ready to be findable</div>
+        </div>
+
+        <div class="pk-features">
+          <div class="pv-eyebrow-num" style="margin-bottom:12px;">WHAT'S INCLUDED</div>
+          <ul class="pk-feature-list">
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Up to 10-page custom build</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Performance-focused build (95+ Lighthouse)</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>On-page SEO optimisation &amp; schema</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Lead-conversion flow &amp; qualified forms</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Blog / articles scaffolding</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Light brand work (type, colour, voice)</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Ongoing monthly support available</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>30-day post-launch SEO audit</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pk-price-row">
+          <div>
+            <div class="pv-eyebrow-num">FROM</div>
+            <div class="pv-grotesk" style="font-size:16px;font-weight:500;color:var(--pv-cyan);margin-top:2px;">Custom quote</div>
+          </div>
+          <a href="contact.html" class="pv-btn-amber" style="padding:12px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;display:inline-block;">Enquire →</a>
+        </div>
+      </div>
+
+      <!-- Business -->
+      <div class="pv-card pk-card">
+        <div class="pk-card-head">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span class="pv-eyebrow-num">TIER · 03</span>
+            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+          </div>
+          <h2 class="pv-grotesk" style="font-size:32px;font-weight:600;letter-spacing:-0.02em;margin:0;">Business</h2>
+          <p style="margin-top:8px;font-size:14.5px;color:var(--pv-muted);line-height:1.55;">For higher-touch projects: custom systems, scale, integrations.</p>
+        </div>
+
+        <div class="pk-meta-row">
+          <div>
+            <div class="pv-eyebrow-num">TIMELINE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">6–10 weeks</div>
+          </div>
+          <div>
+            <div class="pv-eyebrow-num">SCOPE</div>
+            <div class="pv-grotesk" style="font-size:15px;margin-top:2px;">Custom scope</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="pv-eyebrow-num" style="margin-bottom:6px;">BEST FOR</div>
+          <div style="font-size:13px;color:var(--pv-text);line-height:1.55;">Established businesses · agencies · multi-location / multi-region</div>
+        </div>
+
+        <div class="pk-features">
+          <div class="pv-eyebrow-num" style="margin-bottom:12px;">WHAT'S INCLUDED</div>
+          <ul class="pk-feature-list">
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Custom scope &amp; sitemap</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Bespoke component system</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Advanced SEO, schema &amp; technical audits</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Payments-ready architecture</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>CMS / dashboard / CRM integrations</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Multi-language support (optional)</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Dedicated support track</span>
+            </li>
+            <li class="pk-feature-item">
+              <svg class="pk-check-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg>
+              <span>Quarterly health checks for 6 months</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pk-price-row">
+          <div>
+            <div class="pv-eyebrow-num">FROM</div>
+            <div class="pv-grotesk" style="font-size:16px;font-weight:500;margin-top:2px;">Custom quote</div>
+          </div>
+          <a href="contact.html" class="pv-btn-ghost" style="padding:12px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;display:inline-block;">Enquire →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COMPARISON TABLE ─────────────────────────────── -->
+<section class="pg-section">
+  <div class="pg-wrap">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span class="pv-eyebrow-num">01</span>
+      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+      <span class="pv-eyebrow">Compare</span>
+    </div>
+    <h2 class="pv-grotesk pk-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 32px;letter-spacing:-0.02em;max-width:720px;">
+      What's in each tier, side by side.
+    </h2>
+
+    <div class="pk-compare-wrap">
+      <table class="pk-compare">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Essential</th>
+            <th class="pk-compare-recommended">
+              Professional
+              <span class="pk-compare-tag">RECOMMENDED</span>
+            </th>
+            <th>Business</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Pages -->
+          <tr>
+            <td class="pk-compare-label">Pages</td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Up to 5</span></td>
+            <td class="pk-compare-recommended"><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Up to 10</span></td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Custom</span></td>
+          </tr>
+          <!-- Timeline -->
+          <tr>
+            <td class="pk-compare-label">Timeline</td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">2–3 weeks</span></td>
+            <td class="pk-compare-recommended"><span class="pv-grotesk" style="font-size:13px;font-weight:500;">4–6 weeks</span></td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">6–10 weeks</span></td>
+          </tr>
+          <!-- Responsive design -->
+          <tr>
+            <td class="pk-compare-label">Responsive design</td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Lead enquiry form -->
+          <tr>
+            <td class="pk-compare-label">Lead enquiry form</td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- On-page SEO setup -->
+          <tr>
+            <td class="pk-compare-label">On-page SEO setup</td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Basic</span></td>
+            <td class="pk-compare-recommended"><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Full</span></td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Advanced</span></td>
+          </tr>
+          <!-- Schema & structured data -->
+          <tr>
+            <td class="pk-compare-label">Schema &amp; structured data</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Blog / articles scaffolding -->
+          <tr>
+            <td class="pk-compare-label">Blog / articles scaffolding</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Lead-conversion flow -->
+          <tr>
+            <td class="pk-compare-label">Lead-conversion flow</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Light brand work -->
+          <tr>
+            <td class="pk-compare-label">Light brand work</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Payments-ready architecture -->
+          <tr>
+            <td class="pk-compare-label">Payments-ready architecture</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- CMS / dashboard integrations -->
+          <tr>
+            <td class="pk-compare-label">CMS / dashboard integrations</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+          <!-- Multi-language support -->
+          <tr>
+            <td class="pk-compare-label">Multi-language support</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td><span class="pv-grotesk" style="font-size:13px;font-weight:500;">Optional</span></td>
+          </tr>
+          <!-- Monthly support available -->
+          <tr>
+            <td class="pk-compare-label">Monthly support available</td>
+            <td><span style="color:var(--pv-border-hi);font-size:14px;">—</span></td>
+            <td class="pk-compare-recommended"><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+            <td><span class="pk-cell-check"><svg width="11" height="11" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.7" fill="none"/></svg></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS STRIP ────────────────────────────────── -->
+<section class="pg-section" style="background:var(--pv-bg-alt);border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);">
+  <div class="pg-wrap">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span class="pv-eyebrow-num">02</span>
+      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+      <span class="pv-eyebrow">Process</span>
+    </div>
+    <h2 class="pv-grotesk pk-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:720px;">
+      Every tier moves through the same five steps.
+    </h2>
+    <div class="pk-process">
+
+      <div class="pk-process-step">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
+          <span class="pv-grotesk pk-process-num">01</span>
+          <span class="pk-process-rule"></span>
+        </div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:6px;">Enquire</div>
+        <p style="margin:0;font-size:13px;color:var(--pv-muted);line-height:1.55;">A short form. Tell us about the business and rough scope.</p>
+      </div>
+
+      <div class="pk-process-step">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
+          <span class="pv-grotesk pk-process-num">02</span>
+          <span class="pk-process-rule"></span>
+        </div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:6px;">Choose package</div>
+        <p style="margin:0;font-size:13px;color:var(--pv-muted);line-height:1.55;">We send a clear quote and timeline. You pick.</p>
+      </div>
+
+      <div class="pk-process-step">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
+          <span class="pv-grotesk pk-process-num">03</span>
+          <span class="pk-process-rule"></span>
+        </div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:6px;">Build</div>
+        <p style="margin:0;font-size:13px;color:var(--pv-muted);line-height:1.55;">Weekly previews, weekly check-ins. No black-box phase.</p>
+      </div>
+
+      <div class="pk-process-step">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
+          <span class="pv-grotesk pk-process-num">04</span>
+          <span class="pk-process-rule"></span>
+        </div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:6px;">Review</div>
+        <p style="margin:0;font-size:13px;color:var(--pv-muted);line-height:1.55;">Structured review rounds. Real edits, not approval theatre.</p>
+      </div>
+
+      <div class="pk-process-step">
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:10px;">
+          <span class="pv-grotesk pk-process-num">05</span>
+          <span class="pk-process-rule"></span>
+        </div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:6px;">Launch</div>
+        <p style="margin:0;font-size:13px;color:var(--pv-muted);line-height:1.55;">Deployed, monitored, and tuned over the first 2 weeks.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ADD-ONS ──────────────────────────────────────── -->
+<section class="pg-section">
+  <div class="pg-wrap">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span class="pv-eyebrow-num">03</span>
+      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+      <span class="pv-eyebrow">Add-ons</span>
+    </div>
+    <h2 class="pv-grotesk pk-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 32px;letter-spacing:-0.02em;max-width:720px;">
+      Optional, scoped to need.
+    </h2>
+    <p style="font-size:16px;color:var(--pv-muted);line-height:1.6;max-width:620px;margin:0 0 40px;">
+      None of these are bundled in by default — we add them when they earn their place. Quoted separately, scoped honestly.
+    </p>
+
+    <div class="pk-addons">
+
+      <div class="pv-card pk-addon">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span class="pv-eyebrow-num">01</span>
+          <span style="font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">PRO / BUSINESS</span>
+        </div>
+        <div class="pv-grotesk" style="font-size:18px;font-weight:600;margin-bottom:8px;">Monthly support retainer</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Updates, monitoring, content edits, incremental improvements. Scoped to what you actually need.</p>
+      </div>
+
+      <div class="pv-card pk-addon">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span class="pv-eyebrow-num">02</span>
+          <span style="font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">ANY TIER</span>
+        </div>
+        <div class="pv-grotesk" style="font-size:18px;font-weight:600;margin-bottom:8px;">Copy &amp; content shaping</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">We help structure, edit, and (when needed) write the words. Available as an add-on.</p>
+      </div>
+
+      <div class="pv-card pk-addon">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span class="pv-eyebrow-num">03</span>
+          <span style="font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">PRO / BUSINESS</span>
+        </div>
+        <div class="pv-grotesk" style="font-size:18px;font-weight:600;margin-bottom:8px;">Brand identity (light)</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Typography, colour, voice. Not a full brand identity — a coherent system to launch from.</p>
+      </div>
+
+      <div class="pv-card pk-addon">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span class="pv-eyebrow-num">04</span>
+          <span style="font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">PRO / BUSINESS</span>
+        </div>
+        <div class="pv-grotesk" style="font-size:18px;font-weight:600;margin-bottom:8px;">SEO content scaffolding</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Topic clusters, page architecture, internal-linking strategy. Not link-building.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PRICING FAQ ──────────────────────────────────── -->
+<section class="pg-section" style="background:var(--pv-bg-alt);border-top:1px solid var(--pv-border);">
+  <div class="pg-wrap">
+    <div class="pk-faq-split">
+
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+          <span class="pv-eyebrow-num">04</span>
+          <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
+          <span class="pv-eyebrow">Pricing FAQ</span>
+        </div>
+        <h2 class="pv-grotesk" style="font-size:36px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">
+          Pricing questions,<br>answered straight.
+        </h2>
+        <p style="margin-top:18px;font-size:15px;color:var(--pv-muted);line-height:1.6;max-width:400px;">
+          For everything else (timelines, content, SEO, tech) see the <a href="faq.html" style="color:var(--pv-cyan);text-decoration:none;">full FAQ →</a>
+        </p>
+      </div>
+
+      <div>
+        <div class="pv-faq-item" data-open="true">
+          <div class="pv-faq-q" role="button" aria-expanded="true" tabindex="0">
+            Why don't you publish prices?
+            <span class="pv-faq-icon" aria-hidden="true">
+              <span class="pv-faq-icon-h"></span>
+              <span class="pv-faq-icon-v"></span>
+            </span>
+          </div>
+          <div class="pv-faq-body"><p>Templated prices lead to templated work. A 5-page site for a clinic isn't the same as a 5-page site for a B2B SaaS — pricing should reflect the actual project, not a sticker.</p></div>
+        </div>
+
+        <div class="pv-faq-item">
+          <div class="pv-faq-q" role="button" aria-expanded="false" tabindex="0">
+            Are quotes flat-rate or hourly?
+            <span class="pv-faq-icon" aria-hidden="true">
+              <span class="pv-faq-icon-h"></span>
+              <span class="pv-faq-icon-v"></span>
+            </span>
+          </div>
+          <div class="pv-faq-body"><p>Flat-rate by default. You see the total before we start, and that's what you pay. Hourly retainers are a separate add-on for ongoing work.</p></div>
+        </div>
+
+        <div class="pv-faq-item">
+          <div class="pv-faq-q" role="button" aria-expanded="false" tabindex="0">
+            What's included in the quote?
+            <span class="pv-faq-icon" aria-hidden="true">
+              <span class="pv-faq-icon-h"></span>
+              <span class="pv-faq-icon-v"></span>
+            </span>
+          </div>
+          <div class="pv-faq-body"><p>Design, build, deployment, on-page SEO basics, a launch checklist, and two weeks of post-launch tweaks. Platform fees (hosting, domain) are passed through at cost.</p></div>
+        </div>
+
+        <div class="pv-faq-item">
+          <div class="pv-faq-q" role="button" aria-expanded="false" tabindex="0">
+            Can I switch tiers mid-project?
+            <span class="pv-faq-icon" aria-hidden="true">
+              <span class="pv-faq-icon-h"></span>
+              <span class="pv-faq-icon-v"></span>
+            </span>
+          </div>
+          <div class="pv-faq-body"><p>Yes. If your needs grow during the build, we re-scope transparently. No surprise invoices, ever.</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CLOSING CTA ──────────────────────────────────── -->
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg);position:relative;">
+  <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
+  <div class="pg-wrap" style="position:relative;padding:88px 0;text-align:center;">
+    <h2 class="pv-grotesk pk-cta-h2" style="font-size:44px;font-weight:600;line-height:1.1;margin:0 auto;letter-spacing:-0.02em;max-width:760px;">
+      Not sure which tier fits? Tell us about the project.
+    </h2>
+    <p style="margin-top:18px;font-size:16px;color:var(--pv-muted);line-height:1.6;max-width:540px;margin:18px auto 0;">
+      One short enquiry. We reply within 1–3 business working days with a recommended tier and a quote.
+    </p>
+    <div class="pk-cta-buttons" style="margin-top:32px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">Start an Enquiry →</a>
+      <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">See past projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer class="pg-footer">
+  <div class="pg-wrap">
+    <div class="pg-footer-grid">
+      <div>
+        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+            <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+            <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+            <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+          </svg>
+          <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+        </a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
+          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+          REMOTE-FIRST · WORLDWIDE
+        </div>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="why.html">Why Paeveul</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Start an enquiry</a></li>
+          <li><a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Coming soon</h4>
+        <ul>
+          <li><a href="#">Payments-ready builds</a></li>
+          <li><a href="#">Articles &amp; resources</a></li>
+          <li><a href="#">Multi-language sites</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pg-footer-bottom">
+      <span>© 2026 Paeveul Studio · Made with care</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/paeveul.js"></script>
+</body>
+</html>
