@@ -173,6 +173,7 @@
       .hm-header { padding: 14px 20px; }
       .hm-nav { display: none; }
       .hm-status { display: none; }
+      .hm-header-right .pv-btn-amber { display: none; }
       .hm-hero { padding: 48px 20px 56px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
@@ -203,6 +204,7 @@
       .hm-form-row { grid-template-columns: 1fr; }
       .hm-form-footer { flex-direction: column; align-items: stretch; }
       .hm-form-footer button { width: 100%; }
+      .hm-form-note { max-width: none; }
     }
 
     /* ── Tablet: browser mock scales with column ─── */
@@ -233,6 +235,40 @@
       .hm-step-num { width: 30px; height: 30px; font-size: 11px; }
       .hm-step-content .pv-grotesk { font-size: 13px; }
       .hm-step-connector { margin: 0 8px; }
+    }
+
+    /* ── Mid-tablet: Fold unfolded, iPad Mini/Air portrait ── */
+    @media (min-width: 640px) and (max-width: 900px) {
+      .hm-hero-h1 { font-size: clamp(36px, 5vw, 46px); }
+      .hm-hero-lede { font-size: 17px; max-width: 560px; }
+      .hm-hero-btns { flex-direction: row; }
+      .hm-hero-btns a { display: inline-block; width: auto; }
+      .hm-taglines { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .hm-pkg-grid { grid-template-columns: 1fr 1fr; }
+      .hm-port-grid { grid-template-columns: 1fr 1fr; margin-top: 40px; }
+      .hm-art-grid { grid-template-columns: 1fr 1fr; }
+      .hm-why-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hm-values-grid { grid-template-columns: 1fr 1fr; }
+      .hm-faq-grid { grid-template-columns: 1fr; gap: 24px; }
+      .hm-contact-inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── Fold folded / very narrow phones (≤ 380px) ───── */
+    @media (max-width: 380px) {
+      .hm-hero { padding: 36px 14px 48px; }
+      .hm-hero-h1 { font-size: clamp(24px, 7.5vw, 28px); }
+      .hm-hero-lede { font-size: 14px; margin-top: 20px; }
+      .hm-hero-btns { margin-top: 24px; gap: 10px; }
+      .hm-taglines { margin-top: 24px; }
+      .hm-section, .hm-section-alt { padding: 48px 14px; }
+      .hm-process { padding: 32px 14px; }
+      .hm-contact { padding: 48px 14px; }
+      .hm-pkg-name { font-size: 22px; }
+      .hm-pkg-card { padding: 22px 18px; }
+      .hm-email-link { font-size: 16px; word-break: break-all; }
+      .hm-form { padding: 16px; }
+      .hm-sh-h2 { font-size: 28px; }
+      .hm-form-note { max-width: none; }
     }
   </style>
 </head>

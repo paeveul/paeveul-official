@@ -36,6 +36,7 @@
 
   <style>
     /* ── Why page layout ──────────────────────────────── */
+    .why-stats-wrap { padding-top: 36px; padding-bottom: 36px; }
     .why-split {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
@@ -155,15 +156,59 @@
       .why-split { grid-template-columns: 1fr; gap: 32px; }
       .why-grid { grid-template-columns: 1fr; }
       .why-principles { grid-template-columns: 1fr 1fr; gap: 28px; }
+
+      /* Hero title — matches homepage clamp standard */
+      .pg-title { font-size: clamp(29px, 8vw, 37px); }
+
+      /* Stats strip — 2×2 grid, centered, consistent padding */
+      .why-stats-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        justify-items: center;
+        text-align: center;
+      }
+
+      /* Section h2s — reduce from 40px inline */
+      .why-section-h2 { font-size: 28px !important; line-height: 1.15 !important; margin-bottom: 32px !important; }
+
+      /* Closing CTA */
+      .why-cta-wrap { padding-top: 56px !important; padding-bottom: 56px !important; }
+      .why-cta-h2 { font-size: 26px !important; line-height: 1.2 !important; }
+      .why-cta-btns { flex-direction: column; align-items: stretch; }
+      .why-cta-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
     }
     @media (max-width: 700px) {
       .why-testi-card { flex-basis: 100%; min-height: 280px; }
-      .why-carousel-prev { left: 8px; }
-      .why-carousel-next { right: 8px; }
-      .why-carousel-btn { width: 38px; height: 38px; }
+      .why-carousel-btn { display: none; }
+      .why-principles { grid-template-columns: 1fr; gap: 32px; }
     }
+
+    /* ── Small phones — principles collapse (per design spec) */
     @media (max-width: 560px) {
-      .why-principles { grid-template-columns: 1fr; }
+      .why-principles { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    /* ── Mid-tablet: Fold unfolded, iPad Mini/Air portrait ── */
+    @media (min-width: 640px) and (max-width: 900px) {
+      .why-split { grid-template-columns: 1fr 1.4fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .why-principles { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .why-cta-btns { flex-direction: row; align-items: center; }
+      .why-cta-btns a { display: inline-block; width: auto; }
+    }
+
+    /* ── Fold folded / very narrow phones (≤ 380px) ───── */
+    @media (max-width: 380px) {
+      .pg-hero { overflow: hidden; padding: 40px 0 32px; }
+      .why-stats-wrap { gap: 16px; padding-top: 24px; padding-bottom: 24px; }
+      .why-cell { padding: 20px 16px; }
+      .why-testi-card { padding: 20px 16px; min-height: 240px; }
+      .why-testi-quote { font-size: 14px; }
+      .why-testi-cap { gap: 10px; }
+      .why-testi-avatar { width: 32px; height: 32px; font-size: 11px; }
     }
   </style>
 </head>
@@ -228,7 +273,7 @@
 
 <!-- ── STATS STRIP ─────────────────────────────────── -->
 <section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
-  <div class="pg-wrap" style="padding:36px 0;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+  <div class="pg-wrap why-stats-wrap" style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;">
     <div style="flex:1 1 160px;">
       <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">38+</div>
       <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Sites shipped</div>
@@ -259,7 +304,7 @@
           <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
           <span class="pv-eyebrow">What guides the work</span>
         </div>
-        <h2 class="pv-grotesk" style="font-size:40px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">
+        <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">
           Six things we won't compromise on.
         </h2>
         <p style="margin-top:18px;font-size:16px;color:var(--pv-muted);line-height:1.6;max-width:420px;">
@@ -330,7 +375,7 @@
       <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
       <span class="pv-eyebrow">Studio principles</span>
     </div>
-    <h2 class="pv-grotesk" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
+    <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
       How we think about every project.
     </h2>
     <div class="why-principles">
@@ -378,7 +423,7 @@
       <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
       <span class="pv-eyebrow">In their words</span>
     </div>
-    <h2 class="pv-grotesk" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
+    <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
       From people we've shipped with.
     </h2>
 
@@ -493,11 +538,11 @@
 <!-- ── CLOSING CTA ──────────────────────────────────── -->
 <section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);position:relative;">
   <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
-  <div class="pg-wrap" style="position:relative;padding:88px 0;text-align:center;">
-    <h2 class="pv-grotesk" style="font-size:44px;font-weight:600;line-height:1.1;margin:0 auto;letter-spacing:-0.02em;max-width:720px;">
+  <div class="pg-wrap why-cta-wrap" style="position:relative;padding:88px 0;text-align:center;">
+    <h2 class="pv-grotesk why-cta-h2" style="font-size:44px;font-weight:600;line-height:1.1;margin:0 auto;letter-spacing:-0.02em;max-width:720px;">
       Ready to see what a considered build looks like for your business?
     </h2>
-    <div style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <div class="why-cta-btns" style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
       <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">Start an Enquiry →</a>
       <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">See the portfolio</a>
     </div>
