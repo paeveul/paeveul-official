@@ -400,7 +400,7 @@ a { color: inherit; }
 .pg-hero { padding: 88px 0 72px; position: relative; }
 .pg-hero-grid { position: absolute; inset: 0; opacity: 0.45; }
 .pg-hero-glow {
-  position: absolute;
+  position: fixed;
   top: -200px;
   right: -150px;
   width: 600px;
