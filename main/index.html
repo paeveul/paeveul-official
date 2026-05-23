@@ -75,7 +75,6 @@
     .hm-tagline-item { display: flex; gap: 14px; align-items: flex-start; }
     .hm-tagline-num { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--pv-cyan); display: inline-flex; align-items: center; justify-content: center; color: var(--pv-cyan); font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; margin-top: 1px; }
     .hm-hero-visual { position: relative; justify-self: end; }
-    .hm-hero-mobile-browser { display: none; }
 
     /* ── BrowserMock ─────────────────────────────── */
     .hm-browser { background: var(--pv-card); border: 1px solid var(--pv-border); border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 30px 80px -20px rgba(0,229,255,0.10), 0 8px 28px rgba(0,0,0,0.45); }
@@ -182,7 +181,6 @@
       .hm-hero { padding: 48px 20px 56px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
-      .hm-hero-mobile-browser { display: block; margin-top: 36px; }
       .hm-hero-h1 { font-size: clamp(29px, 8vw, 37px); }
       .hm-hero-lede { font-size: 16px; max-width: none; }
       .hm-hero-btns { flex-direction: column; }
@@ -238,6 +236,7 @@
 
     /* ── Tablet: process strip tightens ─────────── */
     @media (min-width: 901px) and (max-width: 1100px) {
+      .hm-taglines { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hm-process { padding: 36px 40px; }
       .hm-process-label { margin-right: 24px; }
       .hm-process-label .pv-grotesk { font-size: 15px; }
@@ -321,37 +320,6 @@
       <div class="hm-hero-btns">
         <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">Start an Enquiry →</a>
         <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">See Our Work</a>
-      </div>
-
-      <!-- Mobile-only browser mock -->
-      <div class="hm-hero-mobile-browser">
-        <div class="hm-browser" style="max-width:350px;">
-          <div class="hm-browser-bar">
-            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
-            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>paeveul.studio</div>
-          </div>
-          <div class="hm-browser-content" style="height:200px;">
-            <div style="display:grid;grid-template-columns:70px 1fr;gap:10px;height:100%;">
-              <div style="display:flex;flex-direction:column;gap:5px;">
-                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Overview</div>
-                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Pages</div>
-                <div style="padding:5px 7px;border-radius:4px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-cyan);">SEO</div>
-                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Leads</div>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:8px;min-width:0;">
-                <div style="font-size:8px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">SEO HEALTH · 30D</div>
-                <div class="pv-grotesk" style="font-size:18px;font-weight:600;">98<span style="color:var(--pv-muted);font-size:11px;">/100</span></div>
-                <svg viewBox="0 0 200 80" preserveAspectRatio="none" style="width:100%;height:70px;">
-                  <defs><linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/><stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient></defs>
-                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18 L 200 80 L 0 80 Z" fill="url(#mg1)"/>
-                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18" stroke="#00E5FF" stroke-width="1.2" fill="none"/>
-                  <circle cx="180" cy="14" r="2.5" fill="#00E5FF"/>
-                </svg>
-              </div>
-            </div>
-            <div class="pv-scanline"></div>
-          </div>
-        </div>
       </div>
 
       <div class="hm-taglines">
