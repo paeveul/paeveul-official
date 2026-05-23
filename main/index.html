@@ -166,12 +166,7 @@
     .hm-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; gap: 16px; }
     .hm-form-note { font-size: 11.5px; color: var(--pv-muted); max-width: 280px; line-height: 1.5; }
 
-    /* ── Footer ──────────────────────────────────── */
-    .hm-footer { padding: 64px 80px 36px; border-top: 1px solid var(--pv-border); background: var(--pv-bg); position: relative; z-index: 2; }
-    .hm-footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
-    .hm-footer-col-head { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pv-muted); margin: 0 0 16px; }
-    .hm-footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-    .hm-footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--pv-border); font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--pv-muted); letter-spacing: 0.04em; }
+    /* ── Footer — uses pg-footer from paeveul.css ── */
 
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 900px) {
@@ -208,12 +203,6 @@
       .hm-form-row { grid-template-columns: 1fr; }
       .hm-form-footer { flex-direction: column; align-items: stretch; }
       .hm-form-footer button { width: 100%; }
-      .hm-footer { padding: 40px 20px 28px; }
-      .hm-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
-      .hm-footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
-    }
-    @media (max-width: 500px) {
-      .hm-footer-grid { grid-template-columns: 1fr; gap: 24px; }
     }
 
     /* ── Tablet: browser mock scales with column ─── */
@@ -881,53 +870,54 @@
 </section>
 
 <!-- ── FOOTER ──────────────────────────────────────── -->
-<footer class="hm-footer">
-  <div class="hm-footer-grid">
-    <div>
-      <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
-          <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
-          <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
-          <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
-        </svg>
-        <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
-      </a>
-      <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
-      <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
-        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-        REMOTE-FIRST · WORLDWIDE
+<footer class="pg-footer">
+  <div class="pg-wrap">
+    <div class="pg-footer-grid">
+      <div>
+        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+            <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+            <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+            <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+          </svg>
+          <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+        </a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
+          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+          REMOTE-FIRST · WORLDWIDE
+        </div>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="why.html">Why Paeveul</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="contact.html">Start an enquiry</a></li>
+          <li><a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="pg-footer-col">
+        <h4>Coming soon</h4>
+        <ul>
+          <li><a href="#">Payments-ready builds</a></li>
+          <li><a href="#">Articles &amp; resources</a></li>
+          <li><a href="#">Multi-language sites</a></li>
+        </ul>
       </div>
     </div>
-    <div>
-      <div class="hm-footer-col-head">Studio</div>
-      <ul>
-        <li><a href="#packages" class="pv-link" style="font-size:14px;">Packages</a></li>
-        <li><a href="portfolio.html" class="pv-link" style="font-size:14px;">Portfolio</a></li>
-        <li><a href="why.html" class="pv-link" style="font-size:14px;">Why Paeveul</a></li>
-        <li><a href="blog.html" class="pv-link" style="font-size:14px;">Blog</a></li>
-      </ul>
+    <div class="pg-footer-bottom">
+      <span>© 2026 Paeveul Studio · Made with care</span>
     </div>
-    <div>
-      <div class="hm-footer-col-head">Connect</div>
-      <ul>
-        <li><a href="contact.html" class="pv-link" style="font-size:14px;">Start an enquiry</a></li>
-        <li><a href="mailto:paeveul.official@gmail.com" class="pv-link" style="font-size:14px;">paeveul.official@gmail.com</a></li>
-        <li><a href="faq.html" class="pv-link" style="font-size:14px;">FAQ</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="hm-footer-col-head">Coming soon</div>
-      <ul>
-        <li><a href="#" class="pv-link" style="font-size:14px;">Payments-ready builds</a></li>
-        <li><a href="#" class="pv-link" style="font-size:14px;">Articles &amp; resources</a></li>
-        <li><a href="#" class="pv-link" style="font-size:14px;">Multi-language sites</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="hm-footer-bottom">
-    <span>© 2026 Paeveul Studio · Made with care</span>
-    <span>v1.0 · Last shipped May 2026</span>
   </div>
 </footer>
 
