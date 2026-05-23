@@ -5,25 +5,20 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta -->
-  <title>Paeveul Web Services — Professional Websites for Your Business</title>
-  <meta name="description" content="Paeveul Web Services builds fast, affordable, professional websites for small businesses in Malaysia. Packages from RM 1,300. Based in Kuala Lumpur." />
+  <title>Paeveul — Custom Websites for Growing Businesses</title>
+  <meta name="description" content="Paeveul builds custom websites, SEO-aware structure and lead-conversion flows for growing businesses. From idea to live site — without the overwhelm." />
   <meta name="keywords" content="web design Malaysia, website Kuala Lumpur, affordable website SME, business website Malaysia, Paeveul" />
   <link rel="canonical" href="https://paeveul.com/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://paeveul.com/" />
-  <meta property="og:title" content="Paeveul Web Services — Professional Websites for Your Business" />
-  <meta property="og:description" content="Fast, affordable websites for small businesses. Built and delivered by a real developer, not a template tool." />
-  <meta property="og:site_name" content="Paeveul Web Services" />
-
-  <!-- Twitter Card -->
+  <meta property="og:title" content="Paeveul — Custom Websites for Growing Businesses" />
+  <meta property="og:description" content="Custom websites, SEO-aware structure and lead-conversion flows for growing businesses." />
+  <meta property="og:site_name" content="Paeveul" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Paeveul Web Services — Professional Websites for Your Business" />
-  <meta name="twitter:description" content="Fast, affordable websites for small businesses. Built and delivered by a real developer, not a template tool." />
+  <meta name="twitter:title" content="Paeveul — Custom Websites for Growing Businesses" />
+  <meta name="twitter:description" content="Custom websites, SEO-aware structure and lead-conversion flows for growing businesses." />
 
-  <!-- JSON-LD LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -31,23 +26,10 @@
     "name": "Paeveul Web Services",
     "url": "https://paeveul.com",
     "email": "paeveul.official@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kuala Lumpur",
-      "addressCountry": "MY"
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Kuala Lumpur"
-      },
-      {
-        "@type": "Country",
-        "name": "Malaysia"
-      }
-    ],
-    "description": "Professional websites and digital solutions for small and medium businesses in Malaysia.",
-    "priceRange": "RM 1,300–RM 5,000"
+    "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
+    "areaServed": [{ "@type": "City", "name": "Kuala Lumpur" }, { "@type": "Country", "name": "Malaysia" }],
+    "description": "Professional websites and digital solutions for small and medium businesses.",
+    "priceRange": "Custom quote"
   }
   </script>
 
@@ -69,497 +51,906 @@
     })(window, document, "clarity", "script", "wkwbodgtkd");
   </script>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/paeveul.css" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Header ─────────────────────────────────────── */
+    .hm-header {
+      position: sticky; top: 0; z-index: 50;
+      padding: 22px 80px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--pv-border);
+      background: rgba(13,15,20,0.70);
+      backdrop-filter: blur(8px);
+      position: relative;
+    }
+    .hm-nav { display: flex; gap: 32px; }
+    .hm-nav a { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--pv-text); transition: color .15s; }
+    .hm-nav a:hover { color: var(--pv-cyan); }
+    .hm-header-right { display: flex; align-items: center; gap: 14px; }
+    .hm-status { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--pv-muted); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.06em; }
+
+    /* ── Global background decor ─────────────────── */
+    .hm-bg-glow {
+      position: fixed; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(0,229,255,0.094), transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+    .hm-bg-grid {
+      position: fixed; inset: 0; height: 700px;
+      opacity: 0.5; pointer-events: none; z-index: 0;
+    }
+
+    /* ── Hero ────────────────────────────────────── */
+    .hm-hero { position: relative; padding: 116px 80px 96px; z-index: 2; }
+    .hm-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+    .hm-hero-h1 { font-size: 80px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+    .hm-hero-lede { margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--pv-muted); max-width: 520px; }
+    .hm-hero-btns { margin-top: 36px; display: flex; gap: 14px; align-items: center; }
+    .hm-taglines { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 28px; border-top: 1px solid var(--pv-border); }
+    .hm-tagline-item { display: flex; gap: 14px; align-items: flex-start; }
+    .hm-tagline-num { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--pv-cyan); display: inline-flex; align-items: center; justify-content: center; color: var(--pv-cyan); font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; margin-top: 1px; }
+    .hm-hero-visual { position: relative; justify-self: end; }
+    .hm-hero-mobile-browser { display: none; }
+
+    /* ── BrowserMock ─────────────────────────────── */
+    .hm-browser { background: var(--pv-card); border: 1px solid var(--pv-border); border-radius: 12px; overflow: hidden; position: relative; box-shadow: 0 30px 80px -20px rgba(0,229,255,0.10), 0 8px 28px rgba(0,0,0,0.45); }
+    .hm-browser-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); flex-shrink: 0; }
+    .hm-browser-dots { display: flex; gap: 6px; }
+    .hm-browser-dot { width: 8px; height: 8px; border-radius: 999px; background: #3a4050; }
+    .hm-browser-addr { flex: 1; height: 18px; background: var(--pv-bg); border: 1px solid var(--pv-border); border-radius: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-muted); letter-spacing: 0.04em; overflow: hidden; white-space: nowrap; }
+    .hm-browser-content { position: relative; padding: 18px; overflow: hidden; }
+
+    /* ── Corner brackets ─────────────────────────── */
+    .hm-corner { position: absolute; width: 14px; height: 14px; }
+    .hm-corner-tl { top: -10px; left: -10px; border-top: 1.2px solid var(--pv-cyan); border-left: 1.2px solid var(--pv-cyan); }
+    .hm-corner-tr { top: -10px; right: -10px; border-top: 1.2px solid var(--pv-cyan); border-right: 1.2px solid var(--pv-cyan); }
+    .hm-corner-bl { bottom: -10px; left: -10px; border-bottom: 1.2px solid var(--pv-cyan); border-left: 1.2px solid var(--pv-cyan); }
+    .hm-corner-br { bottom: -10px; right: -10px; border-bottom: 1.2px solid var(--pv-cyan); border-right: 1.2px solid var(--pv-cyan); }
+
+    /* ── Hero floating card + badge ──────────────── */
+    .hm-float-card { position: absolute; bottom: -36px; left: -42px; width: 230px; padding: 14px; background: var(--pv-card); border: 1px solid var(--pv-border); border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .hm-live-badge { position: absolute; top: -28px; right: -28px; padding: 8px 12px; background: var(--pv-card); border: 1px solid rgba(0,229,255,0.33); border-radius: 8px; font-size: 11px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-cyan); letter-spacing: 0.1em; white-space: nowrap; }
+
+    /* ── Process strip ───────────────────────────── */
+    .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 36px 80px; position: relative; z-index: 2; }
+    .hm-process-inner { display: flex; align-items: center; }
+    .hm-process-label { flex: 0 0 auto; margin-right: 40px; }
+    .hm-process-steps { flex: 1; display: flex; align-items: center; }
+    .hm-step { display: flex; align-items: center; flex: 1; min-width: 0; }
+    .hm-step-content { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+    .hm-step-num { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--pv-border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--pv-cyan); background: var(--pv-bg); flex-shrink: 0; }
+    .hm-step-connector { flex: 1; height: 1px; margin: 0 16px; background: linear-gradient(90deg, var(--pv-border), transparent); }
+
+    /* ── Sections ────────────────────────────────── */
+    .hm-section { padding: 116px 80px; position: relative; z-index: 2; }
+    .hm-section-alt { padding: 116px 80px; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); position: relative; z-index: 2; }
+
+    /* ── SectionHeader ───────────────────────────── */
+    .hm-sh-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .hm-sh-rule { width: 24px; height: 1px; background: var(--pv-border); }
+    .hm-sh-h2 { font-size: 44px; line-height: 1.08; font-weight: 600; margin: 0; letter-spacing: -0.02em; }
+    .hm-sh-lede { font-size: 16px; line-height: 1.6; color: var(--pv-muted); margin-top: 16px; margin-bottom: 0; }
+
+    /* ── Packages ────────────────────────────────── */
+    .hm-pkg-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
+    .hm-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .hm-pkg-card { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
+    .hm-pkg-card.recommended { border-color: var(--pv-cyan) !important; background: var(--pv-card-hi) !important; }
+    .hm-pkg-rec-badge { position: absolute; top: -1px; right: 18px; padding: 4px 10px; background: var(--pv-cyan); color: #06222a; font-size: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.1em; border-radius: 0 0 4px 4px; }
+    .hm-pkg-tier-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
+    .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-muted); line-height: 1.55; margin-bottom: 0; }
+    .hm-pkg-divider { height: 1px; background: var(--pv-border); }
+    .hm-pkg-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .hm-pkg-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; }
+    .hm-pkg-check { flex: 0 0 auto; margin-top: 3px; }
+
+    /* ── Portfolio ───────────────────────────────── */
+    .hm-port-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .hm-port-card { overflow: hidden; display: flex; flex-direction: column; }
+    .hm-port-preview { padding: 24px; background: var(--pv-bg); border-bottom: 1px solid var(--pv-border); }
+    .hm-port-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .hm-port-meta { display: flex; justify-content: space-between; align-items: center; }
+
+    /* ── Why ─────────────────────────────────────── */
+    .hm-why-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
+    .hm-why-note { margin-top: 36px; padding: 20px; background: var(--pv-card); border: 1px solid var(--pv-border); border-radius: 10px; }
+    .hm-values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--pv-border); border: 1px solid var(--pv-border); border-radius: 10px; overflow: hidden; }
+    .hm-value-cell { padding: 28px; background: var(--pv-card); }
+    .hm-value-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .hm-value-num { width: 24px; height: 24px; border: 1px solid var(--pv-cyan); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--pv-cyan); font-family: 'Space Grotesk', sans-serif; flex-shrink: 0; }
+    .hm-value-rule { width: 16px; height: 1px; background: var(--pv-border); }
+
+    /* ── Articles ────────────────────────────────── */
+    .hm-art-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; }
+    .hm-art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .hm-art-card { padding: 24px; display: flex; flex-direction: column; min-height: 240px; }
+    .hm-art-top { display: flex; justify-content: space-between; align-items: center; }
+    .hm-art-bottom { margin-top: auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* ── FAQ ─────────────────────────────────────── */
+    .hm-faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: flex-start; }
+
+    /* ── Contact ─────────────────────────────────── */
+    .hm-contact { padding: 116px 80px; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); position: relative; z-index: 2; }
+    .hm-contact-bg { position: absolute; inset: 0; opacity: 0.4; pointer-events: none; }
+    .hm-contact-inner { position: relative; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
+    .hm-contact-info { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
+    .hm-email-link { font-size: 22px; color: var(--pv-text); text-decoration: none; border-bottom: 1px solid var(--pv-cyan); padding-bottom: 2px; }
+    .hm-form { padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .hm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .hm-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; gap: 16px; }
+    .hm-form-note { font-size: 11.5px; color: var(--pv-muted); max-width: 280px; line-height: 1.5; }
+
+    /* ── Footer ──────────────────────────────────── */
+    .hm-footer { padding: 64px 80px 36px; border-top: 1px solid var(--pv-border); background: var(--pv-bg); position: relative; z-index: 2; }
+    .hm-footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 56px; }
+    .hm-footer-col-head { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pv-muted); margin: 0 0 16px; }
+    .hm-footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .hm-footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid var(--pv-border); font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--pv-muted); letter-spacing: 0.04em; }
+
+    /* ── Responsive ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .hm-header { padding: 14px 20px; }
+      .hm-nav { display: none; }
+      .hm-status { display: none; }
+      .hm-hero { padding: 48px 20px 56px; }
+      .hm-hero-grid { grid-template-columns: 1fr; }
+      .hm-hero-visual { display: none; }
+      .hm-hero-mobile-browser { display: block; margin-top: 36px; }
+      .hm-hero-h1 { font-size: 44px; }
+      .hm-hero-lede { font-size: 16px; max-width: none; }
+      .hm-hero-btns { flex-direction: column; }
+      .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
+      .hm-taglines { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
+      .hm-process { padding: 40px 20px; }
+      .hm-process-inner { flex-direction: column; align-items: flex-start; }
+      .hm-process-label { margin-right: 0; margin-bottom: 20px; }
+      .hm-process-steps { flex-direction: column; align-items: flex-start; gap: 0; position: relative; width: 100%; }
+      .hm-process-steps::before { content: ''; position: absolute; left: 17px; top: 18px; bottom: 18px; width: 1px; background: var(--pv-border); }
+      .hm-step { flex: 0 0 auto; padding: 10px 0; gap: 0; }
+      .hm-step-connector { display: none; }
+      .hm-section, .hm-section-alt { padding: 64px 20px; }
+      .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hm-pkg-grid { grid-template-columns: 1fr; }
+      .hm-port-grid { grid-template-columns: 1fr; margin-top: 32px; }
+      .hm-why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hm-values-grid { grid-template-columns: 1fr; }
+      .hm-art-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+      .hm-art-grid { grid-template-columns: 1fr; }
+      .hm-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hm-contact { padding: 64px 20px; }
+      .hm-contact-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hm-form { padding: 20px; }
+      .hm-form-row { grid-template-columns: 1fr; }
+      .hm-form-footer { flex-direction: column; align-items: stretch; }
+      .hm-form-footer button { width: 100%; }
+      .hm-footer { padding: 40px 20px 28px; }
+      .hm-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 32px; }
+      .hm-footer-bottom { flex-direction: column; gap: 8px; align-items: flex-start; }
+    }
+    @media (max-width: 500px) {
+      .hm-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+    }
+  </style>
 </head>
-<body class="bg-base text-primary" style="font-family: var(--font-outfit);">
+<body>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+<!-- Background decor -->
+<div class="pv-grid-bg hm-bg-grid"></div>
+<div class="hm-bg-glow"></div>
 
-      <!-- Wordmark -->
-      <a href="index.html" class="text-xl font-bold" style="font-family: var(--font-grotesk);" aria-label="Paeveul Web Services — home">
-        <span class="text-accent">P</span><span class="text-primary">aeveul</span>
+<!-- ── HEADER ──────────────────────────────────────── -->
+<header class="hm-header" style="position:sticky;top:0;">
+  <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+      <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+      <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+      <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+    </svg>
+    <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+  </a>
+
+  <nav class="hm-nav">
+    <a href="#packages">Packages</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="why.html">Why Paeveul</a>
+    <a href="faq.html">FAQ</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="hm-header-right">
+    <span class="hm-status">
+      <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+      TAKING NEW PROJECTS · 2026
+    </span>
+    <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+    <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile dropdown -->
+  <div class="pg-mobile-menu">
+    <a href="#packages"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
+    <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
+    <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
+    <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
+    <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
+    <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+    <div style="padding-top:16px;">
+      <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ────────────────────────────────────────── -->
+<section class="hm-hero">
+  <div class="hm-hero-grid">
+
+    <!-- Left: copy -->
+    <div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
+        <span class="pv-eyebrow">Independent Web Studio · Est. 2024</span>
+      </div>
+      <h1 class="hm-hero-h1 pv-grotesk">
+        Launch your business<br>online with
+        <span class="pv-rot" data-words='["clarity","intent","purpose"]'></span>
+      </h1>
+      <p class="hm-hero-lede">
+        We build custom websites, SEO-aware structure and lead-conversion flows for growing businesses.
+        From idea to live site — without the overwhelm.
+      </p>
+      <div class="hm-hero-btns">
+        <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">Start an Enquiry →</a>
+        <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">See Our Work</a>
+      </div>
+
+      <!-- Mobile-only browser mock -->
+      <div class="hm-hero-mobile-browser">
+        <div class="hm-browser" style="max-width:350px;">
+          <div class="hm-browser-bar">
+            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
+            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>paeveul.studio</div>
+          </div>
+          <div class="hm-browser-content" style="height:200px;">
+            <div style="display:grid;grid-template-columns:70px 1fr;gap:10px;height:100%;">
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Overview</div>
+                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Pages</div>
+                <div style="padding:5px 7px;border-radius:4px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-cyan);">SEO</div>
+                <div style="padding:5px 7px;border-radius:4px;font-size:9px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Leads</div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:8px;min-width:0;">
+                <div style="font-size:8px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;text-transform:uppercase;">SEO HEALTH · 30D</div>
+                <div class="pv-grotesk" style="font-size:18px;font-weight:600;">98<span style="color:var(--pv-muted);font-size:11px;">/100</span></div>
+                <svg viewBox="0 0 200 80" preserveAspectRatio="none" style="width:100%;height:70px;">
+                  <defs><linearGradient id="mg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/><stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient></defs>
+                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18 L 200 80 L 0 80 Z" fill="url(#mg1)"/>
+                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18" stroke="#00E5FF" stroke-width="1.2" fill="none"/>
+                  <circle cx="180" cy="14" r="2.5" fill="#00E5FF"/>
+                </svg>
+              </div>
+            </div>
+            <div class="pv-scanline"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hm-taglines">
+        <div class="hm-tagline-item">
+          <span class="hm-tagline-num">01</span>
+          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Launch-ready in 2–3 weeks</span>
+        </div>
+        <div class="hm-tagline-item">
+          <span class="hm-tagline-num">02</span>
+          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Fast, SEO-aware, performance-focused</span>
+        </div>
+        <div class="hm-tagline-item">
+          <span class="hm-tagline-num">03</span>
+          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Direct 1:1 support throughout the build</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: BrowserMock visual (desktop only) -->
+    <div class="hm-hero-visual">
+      <span class="hm-corner hm-corner-tl"></span>
+      <span class="hm-corner hm-corner-tr"></span>
+      <span class="hm-corner hm-corner-bl"></span>
+      <span class="hm-corner hm-corner-br"></span>
+
+      <div class="hm-browser" style="width:580px;height:380px;">
+        <div class="hm-browser-bar">
+          <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
+          <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>paeveul.studio/dashboard</div>
+        </div>
+        <div class="hm-browser-content" style="height:341px;">
+          <div style="display:grid;grid-template-columns:90px 1fr;gap:14px;height:100%;">
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Overview</div>
+              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Pages</div>
+              <div style="padding:7px 9px;border-radius:5px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-cyan);">SEO</div>
+              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Leads</div>
+              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Analytics</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:12px;min-width:0;">
+              <div style="display:flex;justify-content:space-between;align-items:center;">
+                <div>
+                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.12em;text-transform:uppercase;">SEO HEALTH · 30D</div>
+                  <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-top:2px;">98<span style="color:var(--pv-muted);font-size:14px;">/100</span></div>
+                </div>
+                <span style="font-size:9px;color:var(--pv-cyan);padding:3px 7px;border:1px solid var(--pv-cyan);border-radius:999px;font-family:'Space Grotesk',sans-serif;">+ 12.4%</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
+                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">LCP</div>
+                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">1.2s</div>
+                </div>
+                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
+                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">CLS</div>
+                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">0.02</div>
+                </div>
+                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
+                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">INP</div>
+                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">180ms</div>
+                </div>
+              </div>
+              <div style="flex:1;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);padding:10px;min-height:80px;">
+                <svg viewBox="0 0 200 80" preserveAspectRatio="none" style="width:100%;height:100%;">
+                  <defs><linearGradient id="dg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/><stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient></defs>
+                  <line x1="0" x2="200" y1="0" y2="0" stroke="#252A36" stroke-width="0.5"/>
+                  <line x1="0" x2="200" y1="20" y2="20" stroke="#252A36" stroke-width="0.5"/>
+                  <line x1="0" x2="200" y1="40" y2="40" stroke="#252A36" stroke-width="0.5"/>
+                  <line x1="0" x2="200" y1="60" y2="60" stroke="#252A36" stroke-width="0.5"/>
+                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18 L 200 80 L 0 80 Z" fill="url(#dg1)"/>
+                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18" stroke="#00E5FF" stroke-width="1.2" fill="none"/>
+                  <circle cx="180" cy="14" r="2.5" fill="#00E5FF"/>
+                  <circle cx="180" cy="14" r="6" fill="#00E5FF" fill-opacity="0.15"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="pv-scanline"></div>
+        </div>
+      </div>
+
+      <!-- Floating enquiry card -->
+      <div class="hm-float-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+          <span style="font-size:10px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.12em;">NEW ENQUIRY</span>
+        </div>
+        <div class="pv-grotesk" style="font-size:13px;font-weight:500;">Northbrook Holdings</div>
+        <div style="font-size:11.5px;color:var(--pv-muted);margin-top:4px;line-height:1.4;">"Need a new site for our property listings — Professional tier."</div>
+      </div>
+
+      <!-- LIVE BUILD badge -->
+      <div class="hm-live-badge">⬢ LIVE BUILD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS STRIP ───────────────────────────────── -->
+<div class="hm-process">
+  <div class="hm-process-inner">
+    <div class="hm-process-label">
+      <span class="pv-eyebrow">How it works</span>
+      <div class="pv-grotesk" style="font-size:18px;font-weight:500;margin-top:4px;">Effortless from enquiry to launch.</div>
+    </div>
+    <div class="hm-process-steps">
+      <div class="hm-step">
+        <div class="hm-step-content"><div class="hm-step-num">01</div><div class="pv-grotesk" style="font-size:15px;font-weight:500;">Enquire</div></div>
+        <div class="hm-step-connector"></div>
+      </div>
+      <div class="hm-step">
+        <div class="hm-step-content"><div class="hm-step-num">02</div><div class="pv-grotesk" style="font-size:15px;font-weight:500;">Choose package</div></div>
+        <div class="hm-step-connector"></div>
+      </div>
+      <div class="hm-step">
+        <div class="hm-step-content"><div class="hm-step-num">03</div><div class="pv-grotesk" style="font-size:15px;font-weight:500;">Build</div></div>
+        <div class="hm-step-connector"></div>
+      </div>
+      <div class="hm-step">
+        <div class="hm-step-content"><div class="hm-step-num">04</div><div class="pv-grotesk" style="font-size:15px;font-weight:500;">Review</div></div>
+        <div class="hm-step-connector"></div>
+      </div>
+      <div class="hm-step">
+        <div class="hm-step-content"><div class="hm-step-num">05</div><div class="pv-grotesk" style="font-size:15px;font-weight:500;">Launch</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PACKAGES §01 ────────────────────────────────── -->
+<section class="hm-section" id="packages">
+  <div class="hm-pkg-header">
+    <div>
+      <div class="hm-sh-row">
+        <span class="pv-eyebrow-num">01</span>
+        <span class="hm-sh-rule"></span>
+        <span class="pv-eyebrow">Packages</span>
+      </div>
+      <h2 class="hm-sh-h2 pv-grotesk">Three tiers.<br>Custom quotes, never templated.</h2>
+      <p class="hm-sh-lede">Pick the tier that matches where you are. Every quote is based on real scope — no inflated bundles, no surprise invoices.</p>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="pv-chip is-active">All</span>
+      <span class="pv-chip">SME starting out</span>
+      <span class="pv-chip">Scaling</span>
+      <span class="pv-chip">Enterprise</span>
+    </div>
+  </div>
+
+  <div class="hm-pkg-grid">
+    <!-- Essential -->
+    <div class="pv-card hm-pkg-card">
+      <div>
+        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 01</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
+        <div class="pv-grotesk hm-pkg-name">Essential</div>
+        <p class="hm-pkg-intent">For SMEs ready to claim a clean, credible spot online.</p>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:6px;">
+        <span class="pv-grotesk" style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+      </div>
+      <div class="hm-pkg-divider"></div>
+      <ul class="hm-pkg-features">
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 5-page business website</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Fully responsive design</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Basic SEO setup</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead enquiry form</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Deployment &amp; domain support</span></li>
+      </ul>
+      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+    </div>
+
+    <!-- Professional -->
+    <div class="pv-card hm-pkg-card recommended">
+      <div class="hm-pkg-rec-badge">RECOMMENDED</div>
+      <div>
+        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 02</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
+        <div class="pv-grotesk hm-pkg-name">Professional</div>
+        <p class="hm-pkg-intent">For growing businesses that need a website that converts.</p>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:6px;">
+        <span class="pv-grotesk" style="font-size:16px;font-weight:500;color:var(--pv-cyan);">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+      </div>
+      <div class="hm-pkg-divider"></div>
+      <ul class="hm-pkg-features">
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 10-page custom build</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Performance-focused build</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>On-page SEO optimisation</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead-conversion flow &amp; forms</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Articles / blog scaffolding</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Ongoing monthly support available</span></li>
+      </ul>
+      <a href="contact.html" class="pv-btn-amber" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+    </div>
+
+    <!-- Business -->
+    <div class="pv-card hm-pkg-card">
+      <div>
+        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 03</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
+        <div class="pv-grotesk hm-pkg-name">Business</div>
+        <p class="hm-pkg-intent">For higher-touch projects: custom systems, scale, integrations.</p>
+      </div>
+      <div style="display:flex;align-items:baseline;gap:6px;">
+        <span class="pv-grotesk" style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+      </div>
+      <div class="hm-pkg-divider"></div>
+      <ul class="hm-pkg-features">
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Custom scope &amp; sitemap</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Bespoke component system</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Advanced SEO &amp; schema</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Payments-ready architecture</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>CMS / dashboard integrations</span></li>
+        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Dedicated support track</span></li>
+      </ul>
+      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;text-align:center;font-size:13px;color:var(--pv-muted);">
+    Not sure which tier fits? <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">Tell us about the project →</a>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO §02 ───────────────────────────────── -->
+<section class="hm-section-alt">
+  <div class="hm-sh-row">
+    <span class="pv-eyebrow-num">02</span>
+    <span class="hm-sh-rule"></span>
+    <span class="pv-eyebrow">Selected Work</span>
+  </div>
+  <h2 class="hm-sh-h2 pv-grotesk">Sites that earn trust and convert.</h2>
+  <p class="hm-sh-lede">A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship.</p>
+
+  <div class="hm-port-grid">
+    <!-- Northbrook Mart — site variant -->
+    <article class="pv-card hm-port-card">
+      <div class="hm-port-preview">
+        <div class="hm-browser">
+          <div class="hm-browser-bar">
+            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
+            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>northbrookmart.my</div>
+          </div>
+          <div class="hm-browser-content" style="height:260px;">
+            <div style="display:flex;flex-direction:column;gap:10px;height:100%;">
+              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--pv-border);">
+                <div style="width:50px;height:9px;background:var(--pv-text);border-radius:2px;"></div>
+                <div style="display:flex;gap:8px;">
+                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
+                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
+                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
+                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;flex:1;align-items:center;">
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <div style="height:18px;width:95%;background:var(--pv-text);border-radius:3px;"></div>
+                  <div style="height:18px;width:70%;background:var(--pv-text);border-radius:3px;"></div>
+                  <div style="height:7px;width:90%;background:var(--pv-muted);opacity:0.5;border-radius:2px;margin-top:4px;"></div>
+                  <div style="height:7px;width:75%;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
+                  <div style="display:flex;gap:6px;margin-top:8px;">
+                    <div style="height:18px;width:56px;background:var(--pv-cyan);border-radius:4px;"></div>
+                    <div style="height:18px;width:56px;border:1px solid var(--pv-border);border-radius:4px;"></div>
+                  </div>
+                </div>
+                <div style="aspect-ratio:4/3;background:var(--pv-card);border:1px solid var(--pv-border);border-radius:6px;position:relative;overflow:hidden;">
+                  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,var(--pv-border) 0 1px,transparent 1px 8px);"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pv-scanline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hm-port-body">
+        <div class="hm-port-meta">
+          <span class="pv-eyebrow-num">CASE · 01</span>
+          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Retail · Multi-store chain</span>
+        </div>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Northbrook Mart</h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">Brought a 6-store mini-mart online with a clean storefront and store-locator that lifted enquiries 3×.</p>
+        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+      </div>
+    </article>
+
+    <!-- Ember Café — editor variant -->
+    <article class="pv-card hm-port-card">
+      <div class="hm-port-preview">
+        <div class="hm-browser">
+          <div class="hm-browser-bar">
+            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
+            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>embercafe.com</div>
+          </div>
+          <div class="hm-browser-content" style="height:260px;">
+            <div style="display:grid;grid-template-rows:auto 1fr;gap:10px;height:100%;">
+              <div style="display:flex;gap:6px;">
+                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">H1</span>
+                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">H2</span>
+                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">¶</span>
+                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">—</span>
+                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">⌗</span>
+              </div>
+              <div style="background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;">
+                <div style="height:14px;width:60%;background:#1B2030;border-radius:3px;"></div>
+                <div style="height:8px;width:90%;background:var(--pv-border);border-radius:3px;"></div>
+                <div style="height:8px;width:78%;background:var(--pv-border);border-radius:3px;"></div>
+                <div style="height:8px;width:85%;background:var(--pv-border);border-radius:3px;"></div>
+                <div style="height:60px;background:var(--pv-card);border:1px dashed var(--pv-border);border-radius:5px;margin-top:6px;"></div>
+                <div style="height:8px;width:70%;background:var(--pv-border);border-radius:3px;margin-top:4px;"></div>
+                <div style="height:8px;width:50%;background:var(--pv-border);border-radius:3px;"></div>
+              </div>
+            </div>
+            <div class="pv-scanline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hm-port-body">
+        <div class="hm-port-meta">
+          <span class="pv-eyebrow-num">CASE · 02</span>
+          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">F&amp;B · Café &amp; roastery</span>
+        </div>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Ember Café</h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A warm one-page site with menu, location and ordering flow — built for thumb-flow, not desktop legacy.</p>
+        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── WHY §03 ─────────────────────────────────────── -->
+<section class="hm-section">
+  <div class="hm-why-grid">
+    <div>
+      <div class="hm-sh-row">
+        <span class="pv-eyebrow-num">03</span>
+        <span class="hm-sh-rule"></span>
+        <span class="pv-eyebrow">Why Paeveul</span>
+      </div>
+      <h2 class="hm-sh-h2 pv-grotesk">A studio,<br>not a template factory.</h2>
+      <p class="hm-sh-lede">Built for growing businesses that want clarity, not jargon. We're small on purpose — every project gets the studio's full attention.</p>
+      <div class="hm-why-note">
+        <div style="font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;margin-bottom:8px;">STUDIO NOTE</div>
+        <div style="font-size:14px;line-height:1.6;">"We design websites the way we'd want them built for our own businesses. Direct, considered, no theme bloat."</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">— Paeveul Studio</div>
+      </div>
+    </div>
+    <div class="hm-values-grid">
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">01</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Built for growing businesses</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">We design with your customers in mind — modern traffic patterns, mobile-first behaviours, real trust signals.</p>
+      </div>
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">02</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Modern, not templated</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No theme clutter. Every section is built around your business, with restraint and clarity.</p>
+      </div>
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">03</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">SEO-aware from line one</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Semantic structure, fast loads, schema, and content-friendly layouts baked in from the start.</p>
+      </div>
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">04</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Conversion-first flows</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Enquiry forms, package routing, and CTA hierarchy designed to turn visitors into leads.</p>
+      </div>
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">05</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Clear communication</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No jargon. Plain updates, weekly check-ins, and an honest scope with no surprises.</p>
+      </div>
+      <div class="hm-value-cell">
+        <div class="hm-value-head"><span class="hm-value-num">06</span><span class="hm-value-rule"></span></div>
+        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Future-ready</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Payments, articles, dashboards, multi-language — we leave doors open for what comes next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ARTICLES §04 ────────────────────────────────── -->
+<section class="hm-section-alt">
+  <div class="hm-art-header">
+    <div>
+      <div class="hm-sh-row">
+        <span class="pv-eyebrow-num">04</span>
+        <span class="hm-sh-rule"></span>
+        <span class="pv-eyebrow">Blog · Coming soon</span>
+      </div>
+      <h2 class="hm-sh-h2 pv-grotesk">Notes for businesses<br>going digital.</h2>
+    </div>
+    <a href="blog.html" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;white-space:nowrap;">All articles →</a>
+  </div>
+  <div class="hm-art-grid">
+    <article class="pv-card hm-art-card">
+      <div class="hm-art-top">
+        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">4 min</span>
+      </div>
+      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">Why Your Business Needs a Website Before Running Ads</h3>
+      <div class="hm-art-bottom">
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Coming soon</span>
+        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+      </div>
+    </article>
+    <article class="pv-card hm-art-card">
+      <div class="hm-art-top">
+        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">CONVERSION</span>
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min</span>
+      </div>
+      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">What Makes a Website Convert Enquiries?</h3>
+      <div class="hm-art-bottom">
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Coming soon</span>
+        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+      </div>
+    </article>
+    <article class="pv-card hm-art-card">
+      <div class="hm-art-top">
+        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">SEO</span>
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min</span>
+      </div>
+      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">SEO Basics for Small &amp; Local Businesses</h3>
+      <div class="hm-art-bottom">
+        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Coming soon</span>
+        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ── FAQ §05 ─────────────────────────────────────── -->
+<section class="hm-section">
+  <div class="hm-faq-grid">
+    <div>
+      <div class="hm-sh-row">
+        <span class="pv-eyebrow-num">05</span>
+        <span class="hm-sh-rule"></span>
+        <span class="pv-eyebrow">FAQ</span>
+      </div>
+      <h2 class="hm-sh-h2 pv-grotesk">Things SME owners<br>usually ask first.</h2>
+      <p class="hm-sh-lede">Quick answers. If you don't see yours, just enquire — we reply within 1–3 business working days.</p>
+    </div>
+    <div>
+      <div class="pv-faq-item" data-open="true">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="true">
+          <span>How long does a website take to build?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v" style="transform:scaleY(0);"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>Most Essential builds go live in 2–3 weeks. Professional builds typically run 4–6 weeks. Business projects scope to timeline before we start.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Do I need to prepare the content myself?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>You bring the substance — brand info, services, photos if available. We help shape and structure it, and can provide copy guidance throughout.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Can you help with SEO?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>Yes. Every build ships with technical SEO basics: structure, speed, schema. Professional and Business tiers include on-page optimisation and content scaffolding.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Are prices fixed?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>No public prices because every project differs. After a short enquiry, we send a clear quote based on scope, pages, and timeline.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Can I request changes during the build?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>Yes. Every package includes review rounds before launch. Scope changes are discussed transparently — no surprise invoices.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Do you offer monthly support?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>Optional monthly retainers cover updates, monitoring, content edits, and incremental improvements. Available on Professional and Business.</p></div>
+      </div>
+      <div class="pv-faq-item">
+        <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
+          <span>Can payments be added later?</span>
+          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+        </div>
+        <div class="pv-faq-body"><p>Yes. We architect builds so e-commerce, bookings, or payment flows can be added without a rebuild.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT §06 ─────────────────────────────────── -->
+<section class="hm-contact">
+  <div class="pv-grid-bg hm-contact-bg"></div>
+  <div class="hm-contact-inner">
+    <div>
+      <div class="hm-sh-row">
+        <span class="pv-eyebrow-num">06</span>
+        <span class="hm-sh-rule"></span>
+        <span class="pv-eyebrow">Start a project</span>
+      </div>
+      <h2 class="hm-sh-h2 pv-grotesk">Let's get your<br>business online.</h2>
+      <p class="hm-sh-lede">Tell us about your business and what you need. A short reply with next steps lands in your inbox within 1–3 business working days.</p>
+      <div class="hm-contact-info">
+        <div>
+          <div class="pv-eyebrow-num" style="margin-bottom:4px;">DIRECT</div>
+          <a href="mailto:paeveul.official@gmail.com" class="pv-grotesk hm-email-link">paeveul.official@gmail.com</a>
+        </div>
+        <div>
+          <div class="pv-eyebrow-num" style="margin-bottom:4px;">BASED IN</div>
+          <div class="pv-grotesk" style="font-size:16px;">Remote-first · Worldwide</div>
+          <div style="font-size:13.5px;color:var(--pv-muted);margin-top:4px;">Working with founders and SMBs across time zones.</div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;">
+          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+          <span style="font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">CURRENTLY ACCEPTING NEW PROJECTS · Q3 2026</span>
+        </div>
+      </div>
+    </div>
+    <form class="pv-card hm-form" onsubmit="console.log('Enquiry submitted (placeholder):', {name: this.name.value, business: this.business.value, email: this.email.value, message: this.message.value}); return false;">
+      <div class="hm-form-row">
+        <div>
+          <label class="pv-label">Your name</label>
+          <input class="pv-input" name="name" placeholder="Maya Larson" />
+        </div>
+        <div>
+          <label class="pv-label">Business name</label>
+          <input class="pv-input" name="business" placeholder="Northbrook &amp; Co." />
+        </div>
+      </div>
+      <div>
+        <label class="pv-label">Work email</label>
+        <input class="pv-input" type="email" name="email" placeholder="you@business.com" />
+      </div>
+      <div>
+        <label class="pv-label">Package you're interested in</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span class="pv-chip">Essential</span>
+          <span class="pv-chip is-active">Professional</span>
+          <span class="pv-chip">Business</span>
+          <span class="pv-chip">Not sure yet</span>
+        </div>
+      </div>
+      <div>
+        <label class="pv-label">A bit about the project</label>
+        <textarea class="pv-input" name="message" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any rough timeline?" style="resize:vertical;"></textarea>
+      </div>
+      <div class="hm-form-footer">
+        <span class="hm-form-note">We'll only use this to reply to your enquiry. No mailing list.</span>
+        <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────── -->
+<footer class="hm-footer">
+  <div class="hm-footer-grid">
+    <div>
+      <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+          <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+          <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+          <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+        </svg>
+        <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
       </a>
-
-      <!-- Desktop nav links -->
-      <nav class="hidden md:flex items-center gap-8" aria-label="Primary navigation">
-        <a href="index.html" class="text-accent text-sm font-medium transition-colors duration-200" style="font-family: var(--font-grotesk);" aria-current="page">Home</a>
-        <a href="portfolio.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Portfolio</a>
-        <a href="contact.html" class="text-secondary hover:text-primary transition-colors duration-200 text-sm font-medium" style="font-family: var(--font-grotesk);">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <!-- CTA button — always visible -->
-        <a href="contact.html"
-           class="bg-accent text-base font-semibold px-5 py-2 rounded-full shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none"
-           style="font-family: var(--font-grotesk); color: #0D0F14;"
-           onclick="gtag('event', 'nav_cta_click', {event_category: 'navigation'});">
-          Get in Touch
-        </a>
-
-        <!-- Mobile hamburger -->
-        <button id="menu-btn"
-                class="md:hidden text-secondary hover:text-primary transition-colors duration-200 p-1 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none rounded"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="mobile-menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
+      <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
+      <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
+        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+        REMOTE-FIRST · WORLDWIDE
       </div>
     </div>
-
-    <!-- Mobile menu drawer -->
-    <div id="mobile-menu"
-         class="hidden md:hidden bg-surface border-b border-border-default transition-all duration-300"
-         aria-label="Mobile navigation">
-      <nav class="max-w-6xl mx-auto px-4">
-        <a href="index.html" class="block text-lg text-accent py-4 px-2 border-b border-border-default mobile-nav-link" style="font-family: var(--font-grotesk);" aria-current="page">Home</a>
-        <a href="portfolio.html" class="block text-lg text-primary py-4 px-2 border-b border-border-default hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Portfolio</a>
-        <a href="contact.html" class="block text-lg text-primary py-4 px-2 hover:text-accent transition-colors duration-200 mobile-nav-link" style="font-family: var(--font-grotesk);">Contact</a>
-      </nav>
+    <div>
+      <div class="hm-footer-col-head">Studio</div>
+      <ul>
+        <li><a href="#packages" class="pv-link" style="font-size:14px;">Packages</a></li>
+        <li><a href="portfolio.html" class="pv-link" style="font-size:14px;">Portfolio</a></li>
+        <li><a href="why.html" class="pv-link" style="font-size:14px;">Why Paeveul</a></li>
+        <li><a href="blog.html" class="pv-link" style="font-size:14px;">Blog</a></li>
+      </ul>
     </div>
-  </header>
-
-  <main>
-
-    <!-- ============================================================
-         HERO
-    ============================================================ -->
-    <section class="w-full bg-base hero-glow pt-32 pb-20 md:pt-40 md:pb-28 lg:pt-48 lg:pb-32 relative overflow-hidden">
-
-      <!-- Layer 2: Background image -->
-      <div class="hero-bg-image absolute inset-0 pointer-events-none" style="z-index:0;"></div>
-
-      <!-- Layer 3: Dark gradient scrim -->
-      <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(13,15,20,0.55) 0%, rgba(13,15,20,0.30) 40%, rgba(13,15,20,0.70) 85%, rgba(13,15,20,1.00) 100%); z-index:1;"></div>
-
-      <!-- Layer 4: Atmospheric glow blobs -->
-      <div style="z-index:2;" class="absolute inset-0 pointer-events-none">
-        <div class="absolute rounded-full blur-3xl" style="width:800px;height:600px;left:50%;transform:translateX(-50%);top:-200px;background:radial-gradient(ellipse, rgba(0,229,255,0.06) 0%, transparent 70%);"></div>
-        <div class="absolute rounded-full blur-3xl" style="width:600px;height:400px;right:-100px;top:-100px;background:radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%);"></div>
-        <div class="absolute rounded-full blur-3xl" style="width:400px;height:300px;left:-100px;bottom:-50px;background:radial-gradient(ellipse, rgba(245,166,35,0.04) 0%, transparent 70%);"></div>
-      </div>
-
-      <!-- Layer 5: Content -->
-      <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-        <!-- Pre-headline badge -->
-        <div class="mb-6">
-          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-dim border border-border-accent-subtle text-accent text-xs font-medium tracking-widest uppercase"
-                style="font-family: var(--font-grotesk);">
-            Paeveul Web Services
-          </span>
-        </div>
-
-        <!-- Headline -->
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-primary mb-6 fade-in"
-            style="font-family: var(--font-grotesk);">
-          Professional websites and intelligent solutions for businesses ready to <span class="text-accent">grow</span>.
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-base md:text-lg text-secondary max-w-xl mx-auto mb-10 fade-in delay-75"
-           style="font-family: var(--font-outfit);">
-          We build fast, affordable websites and digital solutions tailored to what your business actually needs. Professional, reliable, and delivered with care.
-        </p>
-
-        <!-- CTA button row -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in delay-150">
-          <!-- Primary CTA: Get in Touch -->
-          <a href="contact.html"
-             class="inline-block bg-accent font-semibold px-8 py-4 rounded-full text-base shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto"
-             style="font-family: var(--font-grotesk); color: #0D0F14;"
-             onclick="gtag('event', 'hero_cta_contact', {event_category: 'hero'});">
-            Get in Touch
-          </a>
-          <!-- Secondary CTA: See Our Work -->
-          <a href="portfolio.html"
-             class="inline-block border border-accent text-accent font-semibold px-8 py-4 rounded-full text-base hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto"
-             style="font-family: var(--font-grotesk); color: #00E5FF;"
-             onclick="gtag('event', 'hero_cta_portfolio', {event_category: 'hero'});">
-            See Our Work
-          </a>
-        </div>
-
-        <!-- Accent divider -->
-        <div class="mt-20 md:mt-28">
-          <div class="h-px w-full bg-gradient-to-r from-transparent via-border-accent-subtle to-transparent"></div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
-         WHAT WE DO
-    ============================================================ -->
-    <section class="w-full bg-base-alt py-12 md:py-16 lg:py-24">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-bold text-primary mb-6"
-            style="font-family: var(--font-grotesk);">
-          What we do
-        </h2>
-        <p class="text-base md:text-lg text-secondary leading-relaxed max-w-2xl mx-auto fade-in"
-           style="font-family: var(--font-outfit);">
-          Paeveul builds professional websites for small Malaysian businesses. We handle everything — design, development, domain, hosting, and deployment. Our clients are owners who want a site that works and a person they can reach. No agencies, no middlemen, no surprises.
-        </p>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PACKAGE PREVIEW
-    ============================================================ -->
-    <section class="w-full bg-base packages-dot-grid py-12 md:py-16 lg:py-24 relative overflow-hidden">
-
-      <!-- Atmospheric amber glow -->
-      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:600px;height:400px;left:50%;transform:translateX(-50%);top:50%;margin-top:-200px;background:radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 70%);"></div>
-
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Section header -->
-        <div class="text-center mb-12 md:mb-16 fade-in">
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
-              style="font-family: var(--font-grotesk);">
-            Choose the right package for your business.
-          </h2>
-          <p class="text-base md:text-lg text-secondary max-w-2xl mx-auto"
-             style="font-family: var(--font-outfit);">
-            Every package includes a professional, fast-loading website — built and delivered by a real developer, not a template tool.
-          </p>
-        </div>
-
-        <!-- Card grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-
-          <!-- Essential -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 md:p-8 shadow-card hover:shadow-glow-accent hover:border-accent hover:bg-surface-hover transition-all duration-300 flex flex-col fade-up package-card"
-               data-package="Essential">
-            <h3 class="text-xl font-semibold text-primary mb-1"
-                style="font-family: var(--font-grotesk);">Essential</h3>
-            <p class="text-sm text-secondary italic"
-               style="font-family: var(--font-outfit);">The complete foundation</p>
-            <div class="border-t border-border-default my-4"></div>
-            <div class="flex-1"></div>
-            <a href="contact.html"
-               class="border border-accent text-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
-               style="font-family: var(--font-grotesk);"
-               onclick="gtag('event', 'package_preview_click', {event_category: 'packages', package_name: 'Essential'});">
-              Get in Touch →
-            </a>
-          </div>
-
-          <!-- Professional (Most Popular) -->
-          <div class="bg-surface border border-accent rounded-xl p-6 md:p-8 shadow-glow-accent-2 hover:shadow-card-hover hover:bg-surface-hover transition-all duration-300 flex flex-col relative fade-up delay-75 package-card"
-               data-package="Professional">
-            <!-- Most Popular badge -->
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span class="bg-accent-2 font-semibold px-4 py-1 rounded-full text-xs whitespace-nowrap"
-                    style="font-family: var(--font-grotesk); color: #0D0F14;">Most Popular</span>
-            </div>
-            <h3 class="text-xl font-semibold text-primary mb-1"
-                style="font-family: var(--font-grotesk);">Professional</h3>
-            <p class="text-sm text-secondary italic"
-               style="font-family: var(--font-outfit);">Built to be found</p>
-            <div class="border-t border-border-default my-4"></div>
-            <div class="flex-1"></div>
-            <a href="contact.html"
-               class="bg-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm shadow-glow-accent hover:shadow-glow-accent-strong transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
-               style="font-family: var(--font-grotesk); color: #0D0F14;"
-               onclick="gtag('event', 'package_preview_click', {event_category: 'packages', package_name: 'Professional'});">
-              Get in Touch →
-            </a>
-          </div>
-
-          <!-- Business -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 md:p-8 shadow-card hover:shadow-glow-accent hover:border-accent hover:bg-surface-hover transition-all duration-300 flex flex-col fade-up delay-150 package-card"
-               data-package="Business">
-            <h3 class="text-xl font-semibold text-primary mb-1"
-                style="font-family: var(--font-grotesk);">Business</h3>
-            <p class="text-sm text-secondary italic"
-               style="font-family: var(--font-outfit);">Your brand, fully realised</p>
-            <div class="border-t border-border-default my-4"></div>
-            <div class="flex-1"></div>
-            <a href="contact.html"
-               class="border border-accent text-accent font-semibold px-5 py-3 rounded-full w-full text-center text-sm hover:bg-accent-dim hover:shadow-glow-accent transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none block"
-               style="font-family: var(--font-grotesk);"
-               onclick="gtag('event', 'package_preview_click', {event_category: 'packages', package_name: 'Business'});">
-              Get in Touch →
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
-         PORTFOLIO TEASER
-    ============================================================ -->
-    <section class="w-full bg-base-alt py-12 md:py-16 lg:py-24 relative overflow-hidden">
-
-      <!-- Atmospheric cyan glow -->
-      <div class="absolute pointer-events-none" style="width:100%;height:200px;left:0;top:50%;transform:translateY(-50%);background:radial-gradient(ellipse, rgba(0,229,255,0.04) 0%, transparent 70%);"></div>
-
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Section header -->
-        <div class="text-center mb-12 md:mb-16 fade-in">
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
-              style="font-family: var(--font-grotesk);">
-            Our Work
-          </h2>
-          <p class="text-base md:text-lg text-secondary max-w-xl mx-auto"
-             style="font-family: var(--font-outfit);">
-            A sample of what we build — fast, professional, and ready to convert.
-          </p>
-        </div>
-
-        <!-- 2-column grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
-
-          <!-- Card: CoolBreeze Air Services -->
-          <div class="bg-surface border border-border-default rounded-xl shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 overflow-hidden fade-up">
-            <div class="overflow-hidden rounded-t-xl">
-              <div class="w-full aspect-video">
-                <img src="assets/images/thumbnail-coolbreeze.webp"
-                     alt="CoolBreeze Air Services website — professional HVAC landing page"
-                     class="w-full h-full object-cover"
-                     loading="lazy">
-              </div>
-            </div>
-            <div class="p-5 bg-surface rounded-b-xl">
-              <a href="https://bt-hvac-ms.vercel.app"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="text-base font-semibold text-primary hover:text-accent transition-colors duration-200 block mb-1"
-                 style="font-family: var(--font-grotesk);"
-                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'coolbreeze'});">
-                CoolBreeze Air Services
-              </a>
-              <p class="text-sm text-secondary mb-3" style="font-family: var(--font-outfit);">HVAC services — Klang Valley</p>
-              <a href="https://bt-hvac-ms.vercel.app"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="text-sm font-medium text-accent hover:underline transition-colors duration-200"
-                 style="font-family: var(--font-grotesk);"
-                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'coolbreeze'});">
-                View live site →
-              </a>
-            </div>
-          </div>
-
-          <!-- Card: Aurum Fine Dining -->
-          <div class="bg-surface border border-border-default rounded-xl shadow-card hover:shadow-card-hover hover:border-border-accent-subtle transition-all duration-300 overflow-hidden fade-up delay-75">
-            <div class="overflow-hidden rounded-t-xl">
-              <div class="w-full aspect-video">
-                <img src="assets/images/rest-thumbnail.webp"
-                     alt="Aurum Fine Dining restaurant website — luxury F&B landing page"
-                     class="w-full h-full object-cover"
-                     loading="lazy">
-              </div>
-            </div>
-            <div class="p-5 bg-surface rounded-b-xl">
-              <a href="https://bt-rest-ms.vercel.app"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="text-base font-semibold text-primary hover:text-accent transition-colors duration-200 block mb-1"
-                 style="font-family: var(--font-grotesk);"
-                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'aurum'});">
-                Aurum Fine Dining
-              </a>
-              <p class="text-sm text-secondary mb-3" style="font-family: var(--font-outfit);">Fine dining restaurant — Kuala Lumpur</p>
-              <a href="https://bt-rest-ms.vercel.app"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="text-sm font-medium text-accent hover:underline transition-colors duration-200"
-                 style="font-family: var(--font-grotesk);"
-                 onclick="gtag('event', 'portfolio_click', {event_category: 'portfolio', project: 'aurum'});">
-                View live site →
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- See all link -->
-        <div class="text-center mt-10">
-          <a href="portfolio.html"
-             class="text-sm font-medium text-accent hover:underline transition-colors duration-200"
-             style="font-family: var(--font-grotesk);">
-            See all our work →
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ============================================================
-         WHY PAEVEUL
-    ============================================================ -->
-    <section id="why" class="w-full bg-base packages-dot-grid py-12 md:py-16 lg:py-24 relative overflow-hidden">
-
-      <!-- Atmospheric glow -->
-      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:500px;height:500px;right:-100px;top:-100px;background:radial-gradient(ellipse, rgba(245,166,35,0.04) 0%, transparent 70%);"></div>
-
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Section header -->
-        <div class="text-center mb-12 md:mb-16 fade-in">
-          <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4"
-              style="font-family: var(--font-grotesk);">
-            Why businesses choose Paeveul
-          </h2>
-          <p class="text-base md:text-lg text-secondary max-w-xl mx-auto"
-             style="font-family: var(--font-outfit);">
-            We're not here to upsell you. We're here to get your business online — properly.
-          </p>
-        </div>
-
-        <!-- 4-card grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          <!-- Card 1: Direct -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up">
-            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-              </svg>
-            </div>
-            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
-                style="font-family: var(--font-grotesk);">You talk to the person who builds your site.</h3>
-            <p class="text-sm text-secondary leading-relaxed"
-               style="font-family: var(--font-outfit);">No account managers, no back-and-forth with a middleman. Your questions get answered by the developer handling your project.</p>
-          </div>
-
-          <!-- Card 2: Fast -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-75">
-            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
-                style="font-family: var(--font-grotesk);">Your site is live in days, not weeks.</h3>
-            <p class="text-sm text-secondary leading-relaxed"
-               style="font-family: var(--font-outfit);">We move fast because we're built lean. Most projects are delivered within 7 working days from the moment you confirm.</p>
-          </div>
-
-          <!-- Card 3: No surprises -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-150">
-            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
-                style="font-family: var(--font-grotesk);">One price. No surprises.</h3>
-            <p class="text-sm text-secondary leading-relaxed"
-               style="font-family: var(--font-outfit);">You know what you're paying before we start. No hidden fees, no scope creep invoices.</p>
-          </div>
-
-          <!-- Card 4: Everything handled -->
-          <div class="bg-surface border border-border-default rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-border-accent-subtle hover:bg-surface-hover transition-all duration-300 fade-up delay-225">
-            <div class="w-12 h-12 rounded-lg bg-accent-dim flex items-center justify-center mb-5">
-              <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-base md:text-lg font-semibold text-primary mb-3"
-                style="font-family: var(--font-grotesk);">We handle everything so you don't have to.</h3>
-            <p class="text-sm text-secondary leading-relaxed"
-               style="font-family: var(--font-outfit);">Domain, hosting, deployment, and fixes — all taken care of. You focus on running your business.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         FINAL CTA
-    ============================================================ -->
-    <section class="w-full bg-base py-16 md:py-20 lg:py-28 relative overflow-hidden">
-
-      <!-- Top border accent -->
-      <div class="absolute top-0 left-0 w-full h-px" style="background: rgba(0,229,255,0.12);"></div>
-
-      <!-- Atmospheric cyan glow -->
-      <div class="absolute rounded-full blur-3xl pointer-events-none" style="width:700px;height:400px;left:50%;transform:translateX(-50%);top:-100px;background:radial-gradient(ellipse, rgba(0,229,255,0.08) 0%, transparent 70%);"></div>
-
-      <div class="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-
-        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4"
-            style="font-family: var(--font-grotesk);">
-          Ready to get your business online?
-        </h2>
-
-        <p class="text-base md:text-lg text-secondary mb-8"
-           style="font-family: var(--font-outfit);">
-          Tell us about your business and what you need. We'll get back to you within 1 working day.
-        </p>
-
-        <!-- Cyan accent bar -->
-        <div class="w-16 h-1 bg-accent mx-auto mb-8 rounded-full"></div>
-
-        <div class="flex justify-center">
-          <a href="contact.html"
-             class="inline-block bg-accent font-semibold px-8 py-4 rounded-full text-base shadow-glow-accent hover:shadow-glow-accent-strong hover:scale-[1.02] transition-all duration-200 focus-visible:ring-2 focus-visible:ring-accent focus-visible:outline-none w-full sm:w-auto"
-             style="font-family: var(--font-grotesk); color: #0D0F14;"
-             onclick="gtag('event', 'final_cta_contact', {event_category: 'homepage_footer_cta'});">
-            Get in Touch
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="w-full bg-base-alt border-t border-border-default py-8 md:py-10 relative">
-    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(0,229,255,0.03) 0%, transparent 100%)"></div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 text-center md:text-left">
-
-        <!-- Left: Wordmark + tagline -->
-        <div>
-          <p class="text-lg font-bold mb-1"
-             style="font-family: var(--font-grotesk);">
-            <span class="text-accent">P</span><span class="text-primary">aeveul</span>
-          </p>
-          <p class="text-sm text-secondary"
-             style="font-family: var(--font-outfit);">Paeveul Web Services</p>
-        </div>
-
-        <!-- Right: Email + copyright -->
-        <div>
-          <a href="mailto:paeveul.official@gmail.com"
-             class="block text-sm text-secondary hover:text-accent transition-colors duration-200 mb-2"
-             style="font-family: var(--font-outfit);"
-             onclick="gtag('event', 'email_click', {event_category: 'footer', link_url: 'mailto:paeveul.official@gmail.com'});">
-            paeveul.official@gmail.com
-          </a>
-          <p class="text-xs text-muted"
-             style="font-family: var(--font-outfit);">© 2026 Paeveul Web Services. All rights reserved.</p>
-        </div>
-
-      </div>
+    <div>
+      <div class="hm-footer-col-head">Connect</div>
+      <ul>
+        <li><a href="contact.html" class="pv-link" style="font-size:14px;">Start an enquiry</a></li>
+        <li><a href="mailto:paeveul.official@gmail.com" class="pv-link" style="font-size:14px;">paeveul.official@gmail.com</a></li>
+        <li><a href="faq.html" class="pv-link" style="font-size:14px;">FAQ</a></li>
+      </ul>
     </div>
-  </footer>
+    <div>
+      <div class="hm-footer-col-head">Coming soon</div>
+      <ul>
+        <li><a href="#" class="pv-link" style="font-size:14px;">Payments-ready builds</a></li>
+        <li><a href="#" class="pv-link" style="font-size:14px;">Articles &amp; resources</a></li>
+        <li><a href="#" class="pv-link" style="font-size:14px;">Multi-language sites</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="hm-footer-bottom">
+    <span>© 2026 Paeveul Studio · Made with care</span>
+    <span>v1.0 · Last shipped May 2026</span>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<script src="js/paeveul.js"></script>
 </body>
 </html>
