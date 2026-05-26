@@ -269,7 +269,11 @@
     <div class="ct-split">
 
       <!-- Form -->
-      <form class="pv-card ct-form" id="ct-form" novalidate>
+      <form class="pv-card ct-form" id="ct-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+
+        <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
+        <input type="hidden" name="subject" value="New Enquiry — Paeveul" />
+        <input type="hidden" name="from_name" value="Paeveul Website" />
 
         <!-- Form fields -->
         <div id="ct-fields" class="ct-form-fields">
@@ -282,22 +286,22 @@
           <div class="ct-row">
             <div>
               <label class="pv-label" for="ct-name">Your name *</label>
-              <input id="ct-name" class="pv-input" placeholder="Maya Larson" required />
+              <input id="ct-name" name="name" class="pv-input" placeholder="Maya Larson" required />
             </div>
             <div>
               <label class="pv-label" for="ct-biz">Business name *</label>
-              <input id="ct-biz" class="pv-input" placeholder="Northbrook &amp; Co." required />
+              <input id="ct-biz" name="business" class="pv-input" placeholder="Northbrook &amp; Co." required />
             </div>
           </div>
 
           <div>
             <label class="pv-label" for="ct-email">Work email *</label>
-            <input id="ct-email" class="pv-input" type="email" placeholder="you@business.com" required />
+            <input id="ct-email" name="email" class="pv-input" type="email" placeholder="you@business.com" required />
           </div>
 
           <div>
             <label class="pv-label" for="ct-type">What kind of business?</label>
-            <input id="ct-type" class="pv-input" placeholder="e.g. café, clinic, retail, B2B services" />
+            <input id="ct-type" name="business_type" class="pv-input" placeholder="e.g. café, clinic, retail, B2B services" />
           </div>
 
           <div>
@@ -308,17 +312,17 @@
               <span class="pv-chip ct-pkg" data-val="Business">Business</span>
               <span class="pv-chip ct-pkg" data-val="Not sure yet">Not sure yet</span>
             </div>
-            <input type="hidden" id="ct-pkg-val" value="Professional" />
+            <input type="hidden" id="ct-pkg-val" name="package" value="Professional" />
           </div>
 
           <div>
             <label class="pv-label" for="ct-project">A bit about the project *</label>
-            <textarea id="ct-project" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required></textarea>
+            <textarea id="ct-project" name="message" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required></textarea>
           </div>
 
           <div>
             <label class="pv-label" for="ct-referral">How did you hear about us? (optional)</label>
-            <input id="ct-referral" class="pv-input" placeholder="Search, referral, friend…" />
+            <input id="ct-referral" name="referral" class="pv-input" placeholder="Search, referral, friend…" />
           </div>
 
           <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:16px;flex-wrap:wrap;">
@@ -485,8 +489,27 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      fields.classList.add('is-hidden');
-      success.classList.add('is-visible');
+      var btn = form.querySelector('[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          fields.classList.add('is-hidden');
+          success.classList.add('is-visible');
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
+        alert('Something went wrong. Please try again or email us directly.');
+      });
     });
   }
 

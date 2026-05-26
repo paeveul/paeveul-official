@@ -38,17 +38,9 @@
 
   <style>
     /* ── Header ─────────────────────────────────────── */
-    .hm-header {
-      position: sticky; top: 0; z-index: 50;
-      padding: 22px 80px;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid var(--pv-border);
-      background: rgba(13,15,20,0.70);
-      backdrop-filter: blur(8px);
-      position: relative;
-    }
+    /* pg-header / pg-header-inner handle sticky, backdrop, border, flex layout */
     .hm-nav { display: flex; gap: 32px; }
-    .hm-nav a { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--pv-text); transition: color .15s; }
+    .hm-nav a { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--pv-text); transition: color .15s; padding: 6px 0; }
     .hm-nav a:hover { color: var(--pv-cyan); }
     .hm-header-right { display: flex; align-items: center; gap: 14px; }
     .hm-status { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--pv-muted); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.06em; }
@@ -66,9 +58,9 @@
     }
 
     /* ── Hero ────────────────────────────────────── */
-    .hm-hero { position: relative; padding: 116px 80px 96px; z-index: 2; }
+    .hm-hero { position: relative; padding: 88px 0 96px; z-index: 2; }
     .hm-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
-    .hm-hero-h1 { font-size: 60px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+    .hm-hero-h1 { font-size: 52px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
     .hm-hero-lede { margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--pv-muted); max-width: 520px; }
     .hm-hero-btns { margin-top: 36px; display: flex; gap: 14px; align-items: center; }
     .hm-taglines { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 28px; border-top: 1px solid var(--pv-border); }
@@ -96,7 +88,7 @@
     .hm-live-badge { position: absolute; top: -28px; right: -28px; padding: 8px 12px; background: var(--pv-card); border: 1px solid rgba(0,229,255,0.33); border-radius: 8px; font-size: 11px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-cyan); letter-spacing: 0.1em; white-space: nowrap; }
 
     /* ── Process strip ───────────────────────────── */
-    .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 36px 80px; position: relative; z-index: 2; }
+    .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 36px 0; position: relative; z-index: 2; }
     .hm-process-inner { display: flex; align-items: center; }
     .hm-process-label { flex: 0 0 auto; margin-right: 40px; }
     .hm-process-steps { flex: 1; display: flex; align-items: center; }
@@ -106,8 +98,8 @@
     .hm-step-connector { flex: 1; height: 1px; margin: 0 16px; background: linear-gradient(90deg, var(--pv-border), transparent); }
 
     /* ── Sections ────────────────────────────────── */
-    .hm-section { padding: 116px 80px; position: relative; z-index: 2; }
-    .hm-section-alt { padding: 116px 80px; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); position: relative; z-index: 2; }
+    .hm-section { padding: 116px 0; position: relative; z-index: 2; }
+    .hm-section-alt { padding: 116px 0; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); position: relative; z-index: 2; }
 
     /* ── SectionHeader ───────────────────────────── */
     .hm-sh-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
@@ -156,7 +148,7 @@
     .hm-faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; align-items: flex-start; }
 
     /* ── Contact ─────────────────────────────────── */
-    .hm-contact { padding: 116px 80px; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); position: relative; z-index: 2; }
+    .hm-contact { padding: 116px 0; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); position: relative; z-index: 2; }
     .hm-contact-bg { position: absolute; inset: 0; opacity: 0.4; pointer-events: none; }
     .hm-contact-inner { position: relative; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
     .hm-contact-info { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
@@ -166,15 +158,25 @@
     .hm-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; gap: 16px; }
     .hm-form-note { font-size: 11.5px; color: var(--pv-muted); max-width: 280px; line-height: 1.5; }
 
+    /* ── Inner content wrapper (max-width constraint) ── */
+    .hm-inner {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 80px;
+      padding-right: 80px;
+    }
+
     /* ── Footer — uses pg-footer from paeveul.css ── */
 
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 900px) {
-      .hm-header { padding: 14px 20px; }
+      /* pg-header-inner handles its own padding at ≤900px via paeveul.css */
       .hm-nav { display: none; }
       .hm-status { display: none; }
       .hm-header-right .pv-btn-amber { display: none; }
-      .hm-hero { padding: 48px 20px 56px; }
+      .hm-hero { padding: 48px 0 56px; }
+      .hm-inner { padding-left: 20px; padding-right: 20px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
       .hm-hero-h1 { font-size: clamp(29px, 8vw, 37px); }
@@ -182,14 +184,14 @@
       .hm-hero-btns { flex-direction: column; }
       .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
       .hm-taglines { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
-      .hm-process { padding: 40px 20px; }
+      .hm-process { padding: 40px 0; }
       .hm-process-inner { flex-direction: column; align-items: flex-start; }
       .hm-process-label { margin-right: 0; margin-bottom: 20px; }
       .hm-process-steps { flex-direction: column; align-items: flex-start; gap: 0; position: relative; width: 100%; }
       .hm-process-steps::before { content: ''; position: absolute; left: 17px; top: 18px; bottom: 18px; width: 1px; background: var(--pv-border); }
       .hm-step { flex: 0 0 auto; padding: 10px 0; gap: 0; }
       .hm-step-connector { display: none; }
-      .hm-section, .hm-section-alt { padding: 64px 20px; }
+      .hm-section, .hm-section-alt { padding: 64px 0; }
       .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .hm-pkg-grid { grid-template-columns: 1fr; }
       .hm-port-grid { grid-template-columns: 1fr; margin-top: 32px; }
@@ -198,7 +200,7 @@
       .hm-art-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
       .hm-art-grid { grid-template-columns: 1fr; }
       .hm-faq-grid { grid-template-columns: 1fr; gap: 32px; }
-      .hm-contact { padding: 64px 20px; }
+      .hm-contact { padding: 64px 0; }
       .hm-contact-inner { grid-template-columns: 1fr; gap: 32px; }
       .hm-form { padding: 20px; }
       .hm-form-row { grid-template-columns: 1fr; }
@@ -228,7 +230,8 @@
     /* ── Tablet: process strip tightens ─────────── */
     @media (min-width: 901px) and (max-width: 1100px) {
       .hm-taglines { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .hm-process { padding: 36px 40px; }
+      .hm-process { padding: 36px 0; }
+      .hm-process .hm-inner { padding-left: 40px; padding-right: 40px; }
       .hm-process-label { margin-right: 24px; }
       .hm-process-label .pv-grotesk { font-size: 15px; }
       .hm-step-content { gap: 8px; }
@@ -255,14 +258,15 @@
 
     /* ── Fold folded / very narrow phones (≤ 380px) ───── */
     @media (max-width: 380px) {
-      .hm-hero { padding: 36px 14px 48px; }
+      .hm-hero { padding: 36px 0 48px; }
+      .hm-inner { padding-left: 14px; padding-right: 14px; }
       .hm-hero-h1 { font-size: clamp(24px, 7.5vw, 28px); }
       .hm-hero-lede { font-size: 14px; margin-top: 20px; }
       .hm-hero-btns { margin-top: 24px; gap: 10px; }
       .hm-taglines { margin-top: 24px; }
-      .hm-section, .hm-section-alt { padding: 48px 14px; }
-      .hm-process { padding: 32px 14px; }
-      .hm-contact { padding: 48px 14px; }
+      .hm-section, .hm-section-alt { padding: 48px 0; }
+      .hm-process { padding: 32px 0; }
+      .hm-contact { padding: 48px 0; }
       .hm-pkg-name { font-size: 22px; }
       .hm-pkg-card { padding: 22px 18px; }
       .hm-email-link { font-size: 16px; word-break: break-all; }
@@ -279,53 +283,56 @@
 <div class="hm-bg-glow"></div>
 
 <!-- ── HEADER ──────────────────────────────────────── -->
-<header class="hm-header" style="position:sticky;top:0;">
-  <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
-      <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
-      <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
-      <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
-    </svg>
-    <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
-  </a>
+<header class="pg-header">
+  <div class="pg-header-inner">
+    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="3" stroke="#E8EAF0" stroke-width="1.4"/>
+        <path d="M7 7h6a3 3 0 0 1 0 6H9" stroke="#E8EAF0" stroke-width="1.4" stroke-linecap="square"/>
+        <path d="M9 13v4" stroke="#00E5FF" stroke-width="1.4" stroke-linecap="square"/>
+        <circle cx="9" cy="18" r="0.8" fill="#00E5FF"/>
+      </svg>
+      <span class="pv-grotesk" style="font-size:18px;font-weight:600;letter-spacing:-0.02em;color:#E8EAF0;">Paeveul</span>
+    </a>
 
-  <nav class="hm-nav">
-    <a href="packages.html">Packages</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="why.html">Why Paeveul</a>
-    <a href="faq.html">FAQ</a>
-    <a href="blog.html">Blog</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <nav class="hm-nav">
+      <a href="packages.html">Packages</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="why.html">Why Paeveul</a>
+      <a href="faq.html">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-  <div class="hm-header-right">
-    <span class="hm-status">
-      <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-      TAKING NEW PROJECTS · 2026
-    </span>
-    <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
-    <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
+    <div class="hm-header-right">
+      <span class="hm-status">
+        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
+        TAKING NEW PROJECTS · 2026
+      </span>
+      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+      <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
 
-  <!-- Mobile dropdown -->
-  <div class="pg-mobile-menu">
-    <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
-    <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
-    <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
-    <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
-    <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
-    <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
-    <div style="padding-top:16px;">
-      <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+    <!-- Mobile dropdown -->
+    <div class="pg-mobile-menu">
+      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
+      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
+      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
+      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
+      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
+      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+      <div style="padding-top:16px;">
+        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- ── HERO ────────────────────────────────────────── -->
 <section class="hm-hero">
+<div class="hm-inner">
   <div class="hm-hero-grid">
 
     <!-- Left: copy -->
@@ -439,10 +446,12 @@
       <div class="hm-live-badge">⬢ LIVE BUILD</div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- ── PROCESS STRIP ───────────────────────────────── -->
 <div class="hm-process">
+<div class="hm-inner">
   <div class="hm-process-inner">
     <div class="hm-process-label">
       <span class="pv-eyebrow">How it works</span>
@@ -471,9 +480,11 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- ── PACKAGES §01 ────────────────────────────────── -->
 <section class="hm-section" id="packages">
+<div class="hm-inner">
   <div class="hm-pkg-header">
     <div>
       <div class="hm-sh-row">
@@ -483,12 +494,6 @@
       </div>
       <h2 class="hm-sh-h2 pv-grotesk">Three tiers.<br>Custom quotes, never templated.</h2>
       <p class="hm-sh-lede">Pick the tier that matches where you are. Every quote is based on real scope — no inflated bundles, no surprise invoices.</p>
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <span class="pv-chip is-active">All</span>
-      <span class="pv-chip">SME starting out</span>
-      <span class="pv-chip">Scaling</span>
-      <span class="pv-chip">Enterprise</span>
     </div>
   </div>
 
@@ -566,10 +571,12 @@
   <div style="margin-top:28px;text-align:center;font-size:13px;color:var(--pv-muted);">
     Not sure which tier fits? <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">Tell us about the project →</a>
   </div>
+</div>
 </section>
 
 <!-- ── PORTFOLIO §02 ───────────────────────────────── -->
 <section class="hm-section-alt">
+<div class="hm-inner">
   <div class="hm-sh-row">
     <span class="pv-eyebrow-num">02</span>
     <span class="hm-sh-rule"></span>
@@ -582,6 +589,7 @@
     <!-- Cool Breeze -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
+        <a href="portfolio.html">
         <div class="hm-browser">
           <div class="hm-browser-bar">
             <div class="hm-browser-dots">
@@ -592,31 +600,18 @@
               coolbreeze.com.my
             </div>
           </div>
-          <div class="hm-browser-content" style="height:260px;">
-            <div style="height:64px;background:var(--pv-bg-alt);display:flex;align-items:center;padding:0 16px;gap:12px;">
-              <div style="width:80px;height:10px;background:var(--pv-border-hi);border-radius:2px;"></div>
-              <div style="flex:1;"></div>
-              <div style="width:48px;height:22px;background:var(--pv-cyan);opacity:.15;border-radius:3px;"></div>
-            </div>
-            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
-              <div style="height:12px;background:var(--pv-border-hi);border-radius:2px;width:70%;"></div>
-              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:90%;"></div>
-              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:80%;"></div>
-              <div style="margin-top:8px;display:flex;gap:8px;">
-                <div style="width:80px;height:26px;background:var(--pv-cyan);opacity:.2;border-radius:3px;"></div>
-                <div style="width:80px;height:26px;background:var(--pv-border-hi);opacity:.15;border-radius:3px;"></div>
-              </div>
-            </div>
-            <div class="pv-scanline"></div>
+          <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <img src="assets/images/thumbnail-coolbreeze.webp" alt="Cool Breeze website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
           </div>
         </div>
+        </a>
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
           <span class="pv-eyebrow-num">CASE · 01</span>
           <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Residential &amp; Commercial</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Cool Breeze</h3>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
         <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
       </div>
@@ -625,6 +620,7 @@
     <!-- Aurora -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
+        <a href="portfolio.html">
         <div class="hm-browser">
           <div class="hm-browser-bar">
             <div class="hm-browser-dots">
@@ -635,29 +631,18 @@
               aurora.com.my
             </div>
           </div>
-          <div class="hm-browser-content" style="height:260px;">
-            <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
-              <div style="height:10px;background:var(--pv-border-hi);border-radius:2px;width:50%;"></div>
-              <div style="height:32px;background:var(--pv-border);border-radius:3px;width:100%;"></div>
-              <div style="display:flex;gap:6px;">
-                <div style="height:8px;background:var(--pv-border-hi);border-radius:2px;flex:1;opacity:.5;"></div>
-                <div style="height:8px;background:var(--pv-border-hi);border-radius:2px;flex:1;opacity:.3;"></div>
-              </div>
-              <div style="display:flex;gap:6px;margin-top:4px;">
-                <div style="height:60px;background:var(--pv-bg-alt);border-radius:4px;flex:1;"></div>
-                <div style="height:60px;background:var(--pv-bg-alt);border-radius:4px;flex:1;"></div>
-              </div>
-            </div>
-            <div class="pv-scanline"></div>
+          <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <img src="assets/images/rest-thumbnail.webp" alt="Aurora website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
           </div>
         </div>
+        </a>
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
           <span class="pv-eyebrow-num">CASE · 02</span>
           <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Service Business · Malaysia</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Aurora</h3>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Aurora</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
         <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
       </div>
@@ -666,6 +651,7 @@
     <!-- Alphamatic Aircon -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
+        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener">
         <div class="hm-browser">
           <div class="hm-browser-bar">
             <div class="hm-browser-dots">
@@ -676,41 +662,29 @@
               alphamatic-aircond.vercel.app
             </div>
           </div>
-          <div class="hm-browser-content" style="height:260px;">
-            <div style="height:52px;background:var(--pv-bg-alt);display:flex;align-items:center;padding:0 16px;gap:8px;">
-              <div style="width:60px;height:8px;background:var(--pv-border-hi);border-radius:2px;"></div>
-              <div style="flex:1;"></div>
-              <div style="width:36px;height:20px;background:var(--pv-cyan);opacity:.2;border-radius:3px;"></div>
-            </div>
-            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
-              <div style="display:flex;gap:6px;">
-                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
-                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
-                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
-                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
-              </div>
-              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:85%;"></div>
-              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:65%;"></div>
-            </div>
-            <div class="pv-scanline"></div>
+          <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <img src="assets/images/alphamatic-aircon-website-screenshot.webp" alt="Alphamatic Aircon website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
           </div>
         </div>
+        </a>
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
           <span class="pv-eyebrow-num">CASE · 03</span>
           <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Klang Valley</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Alphamatic Aircon</h3>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
         <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View site →</a>
       </div>
     </article>
   </div>
+</div>
 </section>
 
 <!-- ── WHY §03 ─────────────────────────────────────── -->
 <section class="hm-section">
+<div class="hm-inner">
   <div class="hm-why-grid">
     <div>
       <div class="hm-sh-row">
@@ -759,10 +733,12 @@
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- ── ARTICLES §04 ────────────────────────────────── -->
 <section class="hm-section-alt">
+<div class="hm-inner">
   <div class="hm-art-header">
     <div>
       <div class="hm-sh-row">
@@ -809,10 +785,12 @@
       </div>
     </article>
   </div>
+</div>
 </section>
 
 <!-- ── FAQ §05 ─────────────────────────────────────── -->
 <section class="hm-section">
+<div class="hm-inner">
   <div class="hm-faq-grid">
     <div>
       <div class="hm-sh-row">
@@ -875,12 +853,13 @@
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- ── CONTACT §06 ─────────────────────────────────── -->
 <section class="hm-contact">
   <div class="pv-grid-bg hm-contact-bg"></div>
-  <div class="hm-contact-inner">
+  <div class="hm-contact-inner hm-inner">
     <div>
       <div class="hm-sh-row">
         <span class="pv-eyebrow-num">06</span>
@@ -905,7 +884,10 @@
         </div>
       </div>
     </div>
-    <form class="pv-card hm-form" onsubmit="console.log('Enquiry submitted (placeholder):', {name: this.name.value, business: this.business.value, email: this.email.value, message: this.message.value}); return false;">
+    <form class="pv-card hm-form" id="hm-contact-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
+      <input type="hidden" name="subject" value="New Enquiry — Paeveul Homepage" />
+      <input type="hidden" name="from_name" value="Paeveul Website" />
       <div class="hm-form-row">
         <div>
           <label class="pv-label">Your name</label>
@@ -928,7 +910,7 @@
           <span class="pv-chip hm-pkg-chip" data-val="Business">Business</span>
           <span class="pv-chip hm-pkg-chip" data-val="Not sure yet">Not sure yet</span>
         </div>
-        <input type="hidden" id="hm-pkg-val" value="Professional" />
+        <input type="hidden" id="hm-pkg-val" name="package" value="Professional" />
       </div>
       <div>
         <label class="pv-label">A bit about the project</label>
@@ -1004,6 +986,35 @@
         chips.forEach(function (c) { c.classList.remove('is-active'); });
         this.classList.add('is-active');
         if (hidden) hidden.value = this.dataset.val;
+      });
+    });
+  }());
+
+  /* ── Homepage contact form — Web3Forms submit ──────── */
+  (function () {
+    var form = document.getElementById('hm-contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          if (btn) { btn.textContent = 'Sent ✓'; }
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
+          alert('Something went wrong. Please try again or email us directly.');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
+        alert('Something went wrong. Please try again or email us directly.');
       });
     });
   }());

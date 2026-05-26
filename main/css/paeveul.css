@@ -290,6 +290,9 @@ a { color: inherit; }
 
 /* Layout */
 .pg-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 0 80px;
 }
 
@@ -311,6 +314,9 @@ a { color: inherit; }
   border-bottom: 1px solid var(--pv-border);
 }
 .pg-header-inner {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 22px 80px;
   display: flex;
   align-items: center;

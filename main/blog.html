@@ -463,8 +463,11 @@
         <h2 class="pv-grotesk bl-newsletter-h2" style="font-size:30px;font-weight:600;line-height:1.15;margin:12px 0 0;letter-spacing:-0.02em;">One short post a month.<br>No marketing emails.</h2>
         <p style="margin-top:14px;font-size:14.5px;color:var(--pv-muted);line-height:1.6;max-width:460px;">We send one post a month when there's something worth reading. Unsubscribe in one click, no questions asked.</p>
       </div>
-      <form class="bl-newsletter-form" id="bl-nl-form">
-        <input class="pv-input" type="email" placeholder="you@business.com" aria-label="Email address" />
+      <form class="bl-newsletter-form" id="bl-nl-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
+        <input type="hidden" name="subject" value="Newsletter Signup — Paeveul Blog" />
+        <input type="hidden" name="from_name" value="Paeveul Blog" />
+        <input class="pv-input" type="email" name="email" placeholder="you@business.com" aria-label="Email address" />
         <button class="pv-btn-amber" type="submit" style="padding:12px 20px;border-radius:8px;font-size:13.5px;white-space:nowrap;">Subscribe →</button>
       </form>
     </div>
@@ -570,15 +573,33 @@
     update();
   }());
 
-  /* ── Newsletter form ────────────────────────────────── */
+  /* ── Newsletter form — Web3Forms submit ─────────────── */
   var nlForm = document.getElementById('bl-nl-form');
   if (nlForm) {
     nlForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var input = this.querySelector('input[type="email"]');
       var btn   = this.querySelector('button');
-      if (input) input.disabled = true;
-      if (btn)   { btn.textContent = 'Subscribed ✓'; btn.disabled = true; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Subscribing…'; }
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(nlForm)
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          if (input) input.disabled = true;
+          if (btn)   { btn.textContent = 'Subscribed ✓'; btn.disabled = true; }
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = 'Subscribe →'; }
+          alert('Something went wrong. Please try again.');
+        }
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.textContent = 'Subscribe →'; }
+        alert('Something went wrong. Please try again.');
+      });
     });
   }
 </script>

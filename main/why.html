@@ -61,7 +61,7 @@
     }
 
     /* ── Testimonials carousel ────────────────────────── */
-    .why-carousel { position: relative; }
+    .why-carousel {  }
     .why-carousel-viewport {
       display: flex;
       gap: 20px;
@@ -70,8 +70,13 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       padding-bottom: 4px;
+      /* Bleed out of pg-wrap padding so the right card is never clipped */
+      margin-left: -80px;
+      margin-right: -80px;
+      padding-left: 80px;
     }
     .why-carousel-viewport::-webkit-scrollbar { display: none; }
+    /* ::after spacer removed — negative-margin bleed handles right-edge clearance */
     .why-testi-card {
       scroll-snap-align: start;
       flex: 0 0 calc((100% - 20px) / 2);
@@ -107,9 +112,6 @@
       flex: 0 0 auto;
     }
     .why-carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
       width: 44px; height: 44px;
       border-radius: 999px;
       border: 1px solid var(--pv-border);
@@ -126,14 +128,18 @@
     .why-carousel-btn:hover {
       border-color: var(--pv-cyan);
       color: var(--pv-cyan);
-      transform: translateY(-50%) scale(1.05);
+      transform: scale(1.05);
     }
-    .why-carousel-btn:active { transform: translateY(-50%) scale(0.97); }
-    .why-carousel-prev { left: 14px; }
-    .why-carousel-next { right: 14px; }
+    .why-carousel-btn:active { transform: scale(0.97); }
+    .why-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
     .why-carousel-dots {
       display: flex; justify-content: center; gap: 8px;
-      margin-top: 28px;
     }
     .why-carousel-dots button {
       width: 28px; height: 3px;
@@ -150,6 +156,11 @@
 
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 900px) {
+      .why-carousel-viewport {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+      }
       .why-split { grid-template-columns: 1fr; gap: 32px; }
       .why-grid { grid-template-columns: 1fr; }
       .why-principles { grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -199,6 +210,11 @@
 
     /* ── Fold folded / very narrow phones (≤ 380px) ───── */
     @media (max-width: 380px) {
+      .why-carousel-viewport {
+        margin-left: -14px;
+        margin-right: -14px;
+        padding-left: 14px;
+      }
       .why-stats-wrap { gap: 16px; padding-top: 24px; padding-bottom: 24px; }
       .why-cell { padding: 20px 16px; }
       .why-testi-card { padding: 20px 16px; min-height: 240px; }
@@ -483,19 +499,19 @@
       </div>
 
       <!-- Controls -->
-      <button class="why-carousel-btn why-carousel-prev" aria-label="Previous testimonial">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M15 6 L 9 12 L 15 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="why-carousel-btn why-carousel-next" aria-label="Next testimonial">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M9 6 L 15 12 L 9 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-
-      <!-- Dots -->
-      <div class="why-carousel-dots" id="why-dots"></div>
+      <div class="why-carousel-controls">
+        <button class="why-carousel-btn why-carousel-prev" aria-label="Previous testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 6 L 9 12 L 15 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="why-carousel-dots" id="why-dots"></div>
+        <button class="why-carousel-btn why-carousel-next" aria-label="Next testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M9 6 L 15 12 L 9 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -596,7 +612,7 @@
 
     function scrollTo(i) {
       const child = viewport.children[i];
-      if (child) viewport.scrollTo({ left: child.offsetLeft, behavior: 'smooth' });
+      if (child) viewport.scrollTo({ left: child.offsetLeft - viewport.offsetLeft, behavior: 'smooth' });
     }
 
     function refreshDots() {
