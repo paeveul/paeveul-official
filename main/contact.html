@@ -64,7 +64,7 @@
     .ct-form {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 28px;
       padding: 36px;
     }
     .ct-side {
@@ -100,6 +100,13 @@
     .ct-chips { display: flex; gap: 8px; flex-wrap: wrap; }
     .ct-chips .pv-chip { cursor: pointer; }
 
+    /* Form fields container */
+    .ct-form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
     /* Success state */
     .ct-success {
       text-align: center;
@@ -134,6 +141,7 @@
     @media (max-width: 380px) {
       .ct-form { padding: 16px; gap: 14px; }
       .ct-channels { gap: 14px; }
+      .ct-form-fields { gap: 16px; }
     }
   </style>
 </head>
@@ -265,7 +273,7 @@
 
         <!-- Form fields -->
         <div id="ct-fields" class="ct-form-fields">
-          <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
             <span class="pv-eyebrow-num">ENQUIRY · 01</span>
             <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
             <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">5 MIN</span>
@@ -301,29 +309,6 @@
               <span class="pv-chip ct-pkg" data-val="Not sure yet">Not sure yet</span>
             </div>
             <input type="hidden" id="ct-pkg-val" value="Professional" />
-          </div>
-
-          <div class="ct-row">
-            <div>
-              <label class="pv-label">Rough budget (optional)</label>
-              <div class="ct-chips" id="ct-budget-chips">
-                <span class="pv-chip ct-budget" data-val="< $5k" style="font-size:11px;">&lt; $5k</span>
-                <span class="pv-chip ct-budget" data-val="$5–15k" style="font-size:11px;">$5–15k</span>
-                <span class="pv-chip ct-budget" data-val="$15–30k" style="font-size:11px;">$15–30k</span>
-                <span class="pv-chip ct-budget" data-val="$30k+" style="font-size:11px;">$30k+</span>
-              </div>
-              <input type="hidden" id="ct-budget-val" value="" />
-            </div>
-            <div>
-              <label class="pv-label">Timeline</label>
-              <div class="ct-chips" id="ct-timeline-chips">
-                <span class="pv-chip ct-timeline" data-val="ASAP" style="font-size:11px;">ASAP</span>
-                <span class="pv-chip ct-timeline" data-val="1–2 mo" style="font-size:11px;">1–2 mo</span>
-                <span class="pv-chip ct-timeline" data-val="3+ mo" style="font-size:11px;">3+ mo</span>
-                <span class="pv-chip ct-timeline" data-val="Just exploring" style="font-size:11px;">Just exploring</span>
-              </div>
-              <input type="hidden" id="ct-timeline-val" value="" />
-            </div>
           </div>
 
           <div>
@@ -490,8 +475,6 @@
   }
 
   initChipGroup('.ct-pkg',      'ct-pkg-val');
-  initChipGroup('.ct-budget',   'ct-budget-val');
-  initChipGroup('.ct-timeline', 'ct-timeline-val');
 
   /* ── Form submit / success toggle ────────────────────── */
   var form    = document.getElementById('ct-form');

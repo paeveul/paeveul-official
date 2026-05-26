@@ -74,7 +74,7 @@
     .why-carousel-viewport::-webkit-scrollbar { display: none; }
     .why-testi-card {
       scroll-snap-align: start;
-      flex: 0 0 calc((100% - 40px) / 3);
+      flex: 0 0 calc((100% - 20px) / 2);
       padding: 28px;
       display: flex;
       flex-direction: column;
@@ -149,9 +149,6 @@
     .why-carousel-dots button.is-active:hover { background: var(--pv-cyan); }
 
     /* ── Responsive ───────────────────────────────────── */
-    @media (max-width: 1100px) {
-      .why-testi-card { flex-basis: calc((100% - 20px) / 2); }
-    }
     @media (max-width: 900px) {
       .why-split { grid-template-columns: 1fr; gap: 32px; }
       .why-grid { grid-template-columns: 1fr; }
@@ -279,10 +276,6 @@
 <!-- ── STATS STRIP ─────────────────────────────────── -->
 <section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
   <div class="pg-wrap why-stats-wrap" style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-    <div style="flex:1 1 160px;">
-      <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">38+</div>
-      <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Sites shipped</div>
-    </div>
     <div style="flex:1 1 160px;">
       <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">95+</div>
       <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Avg Lighthouse</div>
@@ -441,13 +434,13 @@
             <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
           </svg>
           <blockquote class="pv-grotesk why-testi-quote">
-            "Paeveul rebuilt our site in five weeks and our enquiries doubled. What stood out wasn't the design — it was how clearly they explained every decision."
+            "Before this, people called us through referrals only. Now they find us on Google and WhatsApp us directly. The site paid for itself in the first month."
           </blockquote>
           <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">ML</div>
+            <div class="why-testi-avatar">FH</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Maya Larson</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Founder · Northbrook Mart</div>
+              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Encik Faizal Harun</div>
+              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Owner · Cool Breeze</div>
             </div>
           </figcaption>
         </figure>
@@ -458,13 +451,13 @@
             <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
           </svg>
           <blockquote class="pv-grotesk why-testi-quote">
-            "We've had three agencies before this. Paeveul was the first that asked about our customers before showing us a mood board. Best decision of the year."
+            "We told them what we do and what we needed. They came back with a design that actually looked like us — not some template with our logo pasted in."
           </blockquote>
           <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">JR</div>
+            <div class="why-testi-avatar">SN</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Jordan Reyes</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Director · Ember Café</div>
+              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Puan Siti Norzahra</div>
+              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Director · Aurora</div>
             </div>
           </figcaption>
         </figure>
@@ -475,50 +468,17 @@
             <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
           </svg>
           <blockquote class="pv-grotesk why-testi-quote">
-            "Honest scope, honest invoice, honest results. They flagged things our last team buried in jargon, and the site loads faster than anything we've shipped."
+            "Fast, honest, no drama. They built the site, showed it to me for review, and it was live within weeks. My competitor's site still looks like it's from 2012."
           </blockquote>
           <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">PA</div>
+            <div class="why-testi-avatar">G</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Priya Anand</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Operations Lead · Cedar &amp; Field</div>
+              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Guna</div>
+              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Founder · Alphamatic Aircon</div>
             </div>
           </figcaption>
         </figure>
 
-        <!-- Card 4 -->
-        <figure class="pv-card why-testi-card">
-          <svg width="24" height="20" viewBox="0 0 24 20" style="margin-bottom:18px;flex:0 0 auto;" aria-hidden="true">
-            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
-          </svg>
-          <blockquote class="pv-grotesk why-testi-quote">
-            "Calm, considered, no theatrics. The studio felt like an in-house team without the overhead. I'd hire them again in a heartbeat."
-          </blockquote>
-          <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">TV</div>
-            <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Tom Vance</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Partner · Atlas Studios</div>
-            </div>
-          </figcaption>
-        </figure>
-
-        <!-- Card 5 -->
-        <figure class="pv-card why-testi-card">
-          <svg width="24" height="20" viewBox="0 0 24 20" style="margin-bottom:18px;flex:0 0 auto;" aria-hidden="true">
-            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
-          </svg>
-          <blockquote class="pv-grotesk why-testi-quote">
-            "They built a quote-request flow that replaced a contact form we'd patched for years. Our sales team finally trusts the inbox."
-          </blockquote>
-          <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">SD</div>
-            <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Selin Demir</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Founder · Forge Print Co.</div>
-            </div>
-          </figcaption>
-        </figure>
 
       </div>
 
@@ -629,7 +589,7 @@
 
     function perView() {
       const w = window.innerWidth;
-      return w < 700 ? 1 : w < 1100 ? 2 : 3;
+      return w < 700 ? 1 : 2;
     }
 
     function maxIndex() { return Math.max(0, total - perView()); }

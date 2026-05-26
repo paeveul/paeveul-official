@@ -130,7 +130,7 @@
     .hm-pkg-check { flex: 0 0 auto; margin-top: 3px; }
 
     /* ── Portfolio ───────────────────────────────── */
-    .hm-port-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .hm-port-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .hm-port-card { overflow: hidden; display: flex; flex-direction: column; }
     .hm-port-preview { padding: 24px; background: var(--pv-bg); border-bottom: 1px solid var(--pv-border); }
     .hm-port-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
@@ -336,7 +336,7 @@
       </div>
       <h1 class="hm-hero-h1 pv-grotesk">
         Launch your business<br>online with
-        <span class="pv-rot" data-words='["clarity","intent","purpose"]'></span>
+        <span class="pv-rot" data-words='["clarity","intent","purpose"]' style="color:var(--pv-cyan);"></span>
       </h1>
       <p class="hm-hero-lede">
         We build custom websites, SEO-aware structure and lead-conversion flows for growing businesses.
@@ -579,39 +579,32 @@
   <p class="hm-sh-lede">A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship.</p>
 
   <div class="hm-port-grid">
-    <!-- Northbrook Mart — site variant -->
+    <!-- Cool Breeze -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
         <div class="hm-browser">
           <div class="hm-browser-bar">
-            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
-            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>northbrookmart.my</div>
+            <div class="hm-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="hm-browser-addr">
+              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
+              coolbreeze.com.my
+            </div>
           </div>
           <div class="hm-browser-content" style="height:260px;">
-            <div style="display:flex;flex-direction:column;gap:10px;height:100%;">
-              <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--pv-border);">
-                <div style="width:50px;height:9px;background:var(--pv-text);border-radius:2px;"></div>
-                <div style="display:flex;gap:8px;">
-                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
-                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
-                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
-                  <div style="width:24px;height:6px;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
-                </div>
-              </div>
-              <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px;flex:1;align-items:center;">
-                <div style="display:flex;flex-direction:column;gap:6px;">
-                  <div style="height:18px;width:95%;background:var(--pv-text);border-radius:3px;"></div>
-                  <div style="height:18px;width:70%;background:var(--pv-text);border-radius:3px;"></div>
-                  <div style="height:7px;width:90%;background:var(--pv-muted);opacity:0.5;border-radius:2px;margin-top:4px;"></div>
-                  <div style="height:7px;width:75%;background:var(--pv-muted);opacity:0.5;border-radius:2px;"></div>
-                  <div style="display:flex;gap:6px;margin-top:8px;">
-                    <div style="height:18px;width:56px;background:var(--pv-cyan);border-radius:4px;"></div>
-                    <div style="height:18px;width:56px;border:1px solid var(--pv-border);border-radius:4px;"></div>
-                  </div>
-                </div>
-                <div style="aspect-ratio:4/3;background:var(--pv-card);border:1px solid var(--pv-border);border-radius:6px;position:relative;overflow:hidden;">
-                  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,var(--pv-border) 0 1px,transparent 1px 8px);"></div>
-                </div>
+            <div style="height:64px;background:var(--pv-bg-alt);display:flex;align-items:center;padding:0 16px;gap:12px;">
+              <div style="width:80px;height:10px;background:var(--pv-border-hi);border-radius:2px;"></div>
+              <div style="flex:1;"></div>
+              <div style="width:48px;height:22px;background:var(--pv-cyan);opacity:.15;border-radius:3px;"></div>
+            </div>
+            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="height:12px;background:var(--pv-border-hi);border-radius:2px;width:70%;"></div>
+              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:90%;"></div>
+              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:80%;"></div>
+              <div style="margin-top:8px;display:flex;gap:8px;">
+                <div style="width:80px;height:26px;background:var(--pv-cyan);opacity:.2;border-radius:3px;"></div>
+                <div style="width:80px;height:26px;background:var(--pv-border-hi);opacity:.15;border-radius:3px;"></div>
               </div>
             </div>
             <div class="pv-scanline"></div>
@@ -621,39 +614,38 @@
       <div class="hm-port-body">
         <div class="hm-port-meta">
           <span class="pv-eyebrow-num">CASE · 01</span>
-          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Retail · Multi-store chain</span>
+          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Residential &amp; Commercial</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Northbrook Mart</h3>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">Brought a 6-store mini-mart online with a clean storefront and store-locator that lifted enquiries 3×.</p>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Cool Breeze</h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
         <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
       </div>
     </article>
 
-    <!-- Ember Café — editor variant -->
+    <!-- Aurora -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
         <div class="hm-browser">
           <div class="hm-browser-bar">
-            <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
-            <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>embercafe.com</div>
+            <div class="hm-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="hm-browser-addr">
+              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
+              aurora.com.my
+            </div>
           </div>
           <div class="hm-browser-content" style="height:260px;">
-            <div style="display:grid;grid-template-rows:auto 1fr;gap:10px;height:100%;">
+            <div style="padding:16px;display:flex;flex-direction:column;gap:10px;">
+              <div style="height:10px;background:var(--pv-border-hi);border-radius:2px;width:50%;"></div>
+              <div style="height:32px;background:var(--pv-border);border-radius:3px;width:100%;"></div>
               <div style="display:flex;gap:6px;">
-                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">H1</span>
-                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">H2</span>
-                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">¶</span>
-                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">—</span>
-                <span style="width:28px;height:24px;display:inline-flex;align-items:center;justify-content:center;background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:5px;font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">⌗</span>
+                <div style="height:8px;background:var(--pv-border-hi);border-radius:2px;flex:1;opacity:.5;"></div>
+                <div style="height:8px;background:var(--pv-border-hi);border-radius:2px;flex:1;opacity:.3;"></div>
               </div>
-              <div style="background:var(--pv-bg);border:1px solid var(--pv-border);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;">
-                <div style="height:14px;width:60%;background:#1B2030;border-radius:3px;"></div>
-                <div style="height:8px;width:90%;background:var(--pv-border);border-radius:3px;"></div>
-                <div style="height:8px;width:78%;background:var(--pv-border);border-radius:3px;"></div>
-                <div style="height:8px;width:85%;background:var(--pv-border);border-radius:3px;"></div>
-                <div style="height:60px;background:var(--pv-card);border:1px dashed var(--pv-border);border-radius:5px;margin-top:6px;"></div>
-                <div style="height:8px;width:70%;background:var(--pv-border);border-radius:3px;margin-top:4px;"></div>
-                <div style="height:8px;width:50%;background:var(--pv-border);border-radius:3px;"></div>
+              <div style="display:flex;gap:6px;margin-top:4px;">
+                <div style="height:60px;background:var(--pv-bg-alt);border-radius:4px;flex:1;"></div>
+                <div style="height:60px;background:var(--pv-bg-alt);border-radius:4px;flex:1;"></div>
               </div>
             </div>
             <div class="pv-scanline"></div>
@@ -663,11 +655,55 @@
       <div class="hm-port-body">
         <div class="hm-port-meta">
           <span class="pv-eyebrow-num">CASE · 02</span>
-          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">F&amp;B · Café &amp; roastery</span>
+          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Service Business · Malaysia</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Ember Café</h3>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A warm one-page site with menu, location and ordering flow — built for thumb-flow, not desktop legacy.</p>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Aurora</h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
         <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+      </div>
+    </article>
+
+    <!-- Alphamatic Aircon -->
+    <article class="pv-card hm-port-card">
+      <div class="hm-port-preview">
+        <div class="hm-browser">
+          <div class="hm-browser-bar">
+            <div class="hm-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="hm-browser-addr">
+              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
+              alphamatic-aircond.vercel.app
+            </div>
+          </div>
+          <div class="hm-browser-content" style="height:260px;">
+            <div style="height:52px;background:var(--pv-bg-alt);display:flex;align-items:center;padding:0 16px;gap:8px;">
+              <div style="width:60px;height:8px;background:var(--pv-border-hi);border-radius:2px;"></div>
+              <div style="flex:1;"></div>
+              <div style="width:36px;height:20px;background:var(--pv-cyan);opacity:.2;border-radius:3px;"></div>
+            </div>
+            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+              <div style="display:flex;gap:6px;">
+                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
+                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
+                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
+                <div style="height:48px;background:var(--pv-bg-alt);border-radius:3px;flex:1;"></div>
+              </div>
+              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:85%;"></div>
+              <div style="height:8px;background:var(--pv-border);border-radius:2px;width:65%;"></div>
+            </div>
+            <div class="pv-scanline"></div>
+          </div>
+        </div>
+      </div>
+      <div class="hm-port-body">
+        <div class="hm-port-meta">
+          <span class="pv-eyebrow-num">CASE · 03</span>
+          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Klang Valley</span>
+        </div>
+        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;">Alphamatic Aircon</h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
+        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View site →</a>
       </div>
     </article>
   </div>
@@ -887,11 +923,12 @@
       <div>
         <label class="pv-label">Package you're interested in</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <span class="pv-chip">Essential</span>
-          <span class="pv-chip is-active">Professional</span>
-          <span class="pv-chip">Business</span>
-          <span class="pv-chip">Not sure yet</span>
+          <span class="pv-chip hm-pkg-chip" data-val="Essential">Essential</span>
+          <span class="pv-chip hm-pkg-chip is-active" data-val="Professional">Professional</span>
+          <span class="pv-chip hm-pkg-chip" data-val="Business">Business</span>
+          <span class="pv-chip hm-pkg-chip" data-val="Not sure yet">Not sure yet</span>
         </div>
+        <input type="hidden" id="hm-pkg-val" value="Professional" />
       </div>
       <div>
         <label class="pv-label">A bit about the project</label>
@@ -958,5 +995,18 @@
 </footer>
 
 <script src="js/paeveul.js"></script>
+<script>
+  (function () {
+    var chips  = document.querySelectorAll('.hm-pkg-chip');
+    var hidden = document.getElementById('hm-pkg-val');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('is-active'); });
+        this.classList.add('is-active');
+        if (hidden) hidden.value = this.dataset.val;
+      });
+    });
+  }());
+</script>
 </body>
 </html>

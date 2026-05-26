@@ -53,16 +53,6 @@
     }
     .bl-featured:hover { border-color: var(--pv-cyan); }
     .bl-featured-img { display: flex; justify-content: center; align-items: center; }
-    .bl-cat-pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--pv-cyan);
-      color: var(--pv-cyan);
-      font-size: 11px;
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.1em;
-    }
 
     /* Filter strip */
     .bl-filter-row {
@@ -81,32 +71,6 @@
     }
     .bl-search-icon { position: absolute; left: 12px; color: var(--pv-muted); pointer-events: none; }
     .bl-search-wrap .pv-input { padding-left: 36px; font-size: 13px; }
-
-    /* Post grid */
-    .bl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .bl-card {
-      display: flex;
-      flex-direction: column;
-      text-decoration: none;
-      color: inherit;
-      overflow: hidden;
-    }
-    .bl-card-img {
-      padding: 18px;
-      background: var(--pv-bg);
-      border-bottom: 1px solid var(--pv-border);
-      display: flex;
-      justify-content: center;
-    }
-    .bl-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
-    .bl-card-foot {
-      margin-top: auto;
-      padding-top: 18px;
-      border-top: 1px solid var(--pv-border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
 
     /* Newsletter */
     .bl-newsletter {
@@ -127,21 +91,14 @@
     .bl-newsletter-form .pv-input { flex: 1; }
 
     /* ── Responsive ───────────────────────────────────── */
-    @media (max-width: 1100px) {
-      .bl-grid { grid-template-columns: 1fr 1fr; }
-    }
     @media (max-width: 900px) {
       .pg-title { font-size: clamp(29px, 8vw, 37px); }
       .bl-featured { grid-template-columns: 1fr; gap: 24px; padding: 20px; }
       .bl-featured-h2 { font-size: 26px !important; }
-      .bl-grid { grid-template-columns: 1fr; }
       .bl-newsletter { padding: 56px 0; gap: 32px; }
       .bl-newsletter-form { flex-basis: 100%; }
       .bl-search-wrap { flex: 1 1 100%; }
       .bl-newsletter-h2 { font-size: 24px !important; }
-    }
-    @media (min-width: 640px) and (max-width: 900px) {
-      .bl-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
       .bl-newsletter { padding: 48px 0; flex-direction: column; align-items: stretch; }
@@ -150,8 +107,6 @@
       .bl-newsletter-form button { width: 100%; }
     }
     @media (max-width: 380px) {
-      .bl-card-img { padding: 12px; }
-      .bl-card-body { padding: 16px 18px 18px; }
       .bl-featured { padding: 14px; gap: 16px; }
     }
   </style>
