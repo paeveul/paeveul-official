@@ -6,6 +6,7 @@
 
 /* ─── Google Fonts ─────────────────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&display=swap');
 
 /* ─── Design Tokens ─────────────────────────────────────────────────────────── */
 :root {
@@ -751,6 +752,7 @@ a { color: inherit; }
 /* Prose typography — all scoped inside .ar-body */
 .ar-body p {
   font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.75;
   color: var(--pv-text);
@@ -758,14 +760,14 @@ a { color: inherit; }
 }
 
 .ar-body h2 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Newsreader', Georgia, serif;
   font-size: 26px;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.018em;
   color: var(--pv-text);
   margin: 48px 0 18px;
-  padding-top: 8px;
+  padding-top: 20px;
   border-top: 1px solid var(--pv-border);
 }
 
@@ -790,6 +792,8 @@ a { color: inherit; }
 .ar-body ul li {
   padding-left: 20px;
   position: relative;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.65;
   color: var(--pv-text);
@@ -817,6 +821,8 @@ a { color: inherit; }
   counter-increment: ar-ol;
   padding-left: 28px;
   position: relative;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.65;
   color: var(--pv-text);
@@ -994,5 +1000,34 @@ a { color: inherit; }
   .ar-cta-inner { padding: 48px 0; }
 }
 
+/* Illustration placeholders — replaced with real <img> when art is delivered */
+.ar-img-wrap.ar-img-placeholder {
+  aspect-ratio: 16 / 9;
+  overflow: visible;
+  background: linear-gradient(135deg, var(--pv-card-hi), var(--pv-card));
+  border: 1px solid var(--pv-border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 0;
+}
+.ar-img-wrap.ar-img-placeholder::after {
+  content: attr(data-label);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pv-muted);
+  pointer-events: none;
+  user-select: none;
+}
+
 /* Related articles section — marker class, no rules needed */
 .ar-related {}
+
+/* Article page: remove top padding on the prose section immediately after the hero.
+   .ar-hero + .pg-section is structurally unique to article pages — safe to zero here
+   without touching the base pg-section rule used by all other pages. */
+.ar-hero + .pg-section { padding-top: 0; }
