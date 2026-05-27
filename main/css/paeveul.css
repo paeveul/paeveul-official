@@ -50,6 +50,19 @@ a { color: inherit; }
   letter-spacing: -0.01em;
 }
 
+/* Nav wordmark logo */
+.pv-logo-wordmark {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.pv-logo-initial {
+  color: var(--pv-cyan);
+}
+.pv-logo-rest {
+  color: var(--pv-text);
+}
+
 .pv-eyebrow {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 11px;
