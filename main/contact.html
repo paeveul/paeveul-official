@@ -315,9 +315,12 @@
             <input id="ct-referral" name="referral" class="pv-input" placeholder="Search, referral, friend…" />
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;gap:16px;flex-wrap:wrap;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:4px;gap:16px;flex-wrap:wrap;">
             <span style="font-size:12px;color:var(--pv-muted);max-width:320px;line-height:1.5;">We'll only use this to reply to your enquiry. No mailing list, no resale, no follow-up barrage.</span>
-            <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;">Send enquiry →</button>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+              <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
+              <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;">Send enquiry →</button>
+            </div>
           </div>
         </div>
 
@@ -448,6 +451,7 @@
 </footer>
 
 <script src="js/paeveul.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   /* ── Chip selectors ─────────────────────────────────── */
   function initChipGroup(selector, hiddenId) {
@@ -484,6 +488,7 @@
         if (res.ok) {
           fields.classList.add('is-hidden');
           success.classList.add('is-visible');
+          if (typeof grecaptcha !== 'undefined') { grecaptcha.reset(); }
         } else {
           if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
           alert('Something went wrong. Please try again or email us directly.');

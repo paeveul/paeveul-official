@@ -924,7 +924,10 @@
       </div>
       <div class="hm-form-footer">
         <span class="hm-form-note">We'll only use this to reply to your enquiry. No mailing list.</span>
-        <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+          <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
+          <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
+        </div>
       </div>
     </form>
   </div>
@@ -977,6 +980,7 @@
 </footer>
 
 <script src="js/paeveul.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script>
   (function () {
     var chips  = document.querySelectorAll('.hm-pkg-chip');
@@ -1006,6 +1010,7 @@
       .then(function (res) {
         if (res.ok) {
           if (btn) { btn.textContent = 'Sent ✓'; }
+          if (typeof grecaptcha !== 'undefined') { grecaptcha.reset(); }
         } else {
           if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
           alert('Something went wrong. Please try again or email us directly.');
