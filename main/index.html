@@ -994,34 +994,6 @@
     });
   }());
 
-  /* ── Homepage contact form — Web3Forms submit ──────── */
-  (function () {
-    var form = document.getElementById('hm-contact-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-      fetch('https://formbold.com/s/obvgp', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(function (res) {
-        if (res.ok) {
-          if (btn) { btn.textContent = 'Sent ✓'; }
-          if (typeof grecaptcha !== 'undefined') { grecaptcha.reset(); }
-        } else {
-          if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
-          alert('Something went wrong. Please try again or email us directly.');
-        }
-      })
-      .catch(function () {
-        if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
-        alert('Something went wrong. Please try again or email us directly.');
-      });
-    });
-  }());
 </script>
 </body>
 </html>

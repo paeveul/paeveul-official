@@ -107,15 +107,6 @@
       gap: 24px;
     }
 
-    /* Success state */
-    .ct-success {
-      text-align: center;
-      padding: 40px 20px;
-      display: none;
-    }
-    .ct-success.is-visible { display: block; }
-    .ct-form-fields.is-hidden { display: none; }
-
     /* FAQ teaser */
     .ct-faq-teaser {
       padding: 64px 0;
@@ -263,7 +254,7 @@
     <div class="ct-split">
 
       <!-- Form -->
-      <form class="pv-card ct-form" id="ct-form" action="https://formbold.com/s/oWQDy" method="POST" novalidate>
+      <form class="pv-card ct-form" id="ct-form" action="https://formbold.com/s/oWQDy" method="POST">
 
 <!-- Form fields -->
         <div id="ct-fields" class="ct-form-fields">
@@ -324,17 +315,6 @@
           </div>
         </div>
 
-        <!-- Success state -->
-        <div class="ct-success" id="ct-success">
-          <div style="width:64px;height:64px;border-radius:999px;border:1px solid var(--pv-cyan);display:inline-flex;align-items:center;justify-content:center;margin-bottom:24px;">
-            <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
-              <path d="M6 14 L12 20 L22 8" stroke="#00E5FF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="pv-grotesk" style="font-size:28px;font-weight:600;margin:0;letter-spacing:-0.02em;">Enquiry sent.</h3>
-          <p style="margin-top:14px;font-size:15px;color:var(--pv-muted);line-height:1.6;max-width:420px;margin-left:auto;margin-right:auto;">Thanks — we'll reply within 1–3 business working days with next steps and a few clarifying questions.</p>
-          <button type="button" id="ct-reset" class="pv-btn-ghost" style="margin-top:28px;padding:12px 18px;border-radius:8px;font-size:13.5px;">Send another →</button>
-        </div>
 
       </form>
 
@@ -468,46 +448,7 @@
 
   initChipGroup('.ct-pkg',      'ct-pkg-val');
 
-  /* ── Form submit / success toggle ────────────────────── */
-  var form    = document.getElementById('ct-form');
-  var fields  = document.getElementById('ct-fields');
-  var success = document.getElementById('ct-success');
-  var reset   = document.getElementById('ct-reset');
 
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('[type="submit"]');
-      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-
-      fetch('https://formbold.com/s/oWQDy', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-      .then(function (res) {
-        if (res.ok) {
-          fields.classList.add('is-hidden');
-          success.classList.add('is-visible');
-          if (typeof grecaptcha !== 'undefined') { grecaptcha.reset(); }
-        } else {
-          if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
-          alert('Something went wrong. Please try again or email us directly.');
-        }
-      })
-      .catch(function () {
-        if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
-        alert('Something went wrong. Please try again or email us directly.');
-      });
-    });
-  }
-
-  if (reset) {
-    reset.addEventListener('click', function () {
-      fields.classList.remove('is-hidden');
-      success.classList.remove('is-visible');
-      if (form) form.reset();
-    });
-  }
 </script>
 </body>
 </html>
