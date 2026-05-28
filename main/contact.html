@@ -106,6 +106,18 @@
       flex-direction: column;
       gap: 24px;
     }
+    .ct-form-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      margin-top: 4px;
+      gap: 16px;
+    }
+    .ct-form-note {
+      font-size: 12px;
+      color: var(--pv-muted);
+      line-height: 1.5;
+    }
 
     /* FAQ teaser */
     .ct-faq-teaser {
@@ -122,6 +134,7 @@
       .ct-side { position: static; }
       .ct-row { grid-template-columns: 1fr; }
       .ct-h2 { font-size: 24px !important; }
+      .ct-form-footer button { width: 100%; }
     }
     @media (min-width: 640px) and (max-width: 900px) {
       .ct-row { grid-template-columns: 1fr 1fr; }
@@ -306,12 +319,10 @@
             <input id="ct-referral" name="referral" class="pv-input" placeholder="Search, referral, friend…" />
           </div>
 
-          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:4px;gap:16px;flex-wrap:wrap;">
-            <span style="font-size:12px;color:var(--pv-muted);max-width:320px;line-height:1.5;">We'll only use this to reply to your enquiry. No mailing list, no resale, no follow-up barrage.</span>
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-              <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
-              <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;">Send enquiry →</button>
-            </div>
+          <div class="ct-form-footer">
+            <span class="ct-form-note">We'll only use this to reply to your enquiry. No mailing list, no resale, no follow-up barrage.</span>
+            <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
+            <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;">Send enquiry →</button>
           </div>
         </div>
 

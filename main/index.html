@@ -156,8 +156,8 @@
     .hm-email-link { font-size: 22px; color: var(--pv-text); text-decoration: none; border-bottom: 1px solid var(--pv-cyan); padding-bottom: 2px; }
     .hm-form { padding: 32px; display: flex; flex-direction: column; gap: 16px; }
     .hm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .hm-form-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; gap: 16px; }
-    .hm-form-note { font-size: 11.5px; color: var(--pv-muted); max-width: 280px; line-height: 1.5; }
+    .hm-form-footer { display: flex; flex-direction: column; align-items: stretch; margin-top: 6px; gap: 16px; }
+    .hm-form-note { font-size: 11.5px; color: var(--pv-muted); line-height: 1.5; }
 
     /* ── Inner content wrapper (max-width constraint) ── */
     .hm-inner {
@@ -205,9 +205,7 @@
       .hm-contact-inner { grid-template-columns: 1fr; gap: 32px; }
       .hm-form { padding: 20px; }
       .hm-form-row { grid-template-columns: 1fr; }
-      .hm-form-footer { flex-direction: column; align-items: stretch; }
       .hm-form-footer button { width: 100%; }
-      .hm-form-note { max-width: none; }
     }
 
     /* ── Tablet: browser mock scales with column ─── */
@@ -276,7 +274,6 @@
       .hm-email-link { font-size: 16px; word-break: break-all; }
       .hm-form { padding: 16px; }
       .hm-sh-h2 { font-size: 28px; }
-      .hm-form-note { max-width: none; }
     }
   </style>
 </head>
@@ -924,10 +921,8 @@
       </div>
       <div class="hm-form-footer">
         <span class="hm-form-note">We'll only use this to reply to your enquiry. No mailing list.</span>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
-          <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
-          <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
-        </div>
+        <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
+        <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
       </div>
     </form>
   </div>
