@@ -263,13 +263,9 @@
     <div class="ct-split">
 
       <!-- Form -->
-      <form class="pv-card ct-form" id="ct-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+      <form class="pv-card ct-form" id="ct-form" action="https://formbold.com/s/oWQDy" method="POST" novalidate>
 
-        <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
-        <input type="hidden" name="subject" value="New Enquiry — Paeveul" />
-        <input type="hidden" name="from_name" value="Paeveul Website" />
-
-        <!-- Form fields -->
+<!-- Form fields -->
         <div id="ct-fields" class="ct-form-fields">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
             <span class="pv-eyebrow-num">ENQUIRY · 01</span>
@@ -480,13 +476,12 @@
       var btn = form.querySelector('[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch('https://formbold.com/s/oWQDy', {
         method: 'POST',
         body: new FormData(form)
       })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.success) {
+      .then(function (res) {
+        if (res.ok) {
           fields.classList.add('is-hidden');
           success.classList.add('is-visible');
         } else {

@@ -893,11 +893,8 @@
         </div>
       </div>
     </div>
-    <form class="pv-card hm-form" id="hm-contact-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="2dfe6dff-5da6-41df-919e-2c2ca8fbe982" />
-      <input type="hidden" name="subject" value="New Enquiry — Paeveul Homepage" />
-      <input type="hidden" name="from_name" value="Paeveul Website" />
-      <div class="hm-form-row">
+    <form class="pv-card hm-form" id="hm-contact-form" action="https://formbold.com/s/obvgp" method="POST">
+<div class="hm-form-row">
         <div>
           <label class="pv-label">Your name</label>
           <input class="pv-input" name="name" placeholder="Maya Larson" />
@@ -1002,13 +999,12 @@
       var btn = form.querySelector('[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
-      fetch('https://api.web3forms.com/submit', {
+      fetch('https://formbold.com/s/obvgp', {
         method: 'POST',
         body: new FormData(form)
       })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.success) {
+      .then(function (res) {
+        if (res.ok) {
           if (btn) { btn.textContent = 'Sent ✓'; }
         } else {
           if (btn) { btn.disabled = false; btn.textContent = 'Send enquiry →'; }
