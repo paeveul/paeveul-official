@@ -632,6 +632,8 @@ a { color: inherit; }
   .pg-footer-bottom { font-size: 11px; letter-spacing: 0.02em; }
   .pv-faq-q { font-size: 15px; padding: 18px 0; gap: 10px; }
   .pv-faq-body p { font-size: 14px; }
+  .pg-legal-nav a,
+  .pg-legal-sep { font-size: 11px; letter-spacing: 0.02em; }
 }
 
 /* ─── Blog Cards (shared: blog listing + article related sections) ──────── */
@@ -1114,3 +1116,208 @@ a { color: inherit; }
   padding: 4px 8px;
 }
 .ar-lightbox-close:hover { opacity: 1; }
+
+/* ─── Footer Legal Nav ──────────────────────────────────────────────────────── */
+
+.pg-legal-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pg-legal-nav a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--pv-muted);
+  text-decoration: none;
+  transition: color .15s;
+}
+
+.pg-legal-nav a:hover {
+  color: var(--pv-cyan);
+}
+
+.pg-legal-nav a:focus-visible {
+  outline: 2px solid var(--pv-cyan);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.pg-legal-sep {
+  color: var(--pv-border-hi);
+  font-size: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  user-select: none;
+}
+
+/* ─── Legal Pages (privacy / terms / cookies) ──────────────────────────────── */
+
+.lg-hero {
+  padding: 56px 0 40px;
+  position: relative;
+  border-bottom: 1px solid var(--pv-border);
+}
+
+.lg-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--pv-text);
+  margin: 16px 0 0;
+}
+
+.lg-updated {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--pv-muted);
+  margin: 10px 0 0;
+}
+
+/* Prose body — scoped to legal pages */
+.lg-body {
+  max-width: 720px;
+  padding: 48px 0 80px;
+}
+
+.lg-body p {
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--pv-text);
+  margin: 0 0 22px;
+}
+
+.lg-body h2 {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.018em;
+  color: var(--pv-text);
+  margin: 48px 0 18px;
+  padding-top: 20px;
+  border-top: 1px solid var(--pv-border);
+}
+
+.lg-body h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.lg-body h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--pv-text);
+  margin: 36px 0 12px;
+}
+
+.lg-body ul,
+.lg-body ol {
+  margin: 0 0 22px;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lg-body ul li {
+  padding-left: 20px;
+  position: relative;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--pv-text);
+  list-style: none;
+}
+
+.lg-body ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--pv-cyan);
+}
+
+.lg-body ol {
+  counter-reset: lg-ol;
+}
+
+.lg-body ol li {
+  counter-increment: lg-ol;
+  padding-left: 28px;
+  position: relative;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--pv-text);
+  list-style: none;
+}
+
+.lg-body ol li::before {
+  content: counter(lg-ol) '.';
+  position: absolute;
+  left: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pv-cyan);
+  line-height: 1.75;
+}
+
+.lg-body strong {
+  font-weight: 600;
+  color: var(--pv-text);
+}
+
+.lg-body a {
+  color: var(--pv-cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0,229,255,0.35);
+  transition: border-color .15s;
+}
+
+.lg-body a:hover {
+  border-bottom-color: var(--pv-cyan);
+}
+
+.lg-body hr {
+  border: none;
+  border-top: 1px solid var(--pv-border);
+  margin: 40px 0;
+}
+
+/* Responsive — legal pages */
+@media (max-width: 1147px) {
+  .lg-hero { padding: 40px 0 32px; }
+  .lg-title { font-size: clamp(28px, 7vw, 38px); }
+  .lg-body { padding: 36px 0 56px; }
+  .lg-body p,
+  .lg-body ul li,
+  .lg-body ol li { font-size: 15px; }
+  .lg-body h2 { font-size: 22px; margin-top: 40px; }
+  .lg-body h3 { font-size: 17px; }
+}
+
+@media (max-width: 380px) {
+  .lg-title { font-size: clamp(24px, 7.5vw, 28px); }
+  .lg-body { padding: 28px 0 48px; }
+  .lg-body p,
+  .lg-body ul li,
+  .lg-body ol li { font-size: 14px; line-height: 1.7; }
+  .lg-body h2 { font-size: 20px; }
+  .lg-body h3 { font-size: 16px; }
+}
