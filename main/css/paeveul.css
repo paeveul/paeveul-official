@@ -465,7 +465,7 @@ a { color: inherit; }
 }
 .pg-footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr;
   gap: 48px;
   margin-bottom: 48px;
 }
