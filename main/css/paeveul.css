@@ -667,8 +667,8 @@ a { color: inherit; }
 .bl-card-thumb {
   display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
   border-radius: 4px 4px 0 0;
   background: var(--pv-card);
 }
@@ -676,12 +676,11 @@ a { color: inherit; }
 .bl-featured-thumb {
   display: block;
   width: 100%;
-  max-width: 420px;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   background: var(--pv-card);
-  min-height: 160px;
+  max-height: 260px;
 }
 .bl-card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
 .bl-card-foot {
@@ -971,8 +970,12 @@ a { color: inherit; }
 }
 .ar-img-wrap img {
   width: 100%;
+  max-width: 560px;
+  max-height: 320px;
   height: auto;
   display: block;
+  margin: 0 auto;
+  object-fit: contain;
 }
 .ar-img-caption {
   padding: 10px 14px;
