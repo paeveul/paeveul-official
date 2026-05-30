@@ -130,3 +130,64 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordions();
   initMobileMenu();
 });
+
+// Article image lightbox
+(function () {
+  var overlay, lightboxImg;
+
+  function createOverlay() {
+    overlay = document.createElement('div');
+    overlay.className = 'ar-lightbox';
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'ar-lightbox-close';
+    closeBtn.setAttribute('aria-label', 'Close image');
+    closeBtn.textContent = '×';
+    closeBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      close();
+    });
+
+    lightboxImg = document.createElement('img');
+    lightboxImg.addEventListener('click', function (e) { e.stopPropagation(); });
+
+    overlay.appendChild(closeBtn);
+    overlay.appendChild(lightboxImg);
+    overlay.addEventListener('click', close);
+    document.body.appendChild(overlay);
+  }
+
+  function open(src, alt) {
+    if (!overlay) createOverlay();
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    overlay.style.display = 'flex';
+    requestAnimationFrame(function () { overlay.classList.add('is-open'); });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    setTimeout(function () {
+      overlay.style.display = 'none';
+      lightboxImg.src = '';
+    }, 200);
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var imgs = document.querySelectorAll('.ar-img-wrap img');
+    imgs.forEach(function (img) {
+      img.addEventListener('click', function () {
+        open(img.src, img.alt);
+      });
+    });
+  });
+}());
