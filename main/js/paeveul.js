@@ -1,77 +1,17 @@
 /*
  * paeveul.js — Vanilla JS interactive behaviours
- * Converts: RotatingWord, FaqItem, PageHeader mobile menu from paeveul-shared.jsx + page-shell.jsx
+ * v2.0: RotatingWord retired. FaqItem, PageHeader mobile menu, lightbox.
  */
-
-/* ─── Typewriter / RotatingWord ─────────────────────────────────────────────
- * Usage: <span class="pv-rot" data-words='["clarity","intent","purpose"]'></span>
- * Options via data attributes:
- *   data-type-speed   (default 95)
- *   data-delete-speed (default 55)
- *   data-hold-full    (default 1500)
- *   data-hold-empty   (default 280)
- */
-function initRotatingWord(el) {
-  const words       = JSON.parse(el.dataset.words || '[]');
-  const typeSpeed   = parseInt(el.dataset.typeSpeed   ?? 95,   10);
-  const deleteSpeed = parseInt(el.dataset.deleteSpeed ?? 55,   10);
-  const holdFull    = parseInt(el.dataset.holdFull    ?? 1500, 10);
-  const holdEmpty   = parseInt(el.dataset.holdEmpty   ?? 280,  10);
-
-  if (!words.length) return;
-
-  const caret = document.createElement('span');
-  caret.className = 'pv-rot-caret';
-  el.appendChild(caret);
-
-  let wordIdx = 0;
-  let text    = '';
-  let mode    = 'typing'; // 'typing' | 'deleting'
-
-  function render() {
-    el.childNodes.forEach(n => { if (n !== caret) el.removeChild(n); });
-    el.insertBefore(document.createTextNode(text), caret);
-  }
-
-  function tick() {
-    const word = words[wordIdx];
-
-    if (mode === 'typing') {
-      if (text.length < word.length) {
-        text = word.slice(0, text.length + 1);
-        render();
-        const jitter = Math.random() * 40 - 20;
-        setTimeout(tick, typeSpeed + jitter);
-      } else {
-        setTimeout(() => { mode = 'deleting'; tick(); }, holdFull);
-      }
-    } else {
-      if (text.length > 0) {
-        text = word.slice(0, text.length - 1);
-        render();
-        setTimeout(tick, deleteSpeed);
-      } else {
-        setTimeout(() => {
-          wordIdx = (wordIdx + 1) % words.length;
-          mode = 'typing';
-          tick();
-        }, holdEmpty);
-      }
-    }
-  }
-
-  tick();
-}
 
 /* ─── FAQ Accordion ──────────────────────────────────────────────────────────
+ * v2.0: icon is a text +/– character in .pv-faq-icon (cobalt).
+ * data-open attribute on .pv-faq-item drives open state.
+ *
  * Expects structure:
  *   <div class="pv-faq-item">
  *     <div class="pv-faq-q">
  *       Question text
- *       <span class="pv-faq-icon">
- *         <span class="pv-faq-icon-h"></span>
- *         <span class="pv-faq-icon-v"></span>
- *       </span>
+ *       <span class="pv-faq-icon">+</span>
  *     </div>
  *     <div class="pv-faq-body"><p>Answer text</p></div>
  *   </div>
@@ -80,16 +20,19 @@ function initFaqAccordions() {
   document.querySelectorAll('.pv-faq-item').forEach(item => {
     const trigger = item.querySelector('.pv-faq-q');
     const body    = item.querySelector('.pv-faq-body');
-    const iconV   = item.querySelector('.pv-faq-icon-v');
+    const icon    = item.querySelector('.pv-faq-icon');
     if (!trigger || !body) return;
 
     let open = item.dataset.open === 'true';
     body.style.maxHeight = open ? body.scrollHeight + 'px' : '0';
+    if (icon) icon.textContent = open ? '–' : '+';
+    item.dataset.open = open;
 
     trigger.addEventListener('click', () => {
       open = !open;
       body.style.maxHeight = open ? body.scrollHeight + 'px' : '0';
-      if (iconV) iconV.style.transform = open ? 'scaleY(0)' : 'scaleY(1)';
+      if (icon) icon.textContent = open ? '–' : '+';
+      item.dataset.open = open;
       trigger.setAttribute('aria-expanded', open);
     });
   });
@@ -121,14 +64,53 @@ function initMobileMenu() {
   menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
 }
 
+/* ─── Testimonials Carousel (mobile only — ≤767px) ──────────────────────────
+ * Session A stub. Full implementation added in Session B when why.html is rebuilt.
+ * On desktop (≥768px) testimonials are a static 3-column CSS grid — no JS needed.
+ *
+ * Expected structure (why.html):
+ *   <div class="why-testi-track">
+ *     <figure class="pv-card pv-pullquote-card">…</figure>
+ *     …
+ *   </div>
+ *   <div class="why-carousel-dots">
+ *     <button class="why-carousel-dot is-active" aria-label="Slide 1"></button>
+ *     …
+ *   </div>
+ */
+function initTestimonialsCarousel() {
+  const track = document.querySelector('.why-testi-track');
+  if (!track) return; // not on why.html — exit cleanly
+
+  const cards = Array.from(track.querySelectorAll('.pv-pullquote-card'));
+  const dots  = Array.from(document.querySelectorAll('.why-carousel-dot'));
+  if (!cards.length) return;
+
+  let current = 0;
+
+  function goTo(index) {
+    current = index;
+    track.scrollTo({ left: cards[index].offsetLeft, behavior: 'smooth' });
+    dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+  }
+
+  dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+}
+
 /* ─── Boot ───────────────────────────────────────────────────────────────────
  * All initialisers run on DOMContentLoaded.
- * RotatingWord elements are picked up automatically by [data-words].
+ * v2.0: RotatingWord retired — removed from boot block.
+ * Testimonials carousel is mobile-only (≤767px) — initialised conditionally.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.pv-rot[data-words]').forEach(initRotatingWord);
   initFaqAccordions();
   initMobileMenu();
+
+  // Testimonials carousel — mobile only (≤767px).
+  // On desktop (≥768px) the testimonials render as a static CSS grid.
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    initTestimonialsCarousel();
+  }
 });
 
 // Article image lightbox
