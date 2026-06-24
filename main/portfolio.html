@@ -68,7 +68,7 @@
     .pf-card { overflow: hidden; display: flex; flex-direction: column; }
     .pf-card-img {
       padding: 22px;
-      background: var(--pv-bg);
+      background: var(--pv-paper);
       border-bottom: 1px solid var(--pv-border);
     }
     .pf-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
@@ -83,18 +83,18 @@
       gap: 16px;
     }
     .pf-metric-num {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: var(--pv-font-serif);
       font-size: 24px;
       font-weight: 600;
-      color: var(--pv-cyan);
-      letter-spacing: -0.01em;
+      color: var(--pv-ink);
+      letter-spacing: var(--pv-track-heading);
     }
     .pf-metric-label {
-      font-size: 11px;
-      color: var(--pv-muted);
-      font-family: 'Space Grotesk', sans-serif;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--pv-stone);
+      font-family: var(--pv-font-sans);
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     /* CTA strip */
@@ -185,7 +185,7 @@
 <section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
   <div class="pg-wrap">
     <div class="pf-filter-strip">
-      <span class="pv-eyebrow-num" style="flex:0 0 auto;">FILTER · <span id="pf-count">6 CASES</span></span>
+      <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);flex:0 0 auto;"><span id="pf-count">6 cases</span></span>
       <span class="pf-filter-sep"></span>
       <div class="pf-chips">
         <span class="pv-chip is-active pf-filter-chip" data-filter="All">All</span>
@@ -219,17 +219,17 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span class="pv-eyebrow-num">CASE · 01</span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2026 · HVAC · Residential &amp; Commercial</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 01</span>
+            <span style="font-size:11px;color:var(--pv-muted);">2026 · HVAC · Residential &amp; Commercial</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
+          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">1st mo</div>
               <div class="pf-metric-label">Site paid for itself</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details →</a>
           </div>
         </div>
       </article>
@@ -251,17 +251,17 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span class="pv-eyebrow-num">CASE · 02</span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2026 · Service Business · Malaysia</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 02</span>
+            <span style="font-size:11px;color:var(--pv-muted);">2026 · Service Business · Malaysia</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
+          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Mobile</div>
               <div class="pf-metric-label">First, conversion-focused</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View details →</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details →</a>
           </div>
         </div>
       </article>
@@ -283,17 +283,17 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span class="pv-eyebrow-num">CASE · 03</span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">2026 · HVAC · Klang Valley</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 03</span>
+            <span style="font-size:11px;color:var(--pv-muted);">2026 · HVAC · Klang Valley</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
+          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Live</div>
               <div class="pf-metric-label">Demo secured client</div>
             </div>
-            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;white-space:nowrap;">View site →</a>
+            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View site →</a>
           </div>
         </div>
       </article>
@@ -302,24 +302,23 @@
     </div>
 
     <div id="pf-empty" style="display:none;text-align:center;padding:60px 0;color:var(--pv-muted);">
-      <div class="pv-grotesk" style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No cases in this category yet.</div>
-      <div>More work coming soon — <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">start a project →</a></div>
+      <div style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No cases in this category yet.</div>
+      <div>More work coming soon — <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">start a project →</a></div>
     </div>
   </div>
 </section>
 
 <!-- ── CTA STRIP ────────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);position:relative;">
-  <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
-  <div class="pg-wrap" style="position:relative;">
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+  <div class="pg-wrap">
     <div class="pf-cta-inner">
       <div style="max-width:560px;">
-        <span class="pv-eyebrow" style="color:var(--pv-cyan);">Got a project in mind?</span>
-        <h2 class="pv-grotesk pf-cta-h2" style="font-size:34px;font-weight:600;line-height:1.1;margin:12px 0 0;letter-spacing:-0.02em;">Tell us about it. We reply within 1–3 business working days.</h2>
+        <p class="pv-section-label">Ready to start?</p>
+        <h2 class="pf-cta-h2" style="font-size:34px;font-weight:600;line-height:1.1;margin:12px 0 0;letter-spacing:-0.02em;">Tell us about it. We reply within 1–3 business working days.</h2>
       </div>
       <div class="pf-cta-btns">
-        <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;display:inline-block;">Start an Enquiry →</a>
-        <a href="why.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;display:inline-block;">Why Paeveul</a>
+        <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
+        <a href="why.html" class="pv-btn pv-btn--secondary">Why Paeveul</a>
       </div>
     </div>
   </div>
@@ -383,7 +382,7 @@
         card.style.display = show ? '' : 'none';
         if (show) count++;
       });
-      if (countEl) countEl.textContent = count + (count === 1 ? ' CASE' : ' CASES');
+      if (countEl) countEl.textContent = count + (count === 1 ? ' case' : ' cases');
       if (emptyEl) emptyEl.style.display = count === 0 ? '' : 'none';
     }
 

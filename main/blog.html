@@ -69,7 +69,7 @@
       background: var(--pv-card);
       transition: border-color .2s;
     }
-    .bl-featured:hover { border-color: var(--pv-cyan); }
+    .bl-featured:hover { border-color: var(--pv-cobalt); }
     .bl-featured-img { display: flex; justify-content: center; align-items: center; }
 
     /* Filter strip */
@@ -181,13 +181,9 @@
 </section>
 
 <!-- -- FEATURED POST ---------------------------------- -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-paper-alt);">
   <div class="pg-wrap" style="padding-top:64px;padding-bottom:64px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:32px;">
-      <span class="pv-eyebrow-num">FEATURED</span>
-      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-      <span class="pv-eyebrow">Studio pick</span>
-    </div>
+    <p class="pv-section-label" style="margin-bottom:32px;">Studio pick</p>
     <a href="blog/why-website-before-running-ads/index.html" class="bl-featured">
       <div class="bl-featured-img">
         <img
@@ -201,23 +197,23 @@
       </div>
       <div class="bl-featured-body">
         <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:16px;">
-          <span class="bl-cat-pill">STRATEGY</span>
-          <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">6 MIN READ · 5 Feb 2026</span>
+          <span class="bl-cat-pill">Strategy</span>
+          <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read · 5 Feb 2026</span>
         </div>
-        <h2 class="pv-grotesk bl-featured-h2" style="font-size:36px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">Why Your Business Needs a Website Before Running Ads</h2>
+        <h2 class="bl-featured-h2" style="font-size:36px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">Why Your Business Needs a Website Before Running Ads</h2>
         <p style="margin-top:16px;font-size:16px;color:var(--pv-muted);line-height:1.6;">Spending on traffic before you own a destination is the single most common mistake we see. Here's how to think about the order of operations.</p>
-        <span style="margin-top:24px;display:inline-block;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:500;">Read the post →</span>
+        <span style="margin-top:24px;display:inline-block;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-size:14px;font-weight:500;">Read the post →</span>
       </div>
     </a>
   </div>
 </section>
 
 <!-- -- FILTER STRIP ----------------------------------- -->
-<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg);">
+<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-paper);">
   <div class="pg-wrap">
     <div class="bl-filter-row">
       <div class="bl-filter-left">
-        <span class="pv-eyebrow-num" style="flex:0 0 auto;"><span id="bl-count">14</span> POSTS</span>
+        <span style="flex:0 0 auto;font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);"><span id="bl-count">14</span> posts</span>
         <span style="width:1px;height:16px;background:var(--pv-border);flex:0 0 auto;"></span>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <span class="pv-chip is-active bl-cat-chip" data-cat="All">All</span>
@@ -245,8 +241,8 @@
 
     <!-- Empty state -->
     <div id="bl-empty" style="display:none;text-align:center;padding:60px 0;color:var(--pv-muted);">
-      <div class="pv-grotesk" style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No posts here yet.</div>
-      <div>Try a different category, or <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">suggest a topic →</a></div>
+      <div style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No posts here yet.</div>
+      <div>Try a different category, or <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">suggest a topic →</a></div>
     </div>
 
     <div class="bl-grid" id="bl-grid">
@@ -265,15 +261,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">CONVERSION</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Conversion</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Makes a Website Convert Enquiries?</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Makes a Website Convert Enquiries?</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Conversion isn't about clever copy or aggressive CTAs. It's about removing friction in the small places visitors don't notice.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">12 Mar 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">12 Mar 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -292,15 +288,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">SEO</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">SEO</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">SEO Basics for Small &amp; Local Businesses</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">SEO Basics for Small &amp; Local Businesses</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">The five things to get right before you think about content, links, or any of the more advanced SEO levers.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">3 Mar 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">3 Mar 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -319,15 +315,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">DESIGN</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Design</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Speed Is a Design Decision, Not an Engineering One</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Speed Is a Design Decision, Not an Engineering One</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">A fast page is an honest page. Why we treat performance as a first-class design constraint, not a finishing polish.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">26 Mar 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">26 Mar 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -346,15 +342,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">PROCESS</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Process</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Information Do You Need to Give a Web Designer Before Work Starts?</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Information Do You Need to Give a Web Designer Before Work Starts?</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">The more you prepare before briefing a designer, the faster and smoother the build. Here is the complete checklist for Malaysian SME owners.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">23 Apr 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">23 Apr 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -373,15 +369,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">PROCESS</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Process</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">8 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">8 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">The Launch Checklist We Actually Use</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">The Launch Checklist We Actually Use</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Every studio promises a "launch process." Here's ours, in plain language, with the boring-but-critical items most teams skip.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">7 May 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">7 May 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -400,15 +396,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">CONVERSION</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Conversion</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">How to Write a Homepage That Tells Visitors What You Do in 5 Seconds</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">How to Write a Homepage That Tells Visitors What You Do in 5 Seconds</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Most homepages fail the 5-second test. Here is how to write homepage copy that tells visitors exactly what you do and gets them to act.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">16 Apr 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">16 Apr 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -427,15 +423,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Strategy</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Is a Facebook Page Enough, or Do You Actually Need a Website?</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Is a Facebook Page Enough, or Do You Actually Need a Website?</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">A Facebook page is free and easy, but it has real limitations for Malaysian SMEs — especially when it comes to Google search and contract credibility.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">22 Jan 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">22 Jan 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -454,15 +450,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Strategy</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Landing Page vs Full Website: Which One Does Your Business Actually Need?</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Landing Page vs Full Website: Which One Does Your Business Actually Need?</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">For most Malaysian SMEs, a landing page does the job at a fraction of the cost. Here is how to decide which is right for your business.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">19 Feb 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">19 Feb 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -481,15 +477,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Strategy</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Google Business Profile vs Website: What Is the Difference and Do You Need Both?</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Google Business Profile vs Website: What Is the Difference and Do You Need Both?</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">A Google Business Profile gets you on Maps. A website gets you everywhere else. Most Malaysian SMEs need both — but for different reasons.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">7 Apr 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">7 Apr 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -508,15 +504,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">SEO</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">SEO</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">8 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">8 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">How to Set Up Google Business Profile for a Malaysian SME (Step by Step)</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">How to Set Up Google Business Profile for a Malaysian SME (Step by Step)</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">A complete walkthrough for Malaysian business owners — from creating your profile to getting it verified and appearing on Google Maps.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">14 May 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">14 May 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -535,15 +531,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Strategy</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">The Real Cost of Not Having a Website (Not a Sales Pitch — Just the Numbers)</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">The Real Cost of Not Having a Website (Not a Sales Pitch — Just the Numbers)</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">No website means missed leads, lost credibility, and zero Google presence — here are the actual numbers behind the cost.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">8 Jan 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">8 Jan 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -562,15 +558,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Strategy</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">6 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Why Your Business Needs a Website Before Running Ads</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Why Your Business Needs a Website Before Running Ads</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Spending on traffic before you own a destination is the single most common mistake. Here is how to think about the order of operations.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">5 Feb 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 Feb 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -589,15 +585,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">SEO</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">SEO</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Is a Meta Title and Description? (And Why It Decides If Anyone Clicks Your Listing)</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">What Is a Meta Title and Description? (And Why It Decides If Anyone Clicks Your Listing)</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Meta titles and descriptions are the two lines Google shows in search results. Getting them right is the difference between a click and being ignored.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">20 May 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">20 May 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -616,15 +612,15 @@
         </div>
         <div class="bl-card-body">
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-            <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">DESIGN</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Design</span>
             <span style="width:12px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min read</span>
+            <span style="font-size:11px;color:var(--pv-muted);font-family:var(--pv-font-sans);">5 min read</span>
           </div>
-          <h3 class="pv-grotesk" style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Why Your Website Must Load Fast on Malaysian Mobile Networks</h3>
+          <h3 style="font-size:18px;font-weight:600;line-height:1.3;margin:0;letter-spacing:-0.01em;">Why Your Website Must Load Fast on Malaysian Mobile Networks</h3>
           <p style="margin-top:10px;font-size:14px;color:var(--pv-muted);line-height:1.55;flex:1;">Slow websites lose Malaysian visitors before they even see your content. Here is what load speed means, why it matters, and how Paeveul builds for it.</p>
           <div class="bl-card-foot">
-            <span style="font-size:11.5px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.06em;">30 Apr 2026</span>
-            <span style="font-size:13px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;font-weight:500;">Read →</span>
+            <span style="font-size:11.5px;color:var(--pv-muted);font-family:var(--pv-font-sans);">30 Apr 2026</span>
+            <span style="font-size:13px;color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-weight:500;">Read →</span>
           </div>
         </div>
       </a>
@@ -634,13 +630,12 @@
 </section>
 
 <!-- -- NEWSLETTER ------------------------------------ -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);position:relative;">
-  <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
-  <div class="pg-wrap" style="position:relative;">
+<section style="border-top:1px solid var(--pv-border);background:var(--pv-paper);">
+  <div class="pg-wrap">
     <div class="bl-newsletter">
       <div class="bl-newsletter-copy">
-        <span class="pv-eyebrow" style="color:var(--pv-cyan);">Get new posts</span>
-        <h2 class="pv-grotesk bl-newsletter-h2" style="font-size:30px;font-weight:600;line-height:1.15;margin:12px 0 0;letter-spacing:-0.02em;">One short post a month.<br>No marketing emails.</h2>
+        <p class="pv-section-label">Get new posts</p>
+        <h2 class="bl-newsletter-h2" style="font-size:30px;font-weight:600;line-height:1.15;margin:12px 0 0;letter-spacing:-0.02em;">One short post a month.<br>No marketing emails.</h2>
         <p style="margin-top:14px;font-size:14.5px;color:var(--pv-muted);line-height:1.6;max-width:460px;">We send one post a month when there's something worth reading. Unsubscribe in one click, no questions asked.</p>
       </div>
       <form class="bl-newsletter-form" id="bl-nl-form" action="https://api.web3forms.com/submit" method="POST">
@@ -648,7 +643,7 @@
         <input type="hidden" name="subject" value="Newsletter Signup — Paeveul Blog" />
         <input type="hidden" name="from_name" value="Paeveul Blog" />
         <input class="pv-input" type="email" name="email" placeholder="you@business.com" aria-label="Email address" disabled style="opacity:0.4;cursor:not-allowed;" />
-        <button class="pv-btn-amber" type="submit" disabled style="padding:12px 20px;border-radius:8px;font-size:13.5px;white-space:nowrap;opacity:0.4;cursor:not-allowed;filter:none;">Coming Soon</button>
+        <button class="pv-btn pv-btn--primary" type="submit" disabled style="white-space:nowrap;opacity:0.4;cursor:not-allowed;filter:none;">Coming soon</button>
       </form>
     </div>
   </div>
