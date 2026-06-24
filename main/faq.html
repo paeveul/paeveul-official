@@ -22,7 +22,7 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Paeveul Web Services",
+    "name": "Paeveul",
     "url": "https://paeveul.com",
     "email": "paeveul.official@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
@@ -113,6 +113,13 @@
       .faq-search-strip { gap: 12px; }
       .faq-group { margin-bottom: 32px; }
     }
+    #faq-count {
+      flex: 0 0 auto;
+      font-family: var(--pv-font-serif);
+      font-style: italic;
+      font-size: 13px;
+      color: var(--pv-stone);
+    }
   </style>
 </head>
 <body>
@@ -171,9 +178,11 @@
           <circle cx="7" cy="7" r="5" stroke="currentColor" fill="none" stroke-width="1.4"/>
           <path d="M11 11 L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
         </svg>
-        <input id="faq-search" class="pv-input" type="search" placeholder="Search questions..." aria-label="Search FAQ" />
+        <div class="pv-input-wrap">
+          <input id="faq-search" class="pv-input" type="search" placeholder="Search questions..." aria-label="Search FAQ" />
+        </div>
       </div>
-      <span style="flex:0 0 auto;font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);" id="faq-count">19 answers</span>
+      <span id="faq-count">19 answers</span>
     </div>
   </div>
 </section>
@@ -184,7 +193,7 @@
 
     <!-- No-match state -->
     <div id="faq-no-match" style="display:none;text-align:center;padding:40px 0;color:var(--pv-stone);">
-      <div style="font-size:22px;color:var(--pv-ink);margin-bottom:10px;">No matches.</div>
+      <div style="font-size:22px;font-family:var(--pv-font-serif);color:var(--pv-ink);margin-bottom:10px;">No matches.</div>
       <div>Try a different word, or <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">ask us directly</a>.</div>
     </div>
 
@@ -408,7 +417,7 @@
       </div>
       <div class="faq-cta-actions">
         <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
-        <a href="mailto:paeveul.official@gmail.com" style="color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-size:14px;text-decoration:none;border-bottom:1px solid var(--pv-cobalt-wash-16);padding-bottom:2px;">paeveul.official@gmail.com</a>
+        <a href="mailto:paeveul.official@gmail.com" style="color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-size:14px;text-decoration:none;border-bottom:1px solid var(--pv-cobalt-wash-35);padding-bottom:2px;">paeveul.official@gmail.com</a>
       </div>
     </div>
   </div>
