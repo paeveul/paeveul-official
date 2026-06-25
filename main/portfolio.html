@@ -61,7 +61,7 @@
       flex-wrap: wrap;
       padding: 20px 0;
     }
-    .pf-filter-sep { width: 1px; height: 16px; background: var(--pv-border); flex: 0 0 auto; }
+    .pf-filter-sep { width: 1px; height: 16px; background: var(--pv-hairline); flex: 0 0 auto; }
     .pf-chips { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -69,7 +69,7 @@
     .pf-card-img {
       padding: 22px;
       background: var(--pv-paper);
-      border-bottom: 1px solid var(--pv-border);
+      border-bottom: 1px solid var(--pv-hairline);
     }
     .pf-card-body { padding: 24px 28px 28px; flex: 1; display: flex; flex-direction: column; }
     .pf-card-meta { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -79,7 +79,7 @@
       justify-content: space-between;
       margin-top: 20px;
       padding-top: 18px;
-      border-top: 1px solid var(--pv-border);
+      border-top: 1px solid var(--pv-hairline);
       gap: 16px;
     }
     .pf-metric-num {
@@ -97,17 +97,60 @@
       text-transform: none;
     }
 
-    /* CTA strip */
-    .pf-cta-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 32px;
-      padding: 88px 0;
-      flex-wrap: wrap;
-      position: relative;
+    /* ── CTA panel (matches faq.html approved pattern) ── */
+    .pf-cta-panel-outer { padding: 0 0 96px; }
+    .pf-cta-panel {
+      background: var(--pv-card);
+      border-top: 1px solid var(--pv-hairline);
+      border-bottom: 1px solid var(--pv-hairline);
+      padding: 112px 80px 96px;
     }
-    .pf-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pf-cta-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .pf-cta-eyebrow {
+      font-family: var(--pv-font-serif);
+      font-style: italic;
+      font-size: 16px;
+      color: var(--pv-stone);
+      margin: 0 0 18px;
+    }
+    .pf-cta-h2 {
+      margin: 0 0 18px;
+      font-family: var(--pv-font-serif);
+      font-weight: 400;
+      font-size: 35px;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--pv-ink);
+      max-width: 480px;
+    }
+    .pf-cta-sub {
+      font-family: var(--pv-font-serif);
+      font-style: italic;
+      font-size: 15px;
+      color: var(--pv-stone);
+    }
+    .pf-cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    /* Mechanism-based button centering (no padding math) */
+    .pf-cta-actions .pv-btn--primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      padding: 0 28px;
+      font-size: 16px;
+      line-height: 1;
+      box-sizing: border-box;
+    }
 
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 1147px) {
@@ -115,22 +158,30 @@
       .pf-grid { grid-template-columns: 1fr; gap: 20px; }
       .pf-card-img { padding: 14px; }
       .pf-card-body { padding: 20px; }
-      .pf-cta-inner { padding: 56px 0; }
-      .pf-cta-h2 { font-size: 26px !important; line-height: 1.15 !important; }
+      .pf-cta-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pf-cta-panel { padding: 64px 32px 56px; }
+      .pf-cta-h2 { font-size: 26px; line-height: 1.15; }
+      .pf-cta-actions { align-self: stretch; }
+      .pf-cta-actions a { width: 100%; text-align: center; }
+      .pf-cta-actions a.pv-btn--primary {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
     @media (min-width: 640px) and (max-width: 1147px) {
       .pf-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
     @media (max-width: 700px) {
-      .pf-cta-inner { flex-direction: column; align-items: stretch; padding: 48px 0; }
-      .pf-cta-btns { flex-direction: column; }
-      .pf-cta-btns a { display: block; text-align: center; }
+      .pf-cta-panel { padding: 48px 20px 40px; }
     }
     @media (max-width: 380px) {
       .pf-card-img { padding: 10px; }
       .pf-card-body { padding: 16px; }
       .pf-card-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
       .pf-metric-num { font-size: 20px; }
+      .pf-cta-h2 { font-size: 24px; }
     }
   </style>
 </head>
@@ -182,7 +233,7 @@
 </section>
 
 <!-- ── FILTER STRIP ────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<section style="border-top:1px solid var(--pv-hairline);border-bottom:1px solid var(--pv-hairline);background:var(--pv-paper-alt);">
   <div class="pg-wrap">
     <div class="pf-filter-strip">
       <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);flex:0 0 auto;"><span id="pf-count">6 cases</span></span>
@@ -202,7 +253,7 @@
   <div class="pg-wrap">
     <div class="pf-grid" id="pf-grid">
 
-      <!-- Case 01 — Cool Breeze -->
+      <!-- Cool Breeze -->
       <article class="pv-card pf-card" data-tags="B2B,Quoting">
         <div class="pf-card-img">
           <a href="#">
@@ -219,22 +270,22 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 01</span>
-            <span style="font-size:11px;color:var(--pv-muted);">2026 · HVAC · Residential &amp; Commercial</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Residential &amp; Commercial</span>
+            <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
-          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">1st mo</div>
               <div class="pf-metric-label">Site paid for itself</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details →</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details</a>
           </div>
         </div>
       </article>
 
-      <!-- Case 02 — Aurora -->
+      <!-- Aurora -->
       <article class="pv-card pf-card" data-tags="B2B,Brand">
         <div class="pf-card-img">
           <a href="#">
@@ -251,22 +302,22 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 02</span>
-            <span style="font-size:11px;color:var(--pv-muted);">2026 · Service Business · Malaysia</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Service Business · Malaysia</span>
+            <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
-          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Mobile</div>
               <div class="pf-metric-label">First, conversion-focused</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details →</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details</a>
           </div>
         </div>
       </article>
 
-      <!-- Case 03 — Alphamatic Aircon -->
+      <!-- Alphamatic Aircon -->
       <article class="pv-card pf-card" data-tags="B2B,Quoting">
         <div class="pf-card-img">
           <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener">
@@ -283,17 +334,17 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Case 03</span>
-            <span style="font-size:11px;color:var(--pv-muted);">2026 · HVAC · Klang Valley</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Klang Valley</span>
+            <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
-          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;flex:1;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
+          <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Live</div>
               <div class="pf-metric-label">Demo secured client</div>
             </div>
-            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View site →</a>
+            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View site</a>
           </div>
         </div>
       </article>
@@ -301,24 +352,27 @@
 
     </div>
 
-    <div id="pf-empty" style="display:none;text-align:center;padding:60px 0;color:var(--pv-muted);">
-      <div style="font-size:22px;color:var(--pv-text);margin-bottom:10px;">No cases in this category yet.</div>
-      <div>More work coming soon — <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">start a project →</a></div>
+    <div id="pf-empty" style="display:none;text-align:center;padding:60px 0;color:var(--pv-slate);">
+      <div style="font-family:var(--pv-font-serif);font-size:22px;color:var(--pv-ink);margin-bottom:10px;">No cases in this category yet.</div>
+      <div style="font-size:14px;">More work coming soon — <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">start a project</a></div>
     </div>
   </div>
 </section>
 
-<!-- ── CTA STRIP ────────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<!-- ── CTA ─────────────────────────────────────────── -->
+<section class="pf-cta-panel-outer" style="background:var(--pv-paper);">
   <div class="pg-wrap">
-    <div class="pf-cta-inner">
-      <div style="max-width:560px;">
-        <p class="pv-section-label">Ready to start?</p>
-        <h2 class="pf-cta-h2" style="font-size:34px;font-weight:600;line-height:1.1;margin:12px 0 0;letter-spacing:-0.02em;">Tell us about it. We reply within 1–3 business working days.</h2>
-      </div>
-      <div class="pf-cta-btns">
-        <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
-        <a href="why.html" class="pv-btn pv-btn--secondary">Why Paeveul</a>
+    <div class="pf-cta-panel">
+      <div class="pf-cta-grid">
+        <div>
+          <p class="pf-cta-eyebrow">Ready to start?</p>
+          <h2 class="pf-cta-h2">Tell us about your business. We reply within 1–3 working days.</h2>
+          <p class="pf-cta-sub">Usually within a day. Always within three.</p>
+        </div>
+        <div class="pf-cta-actions">
+          <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
+          <a href="why.html" style="color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-size:15px;text-decoration:underline;text-decoration-color:var(--pv-cobalt-wash-35);text-underline-offset:3px;">Why Paeveul</a>
+        </div>
       </div>
     </div>
   </div>
@@ -352,7 +406,7 @@
       </div>
     </div>
     <div class="pg-footer-bottom">
-      <span>© 2026 Paeveul Studio · Made with care</span>
+      <span>© 2026 Paeveul Studio</span>
       <nav class="pg-legal-nav" aria-label="Legal">
         <a href="privacy/index.html">Privacy Notice</a>
         <span class="pg-legal-sep" aria-hidden="true">·</span>
