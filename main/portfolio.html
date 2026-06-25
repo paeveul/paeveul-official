@@ -22,7 +22,7 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Paeveul Web Services",
+    "name": "Paeveul",
     "url": "https://paeveul.com",
     "email": "paeveul.official@gmail.com",
     "address": { "@type": "PostalAddress", "addressLocality": "Kuala Lumpur", "addressCountry": "MY" },
@@ -63,6 +63,8 @@
     }
     .pf-filter-sep { width: 1px; height: 16px; background: var(--pv-hairline); flex: 0 0 auto; }
     .pf-chips { display: flex; gap: 8px; flex-wrap: wrap; }
+    .pf-filter .pv-chip { font-size: var(--pv-size-meta); }
+    .pf-card-mock-img { height: 260px; overflow: hidden; padding: 0; }
 
     .pf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
     .pf-card { overflow: hidden; display: flex; flex-direction: column; }
@@ -236,7 +238,7 @@
 <section style="border-top:1px solid var(--pv-hairline);border-bottom:1px solid var(--pv-hairline);background:var(--pv-paper-alt);">
   <div class="pg-wrap">
     <div class="pf-filter-strip">
-      <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);flex:0 0 auto;"><span id="pf-count">6 cases</span></span>
+      <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);flex:0 0 auto;"><span id="pf-count">3 cases</span></span>
       <span class="pf-filter-sep"></span>
       <div class="pf-chips">
         <span class="pv-chip is-active pf-filter-chip" data-filter="All">All</span>
@@ -254,7 +256,7 @@
     <div class="pf-grid" id="pf-grid">
 
       <!-- Cool Breeze -->
-      <article class="pv-card pf-card" data-tags="B2B,Quoting">
+      <article class="pv-card pv-card--link pf-card" data-tags="B2B,Quoting">
         <div class="pf-card-img">
           <a href="#">
           <div class="pv-bmock">
@@ -262,7 +264,7 @@
               <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
               <div class="pv-bmock-url">coolbreeze.com.my</div>
             </div>
-            <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <div class="pf-card-mock-img">
               <img src="assets/images/thumbnail-coolbreeze.webp" alt="Cool Breeze website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
             </div>
           </div>
@@ -270,23 +272,23 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Residential &amp; Commercial</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);">HVAC · Residential &amp; Commercial</span>
             <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">1st mo</div>
               <div class="pf-metric-label">Site paid for itself</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details&nbsp;→</a>
           </div>
         </div>
       </article>
 
       <!-- Aurora -->
-      <article class="pv-card pf-card" data-tags="B2B,Brand">
+      <article class="pv-card pv-card--link pf-card" data-tags="B2B,Brand">
         <div class="pf-card-img">
           <a href="#">
           <div class="pv-bmock">
@@ -294,7 +296,7 @@
               <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
               <div class="pv-bmock-url">aurora.com.my</div>
             </div>
-            <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <div class="pf-card-mock-img">
               <img src="assets/images/rest-thumbnail.webp" alt="Aurora website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
             </div>
           </div>
@@ -302,23 +304,23 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Service Business · Malaysia</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);">Service Business · Malaysia</span>
             <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;color:var(--pv-ink);"><a href="#" style="text-decoration:none;color:inherit;">Aurora</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Mobile</div>
               <div class="pf-metric-label">First, conversion-focused</div>
             </div>
-            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details</a>
+            <a href="#" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View details&nbsp;→</a>
           </div>
         </div>
       </article>
 
       <!-- Alphamatic Aircon -->
-      <article class="pv-card pf-card" data-tags="B2B,Quoting">
+      <article class="pv-card pv-card--link pf-card" data-tags="B2B,Quoting">
         <div class="pf-card-img">
           <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener">
           <div class="pv-bmock">
@@ -326,7 +328,7 @@
               <div class="pv-bmock-dots"><span></span><span></span><span></span></div>
               <div class="pv-bmock-url">alphamatic-aircond.vercel.app</div>
             </div>
-            <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <div class="pf-card-mock-img">
               <img src="assets/images/alphamatic-aircon-website-screenshot.webp" alt="Alphamatic Aircon website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
             </div>
           </div>
@@ -334,17 +336,17 @@
         </div>
         <div class="pf-card-body">
           <div class="pf-card-meta">
-            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Klang Valley</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);">HVAC · Klang Valley</span>
             <span style="font-size:11px;color:var(--pv-stone);">2026</span>
           </div>
-          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;letter-spacing:-0.01em;color:var(--pv-ink);"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
+          <h3 style="font-family:var(--pv-font-serif);font-size:22px;font-weight:600;margin:14px 0 8px;color:var(--pv-ink);"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
           <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;flex:1;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
           <div class="pf-card-foot">
             <div>
               <div class="pf-metric-num">Live</div>
               <div class="pf-metric-label">Demo secured client</div>
             </div>
-            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View site</a>
+            <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-weight:500;white-space:nowrap;">View site&nbsp;→</a>
           </div>
         </div>
       </article>
@@ -384,8 +386,8 @@
     <div class="pg-footer-grid">
       <div>
         <a href="/" class="pv-wordmark pv-wordmark--inverse" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
-        <p style="margin-top:18px;font-size:14px;line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
-        <p style="margin-top:12px;font-size:13px;font-style:italic;line-height:1.6;">Remote-first, working with founders across Malaysia and beyond.</p>
+        <p style="margin-top:18px;font-size:14px;line-height:1.6;max-width:320px;color:var(--pv-text-on-ink-quiet);">A boutique web studio building considered websites and digital systems for growing businesses.</p>
+        <p style="margin-top:12px;font-size:13px;font-style:italic;line-height:1.6;color:var(--pv-text-on-ink-quiet);">Remote-first, working with founders across Malaysia and beyond.</p>
       </div>
       <div class="pg-footer-col">
         <h4>Studio</h4>
