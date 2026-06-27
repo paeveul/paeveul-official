@@ -258,12 +258,14 @@
     }
 
     /* C.7 — CTA panel */
-    .faq-cta-panel-outer { padding: 0 0 96px; }
-    .faq-cta-panel {
+    .faq-cta-panel-outer {
       background: var(--pv-card);
       border-top: 1px solid var(--pv-hairline);
-      border-bottom: 1px solid var(--pv-hairline);
-      padding: 112px 80px 96px;
+      padding: 96px 0;
+    }
+    .faq-cta-panel {
+      background: transparent;
+      padding: 0;
     }
     .faq-cta-grid {
       display: grid;
@@ -290,10 +292,9 @@
       max-width: 480px;
     }
     .faq-cta-sub {
-      font-family: var(--pv-font-serif);
-      font-style: italic;
+      font-family: var(--pv-font-sans);
       font-size: 15px;
-      color: var(--pv-stone);
+      color: var(--pv-slate);
     }
     .faq-cta-actions {
       display: flex;
@@ -325,7 +326,7 @@
       }
       .faq-count-rail { padding-left: 0; }
       .faq-hero-title { font-size: clamp(32px, 7vw, 44px); }
-      .faq-cta-panel { padding: 64px 32px 56px; }
+      .faq-cta-panel-outer { padding: 64px 0; }
       .faq-cta-h2 { font-size: 26px; line-height: 1.15; }
       .faq-cta-actions { align-self: stretch; }
       .faq-cta-actions a { width: 100%; text-align: center; }
@@ -338,7 +339,7 @@
     }
     @media (max-width: 700px) {
       .faq-group { padding: 32px 0; }
-      .faq-cta-panel { padding: 48px 20px 40px; }
+      .faq-cta-panel-outer { padding: 56px 0; }
     }
     @media (max-width: 380px) {
       .faq-hero-title { font-size: 28px; }
@@ -645,7 +646,7 @@
 </section>
 
 <!-- ── CTA ─────────────────────────────────────────── -->
-<section class="faq-cta-panel-outer" style="background:var(--pv-paper);">
+<section class="faq-cta-panel-outer">
   <div class="pg-wrap">
     <div class="faq-cta-panel">
       <div class="faq-cta-grid">

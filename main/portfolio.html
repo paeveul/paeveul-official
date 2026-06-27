@@ -100,12 +100,14 @@
     }
 
     /* ── CTA panel (matches faq.html approved pattern) ── */
-    .pf-cta-panel-outer { padding: 0 0 96px; }
-    .pf-cta-panel {
+    .pf-cta-panel-outer {
       background: var(--pv-card);
       border-top: 1px solid var(--pv-hairline);
-      border-bottom: 1px solid var(--pv-hairline);
-      padding: 112px 80px 96px;
+      padding: 96px 0;
+    }
+    .pf-cta-panel {
+      background: transparent;
+      padding: 0;
     }
     .pf-cta-grid {
       display: grid;
@@ -131,10 +133,9 @@
       max-width: 480px;
     }
     .pf-cta-sub {
-      font-family: var(--pv-font-serif);
-      font-style: italic;
+      font-family: var(--pv-font-sans);
       font-size: 15px;
-      color: var(--pv-stone);
+      color: var(--pv-slate);
     }
     .pf-cta-actions {
       display: flex;
@@ -161,7 +162,7 @@
       .pf-card-img { padding: 14px; }
       .pf-card-body { padding: 20px; }
       .pf-cta-grid { grid-template-columns: 1fr; gap: 24px; }
-      .pf-cta-panel { padding: 64px 32px 56px; }
+      .pf-cta-panel-outer { padding: 64px 0; }
       .pf-cta-h2 { font-size: 26px; line-height: 1.15; }
       .pf-cta-actions { align-self: stretch; }
       .pf-cta-actions a { width: 100%; text-align: center; }
@@ -176,7 +177,7 @@
       .pf-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     }
     @media (max-width: 700px) {
-      .pf-cta-panel { padding: 48px 20px 40px; }
+      .pf-cta-panel-outer { padding: 56px 0; }
     }
     @media (max-width: 380px) {
       .pf-card-img { padding: 10px; }
@@ -362,7 +363,7 @@
 </section>
 
 <!-- ── CTA ─────────────────────────────────────────── -->
-<section class="pf-cta-panel-outer" style="background:var(--pv-paper);">
+<section class="pf-cta-panel-outer">
   <div class="pg-wrap">
     <div class="pf-cta-panel">
       <div class="pf-cta-grid">
