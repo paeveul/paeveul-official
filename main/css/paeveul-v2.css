@@ -784,7 +784,7 @@ button {
 /* ── 5c. Hero (shared inner-page) ──────────────────────────── */
 
 .pg-hero {
-  padding: var(--pv-section-y-lg) 0;
+  padding: 76px 0;
   background: var(--pv-paper);
   border-bottom: 1px solid var(--pv-hairline);
   position: relative;
@@ -1666,7 +1666,7 @@ button {
   }
 
   .pg-hero {
-    padding: 64px 0;
+    padding: 44px 0;
   }
 
   .pg-hero-inner {
