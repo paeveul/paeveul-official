@@ -54,6 +54,7 @@
 
   <style>
     /* ── Tier cards ──────────────────────────────────────── */
+    .pk-tier-section { padding: 96px 0; }
     .pk-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -66,6 +67,17 @@
       display: flex;
       flex-direction: column;
       gap: 22px;
+      transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+    }
+    .pk-card.is-highlighted {
+      border-color: var(--pv-cobalt);
+      background: var(--pv-cobalt-wash-04);
+      box-shadow: 0 6px 24px rgba(27, 58, 138, 0.10);
+      transform: translateY(-4px);
     }
     .pk-meta-row {
       display: grid;
@@ -171,6 +183,7 @@
 
     /* ── Responsive ──────────────────────────────────────── */
     @media (max-width: 1147px) {
+      .pk-tier-section { padding: 64px 0; }
       .pk-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
       .pk-process { grid-template-columns: repeat(2, 1fr); }
       .pg-title { font-size: clamp(29px, 8vw, 37px); }
@@ -183,15 +196,16 @@
       .pk-process { grid-template-columns: 1fr; }
       .pk-cta-h2 { font-size: 26px !important; }
       .pk-cta-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-      .pk-cta-panel { padding: 64px 32px 56px !important; }
+      .pk-cta-panel-outer { padding: 64px 0 !important; }
       .pk-cta-actions { align-self: stretch; }
       .pk-cta-actions a { width: 100%; text-align: center; display: flex !important; justify-content: center; }
     }
     @media (max-width: 700px) {
+      .pk-tier-section { padding: 56px 0; }
       .pk-compare-wrap { overflow-x: auto; }
       .pk-compare { min-width: 560px; }
       .pk-section-h2 { font-size: 30px !important; }
-      .pk-cta-panel { padding: 48px 20px 40px !important; }
+      .pk-cta-panel-outer { padding: 56px 0 !important; }
     }
     @media (max-width: 380px) {
       .pk-card { padding: 20px; }
@@ -248,7 +262,7 @@
 </section>
 
 <!-- ── TIER CARDS ──────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-paper-alt);">
+<section class="pk-tier-section" style="border-top:1px solid var(--pv-border);background:var(--pv-paper-alt);">
   <div class="pg-wrap">
     <div class="pk-grid">
 
@@ -747,13 +761,13 @@
 </section>
 
 <!-- ── CLOSING CTA ──────────────────────────────────── -->
-<section class="pk-cta-panel-outer" style="background:var(--pv-paper);padding:0 0 96px;">
+<section class="pk-cta-panel-outer" style="background:var(--pv-card);border-top:1px solid var(--pv-hairline);padding:96px 0;">
   <div class="pg-wrap">
-    <div class="pk-cta-panel" style="background:var(--pv-card);border-top:1px solid var(--pv-hairline);border-bottom:1px solid var(--pv-hairline);padding:112px 80px 96px;">
+    <div class="pk-cta-panel" style="background:transparent;padding:0;">
       <div class="pk-cta-grid" style="display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center;">
         <div>
           <p class="pv-section-label" style="margin-bottom:16px;">Not sure where to start?</p>
-          <h2 class="pk-cta-h2" style="font-size:36px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">Tell us about the project. We'll recommend a tier.</h2>
+          <h2 class="pk-cta-h2" style="font-size:36px;font-weight:400;line-height:1.1;margin:0;letter-spacing:-0.02em;">Tell us about the project. We'll recommend a tier.</h2>
           <p style="margin-top:14px;font-size:15px;color:var(--pv-slate);line-height:1.6;">One short enquiry. We reply within 1–3 business working days with a recommended tier and a quote.</p>
         </div>
         <div class="pk-cta-actions" style="display:flex;flex-direction:column;gap:16px;align-items:flex-start;">
@@ -806,5 +820,34 @@
 </footer>
 
 <script src="js/paeveul.js"></script>
+<script>
+(function () {
+  const grid = document.querySelector('.pk-grid');
+  if (!grid) return;
+  const cards = Array.from(grid.querySelectorAll('.pk-card'));
+  const featured = grid.querySelector('.pv-card--featured');
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  function highlight(target) {
+    cards.forEach(c => c.classList.toggle('is-highlighted', c === target));
+  }
+
+  if (featured) featured.classList.add('is-highlighted');
+
+  if (isTouch) {
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a, button')) return;
+        highlight(card);
+      });
+    });
+  } else {
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => highlight(card));
+    });
+    grid.addEventListener('mouseleave', () => highlight(featured));
+  }
+})();
+</script>
 </body>
 </html>
