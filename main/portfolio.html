@@ -139,9 +139,11 @@
     }
     .pf-cta-actions {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 18px;
+      flex-direction: row;          /* side by side (was column) */
+      align-items: center;          /* vertically centre the two 56px boxes on the row */
+      justify-content: flex-start;  /* pair hugs the LEFT of the actions cell */
+      flex-wrap: wrap;              /* safety: drops the secondary to a 2nd line if the cell ever gets too narrow */
+      gap: 14px;                    /* matches the original site's .hm-hero-btns gap (was 18px vertical) */
     }
     /* Mechanism-based button centering (no padding math) */
     .pf-cta-actions .pv-btn--primary,
@@ -165,7 +167,11 @@
       .pf-cta-grid { grid-template-columns: 1fr; gap: 24px; }
       .pf-cta-panel-outer { padding: 64px 0; }
       .pf-cta-h2 { font-size: 26px; line-height: 1.15; }
-      .pf-cta-actions { align-self: stretch; }
+      .pf-cta-actions {
+        align-self: stretch;
+        flex-direction: column;   /* re-stack on mobile (overrides the new row base) */
+        align-items: stretch;     /* stretch children to full width */
+      }
       .pf-cta-actions a { width: 100%; text-align: center; }
       .pf-cta-actions a.pv-btn--primary,
       .pf-cta-actions a.pv-btn--secondary {
