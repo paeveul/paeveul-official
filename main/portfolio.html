@@ -144,7 +144,8 @@
       gap: 18px;
     }
     /* Mechanism-based button centering (no padding math) */
-    .pf-cta-actions .pv-btn--primary {
+    .pf-cta-actions .pv-btn--primary,
+    .pf-cta-actions .pv-btn--secondary {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -166,7 +167,8 @@
       .pf-cta-h2 { font-size: 26px; line-height: 1.15; }
       .pf-cta-actions { align-self: stretch; }
       .pf-cta-actions a { width: 100%; text-align: center; }
-      .pf-cta-actions a.pv-btn--primary {
+      .pf-cta-actions a.pv-btn--primary,
+      .pf-cta-actions a.pv-btn--secondary {
         width: 100%;
         display: flex;
         align-items: center;
@@ -375,7 +377,7 @@
         </div>
         <div class="pf-cta-actions">
           <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
-          <a href="why.html" style="color:var(--pv-cobalt);font-family:var(--pv-font-sans);font-size:15px;text-decoration:underline;text-decoration-color:var(--pv-cobalt-wash-35);text-underline-offset:3px;">Why Paeveul</a>
+          <a href="why.html" class="pv-btn pv-btn--secondary">Why Paeveul</a>
         </div>
       </div>
     </div>
