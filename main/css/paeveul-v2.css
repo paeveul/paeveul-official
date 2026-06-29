@@ -609,11 +609,13 @@ button {
 .pg-nav a.is-active::after {
   content: '';
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);   /* deterministic centre, survives any future padding */
   bottom: -21px;
+  width: calc(100% - 6px);        /* inset ~3px each side -> bar hugs the ink, not the bearings */
   height: 2px;
   background: var(--pv-cobalt);
+  border-radius: 1px;             /* softens the 2px cap on the studio aesthetic */
 }
 
 /* Hamburger button */
