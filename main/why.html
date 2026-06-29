@@ -55,6 +55,20 @@
   <style>
     /* ── Why page layout ──────────────────────────────── */
     .why-stats-wrap { padding-top: 36px; padding-bottom: 36px; }
+
+    /* Value + suffix become one baseline-aligned figure, why-page only */
+    .why-stats-wrap .pv-stat {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .why-stats-wrap .pv-stat-suffix {
+      font-family: var(--pv-font-serif);   /* matches the numeral for a single figure */
+      font-size: 28px;                       /* ~0.64x the 44px numeral */
+      font-weight: var(--pv-weight-semibold);
+      line-height: 1;
+      color: var(--pv-cobalt);               /* unchanged — keeps the cobalt accent */
+    }
     .why-split {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
