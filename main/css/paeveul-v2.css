@@ -922,7 +922,7 @@ button {
 }
 
 .pv-bmock-body {
-  padding: 14px 16px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -965,6 +965,32 @@ button {
   height: 6px;
   border-radius: 2px;
   background: var(--pv-cobalt-wash-16);
+}
+
+.pv-bmock-page-nav {
+  height: 22px;
+  background: var(--pv-card);
+  border-bottom: 1px solid var(--pv-hairline);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.pv-bmock-page-nav span {
+  display: inline-block;
+  height: 5px;
+  border-radius: 2px;
+  background: var(--pv-hairline);
+}
+
+.pv-bmock-cta {
+  height: 16px;
+  width: 52px;
+  border-radius: var(--pv-radius-sm, 4px);
+  background: var(--pv-cobalt);
+  margin-top: 8px;
 }
 
 /* ── 6b. Chip component (.pv-chip) ─────────────────────────── */
