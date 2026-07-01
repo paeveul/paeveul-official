@@ -585,6 +585,7 @@ button {
 .pg-nav {
   display: flex;
   gap: 28px;
+  position: relative;
 }
 
 .pg-nav a {
@@ -616,6 +617,26 @@ button {
   height: 2px;
   background: var(--pv-cobalt);
   border-radius: 1px;             /* softens the 2px cap on the studio aesthetic */
+}
+
+/* Magic line — JS-driven sliding underline */
+.pg-nav-line {
+  position: absolute;
+  bottom: -1px;
+  height: 2px;
+  background: var(--pv-cobalt);
+  border-radius: 1px;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    left var(--pv-duration-2, 180ms) var(--pv-ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
+    width var(--pv-duration-2, 180ms) var(--pv-ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
+    opacity var(--pv-duration-1, 120ms) var(--pv-ease, cubic-bezier(0.22, 0.61, 0.36, 1));
+}
+
+/* When JS magic line is active, suppress the static CSS underline */
+.pg-nav--js a.is-active::after {
+  display: none;
 }
 
 /* Hamburger button */

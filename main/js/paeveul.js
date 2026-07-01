@@ -173,3 +173,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 }());
+
+/* ─── Desktop nav magic line ──────────────────────────────────────────────────
+ * Appends a sliding underline span (.pg-nav-line) to .pg-nav and slides it
+ * between links on mouseenter / mouseleave. Adds .pg-nav--js to suppress the
+ * static CSS ::after underline on the active link while JS is running.
+ */
+(function () {
+  var nav = document.querySelector('.pg-nav');
+  if (!nav) return;
+
+  var line = document.createElement('span');
+  line.className = 'pg-nav-line';
+  nav.appendChild(line);
+  nav.classList.add('pg-nav--js');
+
+  function positionLine(el) {
+    line.style.left = el.offsetLeft + 'px';
+    line.style.width = el.offsetWidth + 'px';
+    line.style.opacity = '1';
+  }
+
+  var active = nav.querySelector('a.is-active');
+  if (active) positionLine(active);
+
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('mouseenter', function () { positionLine(link); });
+  });
+
+  nav.addEventListener('mouseleave', function () {
+    if (active) {
+      positionLine(active);
+    } else {
+      line.style.opacity = '0';
+    }
+  });
+}());
+
+/* ─── Hero word-cycling crossfade ─────────────────────────────────────────────
+ * Cycles .hm-cycle-word elements inside .hm-cycle-wrap every 3 seconds.
+ * The visible word is position:relative (natural width); hidden words are
+ * position:absolute (zero layout impact).
+ */
+(function () {
+  var words = document.querySelectorAll('.hm-cycle-word');
+  if (!words.length) return;
+  var current = 0;
+  setInterval(function () {
+    words[current].classList.remove('is-visible');
+    words[current].setAttribute('aria-hidden', 'true');
+    words[current].style.position = 'absolute';
+    current = (current + 1) % words.length;
+    words[current].classList.add('is-visible');
+    words[current].removeAttribute('aria-hidden');
+    words[current].style.position = 'relative';
+  }, 3000);
+}());

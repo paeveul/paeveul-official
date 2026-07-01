@@ -56,9 +56,6 @@
   <style>
     /* ── Header ─────────────────────────────────────── */
     /* pg-header / pg-header-inner handle sticky, backdrop, border, flex layout */
-    .hm-nav { display: flex; gap: 32px; }
-    .hm-nav a { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--pv-text); transition: color .15s; padding: 6px 0; }
-    .hm-nav a:hover { color: var(--pv-cyan); }
     .hm-header-right { display: flex; align-items: center; gap: 14px; }
 
     /* ── Global background decor ─────────────────── */
@@ -189,13 +186,14 @@
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 1147px) {
       /* pg-header-inner handles its own padding at ≤1147px via paeveul.css */
-      .hm-nav { display: none; }
+      /* .pg-nav collapse handled by paeveul-v2.css responsive block */
 
       .hm-hero { padding: 48px 0 56px; }
       .hm-inner { padding-left: 20px; padding-right: 20px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
       .hm-hero-h1 { font-size: clamp(29px, 8vw, 37px); }
+      .pv-hero-heading { font-size: clamp(29px, 8vw, 37px); }
       .hm-hero-lede { font-size: 16px; max-width: none; }
       .hm-hero-btns { flex-direction: column; }
       .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
@@ -254,6 +252,7 @@
     /* ── Mid-tablet: Fold unfolded, iPad Mini/Air portrait ── */
     @media (min-width: 640px) and (max-width: 1147px) {
       .hm-hero-h1 { font-size: clamp(36px, 5vw, 46px); }
+      .pv-hero-heading { font-size: clamp(36px, 5vw, 46px); }
       .hm-hero-lede { font-size: 17px; max-width: 560px; }
       .hm-hero-btns { flex-direction: row; }
       .hm-hero-btns a { display: inline-block; width: auto; }
@@ -289,6 +288,40 @@
       .hm-email-link { font-size: 16px; word-break: break-all; }
       .hm-form { padding: 16px; }
       .hm-sh-h2 { font-size: 28px; }
+      .pv-hero-heading { font-size: clamp(24px, 7.5vw, 28px); }
+    }
+
+    /* ── Hero heading ────────────────────────────── */
+    .pv-hero-heading {
+      font-family: var(--pv-font-serif);
+      font-size: 72px;
+      line-height: 1.04;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--pv-ink);
+      margin: 0 0 24px;
+    }
+
+    /* ── Word-cycling crossfade ──────────────────── */
+    .hm-cycle-wrap {
+      display: inline-block;
+      position: relative;
+      min-width: 5.5ch;
+      vertical-align: baseline;
+    }
+    .hm-cycle-word {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pv-cobalt);
+      opacity: 0;
+      transition: opacity 300ms ease;
+      white-space: nowrap;
+    }
+    .hm-cycle-word.is-visible {
+      opacity: 1;
+      position: relative;
     }
   </style>
 </head>
@@ -303,7 +336,8 @@
   <div class="pg-header-inner">
     <a href="/" class="pv-wordmark" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
 
-    <nav class="hm-nav">
+    <nav class="pg-nav">
+      <a href="index.html" class="is-active">Home</a>
       <a href="packages.html">Packages</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="why.html">Why Paeveul</a>
@@ -321,14 +355,15 @@
 
     <!-- Mobile dropdown -->
     <div class="pg-mobile-menu">
-      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
-      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
-      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
-      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
-      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
-      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="packages.html"><span>Packages</span></a>
+      <a href="portfolio.html"><span>Portfolio</span></a>
+      <a href="why.html"><span>Why Paeveul</span></a>
+      <a href="faq.html"><span>FAQ</span></a>
+      <a href="blog.html"><span>Blog</span></a>
+      <a href="contact.html"><span>Contact</span></a>
       <div style="padding-top:16px;">
-        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+        <a href="contact.html" class="pv-btn pv-btn--primary" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
       </div>
     </div>
   </div>
@@ -342,7 +377,7 @@
       <!-- Left: text content -->
       <div>
         <p class="pv-section-label">Web design &amp; development</p>
-        <h1 style="font-family:var(--pv-font-serif);font-size:72px;line-height:1.04;font-weight:600;letter-spacing:-0.02em;color:var(--pv-ink);margin:0 0 24px;">Sites that earn trust. Built to last.</h1>
+        <h1 class="pv-hero-heading">Websites built with <span class="hm-cycle-wrap" aria-live="polite"><span class="hm-cycle-word is-visible">clarity.</span><span class="hm-cycle-word" aria-hidden="true">intent.</span><span class="hm-cycle-word" aria-hidden="true">purpose.</span></span></h1>
         <p style="font-family:var(--pv-font-sans);font-size:18px;line-height:1.6;color:var(--pv-slate);margin:0 0 32px;max-width:480px;">We build considered websites for growing businesses — custom quotes, honest timelines, no theme bloat.</p>
         <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
           <a href="/contact/" class="pv-btn pv-btn--primary">Start an enquiry</a>
