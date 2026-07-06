@@ -102,12 +102,17 @@
 
     /* ── Process strip ───────────────────────────────── */
     .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 48px 0; position: relative; z-index: 2; }
-    .hm-ps-header { margin-bottom: 40px; }
+    .hm-ps-header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end; }
     .hm-ps-tagline { margin: 0; font-size: 16px; font-weight: 500; color: var(--pv-slate); letter-spacing: -0.01em; }
-    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .hm-ps-count { display: flex; align-items: baseline; gap: 8px; }
+    .hm-ps-count-num { font-family: var(--pv-font-serif); font-weight: 600; font-size: var(--pv-size-h3); color: var(--pv-text); line-height: 1; }
+    .hm-ps-count-word { font-family: var(--pv-font-serif); font-style: italic; font-size: var(--pv-size-meta); color: var(--pv-stone); }
+    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; position: relative; }
+    .hm-ps-track::before { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: var(--pv-hairline); }
     .hm-ps-step { display: flex; flex-direction: column; }
     .hm-ps-numline { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
-    .hm-ps-rule { flex: 1; height: 1px; background: var(--pv-border); }
+    .hm-ps-numline .pv-stat-value { font-size: var(--pv-size-h3); }
+    .hm-ps-dot { width: 6px; height: 6px; border-radius: var(--pv-radius-pill); background: var(--pv-cobalt); position: relative; z-index: 1; margin-left: 8px; }
     .hm-ps-label { font-family: var(--pv-font-sans); font-size: 14px; font-weight: 500; color: var(--pv-stone); line-height: 1.3; }
 
     /* ── Sections ────────────────────────────────── */
@@ -124,10 +129,11 @@
     .hm-pkg-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .hm-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .hm-pkg-card { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-    .hm-pkg-recommended { font-family: var(--pv-font-serif); font-style: italic; font-size: 13px; color: var(--pv-cobalt); margin: 0 0 6px; }
+    .hm-pkg-card.pv-card--featured { box-shadow: var(--pv-shadow-float); padding: 32px; }
+    .hm-pkg-tag { position: absolute; top: -13px; left: 28px; background: var(--pv-card); border: 1px solid var(--pv-cobalt); border-radius: var(--pv-radius-sm); padding: 4px 12px; font-family: var(--pv-font-serif); font-style: italic; font-weight: 500; font-size: var(--pv-size-meta); color: var(--pv-cobalt); line-height: 1; }
     .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
     .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-slate); line-height: 1.55; margin-bottom: 0; }
-    .hm-pkg-divider { height: 1px; background: var(--pv-border); }
+    .hm-pkg-divider { width: 40px; height: 2px; background: var(--pv-cobalt-wash-35); }
     .hm-pkg-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
     .hm-pkg-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; }
     .hm-pkg-dash { flex: 0 0 auto; color: var(--pv-stone); line-height: 1.5; }
@@ -137,7 +143,8 @@
     .hm-port-card { overflow: hidden; display: flex; flex-direction: column; }
     .hm-port-preview { padding: 24px; background: var(--pv-bg); border-bottom: 1px solid var(--pv-border); }
     .hm-port-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-    .hm-port-meta { display: flex; justify-content: space-between; align-items: center; }
+    .hm-port-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: calc(var(--pv-space-3) - 10px); } /* .hm-port-body's flex gap:10px already covers the default rhythm; this adds the delta so meta→h3 totals var(--pv-space-3) (12px) without disturbing the other 10px pairs */
+    .hm-port-link { font-family: var(--pv-font-sans); font-size: 13.5px; font-weight: 500; color: var(--pv-cobalt); text-decoration: underline; text-decoration-color: var(--pv-cobalt-wash-35); text-underline-offset: 3px; margin-top: 8px; }
 
     /* ── Why ─────────────────────────────────────── */
     .hm-why-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
@@ -198,6 +205,8 @@
       .hm-process { padding: 40px 0; }
       .hm-ps-header { margin-bottom: 24px; }
       .hm-ps-track { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .hm-ps-track::before { display: none; } /* rail can't span a wrapped 2-column grid cleanly */
+      .hm-ps-dot { display: none; }
       .hm-ps-label { font-size: 14px; }
       .hm-section, .hm-section-alt { padding: 64px 0; }
       .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -345,9 +354,13 @@
       .hm-taglines { margin-top: 24px; }
       .hm-section, .hm-section-alt { padding: 48px 0; }
       .hm-process { padding: 32px 0; }
+      .hm-ps-count { display: none; } /* desktop refinement only — competes with tagline on narrowest phones */
       .hm-contact { padding: 48px 0; }
       .hm-pkg-name { font-size: 22px; }
       .hm-pkg-card { padding: 22px 18px; }
+      .hm-pkg-card.pv-card--featured { padding: 24px 18px; }
+      .hm-pkg-tag { left: 18px; }
+      .hm-port-preview { padding: 18px; }
       .hm-email-link { font-size: 16px; word-break: break-all; }
       .hm-form { padding: 16px; }
       .hm-sh-h2 { font-size: 28px; }
@@ -491,8 +504,14 @@
   <div class="hm-inner">
 
     <div class="hm-ps-header">
-      <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
-      <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
+      <div>
+        <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
+        <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
+      </div>
+      <div class="hm-ps-count">
+        <span class="hm-ps-count-num">05</span>
+        <span class="hm-ps-count-word">stages</span>
+      </div>
     </div>
 
     <ol class="hm-ps-track" aria-label="Process steps">
@@ -500,7 +519,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">01</span></span>
-          <span class="hm-ps-rule" aria-hidden="true"></span>
+          <span class="hm-ps-dot" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Enquire</span>
       </li>
@@ -508,7 +527,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">02</span></span>
-          <span class="hm-ps-rule" aria-hidden="true"></span>
+          <span class="hm-ps-dot" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Choose package</span>
       </li>
@@ -516,7 +535,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">03</span></span>
-          <span class="hm-ps-rule" aria-hidden="true"></span>
+          <span class="hm-ps-dot" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Build</span>
       </li>
@@ -524,7 +543,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">04</span></span>
-          <span class="hm-ps-rule" aria-hidden="true"></span>
+          <span class="hm-ps-dot" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Review</span>
       </li>
@@ -532,7 +551,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">05</span></span>
-          <span class="hm-ps-rule" aria-hidden="true"></span>
+          <span class="hm-ps-dot" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Launch</span>
       </li>
@@ -576,8 +595,8 @@
 
     <!-- Professional -->
     <div class="pv-card pv-card--featured hm-pkg-card">
+      <span class="hm-pkg-tag">Recommended</span>
       <div>
-        <p class="hm-pkg-recommended">Recommended</p>
         <div class="hm-pkg-name">Professional</div>
         <p class="hm-pkg-intent">For growing businesses that need a website that converts.</p>
       </div>
@@ -660,7 +679,7 @@
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
-        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+        <a href="portfolio.html" class="hm-port-link">View details →</a>
       </div>
     </article>
 
@@ -690,7 +709,7 @@
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Aurora</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
-        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+        <a href="portfolio.html" class="hm-port-link">View details →</a>
       </div>
     </article>
 
@@ -720,7 +739,7 @@
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
-        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="margin-top:8px;font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" class="hm-port-link">View details →</a>
       </div>
     </article>
   </div>
