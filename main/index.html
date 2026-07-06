@@ -102,17 +102,12 @@
 
     /* ── Process strip ───────────────────────────────── */
     .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 48px 0; position: relative; z-index: 2; }
-    .hm-ps-header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .hm-ps-header { margin-bottom: 40px; }
     .hm-ps-tagline { margin: 0; font-size: 16px; font-weight: 500; color: var(--pv-slate); letter-spacing: -0.01em; }
-    .hm-ps-count { display: flex; align-items: baseline; gap: 8px; }
-    .hm-ps-count-num { font-family: var(--pv-font-serif); font-weight: 600; font-size: var(--pv-size-h3); color: var(--pv-text); line-height: 1; }
-    .hm-ps-count-word { font-family: var(--pv-font-serif); font-style: italic; font-size: var(--pv-size-meta); color: var(--pv-stone); }
-    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; position: relative; }
-    .hm-ps-track::before { content: ""; position: absolute; left: 0; right: 0; top: 14px; height: 1px; background: var(--pv-hairline); }
+    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
     .hm-ps-step { display: flex; flex-direction: column; }
     .hm-ps-numline { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
-    .hm-ps-numline .pv-stat-value { font-size: var(--pv-size-h3); }
-    .hm-ps-dot { width: 6px; height: 6px; border-radius: var(--pv-radius-pill); background: var(--pv-cobalt); position: relative; z-index: 1; margin-left: 8px; }
+    .hm-ps-rule { flex: 1; height: 1px; background: var(--pv-border); }
     .hm-ps-label { font-family: var(--pv-font-sans); font-size: 14px; font-weight: 500; color: var(--pv-stone); line-height: 1.3; }
 
     /* ── Sections ────────────────────────────────── */
@@ -205,8 +200,6 @@
       .hm-process { padding: 40px 0; }
       .hm-ps-header { margin-bottom: 24px; }
       .hm-ps-track { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
-      .hm-ps-track::before { display: none; } /* rail can't span a wrapped 2-column grid cleanly */
-      .hm-ps-dot { display: none; }
       .hm-ps-label { font-size: 14px; }
       .hm-section, .hm-section-alt { padding: 64px 0; }
       .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
@@ -354,7 +347,6 @@
       .hm-taglines { margin-top: 24px; }
       .hm-section, .hm-section-alt { padding: 48px 0; }
       .hm-process { padding: 32px 0; }
-      .hm-ps-count { display: none; } /* desktop refinement only — competes with tagline on narrowest phones */
       .hm-contact { padding: 48px 0; }
       .hm-pkg-name { font-size: 22px; }
       .hm-pkg-card { padding: 22px 18px; }
@@ -504,14 +496,8 @@
   <div class="hm-inner">
 
     <div class="hm-ps-header">
-      <div>
-        <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
-        <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
-      </div>
-      <div class="hm-ps-count">
-        <span class="hm-ps-count-num">05</span>
-        <span class="hm-ps-count-word">stages</span>
-      </div>
+      <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
+      <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
     </div>
 
     <ol class="hm-ps-track" aria-label="Process steps">
@@ -519,7 +505,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">01</span></span>
-          <span class="hm-ps-dot" aria-hidden="true"></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Enquire</span>
       </li>
@@ -527,7 +513,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">02</span></span>
-          <span class="hm-ps-dot" aria-hidden="true"></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Choose package</span>
       </li>
@@ -535,7 +521,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">03</span></span>
-          <span class="hm-ps-dot" aria-hidden="true"></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Build</span>
       </li>
@@ -543,7 +529,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">04</span></span>
-          <span class="hm-ps-dot" aria-hidden="true"></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Review</span>
       </li>
@@ -551,7 +537,7 @@
       <li class="hm-ps-step">
         <div class="hm-ps-numline">
           <span class="pv-stat pv-stat--md"><span class="pv-stat-value">05</span></span>
-          <span class="hm-ps-dot" aria-hidden="true"></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
         </div>
         <span class="hm-ps-label">Launch</span>
       </li>
