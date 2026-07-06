@@ -102,14 +102,13 @@
 
     /* ── Process strip ───────────────────────────────── */
     .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 48px 0; position: relative; z-index: 2; }
-    .hm-ps-header { margin-bottom: 32px; display: flex; align-items: center; gap: 24px; }
+    .hm-ps-header { margin-bottom: 40px; }
     .hm-ps-tagline { margin: 0; font-size: 16px; font-weight: 500; color: var(--pv-slate); letter-spacing: -0.01em; }
-    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: flex; align-items: flex-start; gap: 0; }
-    .hm-ps-step { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; position: relative; }
-    .hm-ps-connector { position: absolute; top: 18px; left: 36px; right: 0; height: 1px; background: var(--pv-border); pointer-events: none; }
-    .hm-ps-step--last .hm-ps-connector { display: none; }
-    .hm-ps-num { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--pv-border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--pv-cobalt); background: var(--pv-bg); flex-shrink: 0; position: relative; z-index: 1; }
-    .hm-ps-label { font-size: 14px; font-weight: 500; color: var(--pv-text); line-height: 1.3; padding-right: 16px; }
+    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .hm-ps-step { display: flex; flex-direction: column; }
+    .hm-ps-numline { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+    .hm-ps-rule { flex: 1; height: 1px; background: var(--pv-border); }
+    .hm-ps-label { font-family: var(--pv-font-sans); font-size: 14px; font-weight: 500; color: var(--pv-stone); line-height: 1.3; }
 
     /* ── Sections ────────────────────────────────── */
     .hm-section { padding: 116px 0; position: relative; z-index: 2; }
@@ -125,15 +124,13 @@
     .hm-pkg-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .hm-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .hm-pkg-card { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-    .hm-pkg-card.recommended { border-color: var(--pv-cobalt) !important; background: var(--pv-cobalt-wash-04) !important; }
-    .hm-pkg-rec-badge { position: absolute; top: -1px; right: 18px; padding: 4px 10px; background: var(--pv-cobalt); color: #FFFFFF; font-size: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.1em; border-radius: 0 0 4px 4px; }
-    .hm-pkg-tier-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .hm-pkg-recommended { font-family: var(--pv-font-serif); font-style: italic; font-size: 13px; color: var(--pv-cobalt); margin: 0 0 6px; }
     .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
     .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-slate); line-height: 1.55; margin-bottom: 0; }
     .hm-pkg-divider { height: 1px; background: var(--pv-border); }
     .hm-pkg-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
     .hm-pkg-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; }
-    .hm-pkg-check { flex: 0 0 auto; margin-top: 3px; }
+    .hm-pkg-dash { flex: 0 0 auto; color: var(--pv-stone); line-height: 1.5; }
 
     /* ── Portfolio ───────────────────────────────── */
     .hm-port-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -199,12 +196,9 @@
       .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
       .hm-taglines { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
       .hm-process { padding: 40px 0; }
-      .hm-ps-header { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 24px; }
-      .hm-ps-track { flex-direction: column; gap: 0; position: relative; }
-      .hm-ps-track::before { content: ''; position: absolute; left: 17px; top: 36px; bottom: 36px; width: 1px; background: var(--pv-border); pointer-events: none; }
-      .hm-ps-step { flex-direction: row; align-items: center; gap: 16px; padding: 10px 0; }
-      .hm-ps-connector { display: none; }
-      .hm-ps-label { padding-right: 0; font-size: 15px; }
+      .hm-ps-header { margin-bottom: 24px; }
+      .hm-ps-track { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .hm-ps-label { font-size: 14px; }
       .hm-section, .hm-section-alt { padding: 64px 0; }
       .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .hm-pkg-grid { grid-template-columns: 1fr; }
@@ -297,9 +291,7 @@
     @media (min-width: 1148px) and (max-width: 1300px) {
       .hm-taglines { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hm-process { padding: 36px 0; }
-      .hm-ps-num { width: 32px; height: 32px; font-size: 11px; }
-      .hm-ps-connector { top: 16px; left: 32px; }
-      .hm-ps-label { font-size: 13px; padding-right: 12px; }
+      .hm-ps-label { font-size: 13px; }
       .hm-ps-tagline { font-size: 15px; }
     }
 
@@ -332,12 +324,8 @@
         border-right: 0;
       }
 
-      .hm-ps-track { flex-direction: row; flex-wrap: wrap; }
-      .hm-ps-step { flex: 0 0 50%; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 0 24px 0; }
-      .hm-ps-connector { display: block; left: 36px; top: 18px; right: 0; }
-      .hm-ps-step:nth-child(2) .hm-ps-connector, .hm-ps-step:nth-child(4) .hm-ps-connector { display: none; }
-      .hm-ps-track::before { display: none; }
-      .hm-ps-label { padding-right: 16px; font-size: 14px; }
+      .hm-ps-track { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; }
+      .hm-ps-label { font-size: 14px; }
       .hm-pkg-grid { grid-template-columns: 1fr 1fr; }
       .hm-port-grid { grid-template-columns: 1fr 1fr; margin-top: 40px; }
       .hm-art-grid { grid-template-columns: 1fr 1fr; }
@@ -503,39 +491,50 @@
   <div class="hm-inner">
 
     <div class="hm-ps-header">
-      <span class="pv-eyebrow">How it works</span>
-      <p class="hm-ps-tagline ">Effortless from enquiry to launch.</p>
+      <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
+      <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
     </div>
 
     <ol class="hm-ps-track" aria-label="Process steps">
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">01</div>
-        <span class="hm-ps-label ">Enquire</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">01</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Enquire</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">02</div>
-        <span class="hm-ps-label ">Choose package</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">02</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Choose package</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">03</div>
-        <span class="hm-ps-label ">Build</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">03</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Build</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">04</div>
-        <span class="hm-ps-label ">Review</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">04</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Review</span>
       </li>
 
-      <li class="hm-ps-step hm-ps-step--last">
-        <div class="hm-ps-num" aria-hidden="true">05</div>
-        <span class="hm-ps-label ">Launch</span>
+      <li class="hm-ps-step">
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">05</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Launch</span>
       </li>
 
     </ol>
@@ -547,11 +546,7 @@
 <div class="hm-inner">
   <div class="hm-pkg-header">
     <div>
-      <div class="hm-sh-row">
-        <span class="pv-eyebrow-num">01</span>
-        <span class="hm-sh-rule"></span>
-        <span class="pv-eyebrow">Packages</span>
-      </div>
+      <p class="pv-section-label" style="margin-bottom:18px;">Packages</p>
       <h2 class="hm-sh-h2 ">Three tiers.<br>Custom quotes, never templated.</h2>
       <p class="hm-sh-lede">Pick the tier that matches where you are. Every quote is based on real scope — no inflated bundles, no surprise invoices.</p>
     </div>
@@ -561,70 +556,67 @@
     <!-- Essential -->
     <div class="pv-card hm-pkg-card">
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 01</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
         <div class="hm-pkg-name">Essential</div>
         <p class="hm-pkg-intent">For SMEs ready to claim a clean, credible spot online.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="" style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:16px;font-weight:500;">Custom quote</span>
         <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 5-page business website</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Fully responsive design</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Basic SEO setup</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead enquiry form</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Deployment &amp; domain support</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Up to 5-page business website</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Fully responsive design</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Basic SEO setup</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Lead enquiry form</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Deployment &amp; domain support</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
 
     <!-- Professional -->
-    <div class="pv-card hm-pkg-card recommended">
-      <div class="hm-pkg-rec-badge">RECOMMENDED</div>
+    <div class="pv-card pv-card--featured hm-pkg-card">
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 02</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
+        <p class="hm-pkg-recommended">Recommended</p>
         <div class="hm-pkg-name">Professional</div>
         <p class="hm-pkg-intent">For growing businesses that need a website that converts.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="" style="font-size:16px;font-weight:500;color:var(--pv-cobalt);">Custom quote</span>
+        <span style="font-size:16px;font-weight:500;color:var(--pv-cobalt);">Custom quote</span>
         <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 10-page custom build</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Performance-focused build</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>On-page SEO optimisation</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead-conversion flow &amp; forms</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Articles / blog scaffolding</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Ongoing monthly support available</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Up to 10-page custom build</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Performance-focused build</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>On-page SEO optimisation</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Lead-conversion flow &amp; forms</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Articles / blog scaffolding</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Ongoing monthly support available</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-amber" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
 
     <!-- Business -->
     <div class="pv-card hm-pkg-card">
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 03</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
         <div class="hm-pkg-name">Business</div>
         <p class="hm-pkg-intent">For higher-touch projects: custom systems, scale, integrations.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="" style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:16px;font-weight:500;">Custom quote</span>
         <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Custom scope &amp; sitemap</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Bespoke component system</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Advanced SEO &amp; schema</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Payments-ready architecture</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>CMS / dashboard integrations</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Dedicated support track</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Custom scope &amp; sitemap</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Bespoke component system</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Advanced SEO &amp; schema</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Payments-ready architecture</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>CMS / dashboard integrations</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Dedicated support track</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
   </div>
 
@@ -637,11 +629,7 @@
 <!-- ── PORTFOLIO §02 ───────────────────────────────── -->
 <section class="hm-section-alt">
 <div class="hm-inner">
-  <div class="hm-sh-row">
-    <span class="pv-eyebrow-num">02</span>
-    <span class="hm-sh-rule"></span>
-    <span class="pv-eyebrow">Selected Work</span>
-  </div>
+  <p class="pv-section-label" style="margin-bottom:18px;">Selected Work</p>
   <h2 class="hm-sh-h2 ">Sites that earn trust and convert.</h2>
   <p class="hm-sh-lede">A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship.</p>
 
@@ -668,8 +656,7 @@
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 01</span>
-          <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Residential &amp; Commercial</span>
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Residential &amp; Commercial</span>
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
@@ -699,8 +686,7 @@
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 02</span>
-          <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Service Business · Malaysia</span>
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Service Business · Malaysia</span>
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Aurora</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
@@ -730,8 +716,7 @@
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 03</span>
-          <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Klang Valley</span>
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Klang Valley</span>
         </div>
         <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
         <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
