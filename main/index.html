@@ -72,7 +72,7 @@
 
     /* ── Hero ────────────────────────────────────── */
     .hm-hero { position: relative; padding: 88px 0 96px; z-index: 2; }
-    .hm-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+    .hm-hero-grid { display: grid; grid-template-columns: 0.92fr 1fr; gap: 64px; align-items: center; }
     .hm-hero-h1 { font-size: 52px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
     .hm-hero-lede { margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--pv-slate); max-width: 520px; }
     .hm-hero-btns { margin-top: 36px; display: flex; gap: 14px; align-items: center; }
@@ -221,23 +221,77 @@
       .hm-form-footer button { width: 100%; }
     }
 
-    /* ── Tablet: browser mock scales with column ─── */
+    /* ── Browser mock: fallback width (overridden per breakpoint below) ─── */
     .hm-browser-desktop {
-      width: min(580px, 100%);
-      height: 480px;
+      width: 100%;
     }
-    @media (min-width: 1148px) and (max-width: 1200px) {
-      .hm-browser-desktop {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 580 / 480;
+
+    /* ── Desktop hero mock (≥1148px) — respec v2 FILL + BLEED (2026-07-03) ────
+       The mock fills its visual column and bleeds to the right viewport edge.
+       Mechanism change from v1 (which kept a fixed-width card and only moved
+       the leftover beige):
+         • Hero breaks OUT of the centred 1200px container. Left inset is
+           derived from the sitewide tokens so the text column still lines up
+           with every other section; the right gutter is 0 so the grid runs to
+           the viewport edge. Section clips its own h-overflow (no h-scroll).
+         • Text column capped at 520px; visual column is 1fr and absorbs all
+           remaining width, so the mock scales with the viewport (~656px @1440,
+           ~896px @1920) and is always flush to the right edge.
+         • Mock is width:100%, content-driven height (NO aspect-ratio — that
+           was the v1 bottom-clip cause). Right corners flattened + right
+           border dropped so it reads as a window running off the page edge.
+         • Internal skeleton scales as one unit via container-query width units
+           (cqw), reference R = 660px → 1cqw ≈ 6.6px. Replaces v1's fixed
+           per-breakpoint pixel tables.
+       All .pv-bmock-* overrides stay scoped to .hm-browser-desktop so the
+       shared mock on portfolio.html / blog.html is untouched. */
+    @media (min-width: 1148px) {
+      .pg-hero { overflow-x: clip; }               /* contain the bleed — no h-scroll */
+
+      .pg-hero .pg-wrap {
+        max-width: none;                           /* was 1320px cap (v1) — removed */
+        margin: 0;                                 /* was auto-centred — removed */
+        /* left edge aligns with every other section; right side bleeds */
+        padding-left: calc(max(0px, (100vw - var(--pv-max-content)) / 2) + var(--pv-gutter-lg));
+        padding-right: 0;                          /* NO right gutter — this is the bleed */
       }
-      .hm-browser-desktop .hm-browser-content {
-        height: auto;
-        flex: 1;
-        min-height: 200px;
+
+      .hm-hero-grid {
+        grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+        gap: 64px;
+        align-items: center;
+      }
+      .hm-hero-visual { justify-self: stretch; align-self: stretch; }
+
+      .pv-bmock.hm-browser-desktop {
+        width: 100%;                               /* fill — no min(620px) cap */
+        height: auto;                              /* content-driven — no aspect-ratio */
+        container-type: inline-size;               /* size container for cqw scaling */
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;                           /* runs off the right edge */
       }
     }
+
+    /* ── Internal skeleton — one proportional cqw system (R = 660px → 1cqw ≈ 6.6px) ──
+       Scoped to .hm-browser-desktop and placed unconditionally so the SAME
+       system scales the content at BOTH desktop (≥1148px) and tablet
+       (640–1147px) — wherever container-type:inline-size is set on the frame.
+       On mobile (<640px) the mock is display:none, so these rules never paint.
+       This replaces v1's two separate fixed-px per-breakpoint tables. */
+    .hm-browser-desktop .pv-bmock-bar { padding: 2.1cqw 3.0cqw; }
+    .hm-browser-desktop .pv-bmock-dots { gap: 0.9cqw; }
+    .hm-browser-desktop .pv-bmock-dots span { width: 1.4cqw; height: 1.4cqw; }
+    .hm-browser-desktop .pv-bmock-url { font-size: 1.8cqw; padding: 0.9cqw 1.8cqw; }
+    .hm-browser-desktop .pv-bmock-body { padding: 3.6cqw 4.2cqw; gap: 1.7cqw; }
+    .hm-browser-desktop .pv-bmock-page-nav { height: 4.5cqw; padding: 0 2.4cqw; gap: 2.1cqw; margin-bottom: 0.9cqw; }
+    .hm-browser-desktop .pv-bmock-page-nav span { height: 1.1cqw; }
+    .hm-browser-desktop .pv-bmock-hero { height: 20cqw; margin-bottom: 0.9cqw; }
+    .hm-browser-desktop .pv-bmock-cta { height: 3.3cqw; width: 11.5cqw; margin-top: 1.7cqw; }
+    .hm-browser-desktop .pv-bmock-line { height: 1.5cqw; border-radius: 3px; }
+    .hm-browser-desktop .pv-bmock-sparkline { height: 1.4cqw; }
+    .hm-browser-desktop .pv-bmock-row { gap: 1.5cqw; }
+    .hm-browser-desktop .pv-bmock-row .pv-bmock-block { height: 6.7cqw; }
 
     /* ── Tablet: process strip ─────────────────────── */
     @media (min-width: 1148px) and (max-width: 1300px) {
@@ -257,6 +311,27 @@
       .hm-hero-btns { flex-direction: row; }
       .hm-hero-btns a { display: inline-block; width: auto; }
       .hm-taglines { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+      /* ── Tablet hero mock (respec v2 FILL + BLEED) ──────────────────────
+         Same fill/bleed mechanism as desktop, scaled down. Two even columns,
+         mock fills its column and bleeds to the right edge, content-driven
+         height. NO internal .pv-bmock-* overrides — the cqw system from the
+         desktop-scoped rules self-scales the content down to the narrower
+         frame automatically. Retains v1's decision that the mock is visible
+         (not hidden) at tablet. */
+      .pg-hero { overflow-x: clip; }
+      .hm-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+      .hm-hero-visual { display: block; justify-self: stretch; align-self: stretch; }
+      .pg-hero .pg-wrap { max-width: none; margin: 0; padding-left: var(--pv-gutter-sm); padding-right: 0; }
+      .pv-bmock.hm-browser-desktop {
+        width: 100%;
+        height: auto;
+        container-type: inline-size;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: 0;
+      }
+
       .hm-ps-track { flex-direction: row; flex-wrap: wrap; }
       .hm-ps-step { flex: 0 0 50%; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 0 24px 0; }
       .hm-ps-connector { display: block; left: 36px; top: 18px; right: 0; }
@@ -402,16 +477,16 @@
               <span style="width:22px;"></span>
               <span style="width:18px;"></span>
             </div>
-            <div class="pv-bmock-hero" style="height:88px;">
+            <div class="pv-bmock-hero">
               <div class="pv-bmock-cta"></div>
             </div>
             <div class="pv-bmock-line" style="width:65%;"></div>
             <div class="pv-bmock-line" style="width:48%;margin-top:4px;"></div>
             <div class="pv-bmock-sparkline" style="width:100%;margin-top:8px;"></div>
             <div class="pv-bmock-row" style="margin-top:4px;">
-              <div class="pv-bmock-block" style="height:52px;"></div>
-              <div class="pv-bmock-block" style="height:52px;"></div>
-              <div class="pv-bmock-block" style="height:52px;"></div>
+              <div class="pv-bmock-block"></div>
+              <div class="pv-bmock-block"></div>
+              <div class="pv-bmock-block"></div>
             </div>
             <div class="pv-bmock-line" style="width:80%;margin-top:6px;"></div>
             <div class="pv-bmock-line" style="width:60%;margin-top:4px;"></div>
