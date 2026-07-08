@@ -110,8 +110,16 @@
     /* ── Packages ────────────────────────────────── */
     .hm-pkg-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .hm-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .hm-pkg-card { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-    .hm-pkg-card.pv-card--featured { box-shadow: var(--pv-shadow-float); padding: 32px; }
+    .hm-pkg-card {
+      position: relative;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: box-shadow 180ms ease, transform 180ms ease;
+    }
+    .hm-pkg-card.pv-card--featured { padding: 32px; } /* static box-shadow removed — now driven by .is-highlighted */
+    .hm-pkg-card.is-highlighted { box-shadow: var(--pv-shadow-float); transform: translateY(-4px); }
     .hm-pkg-tag { position: absolute; top: -13px; left: 28px; background: var(--pv-card); border: 1px solid var(--pv-cobalt); border-radius: var(--pv-radius-sm); padding: 4px 12px; font-family: var(--pv-font-serif); font-style: italic; font-weight: 500; font-size: var(--pv-size-meta); color: var(--pv-cobalt); line-height: 1; }
     .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
     .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-slate); line-height: 1.55; margin-bottom: 0; }
@@ -1009,6 +1017,33 @@
     });
   }());
 
+  (function () {
+    const grid = document.querySelector('.hm-pkg-grid');
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll('.hm-pkg-card'));
+    const featured = grid.querySelector('.pv-card--featured');
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    function highlight(target) {
+      cards.forEach(c => c.classList.toggle('is-highlighted', c === target));
+    }
+
+    if (featured) featured.classList.add('is-highlighted');
+
+    if (isTouch) {
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('a, button')) return;
+          highlight(card);
+        });
+      });
+    } else {
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => highlight(card));
+      });
+      grid.addEventListener('mouseleave', () => highlight(featured));
+    }
+  })();
 </script>
 </body>
 </html>
