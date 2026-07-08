@@ -73,6 +73,9 @@
         box-shadow 180ms ease,
         transform 180ms ease;
     }
+    .pk-card.pv-card--featured {
+      border-color: var(--pv-hairline); /* neutralises paeveul-v2.css's unconditional .pv-card--featured border-color: cobalt rule within this component — Professional's border must now come ONLY from .is-highlighted below, so it can be suppressed when another card is active */
+    }
     .pk-card.is-highlighted {
       border-color: var(--pv-cobalt);
       background: var(--pv-card);
