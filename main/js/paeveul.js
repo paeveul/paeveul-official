@@ -189,8 +189,15 @@ document.addEventListener('DOMContentLoaded', () => {
   nav.classList.add('pg-nav--js');
 
   function positionLine(el) {
-    line.style.left = el.offsetLeft + 'px';
-    line.style.width = el.offsetWidth + 'px';
+    /* getBoundingClientRect gives sub-pixel float precision, unlike the
+     * integer-rounded offsetLeft/offsetWidth — avoids visible centering
+     * drift on short labels ("FAQ", "Home") vs long ones ("Portfolio").
+     * Both rects are viewport-relative, so the subtraction is valid
+     * regardless of .pg-nav's own positioning context. */
+    var navRect = nav.getBoundingClientRect();
+    var linkRect = el.getBoundingClientRect();
+    line.style.left = (linkRect.left - navRect.left) + 'px';
+    line.style.width = linkRect.width + 'px';
     line.style.opacity = '1';
   }
 
