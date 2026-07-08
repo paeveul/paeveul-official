@@ -197,6 +197,16 @@ document.addEventListener('DOMContentLoaded', () => {
   var active = nav.querySelector('a.is-active');
   if (active) positionLine(active);
 
+  /* Re-measure once webfonts (Source Sans 3 / Source Serif 4) finish
+   * swapping in — glyph metrics differ from the fallback stack, so the
+   * initial synchronous measurement above can be stale by the time the
+   * real font paints. Guarded for browsers without the Font Loading API. */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () {
+      if (active) positionLine(active);
+    });
+  }
+
   nav.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('mouseenter', function () { positionLine(link); });
   });
