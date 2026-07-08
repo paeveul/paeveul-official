@@ -116,10 +116,17 @@
       display: flex;
       flex-direction: column;
       gap: 18px;
-      transition: box-shadow 180ms ease, transform 180ms ease;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
     }
-    .hm-pkg-card.pv-card--featured { padding: 32px; } /* static box-shadow removed — now driven by .is-highlighted */
-    .hm-pkg-card.is-highlighted { box-shadow: var(--pv-shadow-float); transform: translateY(-4px); }
+    .hm-pkg-card.pv-card--featured {
+      padding: 32px;
+      border-color: var(--pv-hairline); /* neutralises paeveul-v2.css's unconditional .pv-card--featured border-color: cobalt rule within this component — Recommended's border must now come ONLY from .is-highlighted below, so it can be suppressed when another card is active */
+    }
+    .hm-pkg-card.is-highlighted {
+      border-color: var(--pv-cobalt);
+      box-shadow: var(--pv-shadow-float);
+      transform: translateY(-4px);
+    } /* must stay AFTER the .pv-card--featured rule above in source order: both are equal specificity (0-2-0), so when Recommended carries both classes on page load, source order lets this rule win and produce the cobalt border */
     .hm-pkg-tag { position: absolute; top: -13px; left: 28px; background: var(--pv-card); border: 1px solid var(--pv-cobalt); border-radius: var(--pv-radius-sm); padding: 4px 12px; font-family: var(--pv-font-serif); font-style: italic; font-weight: 500; font-size: var(--pv-size-meta); color: var(--pv-cobalt); line-height: 1; }
     .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
     .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-slate); line-height: 1.55; margin-bottom: 0; }
