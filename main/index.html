@@ -58,18 +58,6 @@
     /* pg-header / pg-header-inner handle sticky, backdrop, border, flex layout */
     .hm-header-right { display: flex; align-items: center; gap: 14px; }
 
-    /* ── Global background decor ─────────────────── */
-    .hm-bg-glow {
-      position: fixed; top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(0,229,255,0.094), transparent 60%);
-      pointer-events: none; z-index: 0;
-    }
-    .hm-bg-grid {
-      position: fixed; inset: 0; height: 700px;
-      opacity: 0.5; pointer-events: none; z-index: 0;
-    }
-
     /* ── Hero ────────────────────────────────────── */
     .hm-hero { position: relative; padding: 88px 0 96px; z-index: 2; }
     .hm-hero-grid { display: grid; grid-template-columns: 0.92fr 1fr; gap: 64px; align-items: center; }
@@ -161,7 +149,6 @@
 
     /* ── Contact ─────────────────────────────────── */
     .hm-contact { padding: 116px 0; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); position: relative; z-index: 2; }
-    .hm-contact-bg { position: absolute; inset: 0; opacity: 0.4; pointer-events: none; }
     .hm-contact-inner { position: relative; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
     .hm-contact-info { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
     .hm-email-link { font-size: 22px; color: var(--pv-text); text-decoration: none; border-bottom: 1px solid var(--pv-cobalt); padding-bottom: 2px; }
@@ -390,10 +377,6 @@
   </style>
 </head>
 <body>
-
-<!-- Background decor -->
-<div class="pv-grid-bg hm-bg-grid"></div>
-<div class="hm-bg-glow"></div>
 
 <!-- ── HEADER ──────────────────────────────────────── -->
 <header class="pg-header">
@@ -910,7 +893,6 @@
 
 <!-- ── CONTACT §06 ─────────────────────────────────── -->
 <section class="hm-contact">
-  <div class="pv-grid-bg hm-contact-bg"></div>
   <div class="hm-contact-inner hm-inner">
     <div>
       <div class="hm-sh-row">
