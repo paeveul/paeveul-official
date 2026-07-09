@@ -513,6 +513,16 @@ button {
   user-select: none;
 }
 
+/* Legend-only asterisk: enlarge the glyph for visibility in the small
+   "Fields marked * are required" note. Scoped so it never touches the
+   field-level .pv-required markers. line-height:1 keeps the enlarged
+   glyph inside the note's existing line box — no vertical-rhythm shift. */
+.pv-required--legend {
+  font-size: 1.35em;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 .pv-input {
   background: var(--pv-card);
   border: 1px solid var(--pv-hairline);
