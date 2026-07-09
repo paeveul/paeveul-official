@@ -933,22 +933,23 @@
       </div>
     </div>
     <form class="pv-card hm-form" id="hm-contact-form" action="https://formbold.com/s/obvgp" method="POST">
+<p class="hm-form-note">Fields marked <span class="pv-required" aria-hidden="true">*</span> are required.</p>
 <div class="hm-form-row">
-        <div>
-          <label class="pv-label">Your name</label>
-          <input class="pv-input" name="name" placeholder="Maya Larson" />
+        <div class="pv-input-wrap">
+          <label class="pv-input-label" for="hm-name">Your name <span class="pv-required" aria-hidden="true">*</span></label>
+          <input id="hm-name" class="pv-input" name="name" placeholder="Maya Larson" required aria-required="true" />
         </div>
-        <div>
-          <label class="pv-label">Business name</label>
-          <input class="pv-input" name="business" placeholder="Northbrook &amp; Co." />
+        <div class="pv-input-wrap">
+          <label class="pv-input-label" for="hm-business">Business name <span class="pv-required" aria-hidden="true">*</span></label>
+          <input id="hm-business" class="pv-input" name="business" placeholder="Northbrook &amp; Co." required aria-required="true" />
         </div>
       </div>
-      <div>
-        <label class="pv-label">Work email</label>
-        <input class="pv-input" type="email" name="email" placeholder="you@business.com" />
+      <div class="pv-input-wrap">
+        <label class="pv-input-label" for="hm-email">Work email <span class="pv-required" aria-hidden="true">*</span></label>
+        <input id="hm-email" class="pv-input" type="email" name="email" placeholder="you@business.com" required aria-required="true" />
       </div>
-      <div>
-        <label class="pv-label">Package you're interested in</label>
+      <div class="pv-input-wrap">
+        <label class="pv-input-label">Package you're interested in</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <span class="pv-chip hm-pkg-chip" data-val="Essential">Essential</span>
           <span class="pv-chip hm-pkg-chip is-active" data-val="Professional">Professional</span>
@@ -957,9 +958,9 @@
         </div>
         <input type="hidden" id="hm-pkg-val" name="package" value="Professional" />
       </div>
-      <div>
-        <label class="pv-label">A bit about the project</label>
-        <textarea class="pv-input" name="message" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any rough timeline?" style="resize:vertical;"></textarea>
+      <div class="pv-input-wrap">
+        <label class="pv-input-label" for="hm-message">A bit about the project <span class="pv-required" aria-hidden="true">*</span></label>
+        <textarea id="hm-message" class="pv-input" name="message" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any rough timeline?" style="resize:vertical;" required aria-required="true"></textarea>
       </div>
       <div class="hm-form-footer">
         <span class="hm-form-note">We'll only use this to reply to your enquiry. No mailing list.</span>

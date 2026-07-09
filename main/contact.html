@@ -247,20 +247,22 @@
             <span style="font-size:11px;color:var(--pv-slate);font-family:var(--pv-font-sans);">5 min</span>
           </div>
 
+          <p class="ct-form-note">Fields marked <span class="pv-required" aria-hidden="true">*</span> are required.</p>
+
           <div class="ct-row">
             <div class="pv-input-wrap">
-              <label class="pv-input-label" for="ct-name">Your name *</label>
-              <input id="ct-name" name="name" class="pv-input" placeholder="Maya Larson" required />
+              <label class="pv-input-label" for="ct-name">Your name <span class="pv-required" aria-hidden="true">*</span></label>
+              <input id="ct-name" name="name" class="pv-input" placeholder="Maya Larson" required aria-required="true" />
             </div>
             <div class="pv-input-wrap">
-              <label class="pv-input-label" for="ct-biz">Business name *</label>
-              <input id="ct-biz" name="business" class="pv-input" placeholder="Northbrook &amp; Co." required />
+              <label class="pv-input-label" for="ct-biz">Business name <span class="pv-required" aria-hidden="true">*</span></label>
+              <input id="ct-biz" name="business" class="pv-input" placeholder="Northbrook &amp; Co." required aria-required="true" />
             </div>
           </div>
 
           <div class="pv-input-wrap">
-            <label class="pv-input-label" for="ct-email">Work email *</label>
-            <input id="ct-email" name="email" class="pv-input" type="email" placeholder="you@business.com" required />
+            <label class="pv-input-label" for="ct-email">Work email <span class="pv-required" aria-hidden="true">*</span></label>
+            <input id="ct-email" name="email" class="pv-input" type="email" placeholder="you@business.com" required aria-required="true" />
           </div>
 
           <div class="pv-input-wrap">
@@ -280,8 +282,8 @@
           </div>
 
           <div class="pv-input-wrap">
-            <label class="pv-input-label" for="ct-project">A bit about the project *</label>
-            <textarea id="ct-project" name="message" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required></textarea>
+            <label class="pv-input-label" for="ct-project">A bit about the project <span class="pv-required" aria-hidden="true">*</span></label>
+            <textarea id="ct-project" name="message" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required aria-required="true"></textarea>
           </div>
 
           <div class="pv-input-wrap">

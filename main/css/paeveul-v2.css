@@ -505,6 +505,14 @@ button {
   color: var(--pv-ink);
 }
 
+.pv-required {
+  color: var(--pv-text-danger);
+  margin-left: 2px;
+  font-weight: inherit;
+  line-height: inherit;
+  user-select: none;
+}
+
 .pv-input {
   background: var(--pv-card);
   border: 1px solid var(--pv-hairline);
