@@ -265,17 +265,26 @@
         gap: 64px;
         align-items: center;
       }
-      /* V3 correction (2026-07-10, spec §13.5): container-type + the old
-         .pv-bmock-body horizontal padding relocate here from the now-
-         deleted outer .pv-bmock frame. .hm-hero-visual had zero box-model
-         overhead of its own, so this keeps the R=660px cqw reference and
-         every width-dependent card calculation numerically unchanged.
-         padding-top (15cqw) is new — sized for the back card's -13cqw peek
-         clearance; padding-bottom is 0 (nothing needs clearance below). */
+      /* V3 correction (2026-07-10, spec §13.5): container-type relocates
+         here from the now-deleted outer .pv-bmock frame. .hm-hero-visual
+         had zero box-model overhead of its own, so this keeps the
+         R=660px cqw reference and every width-dependent card calculation
+         numerically unchanged. */
       .hm-hero-visual {
         justify-self: stretch;
         align-self: stretch;
         container-type: inline-size;
+      }
+      /* Padding-fix (2026-07-10, post-V3): the old .pv-bmock-body padding
+         CANNOT live on the same element as container-type: inline-size —
+         a self-referential cqw padding on the container-establishing
+         element itself resolves to 0 in real browsers (confirmed bug,
+         not a spec error). Moved one level down onto the plain, unstyled
+         .hm-hero-visual-inset wrapper instead — mirrors how .pv-bmock-body
+         worked as a descendant of the container-bearing .pv-bmock before
+         the frame was removed. padding-top (15cqw) = 13cqw back-card
+         translate + 2cqw safety margin; padding-bottom is 0. */
+      .hm-hero-visual-inset {
         padding: 15cqw 4.2cqw 0;
       }
     }
@@ -291,7 +300,22 @@
        (640–1147px) — wherever container-type:inline-size is set on
        .hm-hero-visual. On mobile (<640px) the mock is display:none, so
        these rules never paint. Per-card mini browser-chrome (.stack-card-bar
-       etc.) is unchanged from the original spec §3. */
+       etc.) is unchanged from the original spec §3.
+
+       .hm-hero-visual-inset (padding-fix, 2026-07-10): a plain, unstyled
+       wrapper between .hm-hero-visual (holds container-type) and
+       .pv-bmock-portfolio-stack — carries the padding that would otherwise
+       cyclically self-reference on the container-establishing element.
+       position:relative only, matching what .hm-hero-visual already
+       provides structurally; no background/border/shadow/radius, so it
+       does not reintroduce the removed outer browser-mock frame.
+       .pv-bmock-portfolio-stack (position:relative, below) remains the
+       containing block for the absolutely-positioned .stack-card children
+       — this wrapper does not sit between them and does not alter their
+       stacking context. */
+    .hm-hero-visual-inset {
+      position: relative;
+    }
     .hm-hero-visual .pv-bmock-portfolio-stack {
       position: relative;
       height: 40cqw;
@@ -410,13 +434,18 @@
       .pg-hero { overflow-x: clip; }
       .hm-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
       /* V3 correction (2026-07-10, spec §13.5): same relocation as desktop —
-         container-type + horizontal padding move from the deleted outer
-         .pv-bmock frame onto .hm-hero-visual itself. */
+         container-type moves from the deleted outer .pv-bmock frame onto
+         .hm-hero-visual itself. */
       .hm-hero-visual {
         display: block;
         justify-self: stretch;
         align-self: stretch;
         container-type: inline-size;
+      }
+      /* Padding-fix (2026-07-10, post-V3): same cyclic-cqw fix as desktop —
+         padding lives on the .hm-hero-visual-inset wrapper, not on the
+         container-establishing element itself. */
+      .hm-hero-visual-inset {
         padding: 15cqw 4.2cqw 0;
       }
       .pg-hero .pg-wrap { max-width: none; margin: 0; padding-left: var(--pv-gutter-sm); padding-right: 0; }
@@ -548,6 +577,7 @@
            spec §13): the outer .pv-bmock browser-window frame is removed;
            the card-stack is the sole, bare content of .hm-hero-visual. -->
       <div class="hm-hero-visual">
+        <div class="hm-hero-visual-inset">
         <div class="pv-bmock-portfolio-stack" id="hm-portfolio-stack" tabindex="0" role="img" aria-label="Rotating preview of three Paeveul portfolio sites: Alphamatic Aircon, Aurora, and Cool Breeze.">
           <div class="stack-card" data-slot="2" data-name="coolbreeze">
             <div class="stack-card-bar">
@@ -582,6 +612,7 @@
                    onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#C9982E',innerText:'Alphamatic Aircon'}))" />
             </div>
           </div>
+        </div>
         </div>
       </div>
 
