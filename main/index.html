@@ -217,11 +217,6 @@
       .hm-form-footer button { width: 100%; }
     }
 
-    /* ── Browser mock: fallback width (overridden per breakpoint below) ─── */
-    .hm-browser-desktop {
-      width: 100%;
-    }
-
     /* ── Portfolio card-stack — shared motion tokens (motion-consistency) ──
        Per Amelia's portfolio-card-stack-spec-v1.md §5/§12. */
     :root {
@@ -230,25 +225,30 @@
       --pv-stack-ease: cubic-bezier(0.22, 1, 0.36, 1); /* expo-out, spring-physics approximation */
     }
 
-    /* ── Desktop hero mock (≥1148px) — respec v2 FILL + BLEED (2026-07-03) ────
-       The mock fills its visual column and bleeds to the right viewport edge.
-       Mechanism change from v1 (which kept a fixed-width card and only moved
-       the leftover beige):
+    /* ── Desktop hero visual (≥1148px) — respec v2 FILL (2026-07-03),
+       outer-frame REMOVED in v3 (2026-07-10, spec §13) ──────────────────
+       The visual column fills its grid track and bleeds to the right
+       viewport edge:
          • Hero breaks OUT of the centred 1200px container. Left inset is
            derived from the sitewide tokens so the text column still lines up
            with every other section; the right gutter is 0 so the grid runs to
            the viewport edge. Section clips its own h-overflow (no h-scroll).
          • Text column capped at 520px; visual column is 1fr and absorbs all
-           remaining width, so the mock scales with the viewport (~656px @1440,
-           ~896px @1920) and is always flush to the right edge.
-         • Mock is width:100%, content-driven height (NO aspect-ratio — that
-           was the v1 bottom-clip cause). Right corners flattened + right
-           border dropped so it reads as a window running off the page edge.
-         • Internal skeleton scales as one unit via container-query width units
-           (cqw), reference R = 660px → 1cqw ≈ 6.6px. Replaces v1's fixed
-           per-breakpoint pixel tables.
-       All .pv-bmock-* overrides stay scoped to .hm-browser-desktop so the
-       shared mock on portfolio.html / blog.html is untouched. */
+           remaining width, so the card-stack scales with the viewport
+           (~656px @1440, ~896px @1920).
+         • v1/v2 wrapped this in a `.pv-bmock` "browser window" frame (chrome
+           bar, right-corner flattening, dropped right border, to sell "a
+           window running off the page edge"). v3 removes that framing
+           entirely — a bare card-stack has no window metaphor to sell, so
+           there's nothing to bleed/flatten/drop a border on any more.
+           .hm-hero-visual itself is now the cqw container (below) and the
+           only surface — no background/border/shadow at this level.
+         • Internal card-stack scales as one unit via container-query width
+           units (cqw), reference R = 660px → 1cqw ≈ 6.6px.
+       .pv-bmock-* rules now scope to .hm-hero-visual (not .hm-browser-desktop,
+       which no longer exists in the markup) — this is unique to the home
+       hero and does not collide with portfolio.html / blog.html's own,
+       separate .pv-bmock card-embedded mocks. */
     @media (min-width: 1148px) {
       .pg-hero { overflow-x: clip; }               /* contain the bleed — no h-scroll */
 
@@ -265,47 +265,46 @@
         gap: 64px;
         align-items: center;
       }
-      .hm-hero-visual { justify-self: stretch; align-self: stretch; }
-
-      .pv-bmock.hm-browser-desktop {
-        width: 100%;                               /* fill — no min(620px) cap */
-        height: auto;                              /* content-driven — no aspect-ratio */
-        container-type: inline-size;               /* size container for cqw scaling */
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: 0;                           /* runs off the right edge */
+      /* V3 correction (2026-07-10, spec §13.5): container-type + the old
+         .pv-bmock-body horizontal padding relocate here from the now-
+         deleted outer .pv-bmock frame. .hm-hero-visual had zero box-model
+         overhead of its own, so this keeps the R=660px cqw reference and
+         every width-dependent card calculation numerically unchanged.
+         padding-top (15cqw) is new — sized for the back card's -13cqw peek
+         clearance; padding-bottom is 0 (nothing needs clearance below). */
+      .hm-hero-visual {
+        justify-self: stretch;
+        align-self: stretch;
+        container-type: inline-size;
+        padding: 15cqw 4.2cqw 0;
       }
     }
 
-    /* ── Internal skeleton — one proportional cqw system (R = 660px → 1cqw ≈ 6.6px) ──
-       Scoped to .hm-browser-desktop and placed unconditionally so the SAME
-       system scales the content at BOTH desktop (≥1148px) and tablet
-       (640–1147px) — wherever container-type:inline-size is set on the frame.
-       On mobile (<640px) the mock is display:none, so these rules never paint.
-       This replaces v1's two separate fixed-px per-breakpoint tables. */
-    .hm-browser-desktop .pv-bmock-bar { padding: 2.1cqw 3.0cqw; }
-    .hm-browser-desktop .pv-bmock-dots { gap: 0.9cqw; }
-    .hm-browser-desktop .pv-bmock-dots span { width: 1.4cqw; height: 1.4cqw; }
-    .hm-browser-desktop .pv-bmock-url { font-size: 1.8cqw; padding: 0.9cqw 1.8cqw; }
-    .hm-browser-desktop .pv-bmock-body { padding: 3.6cqw 4.2cqw; gap: 1.7cqw; }
-    .hm-browser-desktop .pv-bmock-page-nav { height: 4.5cqw; padding: 0 2.4cqw; gap: 2.1cqw; margin-bottom: 0.9cqw; }
-    .hm-browser-desktop .pv-bmock-page-nav span { height: 1.1cqw; }
-
-    /* ── Portfolio card-stack — replaces the old hero/cta/line/sparkline/row
-       skeleton (spec §2). Same combined ≈35cqw footprint, so .pv-bmock-body
-       total height is unchanged and nothing else in the hero shifts. ── */
-    .hm-browser-desktop .pv-bmock-portfolio-stack {
+    /* ── Portfolio card-stack — one proportional cqw system (R = 660px → 1cqw ≈ 6.6px) ──
+       V3 correction (2026-07-10, spec §13): the outer .pv-bmock browser-mock
+       frame (chrome bar, dots, URL pill, page-nav skeleton) is REMOVED
+       entirely. .hm-hero-visual is now the direct cqw container (see the
+       desktop/tablet blocks above) and .pv-bmock-portfolio-stack is its
+       sole, bare child — no background/border/shadow wrapper; each card
+       already carries its own chrome + shadow. Placed unconditionally so
+       the SAME system scales at BOTH desktop (≥1148px) and tablet
+       (640–1147px) — wherever container-type:inline-size is set on
+       .hm-hero-visual. On mobile (<640px) the mock is display:none, so
+       these rules never paint. Per-card mini browser-chrome (.stack-card-bar
+       etc.) is unchanged from the original spec §3. */
+    .hm-hero-visual .pv-bmock-portfolio-stack {
       position: relative;
-      height: 35cqw;
-      min-height: 190px;
+      height: 40cqw;
+      min-height: 210px;
       width: 100%;
     }
 
-    /* V2 (2026-07-10): card height raised 82% → 94% of the container. Width
-       is UNCHANGED (74%) — this reclaims idle vertical space that was
-       already sitting inside the existing 35cqw container (spec §12), so
-       the container itself and everything outside it is untouched. */
-    .hm-browser-desktop .stack-card {
+    /* V3 (2026-07-10): stack height raised 35cqw → 40cqw — real room freed
+       by deleting the outer frame's own chrome-bar/border/body-padding
+       cost (spec §13.6), not a footprint increase beyond today's live
+       .hm-hero-visual height. Card height/width proportions (94%/74%)
+       unchanged from the v2 fix (spec §13.7). */
+    .hm-hero-visual .stack-card {
       position: absolute;
       top: 0; left: 0;
       width: 74%;
@@ -320,70 +319,70 @@
         box-shadow var(--pv-stack-enter-dur) var(--pv-stack-ease),
         opacity var(--pv-stack-enter-dur) var(--pv-stack-ease);
     }
-    .hm-browser-desktop .stack-card.is-exiting {
+    .hm-hero-visual .stack-card.is-exiting {
       transition-duration: var(--pv-stack-exit-dur);
     }
 
-    /* Slot 0 = front, 1 = mid, 2 = back — spec §3 table */
-    .hm-browser-desktop .stack-card[data-slot="0"] {
+    /* Slot 0 = front, 1 = mid, 2 = back — spec §3 table (unchanged) */
+    .hm-hero-visual .stack-card[data-slot="0"] {
       transform: translate(0,0) scale(1) rotate(0deg);
       z-index: 3;
       box-shadow: 0 14px 40px rgba(17,21,30,0.08);
       opacity: 1;
     }
-    .hm-browser-desktop .stack-card[data-slot="1"] {
+    .hm-hero-visual .stack-card[data-slot="1"] {
       transform: translate(9cqw,-7cqw) scale(0.95) rotate(1.5deg);
       z-index: 2;
       box-shadow: 0 8px 22px rgba(17,21,30,0.06);
       opacity: 0.95;
     }
-    .hm-browser-desktop .stack-card[data-slot="2"] {
+    .hm-hero-visual .stack-card[data-slot="2"] {
       transform: translate(16cqw,-13cqw) scale(0.90) rotate(3deg);
       z-index: 1;
       box-shadow: 0 4px 12px rgba(17,21,30,0.04);
       opacity: 0.9;
     }
 
-    .hm-browser-desktop .stack-card-bar {
+    .hm-hero-visual .stack-card-bar {
       background: var(--pv-paper-alt);
       border-bottom: 1px solid var(--pv-hairline);
       padding: 1.4cqw 2.0cqw;
       display: flex; align-items: center; gap: 0.6cqw;
     }
-    .hm-browser-desktop .stack-card-dots { display: flex; gap: 0.6cqw; }
-    .hm-browser-desktop .stack-card-dots span { width: 0.9cqw; height: 0.9cqw; min-width: 4px; min-height: 4px; border-radius: 999px; background: var(--pv-stone); opacity: .5; }
-    .hm-browser-desktop .stack-card-url {
+    .hm-hero-visual .stack-card-dots { display: flex; gap: 0.6cqw; }
+    .hm-hero-visual .stack-card-dots span { width: 0.9cqw; height: 0.9cqw; min-width: 4px; min-height: 4px; border-radius: 999px; background: var(--pv-stone); opacity: .5; }
+    .hm-hero-visual .stack-card-url {
       font-size: 1.2cqw; color: var(--pv-stone);
       background: var(--pv-card); border: 1px solid var(--pv-hairline); border-radius: 3px;
       padding: 0.5cqw 1.2cqw; flex: 1; font-family: var(--pv-font-sans);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
-    .hm-browser-desktop .stack-card-img-wrap {
+    .hm-hero-visual .stack-card-img-wrap {
       width: 100%;
       aspect-ratio: 16 / 10;
       overflow: hidden;
       background: var(--pv-paper-alt);
     }
-    .hm-browser-desktop .stack-card-img-wrap img {
+    .hm-hero-visual .stack-card-img-wrap img {
       width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
     }
-    .hm-browser-desktop .stack-card-fallback {
+    .hm-hero-visual .stack-card-fallback {
       width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
       font-family: var(--pv-font-serif); font-style: italic; font-size: 13px; color: #fff;
       text-align: center; padding: 8px;
     }
 
     /* Entrance stagger on load — stagger-sequence (30–50ms/item) */
-    .hm-browser-desktop .stack-card { animation: pv-stack-card-in 500ms var(--pv-stack-ease) both; }
-    .hm-browser-desktop .stack-card[data-slot="0"] { animation-delay: 80ms; }
-    .hm-browser-desktop .stack-card[data-slot="1"] { animation-delay: 40ms; }
-    .hm-browser-desktop .stack-card[data-slot="2"] { animation-delay: 0ms; }
+    .hm-hero-visual .stack-card { animation: pv-stack-card-in 500ms var(--pv-stack-ease) both; }
+    .hm-hero-visual .stack-card[data-slot="0"] { animation-delay: 80ms; }
+    .hm-hero-visual .stack-card[data-slot="1"] { animation-delay: 40ms; }
+    .hm-hero-visual .stack-card[data-slot="2"] { animation-delay: 0ms; }
     @keyframes pv-stack-card-in {
       from { opacity: 0; transform: translate(0,10px) scale(0.9); }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hm-browser-desktop .stack-card { transition: none !important; animation: none !important; }
+      .hm-hero-visual .stack-card { transition: none !important; animation: none !important; }
     }
 
     /* ── Tablet: process strip ─────────────────────── */
@@ -402,25 +401,25 @@
       .hm-hero-btns a { display: inline-block; width: auto; }
       .hm-taglines { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 
-      /* ── Tablet hero mock (respec v2 FILL + BLEED) ──────────────────────
-         Same fill/bleed mechanism as desktop, scaled down. Two even columns,
-         mock fills its column and bleeds to the right edge, content-driven
-         height. NO internal .pv-bmock-* overrides — the cqw system from the
-         desktop-scoped rules self-scales the content down to the narrower
-         frame automatically. Retains v1's decision that the mock is visible
+      /* ── Tablet hero visual — outer-frame REMOVED in v3, same as desktop ──
+         Two even columns; card-stack fills its column. NO internal
+         .pv-bmock-* overrides here — the cqw system from the unconditional
+         rules below self-scales the content down to the narrower frame
+         automatically. Retains v1's decision that the visual is shown
          (not hidden) at tablet. */
       .pg-hero { overflow-x: clip; }
       .hm-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
-      .hm-hero-visual { display: block; justify-self: stretch; align-self: stretch; }
-      .pg-hero .pg-wrap { max-width: none; margin: 0; padding-left: var(--pv-gutter-sm); padding-right: 0; }
-      .pv-bmock.hm-browser-desktop {
-        width: 100%;
-        height: auto;
+      /* V3 correction (2026-07-10, spec §13.5): same relocation as desktop —
+         container-type + horizontal padding move from the deleted outer
+         .pv-bmock frame onto .hm-hero-visual itself. */
+      .hm-hero-visual {
+        display: block;
+        justify-self: stretch;
+        align-self: stretch;
         container-type: inline-size;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right: 0;
+        padding: 15cqw 4.2cqw 0;
       }
+      .pg-hero .pg-wrap { max-width: none; margin: 0; padding-left: var(--pv-gutter-sm); padding-right: 0; }
 
       .hm-ps-track { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; }
       .hm-ps-label { font-size: 14px; }
@@ -545,56 +544,42 @@
         <p class="pv-availability-note" style="margin-top:16px;margin-bottom:0;">Currently booking the second half of 2026.</p>
       </div>
 
-      <!-- Right: browser mock (desktop only) -->
+      <!-- Right: portfolio card-stack (desktop/tablet only) — v3 (2026-07-10,
+           spec §13): the outer .pv-bmock browser-window frame is removed;
+           the card-stack is the sole, bare content of .hm-hero-visual. -->
       <div class="hm-hero-visual">
-        <div class="pv-bmock hm-browser-desktop" id="hm-portfolio-mock-frame" tabindex="0">
-          <div class="pv-bmock-bar">
-            <div class="pv-bmock-dots">
-              <span></span><span></span><span></span>
+        <div class="pv-bmock-portfolio-stack" id="hm-portfolio-stack" tabindex="0" role="img" aria-label="Rotating preview of three Paeveul portfolio sites: Alphamatic Aircon, Aurora, and Cool Breeze.">
+          <div class="stack-card" data-slot="2" data-name="coolbreeze">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">coolbreeze.com.my</div>
             </div>
-            <div class="pv-bmock-url">paeveul.com</div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/thumbnail-coolbreeze.webp"
+                   alt="Cool Breeze website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E9B6B',innerText:'Cool Breeze'}))" />
+            </div>
           </div>
-          <div class="pv-bmock-body">
-            <div class="pv-bmock-page-nav">
-              <span style="width:28px;"></span>
-              <span style="width:22px;"></span>
-              <span style="width:22px;"></span>
-              <span style="width:18px;"></span>
+          <div class="stack-card" data-slot="1" data-name="aurora">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">aurora.com.my</div>
             </div>
-            <div class="pv-bmock-portfolio-stack" id="hm-portfolio-stack" role="img" aria-label="Rotating preview of three Paeveul portfolio sites: Alphamatic Aircon, Aurora, and Cool Breeze.">
-              <div class="stack-card" data-slot="2" data-name="coolbreeze">
-                <div class="stack-card-bar">
-                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
-                  <div class="stack-card-url">coolbreeze.com.my</div>
-                </div>
-                <div class="stack-card-img-wrap">
-                  <img src="assets/images/thumbnail-coolbreeze.webp"
-                       alt="Cool Breeze website screenshot"
-                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E9B6B',innerText:'Cool Breeze'}))" />
-                </div>
-              </div>
-              <div class="stack-card" data-slot="1" data-name="aurora">
-                <div class="stack-card-bar">
-                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
-                  <div class="stack-card-url">aurora.com.my</div>
-                </div>
-                <div class="stack-card-img-wrap">
-                  <img src="assets/images/rest-thumbnail.webp"
-                       alt="Aurora website screenshot"
-                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E6FD6',innerText:'Aurora'}))" />
-                </div>
-              </div>
-              <div class="stack-card" data-slot="0" data-name="alphamatic">
-                <div class="stack-card-bar">
-                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
-                  <div class="stack-card-url">alphamaticaircon.com.my</div>
-                </div>
-                <div class="stack-card-img-wrap">
-                  <img src="assets/images/alphamatic-aircon-website-screenshot.webp"
-                       alt="Alphamatic Aircon website screenshot"
-                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#C9982E',innerText:'Alphamatic Aircon'}))" />
-                </div>
-              </div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/rest-thumbnail.webp"
+                   alt="Aurora website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E6FD6',innerText:'Aurora'}))" />
+            </div>
+          </div>
+          <div class="stack-card" data-slot="0" data-name="alphamatic">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">alphamaticaircon.com.my</div>
+            </div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/alphamatic-aircon-website-screenshot.webp"
+                   alt="Alphamatic Aircon website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#C9982E',innerText:'Alphamatic Aircon'}))" />
             </div>
           </div>
         </div>
@@ -1144,14 +1129,17 @@
     });
   }());
 
-  /* ── Portfolio card-stack auto-transition (hero mock) ──────────────────
-     Per Amelia's portfolio-card-stack-spec-v1.md §5/§8/§12. Front-to-back
+  /* ── Portfolio card-stack auto-transition (hero visual) ────────────────
+     Per Amelia's portfolio-card-stack-spec-v1.md §5/§8/§13. Front-to-back
      rolodex cycle; pauses on hover/focus; disabled entirely under
-     prefers-reduced-motion (static fanned arrangement, no interval). */
+     prefers-reduced-motion (static fanned arrangement, no interval).
+     V3 (2026-07-10, spec §13.3): the separate outer-frame element this
+     used to bind hover/focus to (#hm-portfolio-mock-frame) is deleted —
+     #hm-portfolio-stack is now the outermost interactive/decorative
+     element, so it carries both the card query and the pause binding. */
   (function () {
     var stack = document.getElementById('hm-portfolio-stack');
-    var frame = document.getElementById('hm-portfolio-mock-frame');
-    if (!stack || !frame) return;
+    if (!stack) return;
 
     var cards = Array.prototype.slice.call(stack.querySelectorAll('.stack-card'));
     var timer = null;
@@ -1177,11 +1165,11 @@
       timer = null;
     }
 
-    // interruptible / no-blocking-animation — pause on hover/focus of the mock
-    frame.addEventListener('mouseenter', stop);
-    frame.addEventListener('mouseleave', function () { if (!reducedMotion) start(); });
-    frame.addEventListener('focusin', stop);
-    frame.addEventListener('focusout', function () { if (!reducedMotion) start(); });
+    // interruptible / no-blocking-animation — pause on hover/focus of the stack
+    stack.addEventListener('mouseenter', stop);
+    stack.addEventListener('mouseleave', function () { if (!reducedMotion) start(); });
+    stack.addEventListener('focusin', stop);
+    stack.addEventListener('focusout', function () { if (!reducedMotion) start(); });
 
     if (!reducedMotion) start();
   }());
