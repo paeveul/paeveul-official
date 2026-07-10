@@ -222,6 +222,14 @@
       width: 100%;
     }
 
+    /* ── Portfolio card-stack — shared motion tokens (motion-consistency) ──
+       Per Amelia's portfolio-card-stack-spec-v1.md §5/§12. */
+    :root {
+      --pv-stack-enter-dur: 450ms;
+      --pv-stack-exit-dur: 300ms;
+      --pv-stack-ease: cubic-bezier(0.22, 1, 0.36, 1); /* expo-out, spring-physics approximation */
+    }
+
     /* ── Desktop hero mock (≥1148px) — respec v2 FILL + BLEED (2026-07-03) ────
        The mock fills its visual column and bleeds to the right viewport edge.
        Mechanism change from v1 (which kept a fixed-width card and only moved
@@ -282,12 +290,101 @@
     .hm-browser-desktop .pv-bmock-body { padding: 3.6cqw 4.2cqw; gap: 1.7cqw; }
     .hm-browser-desktop .pv-bmock-page-nav { height: 4.5cqw; padding: 0 2.4cqw; gap: 2.1cqw; margin-bottom: 0.9cqw; }
     .hm-browser-desktop .pv-bmock-page-nav span { height: 1.1cqw; }
-    .hm-browser-desktop .pv-bmock-hero { height: 20cqw; margin-bottom: 0.9cqw; }
-    .hm-browser-desktop .pv-bmock-cta { height: 3.3cqw; width: 11.5cqw; margin-top: 1.7cqw; }
-    .hm-browser-desktop .pv-bmock-line { height: 1.5cqw; border-radius: 3px; }
-    .hm-browser-desktop .pv-bmock-sparkline { height: 1.4cqw; }
-    .hm-browser-desktop .pv-bmock-row { gap: 1.5cqw; }
-    .hm-browser-desktop .pv-bmock-row .pv-bmock-block { height: 6.7cqw; }
+
+    /* ── Portfolio card-stack — replaces the old hero/cta/line/sparkline/row
+       skeleton (spec §2). Same combined ≈35cqw footprint, so .pv-bmock-body
+       total height is unchanged and nothing else in the hero shifts. ── */
+    .hm-browser-desktop .pv-bmock-portfolio-stack {
+      position: relative;
+      height: 35cqw;
+      min-height: 190px;
+      width: 100%;
+    }
+
+    /* V2 (2026-07-10): card height raised 82% → 94% of the container. Width
+       is UNCHANGED (74%) — this reclaims idle vertical space that was
+       already sitting inside the existing 35cqw container (spec §12), so
+       the container itself and everything outside it is untouched. */
+    .hm-browser-desktop .stack-card {
+      position: absolute;
+      top: 0; left: 0;
+      width: 74%;
+      height: 94%;
+      border-radius: var(--pv-radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--pv-hairline);
+      background: var(--pv-card);
+      transform-origin: top left;
+      transition:
+        transform var(--pv-stack-enter-dur) var(--pv-stack-ease),
+        box-shadow var(--pv-stack-enter-dur) var(--pv-stack-ease),
+        opacity var(--pv-stack-enter-dur) var(--pv-stack-ease);
+    }
+    .hm-browser-desktop .stack-card.is-exiting {
+      transition-duration: var(--pv-stack-exit-dur);
+    }
+
+    /* Slot 0 = front, 1 = mid, 2 = back — spec §3 table */
+    .hm-browser-desktop .stack-card[data-slot="0"] {
+      transform: translate(0,0) scale(1) rotate(0deg);
+      z-index: 3;
+      box-shadow: 0 14px 40px rgba(17,21,30,0.08);
+      opacity: 1;
+    }
+    .hm-browser-desktop .stack-card[data-slot="1"] {
+      transform: translate(9cqw,-7cqw) scale(0.95) rotate(1.5deg);
+      z-index: 2;
+      box-shadow: 0 8px 22px rgba(17,21,30,0.06);
+      opacity: 0.95;
+    }
+    .hm-browser-desktop .stack-card[data-slot="2"] {
+      transform: translate(16cqw,-13cqw) scale(0.90) rotate(3deg);
+      z-index: 1;
+      box-shadow: 0 4px 12px rgba(17,21,30,0.04);
+      opacity: 0.9;
+    }
+
+    .hm-browser-desktop .stack-card-bar {
+      background: var(--pv-paper-alt);
+      border-bottom: 1px solid var(--pv-hairline);
+      padding: 1.4cqw 2.0cqw;
+      display: flex; align-items: center; gap: 0.6cqw;
+    }
+    .hm-browser-desktop .stack-card-dots { display: flex; gap: 0.6cqw; }
+    .hm-browser-desktop .stack-card-dots span { width: 0.9cqw; height: 0.9cqw; min-width: 4px; min-height: 4px; border-radius: 999px; background: var(--pv-stone); opacity: .5; }
+    .hm-browser-desktop .stack-card-url {
+      font-size: 1.2cqw; color: var(--pv-stone);
+      background: var(--pv-card); border: 1px solid var(--pv-hairline); border-radius: 3px;
+      padding: 0.5cqw 1.2cqw; flex: 1; font-family: var(--pv-font-sans);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .hm-browser-desktop .stack-card-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: var(--pv-paper-alt);
+    }
+    .hm-browser-desktop .stack-card-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
+    }
+    .hm-browser-desktop .stack-card-fallback {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--pv-font-serif); font-style: italic; font-size: 13px; color: #fff;
+      text-align: center; padding: 8px;
+    }
+
+    /* Entrance stagger on load — stagger-sequence (30–50ms/item) */
+    .hm-browser-desktop .stack-card { animation: pv-stack-card-in 500ms var(--pv-stack-ease) both; }
+    .hm-browser-desktop .stack-card[data-slot="0"] { animation-delay: 80ms; }
+    .hm-browser-desktop .stack-card[data-slot="1"] { animation-delay: 40ms; }
+    .hm-browser-desktop .stack-card[data-slot="2"] { animation-delay: 0ms; }
+    @keyframes pv-stack-card-in {
+      from { opacity: 0; transform: translate(0,10px) scale(0.9); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hm-browser-desktop .stack-card { transition: none !important; animation: none !important; }
+    }
 
     /* ── Tablet: process strip ─────────────────────── */
     @media (min-width: 1148px) and (max-width: 1300px) {
@@ -450,7 +547,7 @@
 
       <!-- Right: browser mock (desktop only) -->
       <div class="hm-hero-visual">
-        <div class="pv-bmock hm-browser-desktop">
+        <div class="pv-bmock hm-browser-desktop" id="hm-portfolio-mock-frame" tabindex="0">
           <div class="pv-bmock-bar">
             <div class="pv-bmock-dots">
               <span></span><span></span><span></span>
@@ -464,19 +561,41 @@
               <span style="width:22px;"></span>
               <span style="width:18px;"></span>
             </div>
-            <div class="pv-bmock-hero">
-              <div class="pv-bmock-cta"></div>
+            <div class="pv-bmock-portfolio-stack" id="hm-portfolio-stack" role="img" aria-label="Rotating preview of three Paeveul portfolio sites: Alphamatic Aircon, Aurora, and Cool Breeze.">
+              <div class="stack-card" data-slot="2" data-name="coolbreeze">
+                <div class="stack-card-bar">
+                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
+                  <div class="stack-card-url">coolbreeze.com.my</div>
+                </div>
+                <div class="stack-card-img-wrap">
+                  <img src="assets/images/thumbnail-coolbreeze.webp"
+                       alt="Cool Breeze website screenshot"
+                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E9B6B',innerText:'Cool Breeze'}))" />
+                </div>
+              </div>
+              <div class="stack-card" data-slot="1" data-name="aurora">
+                <div class="stack-card-bar">
+                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
+                  <div class="stack-card-url">aurora.com.my</div>
+                </div>
+                <div class="stack-card-img-wrap">
+                  <img src="assets/images/rest-thumbnail.webp"
+                       alt="Aurora website screenshot"
+                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E6FD6',innerText:'Aurora'}))" />
+                </div>
+              </div>
+              <div class="stack-card" data-slot="0" data-name="alphamatic">
+                <div class="stack-card-bar">
+                  <div class="stack-card-dots"><span></span><span></span><span></span></div>
+                  <div class="stack-card-url">alphamaticaircon.com.my</div>
+                </div>
+                <div class="stack-card-img-wrap">
+                  <img src="assets/images/alphamatic-aircon-website-screenshot.webp"
+                       alt="Alphamatic Aircon website screenshot"
+                       onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#C9982E',innerText:'Alphamatic Aircon'}))" />
+                </div>
+              </div>
             </div>
-            <div class="pv-bmock-line" style="width:65%;"></div>
-            <div class="pv-bmock-line" style="width:48%;margin-top:4px;"></div>
-            <div class="pv-bmock-sparkline" style="width:100%;margin-top:8px;"></div>
-            <div class="pv-bmock-row" style="margin-top:4px;">
-              <div class="pv-bmock-block"></div>
-              <div class="pv-bmock-block"></div>
-              <div class="pv-bmock-block"></div>
-            </div>
-            <div class="pv-bmock-line" style="width:80%;margin-top:6px;"></div>
-            <div class="pv-bmock-line" style="width:60%;margin-top:4px;"></div>
           </div>
         </div>
       </div>
@@ -1023,6 +1142,48 @@
         if (hidden) hidden.value = this.dataset.val;
       });
     });
+  }());
+
+  /* ── Portfolio card-stack auto-transition (hero mock) ──────────────────
+     Per Amelia's portfolio-card-stack-spec-v1.md §5/§8/§12. Front-to-back
+     rolodex cycle; pauses on hover/focus; disabled entirely under
+     prefers-reduced-motion (static fanned arrangement, no interval). */
+  (function () {
+    var stack = document.getElementById('hm-portfolio-stack');
+    var frame = document.getElementById('hm-portfolio-mock-frame');
+    if (!stack || !frame) return;
+
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.stack-card'));
+    var timer = null;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function advance() {
+      cards.forEach(function (card) {
+        var slot = parseInt(card.getAttribute('data-slot'), 10);
+        var nextSlot = (slot + 2) % 3; // front(0)->back(2), mid(1)->front(0), back(2)->mid(1)
+        if (nextSlot === 2) { card.classList.add('is-exiting'); }
+        else { card.classList.remove('is-exiting'); }
+        card.setAttribute('data-slot', nextSlot);
+      });
+    }
+
+    function start() {
+      if (reducedMotion) return; // reduced-motion: static arrangement, no interval at all
+      stop();
+      timer = setInterval(advance, 4000);
+    }
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    // interruptible / no-blocking-animation — pause on hover/focus of the mock
+    frame.addEventListener('mouseenter', stop);
+    frame.addEventListener('mouseleave', function () { if (!reducedMotion) start(); });
+    frame.addEventListener('focusin', stop);
+    frame.addEventListener('focusout', function () { if (!reducedMotion) start(); });
+
+    if (!reducedMotion) start();
   }());
 
   (function () {
