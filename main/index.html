@@ -318,8 +318,8 @@
     }
     .hm-hero-visual .pv-bmock-portfolio-stack {
       position: relative;
-      height: 40cqw;
-      min-height: 210px;
+      height: 60cqw;
+      min-height: 315px;
       width: 100%;
     }
 
@@ -327,7 +327,25 @@
        by deleting the outer frame's own chrome-bar/border/body-padding
        cost (spec §13.6), not a footprint increase beyond today's live
        .hm-hero-visual height. Card height/width proportions (94%/74%)
-       unchanged from the v2 fix (spec §13.7). */
+       unchanged from the v2 fix (spec §13.7).
+
+       V4 (2026-07-13, spec §14): stack height raised again, 40cqw → 60cqw
+       (Alex's approved 1.5× target, spec §14.6 — not 80cqw/2×, not the
+       50cqw middle-ground). Unlike the v3 bump, this one is NOT free —
+       total .hm-hero-visual-inset content height goes from 55cqw
+       (15cqw padding-top + 40cqw stack) to 75cqw, past the 58.0cqw
+       zero-impact ceiling spec §13.6/§14.2 established. This makes
+       .hm-hero-visual the taller grid track in .hm-hero-grid, growing
+       .pg-hero's rendered height and pushing the Process Strip section
+       (and everything below it) down by ~112px @1440px viewport, up to
+       ~304px @1920px — an accepted, known consequence per spec §14.3,
+       not a bug. No change needed to .hm-hero-visual-inset's own padding
+       (15cqw 4.2cqw 0) or to .pg-hero itself — the push-down is an
+       automatic CSS Grid row-sizing consequence of this single height
+       value change, not a separate edit (spec §14.4). min-height bumped
+       210px → 315px, same proportional-bump discipline as the v3 change
+       (190px → 210px), scaled by the same 40→60cqw ratio (×1.5). Card
+       height/width proportions (94%/74%) unchanged. */
     .hm-hero-visual .stack-card {
       position: absolute;
       top: 0; left: 0;
