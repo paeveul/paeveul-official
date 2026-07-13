@@ -719,6 +719,10 @@ button {
   color: var(--pv-cobalt);
 }
 
+.pg-mobile-menu a.pv-btn--primary {
+  color: var(--pv-ink-inverse);
+}
+
 /* Header CTA — hidden on mobile */
 .pg-header .pv-btn {
   flex-shrink: 0;

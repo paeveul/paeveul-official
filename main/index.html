@@ -192,7 +192,7 @@
       .hm-inner { padding-left: 20px; padding-right: 20px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
-      .pv-hero-heading { font-size: clamp(29px, 8vw, 37px); }
+      .pv-hero-heading { font-size: var(--pv-size-h2); }
       .hm-hero-lede { font-size: 16px; max-width: none; }
       .hm-hero-btns { flex-direction: column; }
       .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
@@ -461,7 +461,6 @@
 
     /* ── Mid-tablet: Fold unfolded, iPad Mini/Air portrait ── */
     @media (min-width: 640px) and (max-width: 1147px) {
-      .pv-hero-heading { font-size: clamp(36px, 5vw, 46px); }
       .hm-hero-lede { font-size: 17px; max-width: 560px; }
       .hm-hero-btns { flex-direction: row; }
       .hm-hero-btns a { display: inline-block; width: auto; }
@@ -521,7 +520,7 @@
       .hm-email-link { font-size: 16px; word-break: break-all; }
       .hm-form { padding: 16px; }
       .hm-sh-h2 { font-size: 28px; }
-      .pv-hero-heading { font-size: clamp(24px, 7.5vw, 28px); }
+      .pv-hero-heading { font-size: clamp(22px, 7vw, 27px); }
     }
 
     /* ── Hero heading ────────────────────────────── */
@@ -1172,7 +1171,7 @@
       </div>
     </div>
     <div class="pg-footer-bottom">
-      <span>© 2026 Paeveul</span>
+      <span>© 2026 Paeveul Studio 202603175879 (TR0345406-P)</span>
       <nav class="pg-legal-nav" aria-label="Legal">
         <a href="privacy/index.html">Privacy Notice</a>
         <span class="pg-legal-sep" aria-hidden="true">·</span>
