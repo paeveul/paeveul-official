@@ -345,12 +345,34 @@
        value change, not a separate edit (spec §14.4). min-height bumped
        210px → 315px, same proportional-bump discipline as the v3 change
        (190px → 210px), scaled by the same 40→60cqw ratio (×1.5). Card
-       height/width proportions (94%/74%) unchanged. */
+       height/width proportions (94%/74%) unchanged at this pass.
+
+       V5 (2026-07-13, spec §15): fixes two bugs found in the built 60cqw
+       version — (1) card shape read square (74%/94% was tuned against the
+       old 35cqw container and never rebalanced as the container grew;
+       rebalanced to width:84%/height:89% per §15.4, landing the card at
+       ≈1.44:1 and the image area at ≈1.60:1, the screenshots' natural
+       16:10 ratio); (2) visible whitespace inside each card, because
+       .stack-card-img-wrap's fixed aspect-ratio:16/10 sized itself off
+       card width alone and didn't match the actual (taller) space the
+       card had, leaving a gap of bare card-background color before
+       .stack-card's overflow:hidden clipped it (§15.3). Fixed by making
+       .stack-card a column flex container: .stack-card-bar keeps its
+       intrinsic height (flex:0 0 auto), .stack-card-img-wrap drops the
+       fixed aspect-ratio and instead fills whatever space remains
+       (flex:1 1 auto; min-height:0), with object-fit:cover on the image
+       itself still doing the edge-to-edge fill. Both fixes are contained
+       entirely inside the existing 60cqw container — no change to
+       .pv-bmock-portfolio-stack's height, .hm-hero-visual-inset's
+       padding, or any grid/page-level rule, so no new page-push beyond
+       what §14 already introduced. */
     .hm-hero-visual .stack-card {
       position: absolute;
       top: 0; left: 0;
-      width: 74%;
-      height: 94%;
+      width: 84%;
+      height: 89%;
+      display: flex;
+      flex-direction: column;
       border-radius: var(--pv-radius-lg);
       overflow: hidden;
       border: 1px solid var(--pv-hairline);
@@ -386,6 +408,7 @@
     }
 
     .hm-hero-visual .stack-card-bar {
+      flex: 0 0 auto;
       background: var(--pv-paper-alt);
       border-bottom: 1px solid var(--pv-hairline);
       padding: 1.4cqw 2.0cqw;
@@ -401,7 +424,8 @@
     }
     .hm-hero-visual .stack-card-img-wrap {
       width: 100%;
-      aspect-ratio: 16 / 10;
+      flex: 1 1 auto;
+      min-height: 0;
       overflow: hidden;
       background: var(--pv-paper-alt);
     }
