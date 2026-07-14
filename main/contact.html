@@ -50,7 +50,7 @@
     })(window, document, "clarity", "script", "wkwbodgtkd");
   </script>
 
-  <link rel="stylesheet" href="css/paeveul.css" />
+  <link rel="stylesheet" href="css/paeveul-v2.css" />
 
   <style>
     /* ── Contact layout ────────────────────────────────── */
@@ -61,17 +61,6 @@
       padding: 28px 0;
     }
     .ct-channel { display: flex; gap: 14px; align-items: center; }
-    .ct-channel-icon {
-      flex: 0 0 auto;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--pv-border);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--pv-bg);
-    }
 
     .ct-split {
       display: grid;
@@ -103,17 +92,12 @@
     }
     .ct-step-num {
       flex: 0 0 auto;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid var(--pv-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-family: 'Space Grotesk', sans-serif;
-      color: var(--pv-cyan);
-      margin-top: 1px;
+      font-family: var(--pv-font-serif);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--pv-stone);
+      margin-top: 2px;
+      min-width: 20px;
     }
     .ct-chips { display: flex; gap: 8px; flex-wrap: wrap; }
     .ct-chips .pv-chip { cursor: pointer; }
@@ -133,7 +117,7 @@
     }
     .ct-form-note {
       font-size: 12px;
-      color: var(--pv-muted);
+      color: var(--pv-slate);
       line-height: 1.5;
     }
 
@@ -172,11 +156,10 @@
 <!-- ── HEADER ──────────────────────────────────────── -->
 <header class="pg-header">
   <div class="pg-header-inner">
-    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-      <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-    </a>
+    <a href="index.html" class="pv-wordmark" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
 
     <nav class="pg-nav">
+      <a href="index.html">Home</a>
       <a href="packages.html">Packages</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="why.html">Why Paeveul</a>
@@ -186,26 +169,22 @@
     </nav>
 
     <div style="display:flex;align-items:center;gap:14px;">
-      <span class="pg-status">
-        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-        TAKING NEW PROJECTS · 2026
-      </span>
-      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary pv-header-cta">Start an enquiry</a>
       <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <div class="pg-mobile-menu">
-      <a href="index.html"><span>Home</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
-      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
-      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
-      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
-      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
-      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
-      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">07 →</span></a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="packages.html"><span>Packages</span></a>
+      <a href="portfolio.html"><span>Portfolio</span></a>
+      <a href="why.html"><span>Why Paeveul</span></a>
+      <a href="faq.html"><span>FAQ</span></a>
+      <a href="blog.html"><span>Blog</span></a>
+      <a href="contact.html"><span>Contact</span></a>
       <div style="padding-top:16px;">
-        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+        <a href="contact.html" class="pv-btn pv-btn--primary" style="display:block;text-align:center;text-decoration:none;">Start an enquiry</a>
       </div>
     </div>
   </div>
@@ -213,66 +192,39 @@
 
 <!-- ── HERO ────────────────────────────────────────── -->
 <section class="pg-hero">
-  <div class="pg-grid-bg pg-hero-grid"></div>
-  <div class="pg-hero-glow"></div>
-  <div class="pg-wrap" style="position:relative;">
-    <div class="pg-eyebrow-row">
-      <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
-      <span class="pv-eyebrow">Start a project</span>
-    </div>
-    <h1 class="pg-title pv-grotesk">Let's get your<br>business online.</h1>
+  <div class="pg-wrap">
+    <p class="pv-section-label">Start a project</p>
+    <h1 class="pg-title">Let's get your<br>business online.</h1>
     <p class="pg-lede">Tell us about your business and what you need. We reply within 1–3 business working days with next steps and a rough quote — no sales call required.</p>
   </div>
 </section>
 
 <!-- ── QUICK CHANNELS ──────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<section style="border-top:1px solid var(--pv-hairline);border-bottom:1px solid var(--pv-hairline);background:var(--pv-paper-alt);">
   <div class="pg-wrap">
     <div class="ct-channels">
       <div class="ct-channel">
-        <div class="ct-channel-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <rect x="2" y="5" width="20" height="14" rx="2" stroke="#00E5FF" stroke-width="1.6"/>
-            <path d="M3 7 L12 13 L21 7" stroke="#00E5FF" stroke-width="1.6" fill="none"/>
-          </svg>
-        </div>
         <div>
-          <div class="pv-eyebrow-num">EMAIL</div>
-          <a href="mailto:paeveul.official@gmail.com" class="pv-grotesk" style="font-size:14px;color:var(--pv-text);text-decoration:none;word-break:break-all;">paeveul.official@gmail.com</a>
+          <div style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);letter-spacing:0;text-transform:none;margin-bottom:2px;">Email</div>
+          <a href="mailto:paeveul.official@gmail.com" style="font-size:14px;color:var(--pv-ink);text-decoration:none;word-break:break-all;">paeveul.official@gmail.com</a>
         </div>
       </div>
       <div class="ct-channel">
-        <div class="ct-channel-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="9" stroke="#00E5FF" stroke-width="1.6"/>
-            <path d="M12 7 V12 L15 14" stroke="#00E5FF" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
-        </div>
         <div>
-          <div class="pv-eyebrow-num">REPLY TIME</div>
-          <div class="pv-grotesk" style="font-size:14px;">1–3 business working days</div>
+          <div style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);letter-spacing:0;text-transform:none;margin-bottom:2px;">Reply time</div>
+          <div style="font-size:14px;">1–3 business working days</div>
         </div>
       </div>
       <div class="ct-channel">
-        <div class="ct-channel-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <circle cx="12" cy="12" r="9" stroke="#00E5FF" stroke-width="1.6"/>
-            <path d="M3 12 H21" stroke="#00E5FF" stroke-width="1.6"/>
-            <path d="M12 3 C16 7 16 17 12 21 C8 17 8 7 12 3" stroke="#00E5FF" stroke-width="1.6" fill="none"/>
-          </svg>
-        </div>
         <div>
-          <div class="pv-eyebrow-num">LOCATION</div>
-          <div class="pv-grotesk" style="font-size:14px;">Remote-first · Worldwide</div>
+          <div style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);letter-spacing:0;text-transform:none;margin-bottom:2px;">Location</div>
+          <div style="font-size:14px;">Remote-first · Worldwide</div>
         </div>
       </div>
       <div class="ct-channel">
-        <div class="ct-channel-icon">
-          <span class="pv-pulse-dot" style="width:10px;height:10px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-        </div>
         <div>
-          <div class="pv-eyebrow-num">STATUS</div>
-          <div class="pv-grotesk" style="font-size:14px;">Taking new projects · Q3 2026</div>
+          <div style="font-family:var(--pv-font-serif);font-style:italic;font-size:11px;color:var(--pv-stone);letter-spacing:0;text-transform:none;margin-bottom:2px;">Status</div>
+          <div style="font-size:14px;">Taking new projects · Q3 2026</div>
         </div>
       </div>
     </div>
@@ -290,34 +242,36 @@
 <!-- Form fields -->
         <div id="ct-fields" class="ct-form-fields">
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-            <span class="pv-eyebrow-num">ENQUIRY · 01</span>
-            <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">5 MIN</span>
+            <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:13px;color:var(--pv-stone);">Enquiry form</span>
+            <span style="flex:1;height:1px;background:var(--pv-hairline);display:inline-block;"></span>
+            <span style="font-size:11px;color:var(--pv-slate);font-family:var(--pv-font-sans);">5 min</span>
           </div>
+
+          <p class="ct-form-note">Fields marked <span class="pv-required pv-required--legend" aria-hidden="true">*</span> are required.</p>
 
           <div class="ct-row">
-            <div>
-              <label class="pv-label" for="ct-name">Your name *</label>
-              <input id="ct-name" name="name" class="pv-input" placeholder="Maya Larson" required />
+            <div class="pv-input-wrap">
+              <label class="pv-input-label" for="ct-name">Your name <span class="pv-required" aria-hidden="true">*</span></label>
+              <input id="ct-name" name="name" class="pv-input" placeholder="Maya Larson" required aria-required="true" />
             </div>
-            <div>
-              <label class="pv-label" for="ct-biz">Business name *</label>
-              <input id="ct-biz" name="business" class="pv-input" placeholder="Northbrook &amp; Co." required />
+            <div class="pv-input-wrap">
+              <label class="pv-input-label" for="ct-biz">Business name <span class="pv-required" aria-hidden="true">*</span></label>
+              <input id="ct-biz" name="business" class="pv-input" placeholder="Northbrook &amp; Co." required aria-required="true" />
             </div>
           </div>
 
-          <div>
-            <label class="pv-label" for="ct-email">Work email *</label>
-            <input id="ct-email" name="email" class="pv-input" type="email" placeholder="you@business.com" required />
+          <div class="pv-input-wrap">
+            <label class="pv-input-label" for="ct-email">Work email <span class="pv-required" aria-hidden="true">*</span></label>
+            <input id="ct-email" name="email" class="pv-input" type="email" placeholder="you@business.com" required aria-required="true" />
           </div>
 
-          <div>
-            <label class="pv-label" for="ct-type">What kind of business?</label>
+          <div class="pv-input-wrap">
+            <label class="pv-input-label" for="ct-type">What kind of business?</label>
             <input id="ct-type" name="business_type" class="pv-input" placeholder="e.g. café, clinic, retail, B2B services" />
           </div>
 
           <div>
-            <label class="pv-label">Package you're interested in</label>
+            <label class="pv-input-label">Package you're interested in</label>
             <div class="ct-chips" id="ct-pkg-chips">
               <span class="pv-chip ct-pkg" data-val="Essential">Essential</span>
               <span class="pv-chip ct-pkg is-active" data-val="Professional">Professional</span>
@@ -327,20 +281,20 @@
             <input type="hidden" id="ct-pkg-val" name="package" value="Professional" />
           </div>
 
-          <div>
-            <label class="pv-label" for="ct-project">A bit about the project *</label>
-            <textarea id="ct-project" name="message" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required></textarea>
+          <div class="pv-input-wrap">
+            <label class="pv-input-label" for="ct-project">A bit about the project <span class="pv-required" aria-hidden="true">*</span></label>
+            <textarea id="ct-project" name="message" class="pv-input" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any specific goals or constraints?" style="resize:vertical;" required aria-required="true"></textarea>
           </div>
 
-          <div>
-            <label class="pv-label" for="ct-referral">How did you hear about us? (optional)</label>
+          <div class="pv-input-wrap">
+            <label class="pv-input-label" for="ct-referral">How did you hear about us? (optional)</label>
             <input id="ct-referral" name="referral" class="pv-input" placeholder="Search, referral, friend…" />
           </div>
 
           <div class="ct-form-footer">
             <span class="ct-form-note">We'll only use this to reply to your enquiry. No mailing list, no resale, no follow-up barrage.</span>
             <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
-            <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;">Send enquiry →</button>
+            <button type="submit" class="pv-btn pv-btn--primary">Send enquiry</button>
           </div>
         </div>
 
@@ -350,52 +304,49 @@
       <!-- Sidebar -->
       <aside class="ct-side">
         <div class="pv-card" style="padding:24px;">
-          <div class="pv-eyebrow-num" style="margin-bottom:14px;">WHAT HAPPENS NEXT</div>
+          <p class="pv-section-label" style="margin:0 0 14px 0;">What happens next</p>
           <ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
             <li class="ct-step">
-              <span class="ct-step-num">01</span>
+              <span class="ct-step-num">i.</span>
               <div>
-                <div class="pv-grotesk" style="font-size:14px;font-weight:500;">You send the enquiry</div>
-                <div style="font-size:12.5px;color:var(--pv-muted);margin-top:2px;line-height:1.5;">Takes 5 minutes. Skip optional fields if unsure.</div>
+                <div style="font-size:14px;font-weight:500;">You send the enquiry</div>
+                <div style="font-size:12.5px;color:var(--pv-slate);margin-top:2px;line-height:1.5;">Takes 5 minutes. Skip optional fields if unsure.</div>
               </div>
             </li>
             <li class="ct-step">
-              <span class="ct-step-num">02</span>
+              <span class="ct-step-num">ii.</span>
               <div>
-                <div class="pv-grotesk" style="font-size:14px;font-weight:500;">We reply within 1–3 business working days</div>
-                <div style="font-size:12.5px;color:var(--pv-muted);margin-top:2px;line-height:1.5;">With a few clarifying questions and a rough quote.</div>
+                <div style="font-size:14px;font-weight:500;">We reply within 1–3 business working days</div>
+                <div style="font-size:12.5px;color:var(--pv-slate);margin-top:2px;line-height:1.5;">With a few clarifying questions and a rough quote.</div>
               </div>
             </li>
             <li class="ct-step">
-              <span class="ct-step-num">03</span>
+              <span class="ct-step-num">iii.</span>
               <div>
-                <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Quick 30-min call</div>
-                <div style="font-size:12.5px;color:var(--pv-muted);margin-top:2px;line-height:1.5;">Optional. Only if useful to align scope.</div>
+                <div style="font-size:14px;font-weight:500;">Quick 30-min call</div>
+                <div style="font-size:12.5px;color:var(--pv-slate);margin-top:2px;line-height:1.5;">Optional. Only if useful to align scope.</div>
               </div>
             </li>
             <li class="ct-step">
-              <span class="ct-step-num">04</span>
+              <span class="ct-step-num">iv.</span>
               <div>
-                <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Quote &amp; timeline</div>
-                <div style="font-size:12.5px;color:var(--pv-muted);margin-top:2px;line-height:1.5;">Flat-rate, transparent. Sign and we start.</div>
+                <div style="font-size:14px;font-weight:500;">Quote &amp; timeline</div>
+                <div style="font-size:12.5px;color:var(--pv-slate);margin-top:2px;line-height:1.5;">Flat-rate, transparent. Sign and we start.</div>
               </div>
             </li>
           </ol>
         </div>
 
         <div class="pv-card" style="padding:24px;">
-          <div class="pv-eyebrow-num" style="margin-bottom:14px;">PREFER EMAIL?</div>
-          <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">Skip the form entirely. Just send us a note with what your business does and what you're trying to achieve.</p>
-          <a href="mailto:paeveul.official@gmail.com" class="pv-grotesk" style="display:inline-block;margin-top:14px;font-size:15px;color:var(--pv-text);text-decoration:none;border-bottom:1px solid var(--pv-cyan);word-break:break-all;">paeveul.official@gmail.com</a>
+          <p class="pv-section-label" style="margin:0 0 14px 0;">Prefer email?</p>
+          <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">Skip the form entirely. Just send us a note with what your business does and what you're trying to achieve.</p>
+          <a href="mailto:paeveul.official@gmail.com" style="display:inline-block;margin-top:14px;font-size:15px;color:var(--pv-ink);text-decoration:none;border-bottom:1px solid var(--pv-cobalt);word-break:break-all;">paeveul.official@gmail.com</a>
         </div>
 
-        <div style="padding:22px;border:1px solid var(--pv-border);border-radius:10px;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-            <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-            <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">STUDIO NOTE</span>
-          </div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-text);line-height:1.6;">We take on roughly 6 projects a quarter. If we're a fit but full, we'll say so honestly and suggest a slot.</p>
-        </div>
+        <blockquote class="pv-pullquote">
+          <p class="pv-section-label" style="margin:0 0 10px 0;">Studio note</p>
+          <p>We take on roughly 6 projects a quarter. If we're a fit but full, we'll say so honestly and suggest a slot.</p>
+        </blockquote>
       </aside>
 
     </div>
@@ -403,12 +354,12 @@
 </section>
 
 <!-- ── FAQ TEASER ───────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<section style="border-top:1px solid var(--pv-hairline);background:var(--pv-card);">
   <div class="pg-wrap">
     <div class="ct-faq-teaser">
-      <span class="pv-eyebrow" style="color:var(--pv-cyan);">Questions before reaching out?</span>
-      <h2 class="pv-grotesk ct-h2" style="font-size:30px;font-weight:600;line-height:1.15;margin:12px 0 24px;letter-spacing:-0.02em;">We've answered most of them already.</h2>
-      <a href="faq.html" class="pv-btn-ghost" style="padding:12px 20px;border-radius:8px;font-size:14px;text-decoration:none;display:inline-block;">Browse the FAQ →</a>
+      <p class="pv-section-label" style="justify-content:center;">Questions before reaching out?</p>
+      <h2 class="ct-h2" style="font-family:var(--pv-font-serif);font-size:30px;font-weight:var(--pv-weight-semibold);line-height:1.15;margin:12px 0 24px;letter-spacing:var(--pv-track-heading);color:var(--pv-ink);">We've answered most of them already.</h2>
+      <a href="faq.html" class="pv-btn pv-btn--secondary">Browse the FAQ</a>
     </div>
   </div>
 </section>
@@ -418,14 +369,8 @@
   <div class="pg-wrap">
     <div class="pg-footer-grid">
       <div>
-        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-          <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-        </a>
-        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
-        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
-          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-          REMOTE-FIRST · WORLDWIDE
-        </div>
+        <a href="index.html" class="pv-wordmark pv-wordmark--inverse" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-text-on-ink-quiet);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
       </div>
       <div class="pg-footer-col">
         <h4>Studio</h4>
@@ -446,7 +391,7 @@
       </div>
     </div>
     <div class="pg-footer-bottom">
-      <span>© 2026 Paeveul Studio · Made with care</span>
+      <span>© 2026 Paeveul Studio 202603175879 (TR0345406-P)</span>
       <nav class="pg-legal-nav" aria-label="Legal">
         <a href="privacy/index.html">Privacy Notice</a>
         <span class="pg-legal-sep" aria-hidden="true">·</span>

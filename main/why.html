@@ -50,11 +50,25 @@
     })(window, document, "clarity", "script", "wkwbodgtkd");
   </script>
 
-  <link rel="stylesheet" href="css/paeveul.css" />
+  <link rel="stylesheet" href="css/paeveul-v2.css" />
 
   <style>
     /* ── Why page layout ──────────────────────────────── */
     .why-stats-wrap { padding-top: 36px; padding-bottom: 36px; }
+
+    /* Value + suffix become one baseline-aligned figure, why-page only */
+    .why-stats-wrap .pv-stat {
+      flex-direction: row;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .why-stats-wrap .pv-stat-suffix {
+      font-family: var(--pv-font-serif);   /* matches the numeral for a single figure */
+      font-size: 28px;                       /* ~0.64x the 44px numeral */
+      font-weight: var(--pv-weight-semibold);
+      line-height: 1;
+      color: var(--pv-cobalt);               /* unchanged — keeps the cobalt accent */
+    }
     .why-split {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
@@ -67,7 +81,7 @@
       gap: 1px;
       background: var(--pv-border);
       border: 1px solid var(--pv-border);
-      border-radius: 10px;
+      border-radius: var(--pv-radius-md);
       overflow: hidden;
     }
     .why-cell { padding: 28px; background: var(--pv-card); }
@@ -123,29 +137,28 @@
     }
     .why-testi-avatar {
       width: 40px; height: 40px; border-radius: 999px;
-      background: linear-gradient(135deg, var(--pv-card-hi), var(--pv-border));
+      background: var(--pv-cobalt-wash-06);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600;
-      color: var(--pv-cyan);
+      font-family: var(--pv-font-sans); font-size: 13px; font-weight: 600;
+      color: var(--pv-cobalt);
       flex: 0 0 auto;
     }
     .why-carousel-btn {
       width: 44px; height: 44px;
       border-radius: 999px;
-      border: 1px solid var(--pv-border);
-      background: rgba(13,15,20,0.85);
-      backdrop-filter: blur(10px);
+      border: 1px solid var(--pv-hairline);
+      background: var(--pv-paper);
+      border-radius: var(--pv-radius-md);
       color: var(--pv-text);
       cursor: pointer;
       z-index: 5;
       display: flex; align-items: center; justify-content: center;
       padding: 0;
       transition: border-color .15s, color .15s, transform .15s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
     }
     .why-carousel-btn:hover {
-      border-color: var(--pv-cyan);
-      color: var(--pv-cyan);
+      border-color: var(--pv-cobalt);
+      color: var(--pv-cobalt);
       transform: scale(1.05);
     }
     .why-carousel-btn:active { transform: scale(0.97); }
@@ -168,9 +181,9 @@
       padding: 0;
       transition: background .2s, width .2s;
     }
-    .why-carousel-dots button.is-active { background: var(--pv-cyan); width: 48px; }
-    .why-carousel-dots button:hover { background: var(--pv-muted); }
-    .why-carousel-dots button.is-active:hover { background: var(--pv-cyan); }
+    .why-carousel-dots button.is-active { background: var(--pv-cobalt); width: 48px; }
+    .why-carousel-dots button:hover { background: var(--pv-slate); }
+    .why-carousel-dots button.is-active:hover { background: var(--pv-cobalt); }
 
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 1147px) {
@@ -247,11 +260,10 @@
 <!-- ── HEADER ──────────────────────────────────────── -->
 <header class="pg-header">
   <div class="pg-header-inner">
-    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-      <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-    </a>
+    <a href="index.html" class="pv-wordmark" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
 
     <nav class="pg-nav">
+      <a href="index.html">Home</a>
       <a href="packages.html">Packages</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="why.html" class="is-active">Why Paeveul</a>
@@ -261,11 +273,7 @@
     </nav>
 
     <div style="display:flex;align-items:center;gap:14px;">
-      <span class="pg-status">
-        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-        TAKING NEW PROJECTS · 2026
-      </span>
-      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary pv-header-cta">Start an enquiry</a>
       <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -273,15 +281,15 @@
 
     <!-- Mobile dropdown -->
     <div class="pg-mobile-menu">
-      <a href="index.html"><span>Home</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
-      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
-      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
-      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
-      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
-      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
-      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">07 →</span></a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="packages.html"><span>Packages</span></a>
+      <a href="portfolio.html"><span>Portfolio</span></a>
+      <a href="why.html"><span>Why Paeveul</span></a>
+      <a href="faq.html"><span>FAQ</span></a>
+      <a href="blog.html"><span>Blog</span></a>
+      <a href="contact.html"><span>Contact</span></a>
       <div style="padding-top:16px;">
-        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+        <a href="contact.html" class="pv-btn pv-btn--primary" style="display:block;text-align:center;text-decoration:none;">Start an enquiry</a>
       </div>
     </div>
   </div>
@@ -289,32 +297,27 @@
 
 <!-- ── HERO ────────────────────────────────────────── -->
 <section class="pg-hero">
-  <div class="pg-grid-bg pg-hero-grid"></div>
-  <div class="pg-hero-glow"></div>
-  <div class="pg-wrap" style="position:relative;">
-    <div class="pg-eyebrow-row">
-      <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
-      <span class="pv-eyebrow">Why Paeveul</span>
-    </div>
-    <h1 class="pg-title pv-grotesk">A studio,<br>not a template factory.</h1>
+  <div class="pg-wrap">
+    <p class="pv-section-label">Why Paeveul</p>
+    <h1 class="pg-title">A studio,<br>not a template factory.</h1>
     <p class="pg-lede">Built for growing businesses that want clarity, not jargon. We're small on purpose — every project gets the studio's full attention and a senior on the wheel.</p>
   </div>
 </section>
 
 <!-- ── STATS STRIP ─────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-bg-alt);">
+<section style="border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);background:var(--pv-paper-alt);">
   <div class="pg-wrap why-stats-wrap" style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;">
     <div style="flex:1 1 160px;">
-      <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">95+</div>
-      <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Avg Lighthouse</div>
+      <div class="pv-stat"><span class="pv-stat-value" style="font-size:44px;">95</span><span class="pv-stat-suffix">+</span></div>
+      <div class="pv-stat-label">Avg Lighthouse</div>
     </div>
     <div style="flex:1 1 160px;">
-      <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">4.9★</div>
-      <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Client rating</div>
+      <div class="pv-stat"><span class="pv-stat-value" style="font-size:44px;">4.9</span><span class="pv-stat-suffix">★</span></div>
+      <div class="pv-stat-label">Client rating</div>
     </div>
     <div style="flex:1 1 160px;">
-      <div class="pv-grotesk" style="font-size:36px;font-weight:600;letter-spacing:-0.02em;color:var(--pv-text);">1–3d</div>
-      <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;text-transform:uppercase;">Reply time</div>
+      <div class="pv-stat"><span class="pv-stat-value" style="font-size:44px;">1–3d</span></div>
+      <div class="pv-stat-label">Reply time</div>
     </div>
   </div>
 </section>
@@ -325,15 +328,11 @@
     <div class="why-split">
       <!-- Left: intro copy -->
       <div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-          <span class="pv-eyebrow-num">01</span>
-          <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          <span class="pv-eyebrow">What guides the work</span>
-        </div>
-        <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">
+        <p class="pv-section-label">What guides the work</p>
+        <h2 class="why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0;letter-spacing:-0.02em;">
           Six things we won't compromise on.
         </h2>
-        <p style="margin-top:18px;font-size:16px;color:var(--pv-muted);line-height:1.6;max-width:420px;">
+        <p style="margin-top:18px;font-size:16px;color:var(--pv-slate);line-height:1.6;max-width:420px;">
           Every project goes through the same care. These are the non-negotiables.
         </p>
       </div>
@@ -341,52 +340,28 @@
       <!-- Right: 6-cell grid -->
       <div class="why-grid">
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">01</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Built for growing businesses</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">We design with your customers in mind — modern traffic patterns, mobile-first behaviours, real trust signals.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">Built for growing businesses</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">We design with your customers in mind — modern traffic patterns, mobile-first behaviours, real trust signals.</p>
         </div>
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">02</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Modern, not templated</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No theme clutter. Every section is built around your business, with restraint and clarity.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">Modern, not templated</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">No theme clutter. Every section is built around your business, with restraint and clarity.</p>
         </div>
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">03</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">SEO-aware from line one</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Semantic structure, fast loads, schema, and content-friendly layouts baked in from the start.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">SEO-aware from line one</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Semantic structure, fast loads, schema, and content-friendly layouts baked in from the start.</p>
         </div>
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">04</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Conversion-first flows</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Enquiry forms, package routing, and CTA hierarchy designed to turn visitors into qualified leads.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">Conversion-first flows</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Enquiry forms, package routing, and CTA hierarchy designed to turn visitors into qualified leads.</p>
         </div>
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">05</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Clear communication</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No jargon. Plain updates, weekly check-ins, and an honest scope with no surprises.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">Clear communication</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">No jargon. Plain updates, weekly check-ins, and an honest scope with no surprises.</p>
         </div>
         <div class="why-cell">
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-            <span style="width:26px;height:26px;border:1px solid var(--pv-cyan);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;font-size:11px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;flex-shrink:0;">06</span>
-            <span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-          </div>
-          <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Future-ready</div>
-          <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Payments, articles, dashboards, multi-language — we leave doors open for what comes next.</p>
+          <div style="font-size:17px;font-weight:600;margin-bottom:8px;">Future-ready</div>
+          <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Payments, articles, dashboards, multi-language — we leave doors open for what comes next.</p>
         </div>
       </div>
     </div>
@@ -394,48 +369,44 @@
 </section>
 
 <!-- ── STUDIO PRINCIPLES ───────────────────────────── -->
-<section class="pg-section" style="background:var(--pv-bg-alt);border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);">
+<section class="pg-section" style="background:var(--pv-paper-alt);border-top:1px solid var(--pv-border);border-bottom:1px solid var(--pv-border);">
   <div class="pg-wrap">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-      <span class="pv-eyebrow-num">02</span>
-      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-      <span class="pv-eyebrow">Studio principles</span>
-    </div>
-    <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
+    <p class="pv-section-label">Studio principles</p>
+    <h2 class="why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
       How we think about every project.
     </h2>
     <div class="why-principles">
       <div class="why-principle">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;">
-          <span class="pv-grotesk" style="font-size:44px;font-weight:500;color:var(--pv-cyan);letter-spacing:-0.02em;">01</span>
+          <span class="pv-stat-value" style="font-size:44px;">01</span>
           <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
         </div>
-        <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-bottom:10px;">Restraint</div>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A site that says less, lands harder. We cut everything that doesn't serve the visitor.</p>
+        <div style="font-size:22px;font-weight:600;margin-bottom:10px;">Restraint</div>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A site that says less, lands harder. We cut everything that doesn't serve the visitor.</p>
       </div>
       <div class="why-principle">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;">
-          <span class="pv-grotesk" style="font-size:44px;font-weight:500;color:var(--pv-cyan);letter-spacing:-0.02em;">02</span>
+          <span class="pv-stat-value" style="font-size:44px;">02</span>
           <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
         </div>
-        <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-bottom:10px;">Performance</div>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">Fast pages are honest pages. Every build ships green on Lighthouse and Core Web Vitals.</p>
+        <div style="font-size:22px;font-weight:600;margin-bottom:10px;">Performance</div>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">Fast pages are honest pages. Every build ships green on Lighthouse and Core Web Vitals.</p>
       </div>
       <div class="why-principle">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;">
-          <span class="pv-grotesk" style="font-size:44px;font-weight:500;color:var(--pv-cyan);letter-spacing:-0.02em;">03</span>
+          <span class="pv-stat-value" style="font-size:44px;">03</span>
           <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
         </div>
-        <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-bottom:10px;">Honesty</div>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">Real timelines, real scope, real prices. No marketing-flavoured opacity.</p>
+        <div style="font-size:22px;font-weight:600;margin-bottom:10px;">Honesty</div>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">Real timelines, real scope, real prices. No marketing-flavoured opacity.</p>
       </div>
       <div class="why-principle">
         <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:14px;">
-          <span class="pv-grotesk" style="font-size:44px;font-weight:500;color:var(--pv-cyan);letter-spacing:-0.02em;">04</span>
+          <span class="pv-stat-value" style="font-size:44px;">04</span>
           <span style="flex:1;height:1px;background:var(--pv-border);display:inline-block;"></span>
         </div>
-        <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-bottom:10px;">Ownership</div>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">You own the code and the keys. No vendor lock-in, no monthly platform tax.</p>
+        <div style="font-size:22px;font-weight:600;margin-bottom:10px;">Ownership</div>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">You own the code and the keys. No vendor lock-in, no monthly platform tax.</p>
       </div>
     </div>
   </div>
@@ -444,12 +415,8 @@
 <!-- ── TESTIMONIALS ────────────────────────────────── -->
 <section class="pg-section">
   <div class="pg-wrap">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-      <span class="pv-eyebrow-num">03</span>
-      <span style="width:24px;height:1px;background:var(--pv-border);display:inline-block;"></span>
-      <span class="pv-eyebrow">In their words</span>
-    </div>
-    <h2 class="pv-grotesk why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
+    <p class="pv-section-label">In their words</p>
+    <h2 class="why-section-h2" style="font-size:40px;font-weight:600;line-height:1.1;margin:0 0 48px;letter-spacing:-0.02em;max-width:760px;">
       From people we've shipped with.
     </h2>
 
@@ -459,16 +426,16 @@
         <!-- Card 1 -->
         <figure class="pv-card why-testi-card">
           <svg width="24" height="20" viewBox="0 0 24 20" style="margin-bottom:18px;flex:0 0 auto;" aria-hidden="true">
-            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
+            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="var(--pv-cobalt)" fill-opacity="0.3"/>
           </svg>
-          <blockquote class="pv-grotesk why-testi-quote">
-            "Before this, people called us through referrals only. Now they find us on Google and WhatsApp us directly. The site paid for itself in the first month."
+          <blockquote class="why-testi-quote">
+            "Fast, honest, no drama. They built the site, showed it to me for review, and it was live within weeks. My competitor's site still looks like it's from 2012."
           </blockquote>
           <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">FH</div>
+            <div class="why-testi-avatar">G</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Encik Faizal Harun</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Owner · Cool Breeze</div>
+              <div style="font-size:14px;font-weight:500;">Guna</div>
+              <div style="font-size:12px;color:var(--pv-slate);margin-top:2px;">Founder · Alphamatic Aircon</div>
             </div>
           </figcaption>
         </figure>
@@ -476,16 +443,16 @@
         <!-- Card 2 -->
         <figure class="pv-card why-testi-card">
           <svg width="24" height="20" viewBox="0 0 24 20" style="margin-bottom:18px;flex:0 0 auto;" aria-hidden="true">
-            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
+            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="var(--pv-cobalt)" fill-opacity="0.3"/>
           </svg>
-          <blockquote class="pv-grotesk why-testi-quote">
+          <blockquote class="why-testi-quote">
             "We told them what we do and what we needed. They came back with a design that actually looked like us — not some template with our logo pasted in."
           </blockquote>
           <figcaption class="why-testi-cap">
             <div class="why-testi-avatar">SN</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Puan Siti Norzahra</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Director · Aurora</div>
+              <div style="font-size:14px;font-weight:500;">Puan Siti Norzahra</div>
+              <div style="font-size:12px;color:var(--pv-slate);margin-top:2px;">Director · Aurora</div>
             </div>
           </figcaption>
         </figure>
@@ -493,16 +460,16 @@
         <!-- Card 3 -->
         <figure class="pv-card why-testi-card">
           <svg width="24" height="20" viewBox="0 0 24 20" style="margin-bottom:18px;flex:0 0 auto;" aria-hidden="true">
-            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="#00E5FF" fill-opacity="0.5"/>
+            <path d="M9 0 H5 C2 0 0 2 0 5 V14 C0 17 2 20 5 20 H9 V12 H5 V8 C5 6 6 5 9 5 V0 Z M23 0 H19 C16 0 14 2 14 5 V14 C14 17 16 20 19 20 H23 V12 H19 V8 C19 6 20 5 23 5 V0 Z" fill="var(--pv-cobalt)" fill-opacity="0.3"/>
           </svg>
-          <blockquote class="pv-grotesk why-testi-quote">
-            "Fast, honest, no drama. They built the site, showed it to me for review, and it was live within weeks. My competitor's site still looks like it's from 2012."
+          <blockquote class="why-testi-quote">
+            "Before this, people called us through referrals only. Now they find us on Google and WhatsApp us directly. The site paid for itself in the first month."
           </blockquote>
           <figcaption class="why-testi-cap">
-            <div class="why-testi-avatar">G</div>
+            <div class="why-testi-avatar">FH</div>
             <div>
-              <div class="pv-grotesk" style="font-size:14px;font-weight:500;">Guna</div>
-              <div style="font-size:12px;color:var(--pv-muted);margin-top:2px;">Founder · Alphamatic Aircon</div>
+              <div style="font-size:14px;font-weight:500;">Encik Faizal Harun</div>
+              <div style="font-size:12px;color:var(--pv-slate);margin-top:2px;">Owner · Cool Breeze</div>
             </div>
           </figcaption>
         </figure>
@@ -529,15 +496,14 @@
 </section>
 
 <!-- ── CLOSING CTA ──────────────────────────────────── -->
-<section style="border-top:1px solid var(--pv-border);background:var(--pv-bg-alt);position:relative;">
-  <div class="pg-grid-bg" style="position:absolute;inset:0;opacity:0.4;pointer-events:none;"></div>
-  <div class="pg-wrap why-cta-wrap" style="position:relative;padding:88px 0;text-align:center;">
-    <h2 class="pv-grotesk why-cta-h2" style="font-size:44px;font-weight:600;line-height:1.1;margin:0 auto;letter-spacing:-0.02em;max-width:720px;">
+<section style="border-top:1px solid var(--pv-hairline);background:var(--pv-card);">
+  <div class="pg-wrap why-cta-wrap" style="padding:88px 0;text-align:center;">
+    <h2 class="why-cta-h2" style="font-size:44px;font-weight:600;line-height:1.1;margin:0 auto;letter-spacing:-0.02em;max-width:720px;">
       Ready to see what a considered build looks like for your business?
     </h2>
     <div class="why-cta-btns" style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">Start an Enquiry →</a>
-      <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14px;text-decoration:none;">See the portfolio</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
+      <a href="portfolio.html" class="pv-btn pv-btn--secondary">See the portfolio</a>
     </div>
   </div>
 </section>
@@ -547,14 +513,8 @@
   <div class="pg-wrap">
     <div class="pg-footer-grid">
       <div>
-        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-          <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-        </a>
-        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
-        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
-          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-          REMOTE-FIRST · WORLDWIDE
-        </div>
+        <a href="index.html" class="pv-wordmark pv-wordmark--inverse" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-text-on-ink-quiet);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
       </div>
       <div class="pg-footer-col">
         <h4>Studio</h4>
@@ -575,7 +535,7 @@
       </div>
     </div>
     <div class="pg-footer-bottom">
-      <span>© 2026 Paeveul Studio · Made with care</span>
+      <span>© 2026 Paeveul Studio 202603175879 (TR0345406-P)</span>
       <nav class="pg-legal-nav" aria-label="Legal">
         <a href="privacy/index.html">Privacy Notice</a>
         <span class="pg-legal-sep" aria-hidden="true">·</span>

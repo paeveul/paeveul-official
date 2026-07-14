@@ -51,38 +51,21 @@
     })(window, document, "clarity", "script", "wkwbodgtkd");
   </script>
 
-  <link rel="stylesheet" href="css/paeveul.css" />
+  <link rel="stylesheet" href="css/paeveul-v2.css" />
 
   <style>
     /* ── Header ─────────────────────────────────────── */
     /* pg-header / pg-header-inner handle sticky, backdrop, border, flex layout */
-    .hm-nav { display: flex; gap: 32px; }
-    .hm-nav a { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; color: var(--pv-text); transition: color .15s; padding: 6px 0; }
-    .hm-nav a:hover { color: var(--pv-cyan); }
     .hm-header-right { display: flex; align-items: center; gap: 14px; }
-    .hm-status { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--pv-muted); font-family: 'Space Grotesk', sans-serif; letter-spacing: 0.06em; }
-
-    /* ── Global background decor ─────────────────── */
-    .hm-bg-glow {
-      position: fixed; top: -200px; right: -200px;
-      width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(0,229,255,0.094), transparent 60%);
-      pointer-events: none; z-index: 0;
-    }
-    .hm-bg-grid {
-      position: fixed; inset: 0; height: 700px;
-      opacity: 0.5; pointer-events: none; z-index: 0;
-    }
 
     /* ── Hero ────────────────────────────────────── */
     .hm-hero { position: relative; padding: 88px 0 96px; z-index: 2; }
-    .hm-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
-    .hm-hero-h1 { font-size: 52px; line-height: 1.02; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
-    .hm-hero-lede { margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--pv-muted); max-width: 520px; }
+    .hm-hero-grid { display: grid; grid-template-columns: 0.92fr 1fr; gap: 64px; align-items: center; }
+    .hm-hero-lede { margin-top: 28px; font-size: 19px; line-height: 1.55; color: var(--pv-slate); max-width: 520px; }
     .hm-hero-btns { margin-top: 36px; display: flex; gap: 14px; align-items: center; }
     .hm-taglines { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 28px; border-top: 1px solid var(--pv-border); }
     .hm-tagline-item { display: flex; gap: 14px; align-items: flex-start; }
-    .hm-tagline-num { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--pv-cyan); display: inline-flex; align-items: center; justify-content: center; color: var(--pv-cyan); font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; margin-top: 1px; }
+    .hm-tagline-num { flex: 0 0 auto; width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--pv-cobalt); display: inline-flex; align-items: center; justify-content: center; color: var(--pv-cobalt); font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 500; margin-top: 1px; }
     .hm-hero-visual { position: relative; justify-self: end; }
 
     /* ── BrowserMock ─────────────────────────────── */
@@ -90,30 +73,29 @@
     .hm-browser-bar { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); flex-shrink: 0; }
     .hm-browser-dots { display: flex; gap: 6px; }
     .hm-browser-dot { width: 8px; height: 8px; border-radius: 999px; background: #3a4050; }
-    .hm-browser-addr { flex: 1; height: 18px; background: var(--pv-bg); border: 1px solid var(--pv-border); border-radius: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-muted); letter-spacing: 0.04em; overflow: hidden; white-space: nowrap; }
+    .hm-browser-addr { flex: 1; height: 18px; background: var(--pv-bg); border: 1px solid var(--pv-border); border-radius: 4px; display: flex; align-items: center; padding: 0 10px; font-size: 10px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-slate); letter-spacing: 0.04em; overflow: hidden; white-space: nowrap; }
     .hm-browser-content { position: relative; padding: 18px; overflow: hidden; }
 
     /* ── Corner brackets ─────────────────────────── */
     .hm-corner { position: absolute; width: 14px; height: 14px; }
-    .hm-corner-tl { top: -10px; left: -10px; border-top: 1.2px solid var(--pv-cyan); border-left: 1.2px solid var(--pv-cyan); }
-    .hm-corner-tr { top: -10px; right: -10px; border-top: 1.2px solid var(--pv-cyan); border-right: 1.2px solid var(--pv-cyan); }
-    .hm-corner-bl { bottom: -10px; left: -10px; border-bottom: 1.2px solid var(--pv-cyan); border-left: 1.2px solid var(--pv-cyan); }
-    .hm-corner-br { bottom: -10px; right: -10px; border-bottom: 1.2px solid var(--pv-cyan); border-right: 1.2px solid var(--pv-cyan); }
+    .hm-corner-tl { top: -10px; left: -10px; border-top: 1.2px solid var(--pv-cobalt); border-left: 1.2px solid var(--pv-cobalt); }
+    .hm-corner-tr { top: -10px; right: -10px; border-top: 1.2px solid var(--pv-cobalt); border-right: 1.2px solid var(--pv-cobalt); }
+    .hm-corner-bl { bottom: -10px; left: -10px; border-bottom: 1.2px solid var(--pv-cobalt); border-left: 1.2px solid var(--pv-cobalt); }
+    .hm-corner-br { bottom: -10px; right: -10px; border-bottom: 1.2px solid var(--pv-cobalt); border-right: 1.2px solid var(--pv-cobalt); }
 
     /* ── Hero floating card + badge ──────────────── */
     .hm-float-card { position: absolute; bottom: -36px; left: -42px; width: 230px; padding: 14px; background: var(--pv-card); border: 1px solid var(--pv-border); border-radius: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    .hm-live-badge { position: absolute; top: -28px; right: -28px; padding: 8px 12px; background: var(--pv-card); border: 1px solid rgba(0,229,255,0.33); border-radius: 8px; font-size: 11px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-cyan); letter-spacing: 0.1em; white-space: nowrap; }
+    .hm-live-badge { position: absolute; top: -28px; right: -28px; padding: 8px 12px; background: var(--pv-card); border: 1px solid rgba(0,229,255,0.33); border-radius: 8px; font-size: 11px; font-family: 'Space Grotesk', sans-serif; color: var(--pv-cobalt); letter-spacing: 0.1em; white-space: nowrap; }
 
     /* ── Process strip ───────────────────────────────── */
     .hm-process { border-top: 1px solid var(--pv-border); border-bottom: 1px solid var(--pv-border); background: var(--pv-bg-alt); padding: 48px 0; position: relative; z-index: 2; }
-    .hm-ps-header { margin-bottom: 32px; display: flex; align-items: center; gap: 24px; }
-    .hm-ps-tagline { margin: 0; font-size: 16px; font-weight: 500; color: var(--pv-muted); letter-spacing: -0.01em; }
-    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: flex; align-items: flex-start; gap: 0; }
-    .hm-ps-step { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; position: relative; }
-    .hm-ps-connector { position: absolute; top: 18px; left: 36px; right: 0; height: 1px; background: var(--pv-border); pointer-events: none; }
-    .hm-ps-step--last .hm-ps-connector { display: none; }
-    .hm-ps-num { width: 36px; height: 36px; border-radius: 999px; border: 1px solid var(--pv-border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 500; color: var(--pv-cyan); background: var(--pv-bg); flex-shrink: 0; position: relative; z-index: 1; }
-    .hm-ps-label { font-size: 14px; font-weight: 500; color: var(--pv-text); line-height: 1.3; padding-right: 16px; }
+    .hm-ps-header { margin-bottom: 40px; }
+    .hm-ps-tagline { margin: 0; font-size: 16px; font-weight: 500; color: var(--pv-slate); letter-spacing: -0.01em; }
+    .hm-ps-track { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .hm-ps-step { display: flex; flex-direction: column; }
+    .hm-ps-numline { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+    .hm-ps-rule { flex: 1; height: 1px; background: var(--pv-border); }
+    .hm-ps-label { font-family: var(--pv-font-sans); font-size: 14px; font-weight: 500; color: var(--pv-stone); line-height: 1.3; }
 
     /* ── Sections ────────────────────────────────── */
     .hm-section { padding: 116px 0; position: relative; z-index: 2; }
@@ -123,28 +105,43 @@
     .hm-sh-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
     .hm-sh-rule { width: 24px; height: 1px; background: var(--pv-border); }
     .hm-sh-h2 { font-size: 44px; line-height: 1.08; font-weight: 600; margin: 0; letter-spacing: -0.02em; }
-    .hm-sh-lede { font-size: 16px; line-height: 1.6; color: var(--pv-muted); margin-top: 16px; margin-bottom: 0; }
+    .hm-sh-lede { font-size: 16px; line-height: 1.6; color: var(--pv-slate); margin-top: 16px; margin-bottom: 0; }
 
     /* ── Packages ────────────────────────────────── */
     .hm-pkg-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
     .hm-pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .hm-pkg-card { position: relative; padding: 28px; display: flex; flex-direction: column; gap: 18px; }
-    .hm-pkg-card.recommended { border-color: var(--pv-cyan) !important; background: var(--pv-card-hi) !important; }
-    .hm-pkg-rec-badge { position: absolute; top: -1px; right: 18px; padding: 4px 10px; background: var(--pv-cyan); color: #06222a; font-size: 10px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; letter-spacing: 0.1em; border-radius: 0 0 4px 4px; }
-    .hm-pkg-tier-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .hm-pkg-card {
+      position: relative;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+    .hm-pkg-card.pv-card--featured {
+      padding: 32px;
+      border-color: var(--pv-hairline); /* neutralises paeveul-v2.css's unconditional .pv-card--featured border-color: cobalt rule within this component — Recommended's border must now come ONLY from .is-highlighted below, so it can be suppressed when another card is active */
+    }
+    .hm-pkg-card.is-highlighted {
+      border-color: var(--pv-cobalt);
+      box-shadow: var(--pv-shadow-float);
+      transform: translateY(-4px);
+    } /* must stay AFTER the .pv-card--featured rule above in source order: both are equal specificity (0-2-0), so when Recommended carries both classes on page load, source order lets this rule win and produce the cobalt border */
+    .hm-pkg-tag { position: absolute; top: -13px; left: 28px; background: var(--pv-card); border: 1px solid var(--pv-cobalt); border-radius: var(--pv-radius-sm); padding: 4px 12px; font-family: var(--pv-font-serif); font-style: italic; font-weight: 500; font-size: var(--pv-size-meta); color: var(--pv-cobalt); line-height: 1; }
     .hm-pkg-name { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin: 0; }
-    .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-muted); line-height: 1.55; margin-bottom: 0; }
-    .hm-pkg-divider { height: 1px; background: var(--pv-border); }
+    .hm-pkg-intent { margin-top: 6px; font-size: 13.5px; color: var(--pv-slate); line-height: 1.55; margin-bottom: 0; }
+    .hm-pkg-divider { width: 40px; height: 2px; background: var(--pv-cobalt-wash-35); }
     .hm-pkg-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
     .hm-pkg-feature { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; }
-    .hm-pkg-check { flex: 0 0 auto; margin-top: 3px; }
+    .hm-pkg-dash { flex: 0 0 auto; color: var(--pv-stone); line-height: 1.5; }
 
     /* ── Portfolio ───────────────────────────────── */
     .hm-port-grid { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .hm-port-card { overflow: hidden; display: flex; flex-direction: column; }
     .hm-port-preview { padding: 24px; background: var(--pv-bg); border-bottom: 1px solid var(--pv-border); }
     .hm-port-body { padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-    .hm-port-meta { display: flex; justify-content: space-between; align-items: center; }
+    .hm-port-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: calc(var(--pv-space-3) - 10px); } /* .hm-port-body's flex gap:10px already covers the default rhythm; this adds the delta so meta→h3 totals var(--pv-space-3) (12px) without disturbing the other 10px pairs */
+    .hm-port-link { font-family: var(--pv-font-sans); font-size: 13.5px; font-weight: 500; color: var(--pv-cobalt); text-decoration: underline; text-decoration-color: var(--pv-cobalt-wash-35); text-underline-offset: 3px; margin-top: 8px; }
 
     /* ── Why ─────────────────────────────────────── */
     .hm-why-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 80px; }
@@ -152,7 +149,7 @@
     .hm-values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--pv-border); border: 1px solid var(--pv-border); border-radius: 10px; overflow: hidden; }
     .hm-value-cell { padding: 28px; background: var(--pv-card); }
     .hm-value-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .hm-value-num { width: 24px; height: 24px; border: 1px solid var(--pv-cyan); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--pv-cyan); font-family: 'Space Grotesk', sans-serif; flex-shrink: 0; }
+    .hm-value-num { width: 24px; height: 24px; border: 1px solid var(--pv-cobalt); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--pv-cobalt); font-family: 'Space Grotesk', sans-serif; flex-shrink: 0; }
     .hm-value-rule { width: 16px; height: 1px; background: var(--pv-border); }
 
     /* ── Articles ────────────────────────────────── */
@@ -167,14 +164,13 @@
 
     /* ── Contact ─────────────────────────────────── */
     .hm-contact { padding: 116px 0; background: var(--pv-bg-alt); border-top: 1px solid var(--pv-border); position: relative; z-index: 2; }
-    .hm-contact-bg { position: absolute; inset: 0; opacity: 0.4; pointer-events: none; }
     .hm-contact-inner { position: relative; display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; }
     .hm-contact-info { display: flex; flex-direction: column; gap: 18px; margin-top: 36px; }
-    .hm-email-link { font-size: 22px; color: var(--pv-text); text-decoration: none; border-bottom: 1px solid var(--pv-cyan); padding-bottom: 2px; }
+    .hm-email-link { font-size: 22px; color: var(--pv-text); text-decoration: none; border-bottom: 1px solid var(--pv-cobalt); padding-bottom: 2px; }
     .hm-form { padding: 32px; display: flex; flex-direction: column; gap: 16px; }
     .hm-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .hm-form-footer { display: flex; flex-direction: column; align-items: stretch; margin-top: 6px; gap: 16px; }
-    .hm-form-note { font-size: 11.5px; color: var(--pv-muted); line-height: 1.5; }
+    .hm-form-note { font-size: 11.5px; color: var(--pv-slate); line-height: 1.5; }
 
     /* ── Inner content wrapper (max-width constraint) ── */
     .hm-inner {
@@ -190,25 +186,21 @@
     /* ── Responsive ──────────────────────────────── */
     @media (max-width: 1147px) {
       /* pg-header-inner handles its own padding at ≤1147px via paeveul.css */
-      .hm-nav { display: none; }
-      .hm-status { display: none; }
-      .hm-header-right .pv-btn-amber { display: none; }
+      /* .pg-nav collapse handled by paeveul-v2.css responsive block */
+
       .hm-hero { padding: 48px 0 56px; }
       .hm-inner { padding-left: 20px; padding-right: 20px; }
       .hm-hero-grid { grid-template-columns: 1fr; }
       .hm-hero-visual { display: none; }
-      .hm-hero-h1 { font-size: clamp(29px, 8vw, 37px); }
+      .pv-hero-heading { font-size: var(--pv-size-h2); }
       .hm-hero-lede { font-size: 16px; max-width: none; }
       .hm-hero-btns { flex-direction: column; }
       .hm-hero-btns a { display: block; width: 100%; text-align: center; box-sizing: border-box; }
       .hm-taglines { grid-template-columns: 1fr; gap: 14px; margin-top: 32px; }
       .hm-process { padding: 40px 0; }
-      .hm-ps-header { flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 24px; }
-      .hm-ps-track { flex-direction: column; gap: 0; position: relative; }
-      .hm-ps-track::before { content: ''; position: absolute; left: 17px; top: 36px; bottom: 36px; width: 1px; background: var(--pv-border); pointer-events: none; }
-      .hm-ps-step { flex-direction: row; align-items: center; gap: 16px; padding: 10px 0; }
-      .hm-ps-connector { display: none; }
-      .hm-ps-label { padding-right: 0; font-size: 15px; }
+      .hm-ps-header { margin-bottom: 24px; }
+      .hm-ps-track { grid-template-columns: 1fr 1fr; gap: 24px 16px; }
+      .hm-ps-label { font-size: 14px; }
       .hm-section, .hm-section-alt { padding: 64px 0; }
       .hm-pkg-header { flex-direction: column; align-items: flex-start; gap: 20px; }
       .hm-pkg-grid { grid-template-columns: 1fr; }
@@ -225,47 +217,282 @@
       .hm-form-footer button { width: 100%; }
     }
 
-    /* ── Tablet: browser mock scales with column ─── */
-    .hm-browser-desktop {
-      width: min(580px, 100%);
-      height: 380px;
+    /* ── Portfolio card-stack — shared motion tokens (motion-consistency) ──
+       Per Amelia's portfolio-card-stack-spec-v1.md §5/§12. */
+    :root {
+      --pv-stack-enter-dur: 450ms;
+      --pv-stack-exit-dur: 300ms;
+      --pv-stack-ease: cubic-bezier(0.22, 1, 0.36, 1); /* expo-out, spring-physics approximation */
     }
-    @media (min-width: 1148px) and (max-width: 1200px) {
-      .hm-browser-desktop {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 580 / 380;
+
+    /* ── Desktop hero visual (≥1148px) — respec v2 FILL (2026-07-03),
+       outer-frame REMOVED in v3 (2026-07-10, spec §13) ──────────────────
+       The visual column fills its grid track and bleeds to the right
+       viewport edge:
+         • Hero breaks OUT of the centred 1200px container. Left inset is
+           derived from the sitewide tokens so the text column still lines up
+           with every other section; the right gutter is 0 so the grid runs to
+           the viewport edge. Section clips its own h-overflow (no h-scroll).
+         • Text column capped at 520px; visual column is 1fr and absorbs all
+           remaining width, so the card-stack scales with the viewport
+           (~656px @1440, ~896px @1920).
+         • v1/v2 wrapped this in a `.pv-bmock` "browser window" frame (chrome
+           bar, right-corner flattening, dropped right border, to sell "a
+           window running off the page edge"). v3 removes that framing
+           entirely — a bare card-stack has no window metaphor to sell, so
+           there's nothing to bleed/flatten/drop a border on any more.
+           .hm-hero-visual itself is now the cqw container (below) and the
+           only surface — no background/border/shadow at this level.
+         • Internal card-stack scales as one unit via container-query width
+           units (cqw), reference R = 660px → 1cqw ≈ 6.6px.
+       .pv-bmock-* rules now scope to .hm-hero-visual (not .hm-browser-desktop,
+       which no longer exists in the markup) — this is unique to the home
+       hero and does not collide with portfolio.html / blog.html's own,
+       separate .pv-bmock card-embedded mocks. */
+    @media (min-width: 1148px) {
+      .pg-hero { overflow-x: clip; }               /* contain the bleed — no h-scroll */
+
+      .pg-hero .pg-wrap {
+        max-width: none;                           /* was 1320px cap (v1) — removed */
+        margin: 0;                                 /* was auto-centred — removed */
+        /* left edge aligns with every other section; right side bleeds */
+        padding-left: calc(max(0px, (100vw - var(--pv-max-content)) / 2) + var(--pv-gutter-lg));
+        padding-right: 0;                          /* NO right gutter — this is the bleed */
       }
-      .hm-browser-desktop .hm-browser-content {
-        height: auto;
-        flex: 1;
-        min-height: 200px;
+
+      .hm-hero-grid {
+        grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+        gap: 64px;
+        align-items: center;
       }
+      /* V3 correction (2026-07-10, spec §13.5): container-type relocates
+         here from the now-deleted outer .pv-bmock frame. .hm-hero-visual
+         had zero box-model overhead of its own, so this keeps the
+         R=660px cqw reference and every width-dependent card calculation
+         numerically unchanged. */
+      .hm-hero-visual {
+        justify-self: stretch;
+        align-self: stretch;
+        container-type: inline-size;
+      }
+      /* Padding-fix (2026-07-10, post-V3): the old .pv-bmock-body padding
+         CANNOT live on the same element as container-type: inline-size —
+         a self-referential cqw padding on the container-establishing
+         element itself resolves to 0 in real browsers (confirmed bug,
+         not a spec error). Moved one level down onto the plain, unstyled
+         .hm-hero-visual-inset wrapper instead — mirrors how .pv-bmock-body
+         worked as a descendant of the container-bearing .pv-bmock before
+         the frame was removed. padding-top (15cqw) = 13cqw back-card
+         translate + 2cqw safety margin; padding-bottom is 0. */
+      .hm-hero-visual-inset {
+        padding: 15cqw 4.2cqw 0;
+      }
+    }
+
+    /* ── Portfolio card-stack — one proportional cqw system (R = 660px → 1cqw ≈ 6.6px) ──
+       V3 correction (2026-07-10, spec §13): the outer .pv-bmock browser-mock
+       frame (chrome bar, dots, URL pill, page-nav skeleton) is REMOVED
+       entirely. .hm-hero-visual is now the direct cqw container (see the
+       desktop/tablet blocks above) and .pv-bmock-portfolio-stack is its
+       sole, bare child — no background/border/shadow wrapper; each card
+       already carries its own chrome + shadow. Placed unconditionally so
+       the SAME system scales at BOTH desktop (≥1148px) and tablet
+       (640–1147px) — wherever container-type:inline-size is set on
+       .hm-hero-visual. On mobile (<640px) the mock is display:none, so
+       these rules never paint. Per-card mini browser-chrome (.stack-card-bar
+       etc.) is unchanged from the original spec §3.
+
+       .hm-hero-visual-inset (padding-fix, 2026-07-10): a plain, unstyled
+       wrapper between .hm-hero-visual (holds container-type) and
+       .pv-bmock-portfolio-stack — carries the padding that would otherwise
+       cyclically self-reference on the container-establishing element.
+       position:relative only, matching what .hm-hero-visual already
+       provides structurally; no background/border/shadow/radius, so it
+       does not reintroduce the removed outer browser-mock frame.
+       .pv-bmock-portfolio-stack (position:relative, below) remains the
+       containing block for the absolutely-positioned .stack-card children
+       — this wrapper does not sit between them and does not alter their
+       stacking context. */
+    .hm-hero-visual-inset {
+      position: relative;
+    }
+    .hm-hero-visual .pv-bmock-portfolio-stack {
+      position: relative;
+      height: 60cqw;
+      min-height: 315px;
+      width: 100%;
+    }
+
+    /* V3 (2026-07-10): stack height raised 35cqw → 40cqw — real room freed
+       by deleting the outer frame's own chrome-bar/border/body-padding
+       cost (spec §13.6), not a footprint increase beyond today's live
+       .hm-hero-visual height. Card height/width proportions (94%/74%)
+       unchanged from the v2 fix (spec §13.7).
+
+       V4 (2026-07-13, spec §14): stack height raised again, 40cqw → 60cqw
+       (Alex's approved 1.5× target, spec §14.6 — not 80cqw/2×, not the
+       50cqw middle-ground). Unlike the v3 bump, this one is NOT free —
+       total .hm-hero-visual-inset content height goes from 55cqw
+       (15cqw padding-top + 40cqw stack) to 75cqw, past the 58.0cqw
+       zero-impact ceiling spec §13.6/§14.2 established. This makes
+       .hm-hero-visual the taller grid track in .hm-hero-grid, growing
+       .pg-hero's rendered height and pushing the Process Strip section
+       (and everything below it) down by ~112px @1440px viewport, up to
+       ~304px @1920px — an accepted, known consequence per spec §14.3,
+       not a bug. No change needed to .hm-hero-visual-inset's own padding
+       (15cqw 4.2cqw 0) or to .pg-hero itself — the push-down is an
+       automatic CSS Grid row-sizing consequence of this single height
+       value change, not a separate edit (spec §14.4). min-height bumped
+       210px → 315px, same proportional-bump discipline as the v3 change
+       (190px → 210px), scaled by the same 40→60cqw ratio (×1.5). Card
+       height/width proportions (94%/74%) unchanged at this pass.
+
+       V5 (2026-07-13, spec §15): fixes two bugs found in the built 60cqw
+       version — (1) card shape read square (74%/94% was tuned against the
+       old 35cqw container and never rebalanced as the container grew;
+       rebalanced to width:84%/height:89% per §15.4, landing the card at
+       ≈1.44:1 and the image area at ≈1.60:1, the screenshots' natural
+       16:10 ratio); (2) visible whitespace inside each card, because
+       .stack-card-img-wrap's fixed aspect-ratio:16/10 sized itself off
+       card width alone and didn't match the actual (taller) space the
+       card had, leaving a gap of bare card-background color before
+       .stack-card's overflow:hidden clipped it (§15.3). Fixed by making
+       .stack-card a column flex container: .stack-card-bar keeps its
+       intrinsic height (flex:0 0 auto), .stack-card-img-wrap drops the
+       fixed aspect-ratio and instead fills whatever space remains
+       (flex:1 1 auto; min-height:0), with object-fit:cover on the image
+       itself still doing the edge-to-edge fill. Both fixes are contained
+       entirely inside the existing 60cqw container — no change to
+       .pv-bmock-portfolio-stack's height, .hm-hero-visual-inset's
+       padding, or any grid/page-level rule, so no new page-push beyond
+       what §14 already introduced. */
+    .hm-hero-visual .stack-card {
+      position: absolute;
+      top: 0; left: 0;
+      width: 84%;
+      height: 89%;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--pv-radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--pv-hairline);
+      background: var(--pv-card);
+      transform-origin: top left;
+      transition:
+        transform var(--pv-stack-enter-dur) var(--pv-stack-ease),
+        box-shadow var(--pv-stack-enter-dur) var(--pv-stack-ease),
+        opacity var(--pv-stack-enter-dur) var(--pv-stack-ease);
+    }
+    .hm-hero-visual .stack-card.is-exiting {
+      transition-duration: var(--pv-stack-exit-dur);
+    }
+
+    /* Slot 0 = front, 1 = mid, 2 = back — spec §3 table (unchanged) */
+    .hm-hero-visual .stack-card[data-slot="0"] {
+      transform: translate(0,0) scale(1) rotate(0deg);
+      z-index: 3;
+      box-shadow: 0 14px 40px rgba(17,21,30,0.08);
+      opacity: 1;
+    }
+    .hm-hero-visual .stack-card[data-slot="1"] {
+      transform: translate(9cqw,-7cqw) scale(0.95) rotate(1.5deg);
+      z-index: 2;
+      box-shadow: 0 8px 22px rgba(17,21,30,0.06);
+      opacity: 0.95;
+    }
+    .hm-hero-visual .stack-card[data-slot="2"] {
+      transform: translate(16cqw,-13cqw) scale(0.90) rotate(3deg);
+      z-index: 1;
+      box-shadow: 0 4px 12px rgba(17,21,30,0.04);
+      opacity: 0.9;
+    }
+
+    .hm-hero-visual .stack-card-bar {
+      flex: 0 0 auto;
+      background: var(--pv-paper-alt);
+      border-bottom: 1px solid var(--pv-hairline);
+      padding: 1.4cqw 2.0cqw;
+      display: flex; align-items: center; gap: 0.6cqw;
+    }
+    .hm-hero-visual .stack-card-dots { display: flex; gap: 0.6cqw; }
+    .hm-hero-visual .stack-card-dots span { width: 0.9cqw; height: 0.9cqw; min-width: 4px; min-height: 4px; border-radius: 999px; background: var(--pv-stone); opacity: .5; }
+    .hm-hero-visual .stack-card-url {
+      font-size: 1.2cqw; color: var(--pv-stone);
+      background: var(--pv-card); border: 1px solid var(--pv-hairline); border-radius: 3px;
+      padding: 0.5cqw 1.2cqw; flex: 1; font-family: var(--pv-font-sans);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .hm-hero-visual .stack-card-img-wrap {
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      background: var(--pv-paper-alt);
+    }
+    .hm-hero-visual .stack-card-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
+    }
+    .hm-hero-visual .stack-card-fallback {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      font-family: var(--pv-font-serif); font-style: italic; font-size: 13px; color: #fff;
+      text-align: center; padding: 8px;
+    }
+
+    /* Entrance stagger on load — stagger-sequence (30–50ms/item) */
+    .hm-hero-visual .stack-card { animation: pv-stack-card-in 500ms var(--pv-stack-ease) both; }
+    .hm-hero-visual .stack-card[data-slot="0"] { animation-delay: 80ms; }
+    .hm-hero-visual .stack-card[data-slot="1"] { animation-delay: 40ms; }
+    .hm-hero-visual .stack-card[data-slot="2"] { animation-delay: 0ms; }
+    @keyframes pv-stack-card-in {
+      from { opacity: 0; transform: translate(0,10px) scale(0.9); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hm-hero-visual .stack-card { transition: none !important; animation: none !important; }
     }
 
     /* ── Tablet: process strip ─────────────────────── */
     @media (min-width: 1148px) and (max-width: 1300px) {
       .hm-taglines { grid-template-columns: 1fr 1fr; gap: 16px; }
       .hm-process { padding: 36px 0; }
-      .hm-ps-num { width: 32px; height: 32px; font-size: 11px; }
-      .hm-ps-connector { top: 16px; left: 32px; }
-      .hm-ps-label { font-size: 13px; padding-right: 12px; }
+      .hm-ps-label { font-size: 13px; }
       .hm-ps-tagline { font-size: 15px; }
     }
 
     /* ── Mid-tablet: Fold unfolded, iPad Mini/Air portrait ── */
     @media (min-width: 640px) and (max-width: 1147px) {
-      .hm-hero-h1 { font-size: clamp(36px, 5vw, 46px); }
       .hm-hero-lede { font-size: 17px; max-width: 560px; }
       .hm-hero-btns { flex-direction: row; }
       .hm-hero-btns a { display: inline-block; width: auto; }
       .hm-taglines { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-      .hm-ps-track { flex-direction: row; flex-wrap: wrap; }
-      .hm-ps-step { flex: 0 0 50%; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 0 24px 0; }
-      .hm-ps-connector { display: block; left: 36px; top: 18px; right: 0; }
-      .hm-ps-step:nth-child(2) .hm-ps-connector, .hm-ps-step:nth-child(4) .hm-ps-connector { display: none; }
-      .hm-ps-track::before { display: none; }
-      .hm-ps-label { padding-right: 16px; font-size: 14px; }
+
+      /* ── Tablet hero visual — outer-frame REMOVED in v3, same as desktop ──
+         Two even columns; card-stack fills its column. NO internal
+         .pv-bmock-* overrides here — the cqw system from the unconditional
+         rules below self-scales the content down to the narrower frame
+         automatically. Retains v1's decision that the visual is shown
+         (not hidden) at tablet. */
+      .pg-hero { overflow-x: clip; }
+      .hm-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+      /* V3 correction (2026-07-10, spec §13.5): same relocation as desktop —
+         container-type moves from the deleted outer .pv-bmock frame onto
+         .hm-hero-visual itself. */
+      .hm-hero-visual {
+        display: block;
+        justify-self: stretch;
+        align-self: stretch;
+        container-type: inline-size;
+      }
+      /* Padding-fix (2026-07-10, post-V3): same cyclic-cqw fix as desktop —
+         padding lives on the .hm-hero-visual-inset wrapper, not on the
+         container-establishing element itself. */
+      .hm-hero-visual-inset {
+        padding: 15cqw 4.2cqw 0;
+      }
+      .pg-hero .pg-wrap { max-width: none; margin: 0; padding-left: var(--pv-gutter-sm); padding-right: 0; }
+
+      .hm-ps-track { grid-template-columns: repeat(3, 1fr); gap: 28px 20px; }
+      .hm-ps-label { font-size: 14px; }
       .hm-pkg-grid { grid-template-columns: 1fr 1fr; }
       .hm-port-grid { grid-template-columns: 1fr 1fr; margin-top: 40px; }
       .hm-art-grid { grid-template-columns: 1fr 1fr; }
@@ -279,7 +506,6 @@
     @media (max-width: 380px) {
       .hm-hero { padding: 36px 0 48px; }
       .hm-inner { padding-left: 14px; padding-right: 14px; }
-      .hm-hero-h1 { font-size: clamp(24px, 7.5vw, 28px); }
       .hm-hero-lede { font-size: 14px; margin-top: 20px; }
       .hm-hero-btns { margin-top: 24px; gap: 10px; }
       .hm-taglines { margin-top: 24px; }
@@ -288,26 +514,58 @@
       .hm-contact { padding: 48px 0; }
       .hm-pkg-name { font-size: 22px; }
       .hm-pkg-card { padding: 22px 18px; }
+      .hm-pkg-card.pv-card--featured { padding: 24px 18px; }
+      .hm-pkg-tag { left: 18px; }
+      .hm-port-preview { padding: 18px; }
       .hm-email-link { font-size: 16px; word-break: break-all; }
       .hm-form { padding: 16px; }
       .hm-sh-h2 { font-size: 28px; }
+      .pv-hero-heading { font-size: clamp(22px, 7vw, 27px); }
+    }
+
+    /* ── Hero heading ────────────────────────────── */
+    .pv-hero-heading {
+      font-family: var(--pv-font-serif);
+      font-size: 72px;
+      line-height: 1.04;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--pv-ink);
+      margin: 0 0 24px;
+    }
+
+    /* ── Word-cycling crossfade ──────────────────── */
+    .hm-cycle-wrap {
+      display: inline-block;
+      position: relative;
+      min-width: 5.5ch;
+      vertical-align: baseline;
+    }
+    .hm-cycle-word {
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--pv-cobalt);
+      opacity: 0;
+      transition: opacity 300ms ease;
+      white-space: nowrap;
+    }
+    .hm-cycle-word.is-visible {
+      opacity: 1;
+      position: relative;
     }
   </style>
 </head>
 <body>
 
-<!-- Background decor -->
-<div class="pv-grid-bg hm-bg-grid"></div>
-<div class="hm-bg-glow"></div>
-
 <!-- ── HEADER ──────────────────────────────────────── -->
 <header class="pg-header">
   <div class="pg-header-inner">
-    <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-      <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-    </a>
+    <a href="index.html" class="pv-wordmark" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
 
-    <nav class="hm-nav">
+    <nav class="pg-nav">
+      <a href="index.html" class="is-active">Home</a>
       <a href="packages.html">Packages</a>
       <a href="portfolio.html">Portfolio</a>
       <a href="why.html">Why Paeveul</a>
@@ -317,11 +575,7 @@
     </nav>
 
     <div class="hm-header-right">
-      <span class="hm-status">
-        <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-        TAKING NEW PROJECTS · 2026
-      </span>
-      <a href="contact.html" class="pv-btn-amber" style="padding:10px 18px;border-radius:8px;font-size:13.5px;text-decoration:none;">Start an Enquiry →</a>
+<a href="contact.html" class="pv-btn pv-btn--primary pv-header-cta">Start an enquiry</a>
       <button class="pg-hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -329,136 +583,82 @@
 
     <!-- Mobile dropdown -->
     <div class="pg-mobile-menu">
-      <a href="packages.html"><span>Packages</span><span style="color:var(--pv-muted);font-size:12px;">01 →</span></a>
-      <a href="portfolio.html"><span>Portfolio</span><span style="color:var(--pv-muted);font-size:12px;">02 →</span></a>
-      <a href="why.html"><span>Why Paeveul</span><span style="color:var(--pv-muted);font-size:12px;">03 →</span></a>
-      <a href="faq.html"><span>FAQ</span><span style="color:var(--pv-muted);font-size:12px;">04 →</span></a>
-      <a href="blog.html"><span>Blog</span><span style="color:var(--pv-muted);font-size:12px;">05 →</span></a>
-      <a href="contact.html"><span>Contact</span><span style="color:var(--pv-muted);font-size:12px;">06 →</span></a>
+      <a href="index.html"><span>Home</span></a>
+      <a href="packages.html"><span>Packages</span></a>
+      <a href="portfolio.html"><span>Portfolio</span></a>
+      <a href="why.html"><span>Why Paeveul</span></a>
+      <a href="faq.html"><span>FAQ</span></a>
+      <a href="blog.html"><span>Blog</span></a>
+      <a href="contact.html"><span>Contact</span></a>
       <div style="padding-top:16px;">
-        <a href="contact.html" class="pv-btn-amber" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
+        <a href="contact.html" class="pv-btn pv-btn--primary" style="display:block;text-align:center;text-decoration:none;padding:14px;border-radius:8px;font-size:14px;">Start an Enquiry →</a>
       </div>
     </div>
   </div>
 </header>
 
 <!-- ── HERO ────────────────────────────────────────── -->
-<section class="hm-hero">
-<div class="hm-inner">
-  <div class="hm-hero-grid">
+<section class="pg-hero">
+  <div class="pg-wrap">
+    <div class="hm-hero-grid">
 
-    <!-- Left: copy -->
-    <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-        <span style="width:30px;height:1px;background:var(--pv-cyan);display:inline-block;"></span>
-        <span class="pv-eyebrow">Independent Web Studio · Est. 2024</span>
-      </div>
-      <h1 class="hm-hero-h1 pv-grotesk">
-        Launch your business<br>online with
-        <span class="pv-rot" data-words='["clarity","intent","purpose"]' style="color:var(--pv-cyan);"></span>
-      </h1>
-      <p class="hm-hero-lede">
-        We build custom websites, SEO-aware structure and lead-conversion flows for growing businesses.
-        From idea to live site — without the overwhelm.
-      </p>
-      <div class="hm-hero-btns">
-        <a href="contact.html" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">Start an Enquiry →</a>
-        <a href="portfolio.html" class="pv-btn-ghost" style="padding:14px 22px;border-radius:8px;font-size:14.5px;text-decoration:none;">See Our Work</a>
+      <!-- Left: text content -->
+      <div>
+        <p class="pv-section-label">Web design &amp; development</p>
+        <h1 class="pv-hero-heading">Launch your business with <span class="hm-cycle-wrap" aria-live="polite"><span class="hm-cycle-word is-visible">clarity.</span><span class="hm-cycle-word" aria-hidden="true">intent.</span><span class="hm-cycle-word" aria-hidden="true">purpose.</span></span></h1>
+        <p style="font-family:var(--pv-font-sans);font-size:18px;line-height:1.6;color:var(--pv-slate);margin:0 0 32px;max-width:480px;">We build considered websites for growing businesses — custom quotes, honest timelines, no theme bloat.</p>
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
+          <a href="contact.html" class="pv-btn pv-btn--primary">Start an enquiry</a>
+          <a href="portfolio.html" class="pv-btn pv-btn--secondary">See our work</a>
+        </div>
+        <p class="pv-availability-note" style="margin-top:16px;margin-bottom:0;">Currently booking the second half of 2026.</p>
       </div>
 
-      <div class="hm-taglines">
-        <div class="hm-tagline-item">
-          <span class="hm-tagline-num">01</span>
-          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Launch-ready in 2–3 weeks</span>
-        </div>
-        <div class="hm-tagline-item">
-          <span class="hm-tagline-num">02</span>
-          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Fast, SEO-aware, performance-focused</span>
-        </div>
-        <div class="hm-tagline-item">
-          <span class="hm-tagline-num">03</span>
-          <span class="pv-grotesk" style="font-size:15px;line-height:1.4;font-weight:500;">Direct 1:1 support throughout the build</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Right: BrowserMock visual (desktop only) -->
-    <div class="hm-hero-visual">
-      <span class="hm-corner hm-corner-tl"></span>
-      <span class="hm-corner hm-corner-tr"></span>
-      <span class="hm-corner hm-corner-bl"></span>
-      <span class="hm-corner hm-corner-br"></span>
-
-      <div class="hm-browser hm-browser-desktop">
-        <div class="hm-browser-bar">
-          <div class="hm-browser-dots"><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span><span class="hm-browser-dot"></span></div>
-          <div class="hm-browser-addr"><span style="color:var(--pv-cyan);margin-right:6px;">●</span>paeveul.studio/dashboard</div>
-        </div>
-        <div class="hm-browser-content" style="height:341px;display:flex;flex-direction:column;">
-          <div style="display:grid;grid-template-columns:90px 1fr;gap:14px;height:100%;">
-            <div style="display:flex;flex-direction:column;gap:6px;">
-              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Overview</div>
-              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Pages</div>
-              <div style="padding:7px 9px;border-radius:5px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.25);font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-cyan);">SEO</div>
-              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Leads</div>
-              <div style="padding:7px 9px;border-radius:5px;font-size:10px;font-family:'Space Grotesk',sans-serif;color:var(--pv-muted);">Analytics</div>
+      <!-- Right: portfolio card-stack (desktop/tablet only) — v3 (2026-07-10,
+           spec §13): the outer .pv-bmock browser-window frame is removed;
+           the card-stack is the sole, bare content of .hm-hero-visual. -->
+      <div class="hm-hero-visual">
+        <div class="hm-hero-visual-inset">
+        <div class="pv-bmock-portfolio-stack" id="hm-portfolio-stack" tabindex="0" role="img" aria-label="Rotating preview of three Paeveul portfolio sites: Alphamatic Aircon, Aurora, and Cool Breeze.">
+          <div class="stack-card" data-slot="2" data-name="coolbreeze">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">coolbreeze.com.my</div>
             </div>
-            <div style="display:flex;flex-direction:column;gap:12px;min-width:0;">
-              <div style="display:flex;justify-content:space-between;align-items:center;">
-                <div>
-                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.12em;text-transform:uppercase;">SEO HEALTH · 30D</div>
-                  <div class="pv-grotesk" style="font-size:22px;font-weight:600;margin-top:2px;">98<span style="color:var(--pv-muted);font-size:14px;">/100</span></div>
-                </div>
-                <span style="font-size:9px;color:var(--pv-cyan);padding:3px 7px;border:1px solid var(--pv-cyan);border-radius:999px;font-family:'Space Grotesk',sans-serif;">+ 12.4%</span>
-              </div>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
-                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">LCP</div>
-                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">1.2s</div>
-                </div>
-                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
-                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">CLS</div>
-                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">0.02</div>
-                </div>
-                <div style="padding:9px;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);">
-                  <div style="font-size:9px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;">INP</div>
-                  <div class="pv-grotesk" style="font-size:14px;font-weight:600;margin-top:2px;">180ms</div>
-                </div>
-              </div>
-              <div style="flex:1;background:var(--pv-bg);border-radius:6px;border:1px solid var(--pv-border);padding:10px;min-height:80px;">
-                <svg viewBox="0 0 200 80" preserveAspectRatio="none" style="width:100%;height:100%;">
-                  <defs><linearGradient id="dg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35"/><stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient></defs>
-                  <line x1="0" x2="200" y1="0" y2="0" stroke="#252A36" stroke-width="0.5"/>
-                  <line x1="0" x2="200" y1="20" y2="20" stroke="#252A36" stroke-width="0.5"/>
-                  <line x1="0" x2="200" y1="40" y2="40" stroke="#252A36" stroke-width="0.5"/>
-                  <line x1="0" x2="200" y1="60" y2="60" stroke="#252A36" stroke-width="0.5"/>
-                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18 L 200 80 L 0 80 Z" fill="url(#dg1)"/>
-                  <path d="M 0 60 L 20 50 L 40 55 L 60 38 L 80 42 L 100 28 L 120 32 L 140 22 L 160 25 L 180 14 L 200 18" stroke="#00E5FF" stroke-width="1.2" fill="none"/>
-                  <circle cx="180" cy="14" r="2.5" fill="#00E5FF"/>
-                  <circle cx="180" cy="14" r="6" fill="#00E5FF" fill-opacity="0.15"/>
-                </svg>
-              </div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/thumbnail-coolbreeze.webp"
+                   alt="Cool Breeze website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E9B6B',innerText:'Cool Breeze'}))" />
             </div>
           </div>
-          <div class="pv-scanline"></div>
+          <div class="stack-card" data-slot="1" data-name="aurora">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">aurora.com.my</div>
+            </div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/rest-thumbnail.webp"
+                   alt="Aurora website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#3E6FD6',innerText:'Aurora'}))" />
+            </div>
+          </div>
+          <div class="stack-card" data-slot="0" data-name="alphamatic">
+            <div class="stack-card-bar">
+              <div class="stack-card-dots"><span></span><span></span><span></span></div>
+              <div class="stack-card-url">alphamaticaircon.com.my</div>
+            </div>
+            <div class="stack-card-img-wrap">
+              <img src="assets/images/alphamatic-aircon-website-screenshot.webp"
+                   alt="Alphamatic Aircon website screenshot"
+                   onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'stack-card-fallback',style:'background:#C9982E',innerText:'Alphamatic Aircon'}))" />
+            </div>
+          </div>
+        </div>
         </div>
       </div>
 
-      <!-- Floating enquiry card -->
-      <div class="hm-float-card">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-          <span style="font-size:10px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.12em;">NEW ENQUIRY</span>
-        </div>
-        <div class="pv-grotesk" style="font-size:13px;font-weight:500;">Northbrook Holdings</div>
-        <div style="font-size:11.5px;color:var(--pv-muted);margin-top:4px;line-height:1.4;">"Need a new site for our property listings — Professional tier."</div>
-      </div>
-
-      <!-- LIVE BUILD badge -->
-      <div class="hm-live-badge">⬢ LIVE BUILD</div>
     </div>
   </div>
-</div>
 </section>
 
 <!-- ── PROCESS STRIP ───────────────────────────────── -->
@@ -466,39 +666,50 @@
   <div class="hm-inner">
 
     <div class="hm-ps-header">
-      <span class="pv-eyebrow">How it works</span>
-      <p class="hm-ps-tagline pv-grotesk">Effortless from enquiry to launch.</p>
+      <p class="pv-section-label" style="margin:0 0 8px;">How it works</p>
+      <p class="hm-ps-tagline">Effortless from enquiry to launch.</p>
     </div>
 
     <ol class="hm-ps-track" aria-label="Process steps">
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">01</div>
-        <span class="hm-ps-label pv-grotesk">Enquire</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">01</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Enquire</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">02</div>
-        <span class="hm-ps-label pv-grotesk">Choose package</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">02</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Choose package</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">03</div>
-        <span class="hm-ps-label pv-grotesk">Build</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">03</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Build</span>
       </li>
 
       <li class="hm-ps-step">
-        <div class="hm-ps-connector" aria-hidden="true"></div>
-        <div class="hm-ps-num" aria-hidden="true">04</div>
-        <span class="hm-ps-label pv-grotesk">Review</span>
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">04</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Review</span>
       </li>
 
-      <li class="hm-ps-step hm-ps-step--last">
-        <div class="hm-ps-num" aria-hidden="true">05</div>
-        <span class="hm-ps-label pv-grotesk">Launch</span>
+      <li class="hm-ps-step">
+        <div class="hm-ps-numline">
+          <span class="pv-stat pv-stat--md"><span class="pv-stat-value">05</span></span>
+          <span class="hm-ps-rule" aria-hidden="true"></span>
+        </div>
+        <span class="hm-ps-label">Launch</span>
       </li>
 
     </ol>
@@ -510,12 +721,8 @@
 <div class="hm-inner">
   <div class="hm-pkg-header">
     <div>
-      <div class="hm-sh-row">
-        <span class="pv-eyebrow-num">01</span>
-        <span class="hm-sh-rule"></span>
-        <span class="pv-eyebrow">Packages</span>
-      </div>
-      <h2 class="hm-sh-h2 pv-grotesk">Three tiers.<br>Custom quotes, never templated.</h2>
+      <p class="pv-section-label" style="margin-bottom:18px;">Packages</p>
+      <h2 class="hm-sh-h2 ">Three tiers.<br>Custom quotes, never templated.</h2>
       <p class="hm-sh-lede">Pick the tier that matches where you are. Every quote is based on real scope — no inflated bundles, no surprise invoices.</p>
     </div>
   </div>
@@ -524,75 +731,72 @@
     <!-- Essential -->
     <div class="pv-card hm-pkg-card">
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 01</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
-        <div class="pv-grotesk hm-pkg-name">Essential</div>
+        <div class="hm-pkg-name">Essential</div>
         <p class="hm-pkg-intent">For SMEs ready to claim a clean, credible spot online.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="pv-grotesk" style="font-size:16px;font-weight:500;">Custom quote</span>
-        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+        <span style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 5-page business website</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Fully responsive design</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Basic SEO setup</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead enquiry form</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Deployment &amp; domain support</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Up to 5-page business website</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Fully responsive design</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Basic on-page SEO setup</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Lead enquiry form (Web3Forms-style)</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Domain &amp; deployment support</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
 
     <!-- Professional -->
-    <div class="pv-card hm-pkg-card recommended">
-      <div class="hm-pkg-rec-badge">RECOMMENDED</div>
+    <div class="pv-card pv-card--featured hm-pkg-card">
+      <span class="hm-pkg-tag">Recommended</span>
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 02</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
-        <div class="pv-grotesk hm-pkg-name">Professional</div>
+        <div class="hm-pkg-name">Professional</div>
         <p class="hm-pkg-intent">For growing businesses that need a website that converts.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="pv-grotesk" style="font-size:16px;font-weight:500;color:var(--pv-cyan);">Custom quote</span>
-        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+        <span style="font-size:16px;font-weight:500;color:var(--pv-cobalt);">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Up to 10-page custom build</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Performance-focused build</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>On-page SEO optimisation</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Lead-conversion flow &amp; forms</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Articles / blog scaffolding</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Ongoing monthly support available</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Up to 10-page custom build</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Performance-focused build (95+ Lighthouse)</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>On-page SEO optimisation</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Blog / articles scaffolding</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Ongoing monthly support available</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Light brand work (type, colour, voice)</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-amber" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
 
     <!-- Business -->
     <div class="pv-card hm-pkg-card">
       <div>
-        <div class="hm-pkg-tier-row"><span class="pv-eyebrow-num">TIER · 03</span><span style="width:16px;height:1px;background:var(--pv-border);display:inline-block;"></span></div>
-        <div class="pv-grotesk hm-pkg-name">Business</div>
+        <div class="hm-pkg-name">Business</div>
         <p class="hm-pkg-intent">For higher-touch projects: custom systems, scale, integrations.</p>
       </div>
       <div style="display:flex;align-items:baseline;gap:6px;">
-        <span class="pv-grotesk" style="font-size:16px;font-weight:500;">Custom quote</span>
-        <span style="font-size:12px;color:var(--pv-muted);">· based on project needs</span>
+        <span style="font-size:16px;font-weight:500;">Custom quote</span>
+        <span style="font-size:12px;color:var(--pv-slate);">· based on project needs</span>
       </div>
       <div class="hm-pkg-divider"></div>
       <ul class="hm-pkg-features">
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Custom scope &amp; sitemap</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Bespoke component system</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Advanced SEO &amp; schema</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Payments-ready architecture</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>CMS / dashboard integrations</span></li>
-        <li class="hm-pkg-feature"><svg class="hm-pkg-check" width="14" height="14" viewBox="0 0 14 14"><path d="M2 7 L 6 11 L 12 3" stroke="#00E5FF" stroke-width="1.5" fill="none" stroke-linecap="square"/></svg><span>Dedicated support track</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Custom scope &amp; sitemap</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Bespoke component system</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Advanced SEO &amp; technical audits</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Multi-language support (optional)</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Dedicated support track</span></li>
+        <li class="hm-pkg-feature"><span class="hm-pkg-dash" aria-hidden="true">–</span><span>Quarterly health checks for 6 months</span></li>
       </ul>
-      <a href="contact.html" class="pv-btn-ghost" style="margin-top:auto;padding:12px 18px;border-radius:8px;font-size:13.5px;text-align:center;text-decoration:none;display:block;">Enquire for quote →</a>
+      <a href="contact.html" class="pv-btn pv-btn--primary" style="margin-top:auto;display:block;">Enquire for quote</a>
     </div>
   </div>
 
-  <div style="margin-top:28px;text-align:center;font-size:13px;color:var(--pv-muted);">
-    Not sure which tier fits? <a href="contact.html" style="color:var(--pv-cyan);text-decoration:none;">Tell us about the project →</a>
+  <div style="margin-top:28px;text-align:center;font-size:13px;color:var(--pv-slate);">
+    Not sure which tier fits? <a href="contact.html" style="color:var(--pv-cobalt);text-decoration:none;">Tell us about the project →</a>
   </div>
 </div>
 </section>
@@ -600,26 +804,22 @@
 <!-- ── PORTFOLIO §02 ───────────────────────────────── -->
 <section class="hm-section-alt">
 <div class="hm-inner">
-  <div class="hm-sh-row">
-    <span class="pv-eyebrow-num">02</span>
-    <span class="hm-sh-rule"></span>
-    <span class="pv-eyebrow">Selected Work</span>
-  </div>
-  <h2 class="hm-sh-h2 pv-grotesk">Sites that earn trust and convert.</h2>
+  <p class="pv-section-label" style="margin-bottom:18px;">Selected Work</p>
+  <h2 class="hm-sh-h2 ">Sites that earn trust and convert.</h2>
   <p class="hm-sh-lede">A small but considered portfolio. Every project goes through the same care: strategy, design, build, ship.</p>
 
   <div class="hm-port-grid">
     <!-- Cool Breeze -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
-        <a href="portfolio.html">
+        <a href="https://bt-hvac-ms.vercel.app/index.html" target="_blank" rel="noopener">
         <div class="hm-browser">
           <div class="hm-browser-bar">
             <div class="hm-browser-dots">
               <span></span><span></span><span></span>
             </div>
             <div class="hm-browser-addr">
-              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
+              <span style="color:var(--pv-cobalt);margin-right:6px;">●</span>
               coolbreeze.com.my
             </div>
           </div>
@@ -631,26 +831,55 @@
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 01</span>
-          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Residential &amp; Commercial</span>
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Residential &amp; Commercial</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
-        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
+        <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://bt-hvac-ms.vercel.app/index.html" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Cool Breeze</a></h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A clean service site built to convert local HVAC enquiries. WhatsApp-first CTA, service coverage map, and gallery — ready in under 3 weeks.</p>
+        <a href="https://bt-hvac-ms.vercel.app/index.html" target="_blank" rel="noopener" class="hm-port-link">View details →</a>
       </div>
     </article>
 
-    <!-- Aurora -->
+    <!-- Alphamatic Aircon -->
     <article class="pv-card hm-port-card">
       <div class="hm-port-preview">
-        <a href="portfolio.html">
+        <a href="https://www.alphamaticaircon.com.my/" target="_blank" rel="noopener">
         <div class="hm-browser">
           <div class="hm-browser-bar">
             <div class="hm-browser-dots">
               <span></span><span></span><span></span>
             </div>
             <div class="hm-browser-addr">
-              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
+              <span style="color:var(--pv-cobalt);margin-right:6px;">●</span>
+              https://www.alphamaticaircon.com.my/
+            </div>
+          </div>
+          <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
+            <img src="assets/images/alphamatic-aircon-website-screenshot.webp" alt="Alphamatic Aircon website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="hm-port-body">
+        <div class="hm-port-meta">
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">HVAC · Klang Valley</span>
+        </div>
+        <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://www.alphamaticaircon.com.my/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
+        <a href="https://www.alphamaticaircon.com.my/" target="_blank" rel="noopener" class="hm-port-link">View details →</a>
+      </div>
+    </article>
+
+    <!-- Aurora -->
+    <article class="pv-card hm-port-card">
+      <div class="hm-port-preview">
+        <a href="https://bt-rest-ms.vercel.app/" target="_blank" rel="noopener">
+        <div class="hm-browser">
+          <div class="hm-browser-bar">
+            <div class="hm-browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="hm-browser-addr">
+              <span style="color:var(--pv-cobalt);margin-right:6px;">●</span>
               aurora.com.my
             </div>
           </div>
@@ -662,43 +891,11 @@
       </div>
       <div class="hm-port-body">
         <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 02</span>
-          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">Service Business · Malaysia</span>
+          <span style="font-family:var(--pv-font-serif);font-style:italic;font-size:12px;color:var(--pv-stone);">Service Business · Malaysia</span>
         </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="portfolio.html" style="text-decoration:none;color:inherit;">Aurora</a></h3>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
-        <a href="portfolio.html" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View details →</a>
-      </div>
-    </article>
-
-    <!-- Alphamatic Aircon -->
-    <article class="pv-card hm-port-card">
-      <div class="hm-port-preview">
-        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener">
-        <div class="hm-browser">
-          <div class="hm-browser-bar">
-            <div class="hm-browser-dots">
-              <span></span><span></span><span></span>
-            </div>
-            <div class="hm-browser-addr">
-              <span style="color:var(--pv-cyan);margin-right:6px;">●</span>
-              alphamatic-aircond.vercel.app
-            </div>
-          </div>
-          <div class="hm-browser-content" style="height:260px;overflow:hidden;padding:0;">
-            <img src="assets/images/alphamatic-aircon-website-screenshot.webp" alt="Alphamatic Aircon website screenshot" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block;" />
-          </div>
-        </div>
-        </a>
-      </div>
-      <div class="hm-port-body">
-        <div class="hm-port-meta">
-          <span class="pv-eyebrow-num">CASE · 03</span>
-          <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">HVAC · Klang Valley</span>
-        </div>
-        <h3 class="pv-grotesk" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Alphamatic Aircon</a></h3>
-        <p style="margin:0;font-size:14px;color:var(--pv-muted);line-height:1.6;">A multi-section HVAC showcase site with services, testimonials, gallery, and WhatsApp CTA — built as a live demo to secure the client.</p>
-        <a href="https://alphamatic-aircond.vercel.app" target="_blank" rel="noopener" style="margin-top:8px;font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;">View site →</a>
+        <h3 class="" style="font-size:24px;font-weight:600;margin:0;letter-spacing:-0.01em;"><a href="https://bt-rest-ms.vercel.app/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">Aurora</a></h3>
+        <p style="margin:0;font-size:14px;color:var(--pv-slate);line-height:1.6;">A considered service site with a mobile-first layout and conversion-focused enquiry flow — designed for the Malaysian market.</p>
+        <a href="https://bt-rest-ms.vercel.app/" target="_blank" rel="noopener" class="hm-port-link">View details →</a>
       </div>
     </article>
   </div>
@@ -715,44 +912,44 @@
         <span class="hm-sh-rule"></span>
         <span class="pv-eyebrow">Why Paeveul</span>
       </div>
-      <h2 class="hm-sh-h2 pv-grotesk">A studio,<br>not a template factory.</h2>
+      <h2 class="hm-sh-h2 ">A studio,<br>not a template factory.</h2>
       <p class="hm-sh-lede">Built for growing businesses that want clarity, not jargon. We're small on purpose — every project gets the studio's full attention.</p>
       <div class="hm-why-note">
-        <div style="font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;margin-bottom:8px;">STUDIO NOTE</div>
+        <div style="font-size:12px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.1em;margin-bottom:8px;">STUDIO NOTE</div>
         <div style="font-size:14px;line-height:1.6;">"We design websites the way we'd want them built for our own businesses. Direct, considered, no theme bloat."</div>
-        <div style="margin-top:12px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">— Paeveul Studio</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;">— Paeveul</div>
       </div>
     </div>
     <div class="hm-values-grid">
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">01</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Built for growing businesses</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">We design with your customers in mind — modern traffic patterns, mobile-first behaviours, real trust signals.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">Built for growing businesses</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">We design with your customers in mind — modern traffic patterns, mobile-first behaviours, real trust signals.</p>
       </div>
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">02</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Modern, not templated</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No theme clutter. Every section is built around your business, with restraint and clarity.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">Modern, not templated</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">No theme clutter. Every section is built around your business, with restraint and clarity.</p>
       </div>
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">03</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">SEO-aware from line one</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Semantic structure, fast loads, schema, and content-friendly layouts baked in from the start.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">SEO-aware from line one</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Semantic structure, fast loads, schema, and content-friendly layouts baked in from the start.</p>
       </div>
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">04</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Conversion-first flows</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Enquiry forms, package routing, and CTA hierarchy designed to turn visitors into leads.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">Conversion-first flows</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Enquiry forms, package routing, and CTA hierarchy designed to turn visitors into leads.</p>
       </div>
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">05</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Clear communication</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">No jargon. Plain updates, weekly check-ins, and an honest scope with no surprises.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">Clear communication</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">No jargon. Plain updates, weekly check-ins, and an honest scope with no surprises.</p>
       </div>
       <div class="hm-value-cell">
         <div class="hm-value-head"><span class="hm-value-num">06</span><span class="hm-value-rule"></span></div>
-        <div class="pv-grotesk" style="font-size:17px;font-weight:600;margin-bottom:8px;">Future-ready</div>
-        <p style="margin:0;font-size:13.5px;color:var(--pv-muted);line-height:1.6;">Payments, articles, dashboards, multi-language — we leave doors open for what comes next.</p>
+        <div class="" style="font-size:17px;font-weight:600;margin-bottom:8px;">Future-ready</div>
+        <p style="margin:0;font-size:13.5px;color:var(--pv-slate);line-height:1.6;">Payments, articles, dashboards, multi-language — we leave doors open for what comes next.</p>
       </div>
     </div>
   </div>
@@ -769,47 +966,47 @@
         <span class="hm-sh-rule"></span>
         <span class="pv-eyebrow">Blog · Notes</span>
       </div>
-      <h2 class="hm-sh-h2 pv-grotesk">Notes for businesses<br>going digital.</h2>
+      <h2 class="hm-sh-h2 ">Notes for businesses<br>going digital.</h2>
     </div>
-    <a href="blog.html" style="font-size:13.5px;color:var(--pv-cyan);text-decoration:none;font-family:'Space Grotesk',sans-serif;white-space:nowrap;">All articles →</a>
+    <a href="blog.html" style="font-size:13.5px;color:var(--pv-cobalt);text-decoration:none;font-family:'Space Grotesk',sans-serif;white-space:nowrap;">All articles →</a>
   </div>
   <div class="hm-art-grid">
     <a href="blog/why-website-before-running-ads/index.html" style="text-decoration:none;color:inherit;display:block;">
     <article class="pv-card hm-art-card">
       <div class="hm-art-top">
-        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">STRATEGY</span>
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">4 min</span>
+        <span class="pv-eyebrow-num" style="color:var(--pv-cobalt);">STRATEGY</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;">4 min</span>
       </div>
-      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">Why Your Business Needs a Website Before Running Ads</h3>
+      <h3 class="" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">Why Your Business Needs a Website Before Running Ads</h3>
       <div class="hm-art-bottom">
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">5 Feb 2026</span>
-        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">5 Feb 2026</span>
+        <span style="font-size:13.5px;color:var(--pv-cobalt);font-family:'Space Grotesk',sans-serif;">Read →</span>
       </div>
     </article>
     </a>
     <a href="blog/what-makes-a-website-convert/index.html" style="text-decoration:none;color:inherit;display:block;">
     <article class="pv-card hm-art-card">
       <div class="hm-art-top">
-        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">CONVERSION</span>
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">6 min</span>
+        <span class="pv-eyebrow-num" style="color:var(--pv-cobalt);">CONVERSION</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;">6 min</span>
       </div>
-      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">What Makes a Website Convert Enquiries?</h3>
+      <h3 class="" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">What Makes a Website Convert Enquiries?</h3>
       <div class="hm-art-bottom">
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">12 Mar 2026</span>
-        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">12 Mar 2026</span>
+        <span style="font-size:13.5px;color:var(--pv-cobalt);font-family:'Space Grotesk',sans-serif;">Read →</span>
       </div>
     </article>
     </a>
     <a href="blog/seo-basics-small-local-businesses/index.html" style="text-decoration:none;color:inherit;display:block;">
     <article class="pv-card hm-art-card">
       <div class="hm-art-top">
-        <span class="pv-eyebrow-num" style="color:var(--pv-cyan);">SEO</span>
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;">5 min</span>
+        <span class="pv-eyebrow-num" style="color:var(--pv-cobalt);">SEO</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;">5 min</span>
       </div>
-      <h3 class="pv-grotesk" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">SEO Basics for Small &amp; Local Businesses</h3>
+      <h3 class="" style="font-size:19px;font-weight:600;line-height:1.3;margin-top:28px;margin-bottom:0;letter-spacing:-0.01em;">SEO Basics for Small &amp; Local Businesses</h3>
       <div class="hm-art-bottom">
-        <span style="font-size:11px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">3 Mar 2026</span>
-        <span style="font-size:13.5px;color:var(--pv-cyan);font-family:'Space Grotesk',sans-serif;">Read →</span>
+        <span style="font-size:11px;color:var(--pv-slate);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">3 Mar 2026</span>
+        <span style="font-size:13.5px;color:var(--pv-cobalt);font-family:'Space Grotesk',sans-serif;">Read →</span>
       </div>
     </article>
     </a>
@@ -827,56 +1024,56 @@
         <span class="hm-sh-rule"></span>
         <span class="pv-eyebrow">FAQ</span>
       </div>
-      <h2 class="hm-sh-h2 pv-grotesk">Things SME owners<br>usually ask first.</h2>
+      <h2 class="hm-sh-h2 ">Things SME owners<br>usually ask first.</h2>
       <p class="hm-sh-lede">Quick answers. If you don't see yours, just enquire — we reply within 1–3 business working days.</p>
     </div>
     <div>
       <div class="pv-faq-item" data-open="true">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="true">
           <span>How long does a website take to build?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v" style="transform:scaleY(0);"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>Most Essential builds go live in 2–3 weeks. Professional builds typically run 4–6 weeks. Business projects scope to timeline before we start.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Do I need to prepare the content myself?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>You bring the substance — brand info, services, photos if available. We help shape and structure it, and can provide copy guidance throughout.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Can you help with SEO?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>Yes. Every build ships with technical SEO basics: structure, speed, schema. Professional and Business tiers include on-page optimisation and content scaffolding.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Are prices fixed?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>No public prices because every project differs. After a short enquiry, we send a clear quote based on scope, pages, and timeline.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Can I request changes during the build?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>Yes. Every package includes review rounds before launch. Scope changes are discussed transparently — no surprise invoices.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Do you offer monthly support?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>Optional monthly retainers cover updates, monitoring, content edits, and incremental improvements. Available on Professional and Business.</p></div>
       </div>
       <div class="pv-faq-item">
         <div class="pv-faq-q" style="padding:22px 0;font-size:17px;font-weight:500;" aria-expanded="false">
           <span>Can payments be added later?</span>
-          <span class="pv-faq-icon"><span class="pv-faq-icon-h"></span><span class="pv-faq-icon-v"></span></span>
+          <span class="pv-faq-icon" aria-hidden="true"></span>
         </div>
         <div class="pv-faq-body"><p>Yes. We architect builds so e-commerce, bookings, or payment flows can be added without a rebuild.</p></div>
       </div>
@@ -887,7 +1084,6 @@
 
 <!-- ── CONTACT §06 ─────────────────────────────────── -->
 <section class="hm-contact">
-  <div class="pv-grid-bg hm-contact-bg"></div>
   <div class="hm-contact-inner hm-inner">
     <div>
       <div class="hm-sh-row">
@@ -895,41 +1091,38 @@
         <span class="hm-sh-rule"></span>
         <span class="pv-eyebrow">Start a project</span>
       </div>
-      <h2 class="hm-sh-h2 pv-grotesk">Let's get your<br>business online.</h2>
+      <h2 class="hm-sh-h2 ">Let's get your<br>business online.</h2>
       <p class="hm-sh-lede">Tell us about your business and what you need. A short reply with next steps lands in your inbox within 1–3 business working days.</p>
       <div class="hm-contact-info">
         <div>
-          <div class="pv-eyebrow-num" style="margin-bottom:4px;">DIRECT</div>
-          <a href="mailto:paeveul.official@gmail.com" class="pv-grotesk hm-email-link">paeveul.official@gmail.com</a>
+          <div class="pv-eyebrow-num" style="margin-bottom:4px;">EMAIL US</div>
+          <a href="mailto:paeveul.official@gmail.com" class="hm-email-link">paeveul.official@gmail.com</a>
         </div>
         <div>
           <div class="pv-eyebrow-num" style="margin-bottom:4px;">BASED IN</div>
-          <div class="pv-grotesk" style="font-size:16px;">Remote-first · Worldwide</div>
-          <div style="font-size:13.5px;color:var(--pv-muted);margin-top:4px;">Working with founders and SMBs across time zones.</div>
-        </div>
-        <div style="display:inline-flex;align-items:center;gap:8px;">
-          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-          <span style="font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">CURRENTLY ACCEPTING NEW PROJECTS · Q3 2026</span>
+          <div class="" style="font-size:16px;">Remote-first · Worldwide</div>
+          <div style="font-size:13.5px;color:var(--pv-slate);margin-top:4px;">Working with founders and SMBs across time zones.</div>
         </div>
       </div>
     </div>
     <form class="pv-card hm-form" id="hm-contact-form" action="https://formbold.com/s/obvgp" method="POST">
+<p class="hm-form-note">Fields marked <span class="pv-required pv-required--legend" aria-hidden="true">*</span> are required.</p>
 <div class="hm-form-row">
-        <div>
-          <label class="pv-label">Your name</label>
-          <input class="pv-input" name="name" placeholder="Maya Larson" />
+        <div class="pv-input-wrap">
+          <label class="pv-input-label" for="hm-name">Your name <span class="pv-required" aria-hidden="true">*</span></label>
+          <input id="hm-name" class="pv-input" name="name" placeholder="Maya Larson" required aria-required="true" />
         </div>
-        <div>
-          <label class="pv-label">Business name</label>
-          <input class="pv-input" name="business" placeholder="Northbrook &amp; Co." />
+        <div class="pv-input-wrap">
+          <label class="pv-input-label" for="hm-business">Business name <span class="pv-required" aria-hidden="true">*</span></label>
+          <input id="hm-business" class="pv-input" name="business" placeholder="Northbrook &amp; Co." required aria-required="true" />
         </div>
       </div>
-      <div>
-        <label class="pv-label">Work email</label>
-        <input class="pv-input" type="email" name="email" placeholder="you@business.com" />
+      <div class="pv-input-wrap">
+        <label class="pv-input-label" for="hm-email">Work email <span class="pv-required" aria-hidden="true">*</span></label>
+        <input id="hm-email" class="pv-input" type="email" name="email" placeholder="you@business.com" required aria-required="true" />
       </div>
-      <div>
-        <label class="pv-label">Package you're interested in</label>
+      <div class="pv-input-wrap">
+        <label class="pv-input-label">Package you're interested in</label>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <span class="pv-chip hm-pkg-chip" data-val="Essential">Essential</span>
           <span class="pv-chip hm-pkg-chip is-active" data-val="Professional">Professional</span>
@@ -938,14 +1131,14 @@
         </div>
         <input type="hidden" id="hm-pkg-val" name="package" value="Professional" />
       </div>
-      <div>
-        <label class="pv-label">A bit about the project</label>
-        <textarea class="pv-input" name="message" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any rough timeline?" style="resize:vertical;"></textarea>
+      <div class="pv-input-wrap">
+        <label class="pv-input-label" for="hm-message">A bit about the project <span class="pv-required" aria-hidden="true">*</span></label>
+        <textarea id="hm-message" class="pv-input" name="message" rows="5" placeholder="What does your business do? What do you want the site to achieve? Any rough timeline?" style="resize:vertical;" required aria-required="true"></textarea>
       </div>
       <div class="hm-form-footer">
         <span class="hm-form-note">We'll only use this to reply to your enquiry. No mailing list.</span>
         <div class="g-recaptcha" data-sitekey="6Lc3mgAtAAAAAETKxZ-DDWEV0ATE0JbDod4ISIZJ"></div>
-        <button type="submit" class="pv-btn-amber" style="padding:14px 22px;border-radius:8px;font-size:14px;white-space:nowrap;">Send enquiry →</button>
+        <button type="submit" class="pv-btn pv-btn--primary">Send enquiry →</button>
       </div>
     </form>
   </div>
@@ -956,21 +1149,15 @@
   <div class="pg-wrap">
     <div class="pg-footer-grid">
       <div>
-        <a href="index.html" style="text-decoration:none;display:inline-flex;align-items:center;" aria-label="Paeveul Web Services — home">
-          <span class="pv-grotesk pv-logo-wordmark"><span class="pv-logo-initial">P</span><span class="pv-logo-rest">aeveul</span></span>
-        </a>
-        <p style="margin-top:18px;font-size:14px;color:var(--pv-muted);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
-        <div style="margin-top:20px;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--pv-muted);font-family:'Space Grotesk',sans-serif;letter-spacing:0.08em;">
-          <span class="pv-pulse-dot" style="width:6px;height:6px;border-radius:999px;background:var(--pv-cyan);display:inline-block;"></span>
-          REMOTE-FIRST · WORLDWIDE
-        </div>
+        <a href="index.html" class="pv-wordmark pv-wordmark--inverse" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
+        <p style="margin-top:18px;font-size:14px;color:var(--pv-text-on-ink-quiet);line-height:1.6;max-width:320px;">A boutique web studio building considered websites and digital systems for growing businesses.</p>
       </div>
       <div class="pg-footer-col">
         <h4>Studio</h4>
         <ul>
-          <li><a href="packages.html">Packages</a></li>
           <li><a href="portfolio.html">Portfolio</a></li>
           <li><a href="why.html">Why Paeveul</a></li>
+          <li><a href="packages.html">Packages</a></li>
           <li><a href="blog.html">Blog</a></li>
         </ul>
       </div>
@@ -984,7 +1171,7 @@
       </div>
     </div>
     <div class="pg-footer-bottom">
-      <span>© 2026 Paeveul Studio · Made with care</span>
+      <span>© 2026 Paeveul Studio 202603175879 (TR0345406-P)</span>
       <nav class="pg-legal-nav" aria-label="Legal">
         <a href="privacy/index.html">Privacy Notice</a>
         <span class="pg-legal-sep" aria-hidden="true">·</span>
@@ -1011,6 +1198,78 @@
     });
   }());
 
+  /* ── Portfolio card-stack auto-transition (hero visual) ────────────────
+     Per Amelia's portfolio-card-stack-spec-v1.md §5/§8/§13. Front-to-back
+     rolodex cycle; pauses on hover/focus; disabled entirely under
+     prefers-reduced-motion (static fanned arrangement, no interval).
+     V3 (2026-07-10, spec §13.3): the separate outer-frame element this
+     used to bind hover/focus to (#hm-portfolio-mock-frame) is deleted —
+     #hm-portfolio-stack is now the outermost interactive/decorative
+     element, so it carries both the card query and the pause binding. */
+  (function () {
+    var stack = document.getElementById('hm-portfolio-stack');
+    if (!stack) return;
+
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.stack-card'));
+    var timer = null;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function advance() {
+      cards.forEach(function (card) {
+        var slot = parseInt(card.getAttribute('data-slot'), 10);
+        var nextSlot = (slot + 2) % 3; // front(0)->back(2), mid(1)->front(0), back(2)->mid(1)
+        if (nextSlot === 2) { card.classList.add('is-exiting'); }
+        else { card.classList.remove('is-exiting'); }
+        card.setAttribute('data-slot', nextSlot);
+      });
+    }
+
+    function start() {
+      if (reducedMotion) return; // reduced-motion: static arrangement, no interval at all
+      stop();
+      timer = setInterval(advance, 4000);
+    }
+    function stop() {
+      if (timer) clearInterval(timer);
+      timer = null;
+    }
+
+    // interruptible / no-blocking-animation — pause on hover/focus of the stack
+    stack.addEventListener('mouseenter', stop);
+    stack.addEventListener('mouseleave', function () { if (!reducedMotion) start(); });
+    stack.addEventListener('focusin', stop);
+    stack.addEventListener('focusout', function () { if (!reducedMotion) start(); });
+
+    if (!reducedMotion) start();
+  }());
+
+  (function () {
+    const grid = document.querySelector('.hm-pkg-grid');
+    if (!grid) return;
+    const cards = Array.from(grid.querySelectorAll('.hm-pkg-card'));
+    const featured = grid.querySelector('.pv-card--featured');
+    const isTouch = window.matchMedia('(hover: none)').matches;
+
+    function highlight(target) {
+      cards.forEach(c => c.classList.toggle('is-highlighted', c === target));
+    }
+
+    if (featured) featured.classList.add('is-highlighted');
+
+    if (isTouch) {
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          if (e.target.closest('a, button')) return;
+          highlight(card);
+        });
+      });
+    } else {
+      cards.forEach(card => {
+        card.addEventListener('mouseenter', () => highlight(card));
+      });
+      grid.addEventListener('mouseleave', () => highlight(featured));
+    }
+  })();
 </script>
 </body>
 </html>
