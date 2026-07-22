@@ -33,23 +33,9 @@
   }
   </script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2Z840NDRT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W2Z840NDRT');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wkwbodgtkd");
-  </script>
+  <!-- Google Analytics 4 + Microsoft Clarity: loaded conditionally,
+       only after cookie consent. See js/paeveul.js (cookieConsent IIFE)
+       and the <aside id="cookie-banner"> markup before </body>. -->
 
   <link rel="stylesheet" href="css/paeveul-v2.css" />
 
@@ -1182,6 +1168,20 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<aside id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" style="display:none;">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      <span class="cookie-banner-headline">We use cookies</span>
+      This website uses Google Analytics and Microsoft Clarity to understand how visitors use our site. Choose below to accept or decline analytics cookies. <a href="cookies/index.html">Learn more</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+      <button type="button" id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</aside>
 
 <script src="js/paeveul.js"></script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>

@@ -32,23 +32,9 @@
   }
   </script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2Z840NDRT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-W2Z840NDRT');
-  </script>
-
-  <!-- Microsoft Clarity -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wkwbodgtkd");
-  </script>
+  <!-- Google Analytics 4 + Microsoft Clarity: loaded conditionally,
+       only after cookie consent. See js/paeveul.js (cookieConsent IIFE)
+       and the <aside id="cookie-banner"> markup before </body>. -->
 
   <link rel="stylesheet" href="../css/paeveul-v2.css" />
 </head>
@@ -101,7 +87,7 @@
         <span class="ar-breadcrumb-current">Cookie Notice</span>
       </nav>
       <h1 class="lg-title">Cookie Notice</h1>
-      <p class="lg-updated">Last updated: 30 May 2026</p>
+      <p class="lg-updated">Last updated: 22 July 2026</p>
     </div>
   </div>
 </section>
@@ -111,20 +97,28 @@
   <div class="pg-wrap">
     <div class="lg-body">
 
-      <p>This Cookie Notice applies to Paeveul Web Services. For information on who is responsible for your personal data and how to contact us, see our <a href="../privacy/index.html">Privacy Notice</a>.</p>
-      <p>This Cookie Notice explains how Paeveul Web Services uses cookies on our website (paeveul.com).</p>
+      <p>This Cookie Notice explains how Paeveul uses cookies and similar technologies on this website (paeveul.com) — what each one does, how the cookie consent choice you make actually works, and how you can change your mind at any time. For information on who is responsible for your personal data more broadly, see our <a href="../privacy/index.html">Privacy Notice</a>.</p>
 
       <h2>What Is a Cookie?</h2>
       <p>A cookie is a small text file that a website places on your device when you visit. Cookies help websites function properly and help site owners understand how visitors use their site.</p>
 
-      <h2>Cookies Currently in Use</h2>
-      <p>We use a minimal number of cookies. We do not use advertising cookies, social media tracking pixels, or any cookies that identify you personally.</p>
+      <h2>How Your Cookie Choice Works</h2>
+      <p>When you visit this site for the first time — or if it has been more than 365 days since you last made a choice — a banner appears at the bottom of the page asking whether you accept or decline analytics cookies (Google Analytics and Microsoft Clarity, described below). <strong>Neither of those two tools loads until you choose.</strong> This isn't a case of the tools running quietly in the background and merely staying silent — the scripts that load them are not present on the page at all unless you accept.</p>
+      <ul>
+        <li><strong>If you click Accept:</strong> Google Analytics and Microsoft Clarity load, and we remember your choice for 365 days.</li>
+        <li><strong>If you click Decline:</strong> neither tool loads, and we remember that choice for 365 days too.</li>
+        <li><strong>Either way</strong>, your choice is remembered using a small first-party cookie of our own — see <code>paeveul_consent</code> in the table below.</li>
+        <li><strong>After 365 days</strong>, that cookie expires. The next time you visit, it's treated the same as a first-ever visit: the banner reappears and you're asked to choose again. Nothing carries over indefinitely without being re-confirmed.</li>
+      </ul>
+      <p>Malaysian law does not currently require a cookie consent banner for analytics-only tools like these. We built one anyway because we think visitors should have a clear, easy choice about it.</p>
+
+      <h2>Cookies &amp; Trackers Currently in Use</h2>
 
       <div class="ar-table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Cookie name</th>
+              <th scope="col">Cookie / technology</th>
               <th scope="col">Set by</th>
               <th scope="col">What it does</th>
               <th scope="col">Type</th>
@@ -133,78 +127,185 @@
           </thead>
           <tbody>
             <tr>
+              <td><code>paeveul_consent</code></td>
+              <td>Paeveul (first-party)</td>
+              <td>Remembers whether you accepted or declined analytics cookies. Stores only that choice — not any data about your visit.</td>
+              <td>Strictly necessary</td>
+              <td>365 days</td>
+            </tr>
+            <tr>
+              <td><code>_ga</code>, <code>_ga_*</code></td>
+              <td>Google Analytics 4 (third-party) — only loads if you accept</td>
+              <td>Helps us understand how visitors use the site: pages viewed, time on page, referral/traffic source, device and browser type, and approximate location at city/country level.</td>
+              <td>Analytics — opt-in</td>
+              <td>Up to around 2 years (Google's standard GA4 setting; we have not customised this)</td>
+            </tr>
+            <tr>
+              <td>Clarity session cookies</td>
+              <td>Microsoft Clarity (third-party) — only loads if you accept</td>
+              <td>Records session activity (mouse movement, scrolling, clicks) and builds heatmaps showing how visitors interact with the site, so we can spot and fix confusing pages.</td>
+              <td>Analytics — opt-in</td>
+              <td>Set by Microsoft; not customised by us</td>
+            </tr>
+            <tr>
               <td><code>_GRECAPTCHA</code></td>
-              <td>Google reCAPTCHA</td>
-              <td>Protects our contact and homepage forms from spam and automated bots</td>
+              <td>Google reCAPTCHA v2 (third-party)</td>
+              <td>Verifies that submissions on our enquiry and contact forms come from real people, not bots.</td>
+              <td>Strictly necessary / functional</td>
+              <td>Session, up to around 6 months</td>
+            </tr>
+            <tr>
+              <td>Font delivery caching</td>
+              <td>Google Fonts (third-party)</td>
+              <td>Not a cookie we set — see "Google Fonts" below.</td>
               <td>Functional</td>
-              <td>Session / up to 6 months</td>
+              <td>Browser-dependent</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <p><strong>Why we need the reCAPTCHA cookie:</strong> Our contact forms use Google reCAPTCHA v2 to verify that submissions come from real people, not bots. This cookie is required for the forms to work. It does not track you across websites and is not used for advertising purposes.</p>
+      <h2>Google Analytics 4 — What It Collects</h2>
+      <p>If you accept analytics cookies, Google Analytics 4 collects standard web analytics: which pages you visit, how long you spend, what site or link referred you here, your device/browser type, and approximate location at city/country level (GA4 does not store your full IP address by default). It may also record specific interactions we've chosen to track, such as clicking a WhatsApp or email link. This data is processed by Google and may be transferred outside Malaysia as part of Google's standard infrastructure.</p>
+
+      <h2>Microsoft Clarity — What It Collects</h2>
+      <p>If you accept analytics cookies, Microsoft Clarity records how visitors move through and interact with our pages — including mouse movement, scrolling, and clicks — and aggregates this into heatmaps. This is more detailed than page-view analytics, because it can effectively show a replay of on-page behaviour. <strong>We are currently reviewing whether Microsoft's form-field masking is enabled</strong> so that anything you type into our contact form is excluded from these recordings; we will update this notice once that is confirmed. If you'd rather not have session activity recorded, declining analytics cookies (or declining specifically, if we later offer separate GA4/Clarity toggles) prevents Clarity from loading at all.</p>
+
+      <h2>Functional Cookies — reCAPTCHA</h2>
+      <p>Our enquiry and contact forms use Google reCAPTCHA v2 to verify that submissions come from real people, not bots. This cookie is required for the forms to work correctly and loads regardless of your analytics choice, because it's classed as functional/security rather than analytics or advertising. It does not track you across other websites and is not used for advertising.</p>
 
       <h2>Google Fonts — Third-Party Data Access</h2>
-      <p>Our website loads fonts from Google's servers (fonts.googleapis.com and fonts.gstatic.com) on every page. This is not a cookie in the traditional sense — it is a third-party network request. Each time you load a page, your IP address and browser information are sent to Google's servers so the fonts can be delivered. Google may also set short-lived caching cookies via fonts.gstatic.com as part of standard browser caching behaviour.</p>
-      <p>This is a technical characteristic of how web fonts are served from an external CDN. It is not advertising or tracking. For more information, refer to Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
+      <p>Our website loads fonts from Google's servers (fonts.googleapis.com and fonts.gstatic.com) on every page. This isn't a cookie in the traditional sense — it's a network request needed to deliver the fonts. Each time a page loads, your IP address and browser information are sent to Google's servers for that purpose, and Google may set short-lived caching cookies via fonts.gstatic.com as part of standard browser caching. This isn't advertising or tracking; it's a technical characteristic of loading fonts from an external provider. For more information, see Google's privacy policy at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
 
-      <h2>Cookies We Do Not Currently Use</h2>
-      <p>We do not currently use Google Analytics, Microsoft Clarity, Meta Pixel, or any other analytics or advertising cookies.</p>
+      <h2>How to Change Your Cookie Choice</h2>
+      <p>You can change your mind about analytics cookies at any time:</p>
+      <ul>
+        <li>
+          <strong>Clear your browser's cookies for paeveul.com.</strong> The next time you visit, the banner will reappear and you can make a new choice. Instructions:
+          <ul>
+            <li>Chrome: Settings &gt; Privacy and security &gt; Cookies and other site data</li>
+            <li>Firefox: Settings &gt; Privacy &amp; Security &gt; Cookies and Site Data</li>
+            <li>Safari: Preferences &gt; Privacy &gt; Manage Website Data</li>
+            <li>Edge: Settings &gt; Cookies and site permissions</li>
+          </ul>
+        </li>
+        <li><strong>Google's own privacy controls</strong> let you manage how Google uses data collected via Analytics at <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener noreferrer">myaccount.google.com/data-and-privacy</a>.</li>
+      </ul>
+      <p>Note: clearing cookies also removes the <code>_GRECAPTCHA</code> cookie, which may briefly affect our contact forms until a new one is set on your next visit.</p>
 
-      <h2>Cookies We May Add in the Future</h2>
-      <p>We may add analytics or advertising tools in the future. If and when that happens, this Cookie Notice will be updated before those tools go live. If advertising or tracking cookies are introduced, a cookie consent mechanism will be added to the site so you can make an informed choice.</p>
+      <h2>Changes to This Notice</h2>
+      <p>We'll update this page whenever what we do with cookies changes. The "Last updated" date at the top reflects the most recent revision.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about cookies or how your data is handled? Email us at <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>, or see our <a href="../privacy/index.html">Privacy Notice</a> for full details on your rights.</p>
+
+      <hr>
+
+      <h2 id="bahasa-malaysia">Bahasa Malaysia</h2>
+
+      <p class="lg-updated">Terakhir dikemas kini: 22 Julai 2026</p>
+
+      <p>Notis Kuki ini menerangkan cara Paeveul menggunakan kuki dan teknologi serupa di laman web ini (paeveul.com) — apa yang dilakukan oleh setiap satu, cara pilihan persetujuan kuki anda sebenarnya berfungsi, dan cara anda boleh menukar pilihan anda pada bila-bila masa. Untuk maklumat tentang siapa yang bertanggungjawab ke atas data peribadi anda secara umum, sila lihat <a href="../privacy/index.html">Notis Privasi</a> kami.</p>
+
+      <h3>Apakah Kuki?</h3>
+      <p>Kuki ialah fail teks kecil yang diletakkan oleh laman web pada peranti anda apabila anda melawatnya. Kuki membantu laman web berfungsi dengan baik dan membantu pemilik laman web memahami cara pelawat menggunakan laman tersebut.</p>
+
+      <h3>Cara Pilihan Kuki Anda Berfungsi</h3>
+      <p>Apabila anda melawat laman ini buat kali pertama — atau jika sudah lebih 365 hari sejak pilihan terakhir anda — banner akan muncul di bahagian bawah halaman bertanya sama ada anda menerima atau menolak kuki analitik (Google Analytics dan Microsoft Clarity, diterangkan di bawah). <strong>Kedua-dua alat ini tidak akan dimuatkan sehingga anda membuat pilihan.</strong> Ini bukan kes alat berjalan senyap di latar belakang — skrip yang memuatkan alat tersebut tidak wujud sama sekali pada halaman melainkan anda menerima.</p>
+      <ul>
+        <li><strong>Jika anda klik Terima:</strong> Google Analytics dan Microsoft Clarity akan dimuatkan, dan kami mengingati pilihan anda selama 365 hari.</li>
+        <li><strong>Jika anda klik Tolak:</strong> kedua-dua alat tidak akan dimuatkan, dan kami turut mengingati pilihan itu selama 365 hari.</li>
+        <li><strong>Walau apa pun pilihan anda</strong>, ia disimpan menggunakan kuki pihak pertama kami sendiri — lihat <code>paeveul_consent</code> dalam jadual di bawah.</li>
+        <li><strong>Selepas 365 hari</strong>, kuki tersebut luput. Lawatan seterusnya akan dianggap seperti lawatan pertama — banner akan muncul semula dan anda diminta membuat pilihan sekali lagi. Tiada pilihan yang berterusan tanpa disahkan semula.</li>
+      </ul>
+      <p>Undang-undang Malaysia pada masa ini tidak mewajibkan banner persetujuan kuki untuk alat analitik sahaja seperti ini. Kami tetap membinanya kerana kami percaya pelawat patut mempunyai pilihan yang jelas dan mudah mengenainya.</p>
+
+      <h3>Kuki &amp; Alat Penjejakan Yang Digunakan Sekarang</h3>
 
       <div class="ar-table-wrap">
         <table>
           <thead>
             <tr>
-              <th scope="col">Tool</th>
-              <th scope="col">Purpose if added</th>
-              <th scope="col">Cookie type</th>
+              <th scope="col">Kuki / teknologi</th>
+              <th scope="col">Ditetapkan oleh</th>
+              <th scope="col">Fungsi</th>
+              <th scope="col">Jenis</th>
+              <th scope="col">Tempoh</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Google Analytics 4</td>
-              <td>Website traffic analytics (pages visited, session duration, referral source)</td>
-              <td>Analytics</td>
+              <td><code>paeveul_consent</code></td>
+              <td>Paeveul (pihak pertama)</td>
+              <td>Mengingati sama ada anda menerima atau menolak kuki analitik. Hanya menyimpan pilihan tersebut — bukan sebarang data tentang lawatan anda.</td>
+              <td>Perlu (strictly necessary)</td>
+              <td>365 hari</td>
             </tr>
             <tr>
-              <td>Microsoft Clarity</td>
-              <td>Session recording and heatmap analysis for UX improvement</td>
-              <td>Analytics</td>
+              <td><code>_ga</code>, <code>_ga_*</code></td>
+              <td>Google Analytics 4 (pihak ketiga) — hanya dimuatkan jika anda menerima</td>
+              <td>Membantu kami memahami cara pelawat menggunakan laman: halaman yang dilawati, masa di halaman, sumber rujukan/trafik, jenis peranti dan pelayar, serta lokasi anggaran di peringkat bandar/negara.</td>
+              <td>Analitik — pilihan (opt-in)</td>
+              <td>Sehingga kira-kira 2 tahun (tetapan piawai GA4 Google; tidak diubah suai oleh kami)</td>
             </tr>
             <tr>
-              <td>Meta Pixel</td>
-              <td>Tracks conversions and enables retargeting on Facebook and Instagram</td>
-              <td>Advertising</td>
+              <td>Kuki sesi Clarity</td>
+              <td>Microsoft Clarity (pihak ketiga) — hanya dimuatkan jika anda menerima</td>
+              <td>Merekod aktiviti sesi (pergerakan tetikus, skrol, klik) dan membina heatmap yang menunjukkan cara pelawat berinteraksi dengan laman, supaya kami dapat mengesan dan membaiki halaman yang mengelirukan.</td>
+              <td>Analitik — pilihan (opt-in)</td>
+              <td>Ditetapkan oleh Microsoft; tidak diubah suai oleh kami</td>
+            </tr>
+            <tr>
+              <td><code>_GRECAPTCHA</code></td>
+              <td>Google reCAPTCHA v2 (pihak ketiga)</td>
+              <td>Mengesahkan bahawa penghantaran borang pertanyaan dan borang hubungi kami adalah daripada manusia sebenar, bukan bot.</td>
+              <td>Perlu / fungsian</td>
+              <td>Sesi, sehingga kira-kira 6 bulan</td>
+            </tr>
+            <tr>
+              <td>Cache penghantaran fon</td>
+              <td>Google Fonts (pihak ketiga)</td>
+              <td>Bukan kuki yang kami tetapkan — lihat "Google Fonts" di bawah.</td>
+              <td>Fungsian</td>
+              <td>Bergantung pada pelayar</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h2>How to Manage Cookies</h2>
-      <p>You have full control over cookies. Here is how to manage them:</p>
+      <h3>Google Analytics 4 — Apa Yang Dikumpul</h3>
+      <p>Jika anda menerima kuki analitik, Google Analytics 4 mengumpul data analitik web piawai: halaman yang anda lawati, tempoh masa yang anda habiskan, laman atau pautan yang merujuk anda ke sini, jenis peranti/pelayar anda, dan lokasi anggaran di peringkat bandar/negara (GA4 tidak menyimpan alamat IP penuh anda secara lalai). Ia juga mungkin merekod interaksi tertentu yang telah kami pilih untuk dijejak, seperti mengklik pautan WhatsApp atau e-mel. Data ini diproses oleh Google dan mungkin dipindahkan ke luar Malaysia sebagai sebahagian daripada infrastruktur piawai Google.</p>
 
-      <h3>Option 1 — Browser settings</h3>
-      <p>You can disable or delete cookies through your browser settings:</p>
+      <h3>Microsoft Clarity — Apa Yang Dikumpul</h3>
+      <p>Jika anda menerima kuki analitik, Microsoft Clarity merekod cara pelawat bergerak dan berinteraksi dengan halaman kami — termasuk pergerakan tetikus, skrol, dan klik — dan menggabungkannya menjadi heatmap. Ini lebih terperinci berbanding analitik paparan halaman biasa, kerana ia boleh menunjukkan semula tingkah laku di halaman. <strong>Kami sedang menyemak sama ada ciri masking medan borang Microsoft diaktifkan</strong> supaya apa-apa yang anda taip pada borang hubungi kami tidak termasuk dalam rakaman ini; kami akan mengemas kini notis ini sebaik sahaja disahkan. Jika anda tidak mahu aktiviti sesi anda direkodkan, menolak kuki analitik akan menghalang Clarity daripada dimuatkan sama sekali.</p>
+
+      <h3>Kuki Fungsian — reCAPTCHA</h3>
+      <p>Borang pertanyaan dan borang hubungi kami menggunakan Google reCAPTCHA v2 untuk mengesahkan penghantaran adalah daripada manusia sebenar, bukan bot. Kuki ini diperlukan untuk borang berfungsi dengan betul dan dimuatkan tanpa mengira pilihan analitik anda, kerana ia dikategorikan sebagai fungsian/keselamatan, bukan analitik atau pengiklanan. Ia tidak menjejaki anda merentasi laman web lain dan tidak digunakan untuk pengiklanan.</p>
+
+      <h3>Google Fonts — Akses Data Pihak Ketiga</h3>
+      <p>Laman web kami memuatkan fon daripada pelayan Google (fonts.googleapis.com dan fonts.gstatic.com) pada setiap halaman. Ini bukan kuki dalam erti kata tradisional — ia adalah permintaan rangkaian yang diperlukan untuk menghantar fon tersebut. Setiap kali halaman dimuatkan, alamat IP dan maklumat pelayar anda dihantar ke pelayan Google untuk tujuan tersebut, dan Google mungkin menetapkan kuki cache jangka pendek melalui fonts.gstatic.com sebagai sebahagian daripada caching pelayar piawai. Ini bukan pengiklanan atau penjejakan; ia adalah ciri teknikal memuatkan fon daripada penyedia luaran. Untuk maklumat lanjut, sila rujuk dasar privasi Google di <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.</p>
+
+      <h3>Cara Menukar Pilihan Kuki Anda</h3>
+      <p>Anda boleh menukar pilihan anda tentang kuki analitik pada bila-bila masa:</p>
       <ul>
-        <li>Chrome: Settings &gt; Privacy and security &gt; Cookies and other site data</li>
-        <li>Firefox: Settings &gt; Privacy &amp; Security &gt; Cookies and Site Data</li>
-        <li>Safari: Preferences &gt; Privacy &gt; Manage Website Data</li>
-        <li>Edge: Settings &gt; Cookies and site permissions</li>
+        <li>
+          <strong>Kosongkan kuki pelayar anda untuk paeveul.com.</strong> Pada lawatan seterusnya, banner akan muncul semula dan anda boleh membuat pilihan baharu. Arahan:
+          <ul>
+            <li>Chrome: Settings &gt; Privacy and security &gt; Cookies and other site data</li>
+            <li>Firefox: Settings &gt; Privacy &amp; Security &gt; Cookies and Site Data</li>
+            <li>Safari: Preferences &gt; Privacy &gt; Manage Website Data</li>
+            <li>Edge: Settings &gt; Cookies and site permissions</li>
+          </ul>
+        </li>
+        <li><strong>Kawalan privasi Google</strong> membolehkan anda menguruskan cara Google menggunakan data yang dikumpul melalui Analytics di <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener noreferrer">myaccount.google.com/data-and-privacy</a>.</li>
       </ul>
-      <p>Note: disabling the <code>_GRECAPTCHA</code> cookie may prevent our contact forms from working correctly, as reCAPTCHA is required for spam protection.</p>
+      <p>Nota: mengosongkan kuki turut mengalih keluar kuki <code>_GRECAPTCHA</code>, yang mungkin menjejaskan borang hubungi kami buat seketika sehingga kuki baharu ditetapkan pada lawatan seterusnya.</p>
 
-      <h3>Option 2 — Google's privacy controls</h3>
-      <p>You can manage how Google uses your data at <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener noreferrer">myaccount.google.com/data-and-privacy</a>.</p>
+      <h3>Perubahan Kepada Notis Ini</h3>
+      <p>Kami akan mengemas kini halaman ini apabila cara kami menggunakan kuki berubah. Tarikh "Terakhir dikemas kini" di bahagian atas mencerminkan semakan terkini.</p>
 
-      <h2>Changes to This Notice</h2>
-      <p>We will update this page if our cookie use changes. The "Last updated" date at the top reflects the most recent revision. If advertising cookies are ever deployed, we will introduce a cookie consent banner and update this notice accordingly.</p>
-
-      <h2>Contact</h2>
-      <p>Questions about cookies or privacy? Email us at <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>.</p>
+      <h3>Hubungi Kami</h3>
+      <p>Ada soalan tentang kuki atau cara data anda dikendalikan? E-mel kami di <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>, atau lihat <a href="../privacy/index.html">Notis Privasi</a> kami untuk butiran penuh tentang hak anda.</p>
 
     </div>
   </div>
@@ -248,6 +349,20 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie Consent Banner -->
+<aside id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent" style="display:none;">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      <span class="cookie-banner-headline">We use cookies</span>
+      This website uses Google Analytics and Microsoft Clarity to understand how visitors use our site. Choose below to accept or decline analytics cookies. <a href="../cookies/index.html">Learn more</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+      <button type="button" id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>
+    </div>
+  </div>
+</aside>
 
 <script src="../js/paeveul.js"></script>
 </body>

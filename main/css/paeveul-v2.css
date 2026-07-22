@@ -1990,3 +1990,143 @@ button {
     font-size: 16px;
   }
 }
+
+/* ============================================================
+   COOKIE CONSENT BANNER
+   Site-wide mechanism, replicated from the alphamatic-aircond
+   client build (2026-07-22) — restyled onto Paeveul's own
+   design tokens (--pv-*) rather than the client's navy/yellow.
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  background: var(--pv-ink);
+  border-top: 3px solid var(--pv-cobalt-bright);
+  padding: 1rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform var(--pv-duration-3) var(--pv-ease);
+}
+
+.cookie-banner.is-visible {
+  transform: translateY(0);
+}
+
+.cookie-banner-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.cookie-banner-text {
+  font-family: var(--pv-font-sans);
+  font-weight: var(--pv-weight-regular);
+  font-size: var(--pv-size-body-sm);
+  line-height: 1.6;
+  color: var(--pv-text-on-ink-quiet);
+  margin: 0;
+}
+
+.cookie-banner-headline {
+  font-family: var(--pv-font-sans);
+  font-weight: var(--pv-weight-semibold);
+  font-size: var(--pv-size-body);
+  color: var(--pv-ink-inverse);
+  margin-right: 0.625rem;
+}
+
+.cookie-banner-text a {
+  color: var(--pv-cobalt-bright);
+  font-weight: var(--pv-weight-semibold);
+  text-decoration: none;
+}
+.cookie-banner-text a:hover { text-decoration: underline; }
+
+.cookie-banner-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.cookie-btn {
+  font-family: var(--pv-font-sans);
+  font-weight: var(--pv-weight-semibold);
+  font-size: var(--pv-size-body-sm);
+  padding: 0.625rem 1.5rem;
+  min-height: 44px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: var(--pv-radius-lg);
+  transition:
+    background var(--pv-duration-2) var(--pv-ease),
+    color var(--pv-duration-2) var(--pv-ease),
+    border-color var(--pv-duration-2) var(--pv-ease);
+  width: 100%;
+}
+
+.cookie-btn-accept {
+  background: var(--pv-cobalt);
+  color: var(--pv-ink-inverse);
+  border-color: var(--pv-cobalt);
+}
+.cookie-btn-accept:hover {
+  background: #152E70;
+  border-color: #152E70;
+}
+
+.cookie-btn-decline {
+  background: transparent;
+  color: var(--pv-text-on-ink-quiet);
+  border-color: rgba(246, 244, 238, 0.25);
+}
+.cookie-btn-decline:hover {
+  color: var(--pv-ink-inverse);
+  border-color: rgba(246, 244, 238, 0.55);
+}
+
+.cookie-btn:focus-visible {
+  outline: 3px solid var(--pv-cobalt-wash-08);
+  outline-offset: 3px;
+}
+
+@media (min-width: 640px) {
+  .cookie-banner {
+    padding: 1.125rem 1.5rem;
+  }
+  .cookie-banner-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .cookie-banner-text {
+    flex: 1;
+  }
+  .cookie-banner-actions {
+    flex-direction: row;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .cookie-btn {
+    width: auto;
+  }
+}
+
+body.cookie-banner-visible {
+  padding-bottom: 160px;
+}
+@media (min-width: 640px) {
+  body.cookie-banner-visible {
+    padding-bottom: 80px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner {
+    transition: none;
+  }
+}

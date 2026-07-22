@@ -246,3 +246,142 @@ document.addEventListener('DOMContentLoaded', () => {
     words[current].style.position = 'relative';
   }, 3000);
 }());
+
+/* ─── Cookie consent banner + conditional analytics loading ──────────────────
+ * Site-wide mechanism, replicated from the alphamatic-aircond client build
+ * (main/script.js there) per Alex's 2026-07-22 instruction. Same pattern:
+ * a first-party consent cookie gates GA4 + Microsoft Clarity from loading
+ * at all until the visitor makes a choice.
+ *
+ * Storage: browser cookie `paeveul_consent` = 'accepted' | 'declined'
+ * Cookie attrs: max-age=31536000 (365 days), path=/, SameSite=Lax, Secure
+ *
+ * Behaviour:
+ *   - On every page load: read cookie. If 'accepted' → load GA4 + Clarity.
+ *     If 'declined' or absent → do NOT load them.
+ *   - If cookie absent: show banner after 0.8s (slide up from below).
+ *   - On Accept: store cookie, load scripts, hide banner.
+ *   - On Decline: store cookie, hide banner.
+ *
+ * NOTE: this REPLACES the previously-unconditional GA4/Clarity <script>
+ * blocks that were hardcoded in every page's <head>. Those blocks have been
+ * removed from all 24 HTML files as part of this same change — GA4/Clarity
+ * now load exclusively through this module, only after consent.
+ * ────────────────────────────────────────────────────────────────────────── */
+(function cookieConsent() {
+  const COOKIE_NAME = 'paeveul_consent';
+  const COOKIE_MAX_AGE = 31536000; // 365 days
+  const GA4_MEASUREMENT_ID = 'G-W2Z840NDRT';
+  const CLARITY_PROJECT_ID = 'wkwbodgtkd';
+
+  function getConsentCookie() {
+    const match = document.cookie.match(
+      new RegExp('(?:^|;\\s*)' + COOKIE_NAME + '=([^;]+)')
+    );
+    return match ? match[1] : null;
+  }
+
+  function setConsentCookie(value) {
+    const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie =
+      COOKIE_NAME + '=' + value +
+      '; max-age=' + COOKIE_MAX_AGE +
+      '; path=/; SameSite=Lax' + secure;
+  }
+
+  function loadGA4() {
+    const id = GA4_MEASUREMENT_ID;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', id);
+  }
+
+  function loadClarity() {
+    const id = CLARITY_PROJECT_ID;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, 'clarity', 'script', id);
+  }
+
+  function hideBanner(banner) {
+    banner.classList.remove('is-visible');
+    document.body.classList.remove('cookie-banner-visible');
+    const prefersReduced = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      banner.style.display = 'none';
+    } else {
+      setTimeout(() => { banner.style.display = 'none'; }, 320);
+    }
+  }
+
+  function showBanner(banner) {
+    const prefersReduced = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    banner.style.display = '';
+    document.body.classList.add('cookie-banner-visible');
+    if (prefersReduced) {
+      banner.classList.add('is-visible');
+    } else {
+      // Force a reflow so the transform transition runs from translateY(100%).
+      void banner.offsetWidth;
+      banner.classList.add('is-visible');
+    }
+  }
+
+  function init() {
+    const consent = getConsentCookie();
+    const banner = document.getElementById('cookie-banner');
+
+    if (consent === 'accepted') {
+      loadGA4();
+      loadClarity();
+      if (banner) banner.style.display = 'none';
+      return;
+    }
+
+    if (consent === 'declined') {
+      if (banner) banner.style.display = 'none';
+      return;
+    }
+
+    // No cookie present → show banner after a brief delay.
+    if (!banner) return;
+    // Start hidden, wait 0.8s, then slide up.
+    banner.style.display = '';
+    setTimeout(() => { showBanner(banner); }, 800);
+
+    const acceptBtn = document.getElementById('cookie-accept');
+    const declineBtn = document.getElementById('cookie-decline');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        setConsentCookie('accepted');
+        loadGA4();
+        loadClarity();
+        hideBanner(banner);
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', () => {
+        setConsentCookie('declined');
+        hideBanner(banner);
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
