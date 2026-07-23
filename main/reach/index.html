@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paeveul — Websites Built for Real Businesses, Not Big Budgets</title>
+<meta name="description" content="A professional website for your business — live in days, not months. Paeveul builds fast, mobile-friendly websites for Malaysian SMEs.">
+<link rel="canonical" href="https://paeveul.com/reach/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://paeveul.com/reach/">
+<meta property="og:title" content="Paeveul — Websites Built for Real Businesses, Not Big Budgets">
+<meta property="og:description" content="A professional website for your business — live in days, not months.">
+<meta property="og:site_name" content="Paeveul">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --pv-paper: #F6F4EE;
+    --pv-paper-alt: #EFEBE1;
+    --pv-card: #FFFFFF;
+    --pv-ink: #11151E;
+    --pv-ink-inverse: #F6F4EE;
+    --pv-slate: #5A6273;
+    --pv-stone: #8A8475;
+    --pv-hairline: #DCD7CA;
+    --pv-hairline-soft: #EFEBE1;
+    --pv-cobalt: #1B3A8A;
+    --pv-cobalt-bright: #4F7CFF;
+    --pv-cobalt-wash-06: rgba(27,58,138,0.06);
+    --pv-cobalt-wash-08: rgba(27,58,138,0.08);
+    --pv-cobalt-wash-35: rgba(27,58,138,0.35);
+    --pv-text-on-ink-quiet: #9097A8;
+    --pv-font-serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+    --pv-font-sans: "Source Sans 3", "Source Sans Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --pv-radius-sm: 4px;
+    --pv-radius-md: 6px;
+    --pv-radius-lg: 8px;
+    --pv-radius-pill: 999px;
+    --pv-shadow-card: 0 1px 2px rgba(17,21,30,0.04);
+    --pv-shadow-float: 0 14px 40px rgba(17,21,30,0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--pv-paper);
+    color: var(--pv-ink);
+    font-family: var(--pv-font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .pv-wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Header ---------- */
+  .pv-header {
+    padding: 28px 0 22px;
+    border-bottom: 1px solid var(--pv-hairline);
+  }
+
+  .pv-header .pv-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .pv-header-left { flex: 1 1 auto; min-width: 0; }
+
+  .pv-lang-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
+    margin-top: 2px;
+    border: 1px solid var(--pv-hairline);
+    border-radius: var(--pv-radius-pill);
+    padding: 2px;
+  }
+
+  .pv-lang-btn {
+    font-family: var(--pv-font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--pv-slate);
+    background: transparent;
+    border: none;
+    border-radius: var(--pv-radius-pill);
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: background 180ms ease, color 180ms ease;
+  }
+  .pv-lang-btn.is-active {
+    background: var(--pv-cobalt);
+    color: var(--pv-ink-inverse);
+  }
+  .pv-lang-btn:not(.is-active):hover { color: var(--pv-ink); }
+  .pv-lang-btn:focus-visible {
+    outline: 2px solid var(--pv-cobalt);
+    outline-offset: 2px;
+  }
+
+  .pv-wordmark {
+    font-family: var(--pv-font-serif);
+    font-weight: 500;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    color: var(--pv-ink);
+    text-decoration: none;
+  }
+  .pv-wordmark-stop { color: var(--pv-cobalt); }
+
+  .pv-header-tagline {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--pv-slate);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Hero ---------- */
+  .pv-hero { padding: 44px 0 8px; }
+
+  .pv-headline {
+    font-family: var(--pv-font-serif);
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    margin: 0 0 14px;
+  }
+  .pv-headline .accent { color: var(--pv-cobalt); font-style: italic; }
+
+  .pv-subline {
+    font-family: var(--pv-font-sans);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--pv-slate);
+    margin: 0 0 28px;
+    max-width: 46ch;
+  }
+
+  /* ---------- Intro paragraph ---------- */
+  .pv-intro {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--pv-ink);
+    max-width: 58ch;
+    margin: 0 0 36px;
+  }
+
+  /* ---------- Section label ---------- */
+  .pv-section-label {
+    font-family: var(--pv-font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+    color: var(--pv-stone);
+    margin: 0 0 14px;
+  }
+
+  /* ---------- What You Get ---------- */
+  .pv-get-list {
+    list-style: none;
+    margin: 0 0 40px;
+    padding: 0;
+  }
+  .pv-get-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--pv-ink);
+    margin-bottom: 14px;
+  }
+  .pv-get-list li:last-child { margin-bottom: 0; }
+  .pv-get-list svg { flex: 0 0 auto; margin-top: 3px; }
+
+  /* ---------- Callouts (pricing + proof) ---------- */
+  .pv-callout-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 44px;
+  }
+
+  .pv-card {
+    background: var(--pv-card);
+    border-radius: var(--pv-radius-md);
+    box-shadow: var(--pv-shadow-card);
+    padding: 22px;
+  }
+
+  .pv-pricing-card {
+    border: 1.5px solid var(--pv-cobalt);
+  }
+  .pv-pricing-card .amount {
+    font-family: var(--pv-font-serif);
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--pv-cobalt);
+    margin: 0 0 8px;
+    line-height: 1.25;
+  }
+  .pv-pricing-card .fine {
+    font-size: 13px;
+    color: var(--pv-slate);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .pv-proof-card {
+    background: var(--pv-cobalt-wash-06);
+    border-left: 2px solid var(--pv-cobalt);
+    border-radius: var(--pv-radius-sm);
+    box-shadow: none;
+    padding: 20px 22px;
+  }
+  .pv-proof-card .proof-label {
+    font-family: var(--pv-font-serif);
+    font-style: italic;
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+    color: var(--pv-cobalt);
+    margin: 0 0 8px;
+  }
+  .pv-proof-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--pv-ink);
+    margin: 0;
+  }
+  .pv-proof-card .url {
+    color: var(--pv-cobalt);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--pv-cobalt-wash-35);
+  }
+
+  /* ---------- CTA ---------- */
+  .pv-cta-block {
+    padding: 32px 0 40px;
+    text-align: center;
+    border-top: 1px solid var(--pv-hairline);
+  }
+
+  .pv-cta-question {
+    font-family: var(--pv-font-serif);
+    font-weight: 500;
+    font-size: 22px;
+    color: var(--pv-ink);
+    margin: 0 0 20px;
+  }
+
+  .pv-btn {
+    display: inline-block;
+    font-family: var(--pv-font-sans);
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--pv-radius-lg);
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .pv-btn--primary {
+    background: var(--pv-cobalt);
+    color: var(--pv-ink-inverse);
+    padding: 16px 32px;
+    width: 100%;
+    max-width: 380px;
+  }
+  .pv-btn--primary:hover { background: #152E70; }
+  .pv-btn--primary:active { transform: translateY(1px); }
+
+  .pv-cta-note {
+    margin: 14px 0 0;
+    font-size: 12.5px;
+    color: var(--pv-slate);
+  }
+  .pv-cta-note a {
+    color: var(--pv-slate);
+    text-decoration: underline;
+    text-decoration-color: var(--pv-cobalt-wash-35);
+    transition: color 180ms ease;
+  }
+  .pv-cta-note a:hover { color: var(--pv-cobalt); }
+
+  /* ---------- Footer / privacy notice ---------- */
+  .pv-footer {
+    background: var(--pv-ink);
+    color: var(--pv-ink-inverse);
+    margin-top: 8px;
+    padding: 36px 0 32px;
+  }
+
+  .pv-footer-wordmark {
+    font-family: var(--pv-font-serif);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--pv-ink-inverse);
+  }
+  .pv-footer-wordmark .pv-wordmark-stop { color: var(--pv-cobalt-bright); }
+
+  .pv-privacy-block {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .pv-privacy-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 12px;
+    font-family: var(--pv-font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pv-text-on-ink-quiet);
+  }
+  .pv-privacy-text {
+    font-size: 11px;
+    line-height: 1.65;
+    color: var(--pv-text-on-ink-quiet);
+    margin: 0 0 18px;
+
+  }
+  .pv-privacy-text:last-of-type { margin-bottom: 0; }
+  .pv-privacy-text strong { color: var(--pv-ink-inverse); font-weight: 600; }
+  .pv-privacy-text a {
+    color: var(--pv-cobalt-bright);
+    text-decoration: underline;
+    text-decoration-color: rgba(79,124,255,0.4);
+  }
+
+  .pv-copyright {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 11.5px;
+    color: var(--pv-text-on-ink-quiet);
+  }
+
+  .pv-ssm-line {
+    margin-bottom: 6px;
+  }
+
+  /* ---------- Mobile-first: base styles above ARE the ≤480px case.
+     This is the enhancement tier for wider viewports. ---------- */
+  @media (min-width: 481px) {
+    .pv-header { padding: 36px 0 26px; }
+    .pv-hero { padding: 56px 0 8px; }
+    .pv-headline { font-size: 42px; }
+    .pv-subline { font-size: 18px; }
+  }
+
+  @media (min-width: 641px) {
+    .pv-headline { font-size: 48px; }
+    .pv-cta-question { font-size: 24px; }
+  }
+
+  /* Callout row stacks to one column below 560px — pricing card and proof
+     card are read sequentially rather than squeezed side by side. */
+  @media (max-width: 560px) {
+    .pv-callout-row { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 380px) {
+    .pv-wrap { padding: 0 16px; }
+    .pv-headline { font-size: 28px; }
+    .pv-subline { font-size: 15.5px; }
+    .pv-cta-question { font-size: 19px; }
+    .pv-lang-btn { padding: 4px 9px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="pv-header">
+  <div class="pv-wrap">
+    <div class="pv-header-left">
+      <a href="https://paeveul.com/" class="pv-wordmark" aria-label="Paeveul — home">Paeveul<span class="pv-wordmark-stop">.</span></a>
+      <span class="pv-header-tagline" data-i18n="tagline">Websites for Malaysian SMEs</span>
+    </div>
+    <div class="pv-lang-toggle" role="group" aria-label="Language / Bahasa">
+      <button type="button" class="pv-lang-btn is-active" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" class="pv-lang-btn" data-lang-btn="bm" aria-pressed="false">BM</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="pv-hero">
+    <div class="pv-wrap">
+      <h1 class="pv-headline" data-i18n="headline">Websites Built for <span class="accent">Real</span> Businesses, Not Big Budgets</h1>
+      <p class="pv-subline" data-i18n="subline">A professional website for your business — live in days, not months.</p>
+
+      <p class="pv-intro" data-i18n="intro">Paeveul builds fast, mobile-friendly websites for Malaysian SMEs — HVAC, F&amp;B, logistics, hardware, and more. No agency overhead, no confusing tech jargon, no waiting weeks for a proposal. Just a site that makes your business look as good online as it does in person.</p>
+
+      <div class="pv-section-label" data-i18n="getLabel">what you get</div>
+      <ul class="pv-get-list">
+        <li>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1B3A8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="get1">A clean, professional website live on your own domain</span>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1B3A8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="get2">Mobile-optimised — built for how your customers actually browse</span>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1B3A8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="get3">Google Maps, WhatsApp contact button, and photo gallery built in</span>
+        </li>
+        <li>
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1B3A8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-i18n="get4">Ongoing support from a real person, not a ticketing system</span>
+        </li>
+      </ul>
+
+      <div class="pv-callout-row">
+        <div class="pv-card pv-pricing-card">
+          <p class="amount" data-i18n="price">Starting from<br>RM 1,300</p>
+          <p class="fine" data-i18n="priceFine">One-time setup, plus a small monthly retainer to keep things running. Exact pricing depends on what you need — we'll talk it through before quoting anything.</p>
+        </div>
+        <div class="pv-card pv-proof-card">
+          <p class="proof-label" data-i18n="proofLabel">Proof it works</p>
+          <p data-i18n="proofText">Alphamatic, an HVAC business in Klang Valley, came to us with zero online presence. We built them a full site — services, gallery, testimonials, coverage map — live today at <a href="https://www.alphamaticaircon.com.my/" class="url" target="_blank" rel="noopener">alphamaticaircon.com.my</a>. First chat to live site: days, not months.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pv-cta-block">
+    <div class="pv-wrap">
+      <p class="pv-cta-question" data-i18n="ctaQuestion">Want to see what yours could look like?</p>
+      <a href="https://wa.me/601116395423?text=Hi!%20I'd%20like%20to%20know%20more%20about%20what%20you%20can%20offer.%20Mind%20sharing%20some%20info%3F" class="pv-btn pv-btn--primary" target="_blank" rel="noopener" data-i18n="ctaBtn">Message us on WhatsApp</a>
+      <p class="pv-cta-note"><a href="https://wa.me/601116395423?text=Hi!%20I'd%20like%20to%20know%20more%20about%20what%20you%20can%20offer.%20Mind%20sharing%20some%20info%3F" target="_blank" rel="noopener">wa.me/601116395423</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="pv-footer">
+  <div class="pv-wrap">
+    <div class="pv-footer-wordmark">Paeveul<span class="pv-wordmark-stop">.</span></div>
+
+    <!-- Privacy notice (PDPA). Legal text — do not edit without compliance review. -->
+    <div class="pv-privacy-block">
+      <p class="pv-privacy-heading">
+        <span data-i18n="privacyHeading">A note on privacy</span>
+      </p>
+      <p class="pv-privacy-text" data-i18n="privacyText"><strong>A quick note on this page.</strong> This page belongs to Paeveul. We use Google Analytics to understand how visitors use it — for example how long you stay and which buttons you click — so we can follow up helpfully. If you opened this page from a personal link we sent you, we may connect this activity to your enquiry with us. We do not sell your information. To ask what we hold about you, or to have it removed, email us at <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>.</p>
+    </div>
+
+    <div class="pv-copyright">
+      <div class="pv-ssm-line">Paeveul Studio · SSM Reg. No. 202603175879 (TR0345406-P)</div>
+      © 2026 Paeveul. <a href="https://paeveul.com/" style="color:var(--pv-text-on-ink-quiet);text-decoration:underline;text-decoration-color:rgba(255,255,255,0.2);">paeveul.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- EN/BM page-wide language toggle. Vanilla JS, no build step. Every
+     visible section swaps at once — one language shown at a time,
+     default English on load.
+
+     Deliberately excluded from the toggle system:
+     - The footer SSM registration line (`.pv-ssm-line`) — a registration
+       number and legal name are identical in both languages.
+     - The raw WhatsApp number in `.pv-cta-note` — a phone-number URL
+       has no language. -->
+<script>
+(function () {
+  var STRINGS = {
+    tagline:     { en: 'Websites for Malaysian SMEs',
+                   bm: 'Website untuk PKS Malaysia' },
+    headline:    { en: 'Websites Built for <span class="accent">Real</span> Businesses, Not Big Budgets',
+                   bm: 'Website Dibina untuk Perniagaan <span class="accent">Sebenar</span>, Bukan Bajet Besar-besaran' },
+    subline:     { en: 'A professional website for your business — live in days, not months.',
+                   bm: 'Website profesional untuk perniagaan anda — siap dalam beberapa hari, bukan berbulan-bulan.' },
+    intro:       { en: 'Paeveul builds fast, mobile-friendly websites for Malaysian SMEs — HVAC, F&B, logistics, hardware, and more. No agency overhead, no confusing tech jargon, no waiting weeks for a proposal. Just a site that makes your business look as good online as it does in person.',
+                   bm: 'Paeveul bina website yang laju dan mesra mobile untuk PKS Malaysia — aircond, F&B, logistik, hardware, dan macam-macam lagi. Tak payah bayar overhead agensi, tak payah pening kepala dengan jargon teknikal, tak payah tunggu berminggu-minggu untuk proposal. Website yang buatkan perniagaan anda nampak sehebat di alam maya macam sehebat secara depan-depan.' },
+    getLabel:    { en: 'what you get', bm: 'apa yang anda dapat' },
+    get1:        { en: 'A clean, professional website live on your own domain',
+                   bm: 'Website yang kemas dan profesional, live atas domain anda sendiri' },
+    get2:        { en: 'Mobile-optimised — built for how your customers actually browse',
+                   bm: 'Dioptimumkan untuk mobile — dibina ikut cara pelanggan anda betul-betul melayari internet' },
+    get3:        { en: 'Google Maps, WhatsApp contact button, and photo gallery built in',
+                   bm: 'Google Maps, butang WhatsApp, dan galeri foto — semua sudah built-in' },
+    get4:        { en: 'Ongoing support from a real person, not a ticketing system',
+                   bm: 'Sokongan berterusan daripada orang sebenar, bukan sistem tiket' },
+    price:       { en: 'Starting from<br>RM 1,300', bm: 'Bermula dari<br>RM 1,300' },
+    priceFine:   { en: 'One-time setup, plus a small monthly retainer to keep things running. Exact pricing depends on what you need — we\'ll talk it through before quoting anything.',
+                   bm: 'Bayaran one-time setup, plus retainer bulanan yang kecil untuk pastikan semuanya jalan lancar. Harga sebenar bergantung pada apa yang anda perlukan — kita akan borak dulu sebelum quote apa-apa.' },
+    proofLabel:  { en: 'Proof it works', bm: 'Buktinya' },
+    proofText:   { en: 'Alphamatic, an HVAC business in Klang Valley, came to us with zero online presence. We built them a full site — services, gallery, testimonials, coverage map — live today at <a href="https://www.alphamaticaircon.com.my/" class="url" target="_blank" rel="noopener">alphamaticaircon.com.my</a>. First chat to live site: days, not months.',
+                   bm: 'Alphamatic, perniagaan aircond di Klang Valley, datang jumpa kami tanpa sebarang online presence. Kami bina full website untuk mereka — servis, galeri, testimoni, peta liputan — live sekarang di <a href="https://www.alphamaticaircon.com.my/" class="url" target="_blank" rel="noopener">alphamaticaircon.com.my</a>. Dari chat pertama sampai website live: dalam beberapa hari je, bukan berbulan-bulan.' },
+    ctaQuestion: { en: 'Want to see what yours could look like?',
+                   bm: 'Nak tengok macam mana website anda boleh jadi?' },
+    ctaBtn:      { en: 'Message us on WhatsApp',
+                   bm: 'Mesej kami di WhatsApp' },
+    // Privacy notice text — legal copy, do not edit without compliance review.
+    privacyHeading: { en: 'A note on privacy', bm: 'Makluman privasi' },
+    privacyText: { en: '<strong>A quick note on this page.</strong> This page belongs to Paeveul. We use Google Analytics to understand how visitors use it — for example how long you stay and which buttons you click — so we can follow up helpfully. If you opened this page from a personal link we sent you, we may connect this activity to your enquiry with us. We do not sell your information. To ask what we hold about you, or to have it removed, email us at <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>.',
+                     bm: '<strong>Makluman ringkas tentang halaman ini.</strong> Halaman ini milik Paeveul. Kami menggunakan Google Analytics untuk memahami cara pelawat menggunakannya — contohnya berapa lama anda melayarinya dan butang mana yang anda klik — supaya kami dapat membuat susulan dengan lebih baik. Jika anda membuka halaman ini melalui pautan peribadi yang kami hantar, kami mungkin mengaitkan aktiviti ini dengan pertanyaan anda kepada kami. Kami tidak menjual maklumat anda. Untuk bertanya tentang maklumat yang kami simpan, atau untuk memadamkannya, e-mel kami di <a href="mailto:paeveul.official@gmail.com">paeveul.official@gmail.com</a>.' }
+  };
+
+  // Keys whose value contains markup (accent span, <br>, the proof link,
+  // or the privacy notice's <strong>/mailto link) and must be set via
+  // innerHTML. Everything else is plain text.
+  var HTML_KEYS = { headline: true, price: true, proofText: true, privacyText: true };
+
+  function setLang(lang) {
+    Object.keys(STRINGS).forEach(function (key) {
+      var el = document.querySelector('[data-i18n="' + key + '"]');
+      if (!el) return;
+      if (HTML_KEYS[key]) {
+        el.innerHTML = STRINGS[key][lang];
+      } else {
+        el.textContent = STRINGS[key][lang];
+      }
+    });
+    document.documentElement.setAttribute('lang', lang);
+    document.querySelectorAll('.pv-lang-btn').forEach(function (btn) {
+      var active = btn.getAttribute('data-lang-btn') === lang;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('.pv-lang-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setLang(btn.getAttribute('data-lang-btn'));
+    });
+  });
+
+  // Default language on load: English. The markup already ships with
+  // English content, so this call is a no-op re-assertion on first
+  // paint (and the correct behaviour if JS is disabled — the page
+  // still reads correctly in English with no toggle interaction).
+  setLang('en');
+})();
+</script>
+
+</body>
+</html>
